@@ -1,5 +1,5 @@
 //
-//  JHBaseCollectionViewController.swift
+//  JHBaseWebViewController.swift
 //  JHToolsModule_Swift
 //
 //  Created by iOS on 18/11/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JHBaseCollectionViewController: JHBaseViewController {
+class JHWebViewController: JHViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

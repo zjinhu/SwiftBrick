@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JHBaseViewController: UIViewController {
+class JHViewController: UIViewController {
     
     public lazy var leftBarButton : UIButton = {
         let leftBarButton = UIButton.init(type: .custom)

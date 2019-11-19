@@ -13,13 +13,13 @@
 		9111500F23838CC200AE47DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9111500D23838CC200AE47DF /* Main.storyboard */; };
 		9111501123838CC300AE47DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9111501023838CC300AE47DF /* Assets.xcassets */; };
 		9111501423838CC300AE47DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9111501223838CC300AE47DF /* LaunchScreen.storyboard */; };
-		9111502723838DD100AE47DF /* JHBaseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111501E23838DD100AE47DF /* JHBaseCollectionViewController.swift */; };
-		9111502823838DD100AE47DF /* JHBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111501F23838DD100AE47DF /* JHBaseTableViewController.swift */; };
-		9111502923838DD100AE47DF /* JHBaseWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111502023838DD100AE47DF /* JHBaseWebViewController.swift */; };
-		9111502A23838DD100AE47DF /* JHBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111502123838DD100AE47DF /* JHBaseViewController.swift */; };
+		9111502723838DD100AE47DF /* JHCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111501E23838DD100AE47DF /* JHCollectionViewController.swift */; };
+		9111502823838DD100AE47DF /* JHTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111501F23838DD100AE47DF /* JHTableViewController.swift */; };
+		9111502923838DD100AE47DF /* JHWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111502023838DD100AE47DF /* JHWebViewController.swift */; };
+		9111502A23838DD100AE47DF /* JHViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111502123838DD100AE47DF /* JHViewController.swift */; };
 		9111502B23838DD100AE47DF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9111502223838DD100AE47DF /* Images.xcassets */; };
 		9111502C23838DD100AE47DF /* JHImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111502423838DD100AE47DF /* JHImageLoader.swift */; };
-		9111502D23838DD100AE47DF /* JHBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111502523838DD100AE47DF /* JHBaseTableViewCell.swift */; };
+		9111502D23838DD100AE47DF /* JHTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111502523838DD100AE47DF /* JHTableViewCell.swift */; };
 		9111502E23838DD100AE47DF /* JHToolsDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111502623838DD100AE47DF /* JHToolsDefine.swift */; };
 		9111503023838E1A00AE47DF /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111502F23838E1A00AE47DF /* TestViewController.swift */; };
 		F9A51B6F3DF1CF4CF6DB8395 /* Pods_SwiftBrick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9342C3A00A9D0D1AC583F1C /* Pods_SwiftBrick.framework */; };
@@ -36,13 +36,13 @@
 		9111501023838CC300AE47DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9111501323838CC300AE47DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9111501523838CC300AE47DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9111501E23838DD100AE47DF /* JHBaseCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHBaseCollectionViewController.swift; sourceTree = "<group>"; };
-		9111501F23838DD100AE47DF /* JHBaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHBaseTableViewController.swift; sourceTree = "<group>"; };
-		9111502023838DD100AE47DF /* JHBaseWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHBaseWebViewController.swift; sourceTree = "<group>"; };
-		9111502123838DD100AE47DF /* JHBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHBaseViewController.swift; sourceTree = "<group>"; };
+		9111501E23838DD100AE47DF /* JHCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHCollectionViewController.swift; sourceTree = "<group>"; };
+		9111501F23838DD100AE47DF /* JHTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHTableViewController.swift; sourceTree = "<group>"; };
+		9111502023838DD100AE47DF /* JHWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHWebViewController.swift; sourceTree = "<group>"; };
+		9111502123838DD100AE47DF /* JHViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHViewController.swift; sourceTree = "<group>"; };
 		9111502223838DD100AE47DF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9111502423838DD100AE47DF /* JHImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHImageLoader.swift; sourceTree = "<group>"; };
-		9111502523838DD100AE47DF /* JHBaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHBaseTableViewCell.swift; sourceTree = "<group>"; };
+		9111502523838DD100AE47DF /* JHTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHTableViewCell.swift; sourceTree = "<group>"; };
 		9111502623838DD100AE47DF /* JHToolsDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHToolsDefine.swift; sourceTree = "<group>"; };
 		9111502F23838E1A00AE47DF /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		A9342C3A00A9D0D1AC583F1C /* Pods_SwiftBrick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftBrick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,10 +123,10 @@
 		9111501D23838DD100AE47DF /* BaseVC */ = {
 			isa = PBXGroup;
 			children = (
-				9111502123838DD100AE47DF /* JHBaseViewController.swift */,
-				9111501F23838DD100AE47DF /* JHBaseTableViewController.swift */,
-				9111501E23838DD100AE47DF /* JHBaseCollectionViewController.swift */,
-				9111502023838DD100AE47DF /* JHBaseWebViewController.swift */,
+				9111502123838DD100AE47DF /* JHViewController.swift */,
+				9111501F23838DD100AE47DF /* JHTableViewController.swift */,
+				9111501E23838DD100AE47DF /* JHCollectionViewController.swift */,
+				9111502023838DD100AE47DF /* JHWebViewController.swift */,
 			);
 			path = BaseVC;
 			sourceTree = "<group>";
@@ -136,7 +136,7 @@
 			children = (
 				9111502623838DD100AE47DF /* JHToolsDefine.swift */,
 				9111502423838DD100AE47DF /* JHImageLoader.swift */,
-				9111502523838DD100AE47DF /* JHBaseTableViewCell.swift */,
+				9111502523838DD100AE47DF /* JHTableViewCell.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -267,16 +267,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				9111500C23838CC200AE47DF /* ViewController.swift in Sources */,
-				9111502823838DD100AE47DF /* JHBaseTableViewController.swift in Sources */,
+				9111502823838DD100AE47DF /* JHTableViewController.swift in Sources */,
 				9111503023838E1A00AE47DF /* TestViewController.swift in Sources */,
-				9111502D23838DD100AE47DF /* JHBaseTableViewCell.swift in Sources */,
+				9111502D23838DD100AE47DF /* JHTableViewCell.swift in Sources */,
 				9111502C23838DD100AE47DF /* JHImageLoader.swift in Sources */,
 				9111502E23838DD100AE47DF /* JHToolsDefine.swift in Sources */,
 				9111500823838CC200AE47DF /* AppDelegate.swift in Sources */,
-				9111502A23838DD100AE47DF /* JHBaseViewController.swift in Sources */,
+				9111502A23838DD100AE47DF /* JHViewController.swift in Sources */,
 				9111500A23838CC200AE47DF /* SceneDelegate.swift in Sources */,
-				9111502923838DD100AE47DF /* JHBaseWebViewController.swift in Sources */,
-				9111502723838DD100AE47DF /* JHBaseCollectionViewController.swift in Sources */,
+				9111502923838DD100AE47DF /* JHWebViewController.swift in Sources */,
+				9111502723838DD100AE47DF /* JHCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

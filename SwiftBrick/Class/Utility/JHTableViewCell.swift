@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JHBaseTableViewCell: UITableViewCell {
+class JHTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

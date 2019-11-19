@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TestViewController: JHBaseTableViewController {
+class TestViewController: JHTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,37 +8,30 @@
 
 import UIKit
 import SnapKit
-import SwifterSwift
-class JHBaseTableViewController: JHBaseViewController ,UITableViewDelegate,UITableViewDataSource{
+class JHTableViewController: JHViewController ,UITableViewDelegate,UITableViewDataSource{
 
-    public enum TableViewType {
-        case TableViewStylePlain
-        case TableViewStyleGrouped
+    public enum TableViewStyleType {
+        case StylePlain
+        case StyleGrouped
         @available(iOS 13.0, *)
-        case TableViewStyleInsetGrouped
+        case StyleInsetGrouped
     }
     
-    var tableView : UITableView?
-    var mainDatas : Array<Any> = []
-    var tableViewType : TableViewType = .TableViewStylePlain
-    /**
-     *  不延时响应按钮的点击事件  默认延时
-     */
-    var delaysContentTouches : Bool = true
+    public var tableView : UITableView?
+    public var mainDatas : Array<Any> = []
+    public var tableViewStyleType : TableViewStyleType = .StylePlain
+
     
-    /**
-     *  初始化UITableView前设置Style,默认Plain
-     */
-    func configTableViewStyle() {
-        //        self.tableViewType = .TableViewStyleGrouped
+    public convenience init(tableViewStyle: TableViewStyleType = .StylePlain) {
+        self.init()
+        self.tableViewStyleType = tableViewStyle
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configTableViewStyle()
-        
-        switch self.tableViewType {
-        case .TableViewStyleInsetGrouped:
+
+        switch self.tableViewStyleType {
+        case .StyleInsetGrouped:
             if #available(iOS 13.0, *) {
                 self.tableView = UITableView.init(frame: .zero, style: .insetGrouped)
             }else{
@@ -46,7 +39,7 @@ class JHBaseTableViewController: JHBaseViewController ,UITableViewDelegate,UITab
             }
             break
             
-        case .TableViewStyleGrouped:
+        case .StyleGrouped:
             self.tableView = UITableView.init(frame: .zero, style: .grouped)
             break
             
@@ -73,7 +66,7 @@ class JHBaseTableViewController: JHBaseViewController ,UITableViewDelegate,UITab
         //    self.tableView.sectionHeaderHeight = UITableViewAutomaticDimension;
         //    self.tableView.estimatedSectionFooterHeight = 200;
         //    self.tableView.sectionFooterHeight = UITableViewAutomaticDimension;
-        self.tableView?.delaysContentTouches = self.delaysContentTouches
+        self.tableView?.delaysContentTouches = true
         // Do any additional setup after loading the view.
         self.view.addSubview(self.tableView!)
 
@@ -93,7 +86,7 @@ class JHBaseTableViewController: JHBaseViewController ,UITableViewDelegate,UITab
             }
         }
         
-        JHBaseTableViewCell.registerCell(tableView: self.tableView!)
+        JHTableViewCell.registerCell(tableView: self.tableView!)
         
     }
      // MARK: - tableView代理
@@ -125,8 +118,8 @@ class JHBaseTableViewController: JHBaseViewController ,UITableViewDelegate,UITab
      }
      
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = JHBaseTableViewCell.dequeueReusableCell(tableView: tableView)
-        cell.backgroundColor = Color.random
+        let cell = JHTableViewCell.dequeueReusableCell(tableView: tableView)
+        cell.textLabel?.text = String.init(describing: indexPath.row)
         return cell
      }
 }

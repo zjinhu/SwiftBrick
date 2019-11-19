@@ -38,8 +38,13 @@ class ViewController: UIViewController {
     }
 
     @objc func jupm(){
-        let vc = TestViewController.init()
-        self.navigationController?.pushViewController(vc, animated: true)
+        if #available(iOS 13.0, *) {
+            let vc = TestViewController.init()
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            // Fallback on earlier versions
+        }
+        
     }
 }
 
