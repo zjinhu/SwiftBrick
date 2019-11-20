@@ -26,17 +26,19 @@ class JHTableViewCell: UITableViewCell {
     }
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.contentView.backgroundColor = .clear
         self.configCellViews()
     }
     
+    // MARK: - 继承 在内部实现布局
     public func configCellViews() {
         
     }
-    
+    // MARK: - cell赋值
     public func setCellModel(model: Any) {
         
     }
-    
+    // MARK: - 获取高度
     public func getCellHeightWithModel(model: Any) -> CGFloat {
         self.setCellModel(model: model)
         self.layoutIfNeeded()
@@ -45,11 +47,11 @@ class JHTableViewCell: UITableViewCell {
         return height
     }
     
-    
+    // MARK: - 注册
     public class func registerCell(tableView: UITableView, reuseIdentifier: String = String.init(describing: self)) {
         tableView.register(self, forCellReuseIdentifier: reuseIdentifier)
     }
-
+    // MARK: - 复用取值
     public class func dequeueReusableCell(tableView: UITableView, reuseIdentifier: String = String.init(describing: self)) ->UITableViewCell{
         return tableView.dequeueReusableCell(withIdentifier: reuseIdentifier)!
     }

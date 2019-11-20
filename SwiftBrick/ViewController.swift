@@ -8,43 +8,37 @@
 
 import UIKit
 import SnapKit
-class ViewController: UIViewController {
+class ViewController: JHTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        self.view.backgroundColor = .cyan
-        SLog(SCREEN_HEIGHT)
-        // Do any additional setup after loading the view.
-        SLog(StatusBarHeight())
-
-        let imageView = UIImageView.init(image: JHImageLoader.loadToolsImage(with: "nav_ic_back"))
-        self.view.addSubview(imageView)
-        imageView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(50)
-            make.height.width.equalTo(100)
-            make.centerX.equalToSuperview()
-        }
-        
-        let btn = UIButton.init()
-        btn.setTitle("123", for: .normal)
-        self.view.addSubview(btn)
-        btn.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(150)
-            make.height.width.equalTo(100)
-            make.centerX.equalToSuperview()
-        }
-        btn.addTarget(self, action: #selector(jupm), for: .touchUpInside)
+        self.mainDatas = ["跳转Tableview","跳转CollectionView","跳转WebView","跳转EXView"]
     }
-
-    @objc func jupm(){
-        if #available(iOS 13.0, *) {
-            let vc = TestViewController.init()
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       let cell = JHTableViewCell.dequeueReusableCell(tableView: tableView)
+        cell.textLabel?.text = self.mainDatas[indexPath.row] as? String
+       return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            let vc = TableViewController.init(tableViewStyle: .StyleGrouped)
             self.navigationController?.pushViewController(vc, animated: true)
-        } else {
-            // Fallback on earlier versions
+        case 1:
+            let vc = CollectionViewController.init()
+            self.navigationController?.pushViewController(vc, animated: true)
+        case 2:
+            let vc = WebViewController.init(url: "https://www.qq.com")
+            self.navigationController?.pushViewController(vc, animated: true)
+        case 3:
+            let vc = ExViewController.init()
+            self.navigationController?.pushViewController(vc, animated: true)
+        default:
+            print("")
         }
-        
     }
+    
 }
 

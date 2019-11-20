@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 class JHTableViewController: JHViewController ,UITableViewDelegate,UITableViewDataSource{
-
+    // MARK: - 参数变量
     public enum TableViewStyleType {
         case StylePlain
         case StyleGrouped
@@ -21,12 +21,12 @@ class JHTableViewController: JHViewController ,UITableViewDelegate,UITableViewDa
     public var mainDatas : Array<Any> = []
     public var tableViewStyleType : TableViewStyleType = .StylePlain
 
-    
+    // MARK: - 初始化
     public convenience init(tableViewStyle: TableViewStyleType = .StylePlain) {
         self.init()
         self.tableViewStyleType = tableViewStyle
     }
-    
+    // MARK: - 布局
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,15 +37,12 @@ class JHTableViewController: JHViewController ,UITableViewDelegate,UITableViewDa
             }else{
                 self.tableView = UITableView.init(frame: .zero, style: .grouped)
             }
-            break
             
         case .StyleGrouped:
             self.tableView = UITableView.init(frame: .zero, style: .grouped)
-            break
             
-        default:
+        case .StylePlain:
             self.tableView = UITableView.init(frame: .zero, style: .plain)
-            break
             
         }
 
@@ -89,9 +86,19 @@ class JHTableViewController: JHViewController ,UITableViewDelegate,UITableViewDa
         JHTableViewCell.registerCell(tableView: self.tableView!)
         
     }
+    // MARK: - 数据源判断
+    func isMultiDatas() -> Bool {
+        let data = self.mainDatas.first
+        if data is Array<Any> && self.mainDatas.count > 0{
+            return true
+        }else{
+            return false
+        }
+    }
+    
      // MARK: - tableView代理
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return self.isMultiDatas() ? self.mainDatas.count : 1
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -114,7 +121,13 @@ class JHTableViewController: JHViewController ,UITableViewDelegate,UITableViewDa
     }
     
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.mainDatas.count
+        
+        if self.isMultiDatas() {
+            let data  = self.mainDatas[section] as! Array<Any>
+            return data.count
+        }else{
+          return self.mainDatas.count
+        }
      }
      
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

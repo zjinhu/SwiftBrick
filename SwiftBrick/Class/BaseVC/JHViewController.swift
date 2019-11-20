@@ -9,7 +9,7 @@
 import UIKit
 
 class JHViewController: UIViewController {
-    
+    // MARK: - 参数变量
     public lazy var leftBarButton : UIButton = {
         let leftBarButton = UIButton.init(type: .custom)
         leftBarButton.imageView?.contentMode = .center
@@ -22,7 +22,7 @@ class JHViewController: UIViewController {
         rightBarButton.frame = CGRect.init(x: 0, y: 0, width: NAVBAR_HEIGHT, height: NAVBAR_HEIGHT)
         return rightBarButton
     }()
-
+    // MARK: - 布局
     override func viewDidLoad() {
         super.viewDidLoad()
 
