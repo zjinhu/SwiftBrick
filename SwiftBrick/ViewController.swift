@@ -39,6 +39,8 @@ class ViewController: JHTableViewController {
             print("")
         }
     }
-    
+    deinit{
+        SLog("1释放")
+    }
 }
 

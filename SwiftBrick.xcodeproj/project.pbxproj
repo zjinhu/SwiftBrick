@@ -26,9 +26,18 @@
 		911150342383BDA100AE47DF /* JHCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911150332383BDA100AE47DF /* JHCollectionViewCell.swift */; };
 		911150362383BDB300AE47DF /* JHCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911150352383BDB300AE47DF /* JHCollectionReusableView.swift */; };
 		911150382383DABF00AE47DF /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911150372383DABF00AE47DF /* CollectionViewController.swift */; };
+		9128EBB0238786C5006890C9 /* CALayerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128EBAF238786C5006890C9 /* CALayerEx.swift */; };
+		9128EBB22387B032006890C9 /* JHSnapKitTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128EBB12387B032006890C9 /* JHSnapKitTool.swift */; };
+		9128EBB42387B0DE006890C9 /* UIGestureRecognizerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128EBB32387B0DE006890C9 /* UIGestureRecognizerEx.swift */; };
+		9128EBB62387C0C0006890C9 /* UIImageViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128EBB52387C0C0006890C9 /* UIImageViewSnapEx.swift */; };
+		9128EBB82387D608006890C9 /* UIButtonSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128EBB72387D608006890C9 /* UIButtonSnapEx.swift */; };
+		9128EBBA2387EFAA006890C9 /* UILabelSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128EBB92387EFAA006890C9 /* UILabelSnapEx.swift */; };
+		9128EBBC2387EFC3006890C9 /* UITextFieldSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128EBBB2387EFC3006890C9 /* UITextFieldSnapEx.swift */; };
+		9128EBBE2387EFD8006890C9 /* UITextViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128EBBD2387EFD8006890C9 /* UITextViewSnapEx.swift */; };
+		9128EBC02387EFF6006890C9 /* UITableViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128EBBF2387EFF6006890C9 /* UITableViewSnapEx.swift */; };
+		9128EBC22387F00F006890C9 /* UICollectionViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128EBC12387F00F006890C9 /* UICollectionViewSnapEx.swift */; };
 		916226112385247F0050F228 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916226102385247F0050F228 /* WebViewController.swift */; };
-		91622616238544440050F228 /* UIViewSnapExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91622615238544440050F228 /* UIViewSnapExtension.swift */; };
-		91622618238552E30050F228 /* JHSnapKitTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91622617238552E30050F228 /* JHSnapKitTool.swift */; };
+		91622616238544440050F228 /* UIViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91622615238544440050F228 /* UIViewSnapEx.swift */; };
 		9162261A2385534D0050F228 /* ExViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916226192385534D0050F228 /* ExViewController.swift */; };
 		F9A51B6F3DF1CF4CF6DB8395 /* Pods_SwiftBrick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9342C3A00A9D0D1AC583F1C /* Pods_SwiftBrick.framework */; };
 /* End PBXBuildFile section */
@@ -57,9 +66,18 @@
 		911150332383BDA100AE47DF /* JHCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHCollectionViewCell.swift; sourceTree = "<group>"; };
 		911150352383BDB300AE47DF /* JHCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHCollectionReusableView.swift; sourceTree = "<group>"; };
 		911150372383DABF00AE47DF /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		9128EBAF238786C5006890C9 /* CALayerEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerEx.swift; sourceTree = "<group>"; };
+		9128EBB12387B032006890C9 /* JHSnapKitTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHSnapKitTool.swift; sourceTree = "<group>"; };
+		9128EBB32387B0DE006890C9 /* UIGestureRecognizerEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizerEx.swift; sourceTree = "<group>"; };
+		9128EBB52387C0C0006890C9 /* UIImageViewSnapEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewSnapEx.swift; sourceTree = "<group>"; };
+		9128EBB72387D608006890C9 /* UIButtonSnapEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonSnapEx.swift; sourceTree = "<group>"; };
+		9128EBB92387EFAA006890C9 /* UILabelSnapEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelSnapEx.swift; sourceTree = "<group>"; };
+		9128EBBB2387EFC3006890C9 /* UITextFieldSnapEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldSnapEx.swift; sourceTree = "<group>"; };
+		9128EBBD2387EFD8006890C9 /* UITextViewSnapEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewSnapEx.swift; sourceTree = "<group>"; };
+		9128EBBF2387EFF6006890C9 /* UITableViewSnapEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewSnapEx.swift; sourceTree = "<group>"; };
+		9128EBC12387F00F006890C9 /* UICollectionViewSnapEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewSnapEx.swift; sourceTree = "<group>"; };
 		916226102385247F0050F228 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
-		91622615238544440050F228 /* UIViewSnapExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewSnapExtension.swift; sourceTree = "<group>"; };
-		91622617238552E30050F228 /* JHSnapKitTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHSnapKitTool.swift; sourceTree = "<group>"; };
+		91622615238544440050F228 /* UIViewSnapEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewSnapEx.swift; sourceTree = "<group>"; };
 		916226192385534D0050F228 /* ExViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExViewController.swift; sourceTree = "<group>"; };
 		A9342C3A00A9D0D1AC583F1C /* Pods_SwiftBrick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftBrick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -135,8 +153,17 @@
 		9111501C23838DD100AE47DF /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				91622617238552E30050F228 /* JHSnapKitTool.swift */,
-				91622615238544440050F228 /* UIViewSnapExtension.swift */,
+				9128EBB12387B032006890C9 /* JHSnapKitTool.swift */,
+				91622615238544440050F228 /* UIViewSnapEx.swift */,
+				9128EBB52387C0C0006890C9 /* UIImageViewSnapEx.swift */,
+				9128EBB72387D608006890C9 /* UIButtonSnapEx.swift */,
+				9128EBB92387EFAA006890C9 /* UILabelSnapEx.swift */,
+				9128EBBB2387EFC3006890C9 /* UITextFieldSnapEx.swift */,
+				9128EBBD2387EFD8006890C9 /* UITextViewSnapEx.swift */,
+				9128EBBF2387EFF6006890C9 /* UITableViewSnapEx.swift */,
+				9128EBC12387F00F006890C9 /* UICollectionViewSnapEx.swift */,
+				9128EBB32387B0DE006890C9 /* UIGestureRecognizerEx.swift */,
+				9128EBAF238786C5006890C9 /* CALayerEx.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -294,19 +321,28 @@
 				9111500C23838CC200AE47DF /* ViewController.swift in Sources */,
 				9111502823838DD100AE47DF /* JHTableViewController.swift in Sources */,
 				911150342383BDA100AE47DF /* JHCollectionViewCell.swift in Sources */,
-				91622616238544440050F228 /* UIViewSnapExtension.swift in Sources */,
-				91622618238552E30050F228 /* JHSnapKitTool.swift in Sources */,
+				91622616238544440050F228 /* UIViewSnapEx.swift in Sources */,
 				911150362383BDB300AE47DF /* JHCollectionReusableView.swift in Sources */,
 				9111503023838E1A00AE47DF /* TableViewController.swift in Sources */,
+				9128EBB82387D608006890C9 /* UIButtonSnapEx.swift in Sources */,
+				9128EBC22387F00F006890C9 /* UICollectionViewSnapEx.swift in Sources */,
 				9111502D23838DD100AE47DF /* JHTableViewCell.swift in Sources */,
 				9162261A2385534D0050F228 /* ExViewController.swift in Sources */,
 				911150322383BD8300AE47DF /* JHTableViewHeaderFooterView.swift in Sources */,
+				9128EBB42387B0DE006890C9 /* UIGestureRecognizerEx.swift in Sources */,
 				9111502C23838DD100AE47DF /* JHImageLoader.swift in Sources */,
+				9128EBB62387C0C0006890C9 /* UIImageViewSnapEx.swift in Sources */,
+				9128EBB0238786C5006890C9 /* CALayerEx.swift in Sources */,
+				9128EBBE2387EFD8006890C9 /* UITextViewSnapEx.swift in Sources */,
 				9111502E23838DD100AE47DF /* JHToolsDefine.swift in Sources */,
+				9128EBB22387B032006890C9 /* JHSnapKitTool.swift in Sources */,
 				911150382383DABF00AE47DF /* CollectionViewController.swift in Sources */,
 				9111500823838CC200AE47DF /* AppDelegate.swift in Sources */,
+				9128EBC02387EFF6006890C9 /* UITableViewSnapEx.swift in Sources */,
 				9111502A23838DD100AE47DF /* JHViewController.swift in Sources */,
+				9128EBBA2387EFAA006890C9 /* UILabelSnapEx.swift in Sources */,
 				9111500A23838CC200AE47DF /* SceneDelegate.swift in Sources */,
+				9128EBBC2387EFC3006890C9 /* UITextFieldSnapEx.swift in Sources */,
 				9111502923838DD100AE47DF /* JHWebViewController.swift in Sources */,
 				9111502723838DD100AE47DF /* JHCollectionViewController.swift in Sources */,
 				916226112385247F0050F228 /* WebViewController.swift in Sources */,

@@ -7,25 +7,42 @@
 //
 
 import UIKit
-public protocol ViewMaker {
-    associatedtype HandType
-    var hand: HandType { get }
-    static var hand: HandType.Type { get }
+import SnapKit
+
+public struct AssociatedKeys {
+    static var TapGestureKey: String = "TapGestureKey"
+    static var JHButtonTouchUpKey: String = "JHButtonTouchUpKey"
 }
 
-public extension ViewMaker {
-    var hand: Maker<Self> {
-        return Maker(value: self)
-    }
+public class JHSnapKitTool: NSObject {
 
-    static var hand: Maker<Self>.Type {
-        return Maker.self
-    }
+    typealias JHSnapMaker = (_ make: ConstraintMaker) -> Void
+    
+    typealias JHTapGestureBlock = (_ block: Any) -> Void
+
+    typealias JHButtonBlock = (_ sender: UIButton) -> Void
 }
 
-public struct Maker<T> {
-    public let makerValue: T
-    public init(value: T) {
-        self.makerValue = value
-    }
-}
+ // MARK: - 命名空间方案,废弃,没减少一行代码
+//public protocol ViewMaker {
+//    associatedtype HandType
+//    var hand: HandType { get }
+//    static var hand: HandType.Type { get }
+//}
+//
+//public extension ViewMaker {
+//    var hand: Maker<Self> {
+//        return Maker(value: self)
+//    }
+//
+//    static var hand: Maker<Self>.Type {
+//        return Maker.self
+//    }
+//}
+//
+//public struct Maker<T> {
+//    public let makerValue: T
+//    public init(value: T) {
+//        self.makerValue = value
+//    }
+//}
