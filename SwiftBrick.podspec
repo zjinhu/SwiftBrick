@@ -19,6 +19,8 @@ Pod::Spec.new do |s|
 
   s.frameworks   = "UIKit", "Foundation" #支持的框架
 
+  s.dependency 'SnapKit'
+
    s.resource_bundles = {
      'SwiftBrick' => ['SwiftBrick/Class/*.xcassets']
   }
