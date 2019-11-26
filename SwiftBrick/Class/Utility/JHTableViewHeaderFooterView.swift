@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class JHTableViewHeaderFooterView: UITableViewHeaderFooterView {
+open class JHTableViewHeaderFooterView: UITableViewHeaderFooterView {
 
     public var backColor : UIColor? {
         didSet{
@@ -23,7 +23,7 @@ public class JHTableViewHeaderFooterView: UITableViewHeaderFooterView {
         self.configCellViews()
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     // MARK: - 继承 在内部实现布局

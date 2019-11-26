@@ -10,7 +10,7 @@ import UIKit
 import WebKit
 import SnapKit
 
-public class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDelegate,WKScriptMessageHandler,UIScrollViewDelegate{
+open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDelegate,WKScriptMessageHandler,UIScrollViewDelegate{
     // MARK: - 参数变量
     public dynamic lazy var webView : WKWebView = {
         let webView = WKWebView.init(frame: .zero, configuration: self.config)
@@ -116,7 +116,7 @@ public class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDel
     
     
     // MARK: - 布局
-    public override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         self.edgesForExtendedLayout = [.left,.right,.bottom]
         

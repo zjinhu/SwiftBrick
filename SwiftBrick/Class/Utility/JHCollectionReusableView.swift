@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class JHCollectionReusableView: UICollectionReusableView {
+open class JHCollectionReusableView: UICollectionReusableView {
     public enum ReusableViewType {
         case SectionHeader//UICollectionElementKindSectionHeader
         case SectionFooter//UICollectionElementKindSectionFooter
@@ -20,7 +20,7 @@ public class JHCollectionReusableView: UICollectionReusableView {
         self.backgroundColor = .clear
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     // MARK: - 继承 在内部实现布局

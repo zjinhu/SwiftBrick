@@ -8,7 +8,7 @@
 
 import UIKit
 import SnapKit
-public class JHTableViewController: JHViewController ,UITableViewDelegate,UITableViewDataSource{
+open class JHTableViewController: JHViewController ,UITableViewDelegate,UITableViewDataSource{
     // MARK: - 参数变量
     public enum TableViewStyleType {
         case StylePlain

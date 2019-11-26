@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class JHViewController: UIViewController {
+open class JHViewController: UIViewController {
     // MARK: - 参数变量
     public lazy var leftBarButton : UIButton = {
         let leftBarButton = UIButton.init(type: .custom)

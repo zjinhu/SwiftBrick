@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class JHCollectionViewCell: UICollectionViewCell {
+open class JHCollectionViewCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -16,7 +16,7 @@ public class JHCollectionViewCell: UICollectionViewCell {
         self.contentView.backgroundColor = .clear
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     // MARK: - 继承 在内部实现布局

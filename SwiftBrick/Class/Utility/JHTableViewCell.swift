@@ -8,20 +8,20 @@
 
 import UIKit
 
-public class JHTableViewCell: UITableViewCell {
+open class JHTableViewCell: UITableViewCell {
 
-    public override func awakeFromNib() {
+    override open func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    public override func setSelected(_ selected: Bool, animated: Bool) {
+    override open func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
