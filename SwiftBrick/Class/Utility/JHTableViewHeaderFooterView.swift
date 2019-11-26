@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JHTableViewHeaderFooterView: UITableViewHeaderFooterView {
+public class JHTableViewHeaderFooterView: UITableViewHeaderFooterView {
 
     public var backColor : UIColor? {
         didSet{

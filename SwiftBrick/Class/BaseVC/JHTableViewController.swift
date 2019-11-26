@@ -8,7 +8,7 @@
 
 import UIKit
 import SnapKit
-class JHTableViewController: JHViewController ,UITableViewDelegate,UITableViewDataSource{
+public class JHTableViewController: JHViewController ,UITableViewDelegate,UITableViewDataSource{
     // MARK: - 参数变量
     public enum TableViewStyleType {
         case StylePlain
@@ -27,7 +27,7 @@ class JHTableViewController: JHViewController ,UITableViewDelegate,UITableViewDa
         self.tableViewStyleType = tableViewStyle
     }
     // MARK: - 布局
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
         switch self.tableViewStyleType {
@@ -97,30 +97,30 @@ class JHTableViewController: JHViewController ,UITableViewDelegate,UITableViewDa
     }
     
      // MARK: - tableView代理
-    func numberOfSections(in tableView: UITableView) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         return self.isMultiDatas() ? self.mainDatas.count : 1
     }
     
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return CGFloat.leastNormalMagnitude
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return CGFloat.leastNormalMagnitude
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return UIView.init()
     }
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView.init()
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
     
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if self.isMultiDatas() {
             let data  = self.mainDatas[section] as! Array<Any>
@@ -130,7 +130,7 @@ class JHTableViewController: JHViewController ,UITableViewDelegate,UITableViewDa
         }
      }
      
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = JHTableViewCell.dequeueReusableCell(tableView: tableView)
         cell.textLabel?.text = String.init(describing: indexPath.row)
         return cell

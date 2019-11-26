@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JHCollectionViewCell: UICollectionViewCell {
+public class JHCollectionViewCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)

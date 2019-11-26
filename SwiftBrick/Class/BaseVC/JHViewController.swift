@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JHViewController: UIViewController {
+public class JHViewController: UIViewController {
     // MARK: - 参数变量
     public lazy var leftBarButton : UIButton = {
         let leftBarButton = UIButton.init(type: .custom)
@@ -23,7 +23,7 @@ class JHViewController: UIViewController {
         return rightBarButton
     }()
     // MARK: - 布局
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
         self.view.backgroundColor = .white

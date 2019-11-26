@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class JHCollectionViewController: JHViewController ,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+public class JHCollectionViewController: JHViewController ,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     // MARK: - 参数变量
     public enum ScrollDirectionType {
         case ScrollVertical
@@ -49,7 +49,7 @@ class JHCollectionViewController: JHViewController ,UICollectionViewDelegate,UIC
     }
     
     // MARK: - 布局
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
 
         if self.flowLayout == nil  {
@@ -98,11 +98,11 @@ class JHCollectionViewController: JHViewController ,UICollectionViewDelegate,UIC
     }
 
     // MARK: - UICollectionView
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    public func numberOfSections(in collectionView: UICollectionView) -> Int {
         return self.isMultiDatas() ? self.mainDatas.count : 1
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if self.isMultiDatas() {
             let data  = self.mainDatas[section] as! Array<Any>
             return data.count
@@ -111,7 +111,7 @@ class JHCollectionViewController: JHViewController ,UICollectionViewDelegate,UIC
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = JHCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
         return cell
     }

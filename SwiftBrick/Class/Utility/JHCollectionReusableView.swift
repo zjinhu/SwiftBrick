@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JHCollectionReusableView: UICollectionReusableView {
+public class JHCollectionReusableView: UICollectionReusableView {
     public enum ReusableViewType {
         case SectionHeader//UICollectionElementKindSectionHeader
         case SectionFooter//UICollectionElementKindSectionFooter
