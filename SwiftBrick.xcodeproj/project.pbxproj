@@ -39,6 +39,8 @@
 		916226112385247F0050F228 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916226102385247F0050F228 /* WebViewController.swift */; };
 		91622616238544440050F228 /* UIViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91622615238544440050F228 /* UIViewSnapEx.swift */; };
 		9162261A2385534D0050F228 /* ExViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916226192385534D0050F228 /* ExViewController.swift */; };
+		917FBC24238BC3640083721A /* UIColorEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FBC23238BC3640083721A /* UIColorEx.swift */; };
+		917FBC28238CCD520083721A /* UINavigationControllerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FBC27238CCD520083721A /* UINavigationControllerEx.swift */; };
 		F9A51B6F3DF1CF4CF6DB8395 /* Pods_SwiftBrick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9342C3A00A9D0D1AC583F1C /* Pods_SwiftBrick.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +81,8 @@
 		916226102385247F0050F228 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		91622615238544440050F228 /* UIViewSnapEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewSnapEx.swift; sourceTree = "<group>"; };
 		916226192385534D0050F228 /* ExViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExViewController.swift; sourceTree = "<group>"; };
+		917FBC23238BC3640083721A /* UIColorEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorEx.swift; sourceTree = "<group>"; };
+		917FBC27238CCD520083721A /* UINavigationControllerEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerEx.swift; sourceTree = "<group>"; };
 		A9342C3A00A9D0D1AC583F1C /* Pods_SwiftBrick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftBrick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -143,29 +147,23 @@
 			isa = PBXGroup;
 			children = (
 				9111502223838DD100AE47DF /* Images.xcassets */,
-				9111501C23838DD100AE47DF /* Extension */,
+				917FBC22238BA1240083721A /* SnapKit */,
+				9111501C23838DD100AE47DF /* Extensions */,
 				9111501D23838DD100AE47DF /* BaseVC */,
 				9111502323838DD100AE47DF /* Utility */,
 			);
 			path = Class;
 			sourceTree = "<group>";
 		};
-		9111501C23838DD100AE47DF /* Extension */ = {
+		9111501C23838DD100AE47DF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				9128EBB12387B032006890C9 /* JHSnapKitTool.swift */,
-				91622615238544440050F228 /* UIViewSnapEx.swift */,
-				9128EBB52387C0C0006890C9 /* UIImageViewSnapEx.swift */,
-				9128EBB72387D608006890C9 /* UIButtonSnapEx.swift */,
-				9128EBB92387EFAA006890C9 /* UILabelSnapEx.swift */,
-				9128EBBB2387EFC3006890C9 /* UITextFieldSnapEx.swift */,
-				9128EBBD2387EFD8006890C9 /* UITextViewSnapEx.swift */,
-				9128EBBF2387EFF6006890C9 /* UITableViewSnapEx.swift */,
-				9128EBC12387F00F006890C9 /* UICollectionViewSnapEx.swift */,
 				9128EBB32387B0DE006890C9 /* UIGestureRecognizerEx.swift */,
 				9128EBAF238786C5006890C9 /* CALayerEx.swift */,
+				917FBC23238BC3640083721A /* UIColorEx.swift */,
+				917FBC27238CCD520083721A /* UINavigationControllerEx.swift */,
 			);
-			path = Extension;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		9111501D23838DD100AE47DF /* BaseVC */ = {
@@ -190,6 +188,22 @@
 				911150352383BDB300AE47DF /* JHCollectionReusableView.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		917FBC22238BA1240083721A /* SnapKit */ = {
+			isa = PBXGroup;
+			children = (
+				9128EBB12387B032006890C9 /* JHSnapKitTool.swift */,
+				91622615238544440050F228 /* UIViewSnapEx.swift */,
+				9128EBB52387C0C0006890C9 /* UIImageViewSnapEx.swift */,
+				9128EBB72387D608006890C9 /* UIButtonSnapEx.swift */,
+				9128EBB92387EFAA006890C9 /* UILabelSnapEx.swift */,
+				9128EBBB2387EFC3006890C9 /* UITextFieldSnapEx.swift */,
+				9128EBBD2387EFD8006890C9 /* UITextViewSnapEx.swift */,
+				9128EBBF2387EFF6006890C9 /* UITableViewSnapEx.swift */,
+				9128EBC12387F00F006890C9 /* UICollectionViewSnapEx.swift */,
+			);
+			path = SnapKit;
 			sourceTree = "<group>";
 		};
 		C74C00F04E10698BB2D79B49 /* Pods */ = {
@@ -331,6 +345,7 @@
 				911150322383BD8300AE47DF /* JHTableViewHeaderFooterView.swift in Sources */,
 				9128EBB42387B0DE006890C9 /* UIGestureRecognizerEx.swift in Sources */,
 				9111502C23838DD100AE47DF /* JHImageLoader.swift in Sources */,
+				917FBC24238BC3640083721A /* UIColorEx.swift in Sources */,
 				9128EBB62387C0C0006890C9 /* UIImageViewSnapEx.swift in Sources */,
 				9128EBB0238786C5006890C9 /* CALayerEx.swift in Sources */,
 				9128EBBE2387EFD8006890C9 /* UITextViewSnapEx.swift in Sources */,
@@ -343,6 +358,7 @@
 				9128EBBA2387EFAA006890C9 /* UILabelSnapEx.swift in Sources */,
 				9111500A23838CC200AE47DF /* SceneDelegate.swift in Sources */,
 				9128EBBC2387EFC3006890C9 /* UITextFieldSnapEx.swift in Sources */,
+				917FBC28238CCD520083721A /* UINavigationControllerEx.swift in Sources */,
 				9111502923838DD100AE47DF /* JHWebViewController.swift in Sources */,
 				9111502723838DD100AE47DF /* JHCollectionViewController.swift in Sources */,
 				916226112385247F0050F228 /* WebViewController.swift in Sources */,

@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 class ViewController: JHTableViewController {
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mainDatas = ["跳转Tableview","跳转CollectionView","跳转WebView","跳转EXView"]

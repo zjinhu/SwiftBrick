@@ -12,6 +12,7 @@ class CollectionViewController: JHCollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.prefersNavigationBarHidden = false
         self.mainDatas = [["","","","","","","",""],["","","","","","",""],["","","","","","","","","","",""],["","","","","","","","","",""]]
         // Do any additional setup after loading the view.
         JHCollectionReusableView.registerHeaderFooterView(collectionView: self.collectionView!, viewType: .SectionHeader)
@@ -49,5 +50,11 @@ class CollectionViewController: JHCollectionViewController {
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         return CGSize.init(width: SCREEN_WIDTH, height: 60)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = JHCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
+        cell.backgroundColor = .random
+        return cell
     }
 }

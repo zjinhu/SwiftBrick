@@ -12,7 +12,7 @@ class TableViewController: JHTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.prefersNavigationBarHidden = true
         // Do any additional setup after loading the view.
 //        self.configRightBarButtonWithImage(normalImage: JHImageLoader.loadToolsImage(with: "ic_arrow_gray_right")!, highLightImage: JHImageLoader.loadToolsImage(with: "ic_arrow_gray_right")!)
         self.configRightBarButtonWithText(text: "123", normalColor: .darkGray, highlightColor: .lightGray)
@@ -41,6 +41,22 @@ class TableViewController: JHTableViewController {
         view.backColor = .yellow
         return view
     }
-    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       let cell = JHTableViewCell.dequeueReusableCell(tableView: tableView)
+       cell.textLabel?.text = String.init(describing: indexPath.row)
+    cell.backgroundColor = .random
+       return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
+        if indexPath.row % 2 == 0 {
+            let vc = TableViewController.init(tableViewStyle: .StyleGrouped)
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = CollectionViewController.init()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+
+
+    }
 }
