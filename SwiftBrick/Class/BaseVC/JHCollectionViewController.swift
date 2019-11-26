@@ -98,11 +98,11 @@ open class JHCollectionViewController: JHViewController ,UICollectionViewDelegat
     }
 
     // MARK: - UICollectionView
-    public func numberOfSections(in collectionView: UICollectionView) -> Int {
+    open func numberOfSections(in collectionView: UICollectionView) -> Int {
         return self.isMultiDatas() ? self.mainDatas.count : 1
     }
     
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if self.isMultiDatas() {
             let data  = self.mainDatas[section] as! Array<Any>
             return data.count
@@ -111,7 +111,7 @@ open class JHCollectionViewController: JHViewController ,UICollectionViewDelegat
         }
     }
     
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = JHCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
         return cell
     }

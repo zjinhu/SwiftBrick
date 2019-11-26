@@ -145,7 +145,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         self.webView.addObserver(self, forKeyPath: "estimatedProgress", options: [.old, .new], context: nil)
     }
     // MARK: - WKScriptMessageHandler JS调用原生交互
-    public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+    open func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         SLog("%@--%@",file: message.name,funcName: message.body as! String)
         switch message.name {
         case "JumpViewController":
@@ -155,7 +155,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         }
     }
     // MARK: - WKNavigationDelegate
-    public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+    open func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
 
         if navigationAction.targetFrame == nil{
             webView.load(navigationAction.request)
@@ -177,11 +177,11 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         }
         decisionHandler(.allow)
     }
-    public func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+    open func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
         decisionHandler(.allow)
     }
 
-    public func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+    open func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         self.webView.isHidden = false
         self.loadingProgressView.isHidden = false
         if webView.url?.scheme == "about" {
@@ -189,7 +189,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         }
     }
     
-    public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    open func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         self.webView.isHidden = false
 //        self.loadingProgressView.isHidden = true
         webView.evaluateJavaScript("document.title") { (result, error) in
@@ -200,18 +200,18 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         }
     }
     
-    public func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+    open func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         self.webView.isHidden = true
         self.loadingProgressView.isHidden = false
     }
     
-    public func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+    open func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
         let cred = URLCredential(trust: challenge.protectionSpace.serverTrust!)
         completionHandler(.useCredential, cred)
     }
     // MARK: - WKUIDelegate
 
-    public func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
+    open func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { (_)in
           // We must call back js
@@ -220,7 +220,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         self.present(alert, animated: true, completion: nil)
     }
     
-    public func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
+    open func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { (_)in
           // We must call back js
@@ -232,7 +232,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         }))
         self.present(alert, animated: true, completion: nil)
     }
-    public func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Void) {
+    open func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Void) {
         
         let alert = UIAlertController(title: nil, message: prompt, preferredStyle: .alert)
         alert.addTextField { (textField) in
@@ -258,7 +258,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
 //        })
 //    }
 // 监听网络加载进度，加载过程中在navigationBar显示加载进度，加载完成显示网站标题
-    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if let webView = object as? WKWebView, webView == self.webView && keyPath == "estimatedProgress" {
             
             guard let changes = change else { return }
@@ -287,7 +287,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         }
     }
     // MARK: - 发起请求
-    public func loadRequest() {
+    open func loadRequest() {
         if self.request != nil {
             self.webView.load(self.request!)
         }else{
@@ -296,7 +296,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
     }
     // MARK: - 方法
     ///重写父类返回方法
-    public override func goBack() {
+    open override func goBack() {
         if self.webView.canGoBack {
             self.webView.goBack()
         }else{
@@ -304,7 +304,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         }
     }
     ///关闭当前VC
-    public func closeVC() {
+    open func closeVC() {
         if let viewControllers: [UIViewController] = self.navigationController?.viewControllers {
             guard viewControllers.count <= 1 else {
                 self.navigationController?.popViewController(animated: true)
