@@ -19,25 +19,26 @@ Pod::Spec.new do |s|
 
   s.frameworks   = "UIKit", "Foundation" #支持的框架
 
-  s.dependency 'SnapKit'
+  
 
    s.resource_bundles = {
      'SwiftBrick' => ['SwiftBrick/Class/*.xcassets']
   }
 
     s.subspec 'Extensions' do |ss|
-          ss.source_files = 'SwiftBrick/Class/Extensions/**/*' 
+      ss.source_files = 'SwiftBrick/Class/Extensions/**/*' 
     end
     s.subspec 'Utility' do |ss| 
-
-          ss.source_files = 'SwiftBrick/Class/Utility/**/*' 
+      ss.source_files = 'SwiftBrick/Class/Utility/**/*' 
     end
     s.subspec 'BaseVC' do |ss|
-          ss.dependency 'SwiftBrick/Utility'
-          ss.source_files = 'SwiftBrick/Class/BaseVC/**/*' 
+      ss.dependency 'SnapKit'
+      ss.dependency 'SwiftBrick/Utility'
+      ss.source_files = 'SwiftBrick/Class/BaseVC/**/*' 
     end
    
   	s.subspec 'SnapKit' do |ss|
+      ss.dependency 'SnapKit'
 		  ss.source_files = 'SwiftBrick/Class/SnapKit/**/*' 
     end
 

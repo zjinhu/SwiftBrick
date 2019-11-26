@@ -57,7 +57,7 @@ public extension UIButton {
         if (font != nil) {
             btn.titleLabel?.font = font
         }else{
-            btn.titleLabel?.font = FONT_14
+            btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         }
         
         if (titleNorColor != nil) {
