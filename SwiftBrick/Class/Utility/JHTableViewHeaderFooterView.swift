@@ -27,11 +27,11 @@ open class JHTableViewHeaderFooterView: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
     // MARK: - 继承 在内部实现布局
-    public func configCellViews() {
+    open func configCellViews() {
         
     }
     // MARK: - cell赋值
-    public func setCellModel(model: Any) {
+    open func setCellModel(model: Any) {
         
     }
     // MARK: - 获取高度

@@ -20,14 +20,14 @@ public extension UILabel {
     ///   - textAlignment: textAlignment 有默认参数
     ///   - snapKitMaker: SnapKit 有默认参数
     ///   - backColor: 背景色
-    internal class func snpLabel(font: UIFont = UIFont.systemFont(ofSize: 14),
-                                 lines: Int = 0,
-                                 text: String = "",
-                                 textColor: UIColor = .black,
-                                 supView: UIView? = nil,
-                                 textAlignment: NSTextAlignment = .left,
-                                 snapKitMaker : JHSnapKitTool.JHSnapMaker? = nil,
-                                 backColor: UIColor) -> UILabel{
+    class func snpLabel(font: UIFont = UIFont.systemFont(ofSize: 14),
+                        lines: Int = 0,
+                        text: String = "",
+                        textColor: UIColor = .black,
+                        supView: UIView? = nil,
+                        textAlignment: NSTextAlignment = .left,
+                        snapKitMaker : JHSnapKitTool.JHSnapMaker? = nil,
+                        backColor: UIColor) -> UILabel{
         
         let label = UILabel.init()
         label.text = text

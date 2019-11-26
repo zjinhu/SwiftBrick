@@ -16,11 +16,11 @@ public struct AssociatedKeys {
 
 public class JHSnapKitTool: NSObject {
 
-    typealias JHSnapMaker = (_ make: ConstraintMaker) -> Void
+   public typealias JHSnapMaker = (_ make: ConstraintMaker) -> Void
     
-    typealias JHTapGestureBlock = (_ block: Any) -> Void
+   public typealias JHTapGestureBlock = (_ block: Any) -> Void
 
-    typealias JHButtonBlock = (_ sender: UIButton) -> Void
+   public typealias JHButtonBlock = (_ sender: UIButton) -> Void
 }
 
  // MARK: - 命名空间方案,废弃,没减少一行代码

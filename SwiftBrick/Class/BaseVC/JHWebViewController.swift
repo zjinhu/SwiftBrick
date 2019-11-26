@@ -116,7 +116,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
     
     
     // MARK: - 布局
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         self.edgesForExtendedLayout = [.left,.right,.bottom]
         

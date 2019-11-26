@@ -135,17 +135,17 @@ public extension UITextView {
     ///   - snapKitMaker: SnapKit 有默认参数
     ///   - delegate: 代理
     ///   - backColor: 背景色
-    internal class func snpTextView(holderFont: UIFont = UIFont.systemFont(ofSize: 14),
-                                    holder: String = "",
-                                    holderColor: UIColor = .black,
-                                    font: UIFont = UIFont.systemFont(ofSize: 14),
-                                    text: String = "",
-                                    textColor: UIColor = .black,
-                                    textAlignment: NSTextAlignment = .left,
-                                    supView: UIView? = nil,
-                                    snapKitMaker : JHSnapKitTool.JHSnapMaker? = nil,
-                                    delegate: UITextViewDelegate,
-                                    backColor: UIColor) -> UITextView{
+    class func snpTextView(holderFont: UIFont = UIFont.systemFont(ofSize: 14),
+                           holder: String = "",
+                           holderColor: UIColor = .black,
+                           font: UIFont = UIFont.systemFont(ofSize: 14),
+                           text: String = "",
+                           textColor: UIColor = .black,
+                           textAlignment: NSTextAlignment = .left,
+                           supView: UIView? = nil,
+                           snapKitMaker : JHSnapKitTool.JHSnapMaker? = nil,
+                           delegate: UITextViewDelegate,
+                           backColor: UIColor) -> UITextView{
         
         let textView = UITextView.init()
         textView.holderFont = holderFont

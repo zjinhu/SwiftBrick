@@ -23,7 +23,7 @@ open class JHViewController: UIViewController {
         return rightBarButton
     }()
     // MARK: - 布局
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
 
         self.view.backgroundColor = .white

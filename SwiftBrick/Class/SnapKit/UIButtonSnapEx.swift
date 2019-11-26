@@ -33,19 +33,19 @@ public extension UIButton {
     ///   - snapKitMaker: SnapKit 有默认参数
     ///   - touchUp: 点击Block 有默认参数
     ///   - backColor: 背景色
-    internal class func snpButton(supView : UIView? = nil,
-                                  title : String? = nil,
-                                  font : UIFont? = nil,
-                                  titleNorColor : UIColor? = nil,
-                                  titleHigColor : UIColor? = nil,
-                                  norImage : UIImage? = nil,
-                                  higImage : UIImage? = nil,
-                                  borderColor : UIColor? = nil,
-                                  borderWidth : Float = 0,
-                                  cornerRadius : Float = 0,
-                                  snapKitMaker : JHSnapKitTool.JHSnapMaker? = nil,
-                                  touchUp : JHSnapKitTool.JHButtonBlock? = nil,
-                                  backColor: UIColor) -> UIButton{
+    class func snpButton(supView : UIView? = nil,
+                         title : String? = nil,
+                         font : UIFont? = nil,
+                         titleNorColor : UIColor? = nil,
+                         titleHigColor : UIColor? = nil,
+                         norImage : UIImage? = nil,
+                         higImage : UIImage? = nil,
+                         borderColor : UIColor? = nil,
+                         borderWidth : Float = 0,
+                         cornerRadius : Float = 0,
+                         snapKitMaker : JHSnapKitTool.JHSnapMaker? = nil,
+                         touchUp : JHSnapKitTool.JHButtonBlock? = nil,
+                         backColor: UIColor) -> UIButton{
         
         let btn = UIButton.init(type: .custom)
         btn.backgroundColor = backColor
@@ -97,7 +97,7 @@ public extension UIButton {
         return btn
     }
     
-    @objc internal func snpAddTouchUpInSideBtnAction(touchUp : JHSnapKitTool.JHButtonBlock?){
+    @objc func snpAddTouchUpInSideBtnAction(touchUp : JHSnapKitTool.JHButtonBlock?){
         
         self.removeTarget(self, action: #selector(touchUpInSideBtnAction), for: .touchUpInside)
         if touchUp != nil {

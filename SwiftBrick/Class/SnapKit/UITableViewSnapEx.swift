@@ -18,12 +18,12 @@ public extension UITableView {
     ///   - delegate: delegate 
     ///   - dataSource: dataSource
     ///   - backColor: 背景色
-    internal class func snpTableView(supView: UIView? = nil,
-                                     snapKitMaker : JHSnapKitTool.JHSnapMaker? = nil,
-                                     style: UITableView.Style = .plain,
-                                     delegate: UITableViewDelegate,
-                                     dataSource: UITableViewDataSource,
-                                     backColor: UIColor) -> UITableView{
+    class func snpTableView(supView: UIView? = nil,
+                            snapKitMaker : JHSnapKitTool.JHSnapMaker? = nil,
+                            style: UITableView.Style = .plain,
+                            delegate: UITableViewDelegate,
+                            dataSource: UITableViewDataSource,
+                            backColor: UIColor) -> UITableView{
         
         let tableView = UITableView.init(frame: .zero, style: style)
         tableView.delegate = delegate

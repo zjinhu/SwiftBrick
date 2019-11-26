@@ -25,10 +25,10 @@ public extension UIView {
     ///   - snapKitMaker: SnapKit 有默认参数
     ///   - snpTapGesture: 点击Block 有默认参数
     ///   - backColor: 背景色
-    internal class func snpView(supView : UIView? = nil,
-                                snapKitMaker : JHSnapKitTool.JHSnapMaker? = nil,
-                                snpTapGesture : JHSnapKitTool.JHTapGestureBlock? = nil,
-                                backColor: UIColor) -> UIView{
+    class func snpView(supView : UIView? = nil,
+                       snapKitMaker : JHSnapKitTool.JHSnapMaker? = nil,
+                       snpTapGesture : JHSnapKitTool.JHTapGestureBlock? = nil,
+                       backColor: UIColor) -> UIView{
         
         let view = UIView.init()
         view.backgroundColor = backColor
@@ -47,7 +47,7 @@ public extension UIView {
         return view
     }
     
-    @objc internal func snpAddTapGestureWithCallback(snpTapGesture : JHSnapKitTool.JHTapGestureBlock?){
+    @objc func snpAddTapGestureWithCallback(snpTapGesture : JHSnapKitTool.JHTapGestureBlock?){
         self.snpTapGesture = snpTapGesture
         self.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(handleTapGesture))

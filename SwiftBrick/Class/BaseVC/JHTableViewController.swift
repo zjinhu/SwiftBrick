@@ -27,7 +27,7 @@ open class JHTableViewController: JHViewController ,UITableViewDelegate,UITableV
         self.tableViewStyleType = tableViewStyle
     }
     // MARK: - 布局
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
 
         switch self.tableViewStyleType {

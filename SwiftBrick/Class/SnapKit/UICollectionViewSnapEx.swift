@@ -18,12 +18,12 @@ public extension UICollectionView {
     ///   - delegate: delegate
     ///   - dataSource: dataSource
     ///   - backColor: 背景色
-    internal class func snpCollectionView(supView: UIView? = nil,
-                                          snapKitMaker : JHSnapKitTool.JHSnapMaker? = nil,
-                                          scrollDirectionType: UICollectionView.ScrollDirection = .vertical,
-                                          delegate: UICollectionViewDelegate,
-                                          dataSource: UICollectionViewDataSource,
-                                          backColor: UIColor) -> UICollectionView{
+    class func snpCollectionView(supView: UIView? = nil,
+                                 snapKitMaker : JHSnapKitTool.JHSnapMaker? = nil,
+                                 scrollDirectionType: UICollectionView.ScrollDirection = .vertical,
+                                 delegate: UICollectionViewDelegate,
+                                 dataSource: UICollectionViewDataSource,
+                                 backColor: UIColor) -> UICollectionView{
         let flowLayout = UICollectionViewFlowLayout.init()
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0

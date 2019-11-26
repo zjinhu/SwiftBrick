@@ -76,7 +76,7 @@ public extension UIViewController {
         static var NavigationBarHidden: String = "NavigationBarHidden"
     }
     
-    internal var prefersNavigationBarHidden: Bool? {
+    var prefersNavigationBarHidden: Bool? {
         get {
             return objc_getAssociatedObject(self, &Associate.NavigationBarHidden) as? Bool
         }
@@ -94,7 +94,7 @@ public extension UINavigationController {
         static var NavigationBarAppearanceEnabled: String = "NavigationBarAppearanceEnabled"
     }
     
-    internal var viewControllerBasedNavigationBarAppearanceEnabled: Bool? {
+    var viewControllerBasedNavigationBarAppearanceEnabled: Bool? {
         get {
             let number = objc_getAssociatedObject(self, &Associated.NavigationBarAppearanceEnabled) as? NSNumber
             if number != nil {

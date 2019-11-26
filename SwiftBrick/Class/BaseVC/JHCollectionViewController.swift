@@ -49,7 +49,7 @@ open class JHCollectionViewController: JHViewController ,UICollectionViewDelegat
     }
     
     // MARK: - 布局
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
 
         if self.flowLayout == nil  {

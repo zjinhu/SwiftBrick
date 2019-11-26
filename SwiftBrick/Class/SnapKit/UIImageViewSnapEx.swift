@@ -9,7 +9,7 @@
 import UIKit
 
 public extension UIImageView {
-
+    
     
     /// 快速初始化UIImageView 包含默认参数,初始化过程可以删除部分默认参数简化方法
     /// - Parameters:
@@ -20,13 +20,13 @@ public extension UIImageView {
     ///   - snapKitMaker: SnapKit 有默认参数
     ///   - snpTapGesture: 点击Block 有默认参数
     ///   - backColor: 背景色
-    internal class func snpImageView(supView : UIView? = nil,
-                                     image : UIImage? = nil,
-                                     isClip : Bool = false,
-                                     contentMode : UIView.ContentMode  = .scaleAspectFill,
-                                     snapKitMaker : JHSnapKitTool.JHSnapMaker? = nil,
-                                     snpTapGesture : JHSnapKitTool.JHTapGestureBlock? = nil,
-                                     backColor: UIColor) -> UIImageView{
+    class func snpImageView(supView : UIView? = nil,
+                            image : UIImage? = nil,
+                            isClip : Bool = false,
+                            contentMode : UIView.ContentMode  = .scaleAspectFill,
+                            snapKitMaker : JHSnapKitTool.JHSnapMaker? = nil,
+                            snpTapGesture : JHSnapKitTool.JHTapGestureBlock? = nil,
+                            backColor: UIColor) -> UIImageView{
         
         let imageView = UIImageView.init()
         imageView.backgroundColor = backColor
