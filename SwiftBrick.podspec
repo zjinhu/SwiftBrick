@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
           ss.source_files = 'SwiftBrick/Class/Utility/**/*' 
     end
     s.subspec 'BaseVC' do |ss|
-
+          ss.dependency 'SwiftBrick/Utility'
           ss.source_files = 'SwiftBrick/Class/BaseVC/**/*' 
     end
    
