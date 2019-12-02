@@ -43,7 +43,13 @@ class TableViewController: JHTableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        let cell = JHTableViewCell.dequeueReusableCell(tableView: tableView)
-       cell.textLabel?.text = String.init(describing: indexPath.row)
+        var str : String?
+        if indexPath.row % 2 == 0 {
+            str = "隐藏导航栏的VC"
+        } else {
+            str = "显示导航栏的VC"
+        }
+        cell.textLabel?.text = String.init(describing: indexPath.row) + (str ?? "")
     cell.backgroundColor = .random
        return cell
     }
