@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SwiftBrick'
-  s.version          = '0.0.6'
+  s.version          = '0.0.7'
   s.summary          = '工具类组件.'
  
   s.description      = <<-DESC
