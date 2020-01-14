@@ -10,8 +10,13 @@ import UIKit
 
 class TableViewController: JHTableViewController {
 
+    override func configTableViewStyleType() {
+        self.tableViewStyleType = .StyleGrouped
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ///是否需要展示导航栏，方便实用
         self.prefersNavigationBarHidden = true
         // Do any additional setup after loading the view.
 //        self.configRightBarButtonWithImage(normalImage: JHImageLoader.loadToolsImage(with: "ic_arrow_gray_right")!, highLightImage: JHImageLoader.loadToolsImage(with: "ic_arrow_gray_right")!)

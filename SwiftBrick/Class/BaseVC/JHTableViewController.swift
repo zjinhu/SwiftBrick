@@ -26,10 +26,18 @@ open class JHTableViewController: JHViewController ,UITableViewDelegate,UITableV
         self.init()
         self.tableViewStyleType = tableViewStyle
     }
+    
+    /// 子类继承时重写此方法可设置Table样式：self.tableViewStyleType =  .StyleGrouped，或者Init时候设置
+    open func configTableViewStyleType(){
+//        self.tableViewStyleType = tableViewStyleType
+    }
+    
     // MARK: - 布局
     open override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        configTableViewStyleType()
+        
         switch self.tableViewStyleType {
         case .StyleInsetGrouped:
             if #available(iOS 13.0, *) {
