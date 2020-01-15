@@ -95,14 +95,14 @@ class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSou
     }
     // MARK:-示例快速创建按钮
     func demoButton(supView: UIView){
-        let _ = UIButton.snpButton(supView: supView, title: "button", snapKitMaker: { (make) in
+        let btn = UIButton.snpButton(supView: supView, title: "buttonbuttonbuttonbuttonbutton", snapKitMaker: { (make) in
             make.top.equalTo(supView).offset(40)
             make.centerX.equalTo(supView)
-            make.width.equalTo(80)
-            make.height.equalTo(40)
         }, touchUp: { (btn) in
             SLog("点击Button")
         }, backColor: .orange)
+        btn.setImage(UIImage.init(named: "share_haoyou_btn"), for: .normal)
+        btn.layoutButton(.imagePositionRight, space: 10)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

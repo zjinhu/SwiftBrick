@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		81F709FF23CF18CC002E9DFA /* UIButtonEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F709FE23CF18CC002E9DFA /* UIButtonEx.swift */; };
 		9111500823838CC200AE47DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111500723838CC200AE47DF /* AppDelegate.swift */; };
 		9111500A23838CC200AE47DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111500923838CC200AE47DF /* SceneDelegate.swift */; };
 		9111500C23838CC200AE47DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111500B23838CC200AE47DF /* ViewController.swift */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		77965A09D8F67F588257CBE9 /* Pods-SwiftBrick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBrick.debug.xcconfig"; path = "Target Support Files/Pods-SwiftBrick/Pods-SwiftBrick.debug.xcconfig"; sourceTree = "<group>"; };
+		81F709FE23CF18CC002E9DFA /* UIButtonEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonEx.swift; sourceTree = "<group>"; };
 		82CE79D1DBAE0B9E369C40C8 /* Pods-SwiftBrick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBrick.release.xcconfig"; path = "Target Support Files/Pods-SwiftBrick/Pods-SwiftBrick.release.xcconfig"; sourceTree = "<group>"; };
 		9111500423838CC200AE47DF /* SwiftBrick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBrick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9111500723838CC200AE47DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				9128EBAF238786C5006890C9 /* CALayerEx.swift */,
 				917FBC23238BC3640083721A /* UIColorEx.swift */,
 				917FBC27238CCD520083721A /* UINavigationControllerEx.swift */,
+				81F709FE23CF18CC002E9DFA /* UIButtonEx.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				9111503023838E1A00AE47DF /* TableViewController.swift in Sources */,
 				9128EBB82387D608006890C9 /* UIButtonSnapEx.swift in Sources */,
 				9128EBC22387F00F006890C9 /* UICollectionViewSnapEx.swift in Sources */,
+				81F709FF23CF18CC002E9DFA /* UIButtonEx.swift in Sources */,
 				9111502D23838DD100AE47DF /* JHTableViewCell.swift in Sources */,
 				9162261A2385534D0050F228 /* ExViewController.swift in Sources */,
 				911150322383BD8300AE47DF /* JHTableViewHeaderFooterView.swift in Sources */,
