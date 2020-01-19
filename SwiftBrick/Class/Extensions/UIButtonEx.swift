@@ -13,7 +13,7 @@ public enum ImagePosition {
     case imagePositionTop
     case imagePositionBottom
 }
-extension UIButton{
+public extension UIButton{
     func layoutButton(_ postion: ImagePosition, space: CGFloat) {
         
         guard let titleL = self.titleLabel, let imageV = self.imageView else {
