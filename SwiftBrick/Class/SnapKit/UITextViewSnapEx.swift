@@ -135,6 +135,7 @@ public extension UITextView {
     ///   - snapKitMaker: SnapKit 有默认参数
     ///   - delegate: 代理
     ///   - backColor: 背景色
+    @discardableResult
     class func snpTextView(holderFont: UIFont = UIFont.systemFont(ofSize: 14),
                            holder: String = "",
                            holderColor: UIColor = .black,

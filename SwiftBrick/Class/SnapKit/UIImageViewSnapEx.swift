@@ -20,6 +20,7 @@ public extension UIImageView {
     ///   - snapKitMaker: SnapKit 有默认参数
     ///   - snpTapGesture: 点击Block 有默认参数
     ///   - backColor: 背景色
+    @discardableResult
     class func snpImageView(supView : UIView? = nil,
                             image : UIImage? = nil,
                             isClip : Bool = false,

@@ -20,6 +20,7 @@ public extension UILabel {
     ///   - textAlignment: textAlignment 有默认参数
     ///   - snapKitMaker: SnapKit 有默认参数
     ///   - backColor: 背景色
+    @discardableResult
     class func snpLabel(font: UIFont = UIFont.systemFont(ofSize: 14),
                         lines: Int = 0,
                         text: String = "",

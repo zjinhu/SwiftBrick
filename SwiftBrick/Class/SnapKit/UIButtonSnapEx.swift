@@ -33,6 +33,7 @@ public extension UIButton {
     ///   - snapKitMaker: SnapKit 有默认参数
     ///   - touchUp: 点击Block 有默认参数
     ///   - backColor: 背景色
+    @discardableResult
     class func snpButton(supView : UIView? = nil,
                          title : String? = nil,
                          font : UIFont? = nil,

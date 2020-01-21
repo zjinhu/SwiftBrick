@@ -25,6 +25,7 @@ public extension UIView {
     ///   - snapKitMaker: SnapKit 有默认参数
     ///   - snpTapGesture: 点击Block 有默认参数
     ///   - backColor: 背景色
+    @discardableResult
     class func snpView(supView : UIView? = nil,
                        snapKitMaker : JHSnapKitTool.JHSnapMaker? = nil,
                        snpTapGesture : JHSnapKitTool.JHTapGestureBlock? = nil,

@@ -18,6 +18,7 @@ public extension UICollectionView {
     ///   - delegate: delegate
     ///   - dataSource: dataSource
     ///   - backColor: 背景色
+    @discardableResult
     class func snpCollectionView(supView: UIView? = nil,
                                  snapKitMaker : JHSnapKitTool.JHSnapMaker? = nil,
                                  scrollDirectionType: UICollectionView.ScrollDirection = .vertical,

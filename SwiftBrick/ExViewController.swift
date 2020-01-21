@@ -15,7 +15,7 @@ class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSou
         super.viewDidLoad()
         
         self.title = "示例UITableView"
-
+        
         let tableView = UITableView.snpTableView(supView: self.view,
                                                  snapKitMaker: { (make) in
                                                     make.edges.equalToSuperview()
@@ -30,14 +30,14 @@ class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSou
     }
     // MARK:-示例快速创建UIView 使用部分默认参数 --初始化使用SnapKit
     func demoView1(supView: UIView){
-        let _ = UIView.snpView(supView: supView,
-                               snapKitMaker: { (make) in
-                                make.top.equalTo(supView).offset(10)
-                                make.centerX.equalTo(supView)
-                                make.width.equalTo(80)
-                                make.height.equalTo(40)
+        UIView.snpView(supView: supView,
+                       snapKitMaker: { (make) in
+                        make.top.equalTo(supView).offset(10)
+                        make.centerX.equalTo(supView)
+                        make.width.equalTo(80)
+                        make.height.equalTo(40)
         },
-                               backColor: .red)
+                       backColor: .red)
         
     }
     // MARK:-示例快速创建UIView 使用部分默认参数--初始化不使用SnapKit
@@ -54,44 +54,44 @@ class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSou
     }
     // MARK:-示例快速创建UIView 使用全部参数--有单击操作
     func demoView3(supView: UIView){
-        let _ = UIView.snpView(supView: supView,
-                               snapKitMaker: { (make) in
-                                make.top.equalTo(supView).offset(20)
-                                make.centerX.equalTo(supView)
-                                make.width.equalTo(80)
-                                make.height.equalTo(40)
+        UIView.snpView(supView: supView,
+                       snapKitMaker: { (make) in
+                        make.top.equalTo(supView).offset(20)
+                        make.centerX.equalTo(supView)
+                        make.width.equalTo(80)
+                        make.height.equalTo(40)
         },
-                               snpTapGesture: { (view) in
-                                SLog("点击UIView")
+                       snpTapGesture: { (view) in
+                        SLog("点击UIView")
         },
-                               backColor: .orange)
+                       backColor: .orange)
     }
     // MARK:-示例快速创建UIimageView
     func demoImageView1(supView: UIView){
-        let _  = UIImageView.snpImageView(supView: supView,
-                                          snapKitMaker: { (make) in
-                                            make.top.equalTo(supView).offset(30)
-                                            make.centerX.equalTo(supView)
-                                            make.width.equalTo(80)
-                                            make.height.equalTo(40)
+        UIImageView.snpImageView(supView: supView,
+                                 snapKitMaker: { (make) in
+                                    make.top.equalTo(supView).offset(30)
+                                    make.centerX.equalTo(supView)
+                                    make.width.equalTo(80)
+                                    make.height.equalTo(40)
         },
-                                          snpTapGesture: { (imageView) in
-                                            SLog("点击图片")
+                                 snpTapGesture: { (imageView) in
+                                    SLog("点击图片")
         },
-                                          backColor: .purple)
+                                 backColor: .purple)
     }
     
     func demoImageView2(supView: UIView){
-        let _  = UIImageView.snpImageView(supView: supView,
-                                          image: UIImage.init(named: "share_haoyou_btn"),
-                                          isClip: true,
-                                          snapKitMaker: { (make) in
-                                            make.top.equalTo(supView).offset(30)
-                                            make.centerX.equalTo(supView)
-                                            make.width.equalTo(80)
-                                            make.height.equalTo(40)
+        UIImageView.snpImageView(supView: supView,
+                                 image: UIImage.init(named: "share_haoyou_btn"),
+                                 isClip: true,
+                                 snapKitMaker: { (make) in
+                                    make.top.equalTo(supView).offset(30)
+                                    make.centerX.equalTo(supView)
+                                    make.width.equalTo(80)
+                                    make.height.equalTo(40)
         },
-                                          backColor: .clear)
+                                 backColor: .clear)
     }
     // MARK:-示例快速创建按钮
     func demoButton(supView: UIView){

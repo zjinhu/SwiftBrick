@@ -18,6 +18,7 @@ public extension UITableView {
     ///   - delegate: delegate 
     ///   - dataSource: dataSource
     ///   - backColor: 背景色
+    @discardableResult
     class func snpTableView(supView: UIView? = nil,
                             snapKitMaker : JHSnapKitTool.JHSnapMaker? = nil,
                             style: UITableView.Style = .plain,
