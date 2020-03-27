@@ -27,10 +27,18 @@ public func StatusBarHeight() ->CGFloat {
 //导航栏高度:通用
 public let NAVBAR_HEIGHT = UINavigationController().navigationBar.frame.size.height
 //判断是否iphoneX
-public let ISIPHONEX = (Double(SCREEN_WIDTH) == Double(375.0) && Double(SCREEN_HEIGHT) == Double(812.0)) ? true : false
-public let NAVBARHEIGHT = ISIPHONEX ? Double(88.0) : Double(64.0)
-public let TABBARHEIGHT = ISIPHONEX ? Double(49.0+34.0) : Double(49.0)
-public let STATUSBARHEIGHT = ISIPHONEX ? Double(44.0) : Double(20.0)
+public func ISIPHONEX() -> Bool {
+    guard #available(iOS 11.0, *) else {
+        return false
+    }
+    
+    let isX = UIApplication.shared.windows[0].safeAreaInsets.bottom > 0
+    return isX
+}
+
+public let NAVBARHEIGHT = ISIPHONEX() ? Double(88.0) : Double(64.0)
+public let TABBARHEIGHT = ISIPHONEX() ? Double(49.0+34.0) : Double(49.0)
+public let STATUSBARHEIGHT = ISIPHONEX() ? Double(44.0) : Double(20.0)
 // MARK:- 画线宽度
 let Scare = UIScreen.main.scale
 public let LineHeight = (Scare >= 1 ? 1/Scare : 1)
@@ -47,17 +55,13 @@ public func IS_IOS13() -> Bool { return (UIDevice.current.systemVersion as NSStr
 public let systemVersion = (UIDevice.current.systemVersion as String)
 
 
-
-
-
-
 // MARK:- 打印输出
-public func SLog<T>(_ message : T, file : String = #file, funcName : String = #function, lineNum : Int = #line) {
-    #if DEBUG
-        let fileName = (file as NSString).lastPathComponent
-        print("\n\n<><><><><>-「LOG」-<><><><><>\n\n>>>>>>>>>>>>>>>所在类:>>>>>>>>>>>>>>>\n\n\(fileName)\n\n>>>>>>>>>>>>>>>所在行:>>>>>>>>>>>>>>>\n\n\(lineNum)\n\n>>>>>>>>>>>>>>>信 息:>>>>>>>>>>>>>>>\n\n\(message)\n\n<><><><><>-「END」-<><><><><>\n\n")
-    #endif
-}
+//public func SLog<T>(_ message : T, file : String = #file, funcName : String = #function, lineNum : Int = #line) {
+//    #if DEBUG
+//        let fileName = (file as NSString).lastPathComponent
+//        print("\n\n<><><><><>-「LOG」-<><><><><>\n\n>>>>>>>>>>>>>>>所在类:>>>>>>>>>>>>>>>\n\n\(fileName)\n\n>>>>>>>>>>>>>>>所在行:>>>>>>>>>>>>>>>\n\n\(lineNum)\n\n>>>>>>>>>>>>>>>信 息:>>>>>>>>>>>>>>>\n\n\(message)\n\n<><><><><>-「END」-<><><><><>\n\n")
+//    #endif
+//}
 
 // MARK:- 字体
 public let FONT_11 = UIFont.systemFont(ofSize: 11)
