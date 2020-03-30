@@ -80,12 +80,13 @@ private let shouldLog: Bool = false
     JHLog.log(message(), type: .ignore, file: file, function: function, line: line)
 }
 
+/// log等级
 public enum LogDegree : Int{
-    case ignore = 0
-    case debug = 1
-    case info = 2
-    case warning = 3
-    case error = 4
+    case ignore = 0//最低级log
+    case debug = 1//debug级别
+    case info = 2//重要信息级别
+    case warning = 3//警告级别
+    case error = 4//错误级别
 }
 
 public class JHLog {
