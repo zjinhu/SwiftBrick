@@ -70,7 +70,7 @@ public extension UIButton{
         
         guard
         let imageWidth = self.imageView?.image?.size.width,
-        let labelWidth = self.titleLabel?.text?.size(withAttributes: [NSAttributedString.Key.font : self.titleLabel?.font! as Any]).width
+            let labelWidth = self.titleLabel?.text?.size(withAttributes: [NSAttributedString.Key.font : self.titleLabel?.font ?? UIFont.systemFont(ofSize: 13)]).width
         else {
             return
         }

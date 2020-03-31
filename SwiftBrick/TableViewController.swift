@@ -10,6 +10,14 @@ import UIKit
 
 class TableViewController: JHTableViewController {
 
+    override var prefersStatusBarHidden: Bool {
+        return self.setHiddenStatusBar
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return self.setStyleStatusBar
+    }
+    
     override func configTableViewStyleType() {
         self.tableViewStyleType = .StyleGrouped
     }
@@ -69,5 +77,14 @@ class TableViewController: JHTableViewController {
         }
 
 
+    }
+    @available(iOS 13.0, *)
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y
+        if offset < 100 {
+            self.changeStatusBarStyle(style: .darkContent)
+        }else{
+            self.changeStatusBarStyle(style: .default)
+        }
     }
 }
