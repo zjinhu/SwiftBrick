@@ -36,7 +36,7 @@ let _ = UILabel.snpLabel(text: “我是Label”, textColor: .red, supView: self
 * CALayer  —添加阴影的扩展方法swSetShadow，方便一行代码添加阴影
 * UIColor —扩展UIColor，方便字符串类型的色值设置
 * UINavigationController —对Nav做扩展，给VC添加属性，方便设置隐藏导航栏，以及解决多级页面导航栏隐藏显示过程中的动画问题，
-仅需要在VC的viewDidLoad中设置 `self.prefersNavigationBarHidden = true/false`来控制当前页面的导航栏是否隐藏
+仅需要在VC的viewDidLoad中设置 `self.prefersNavigationBarHidden = true/false`来控制当前页面的导航栏是否隐藏（ios13需SceneDelegate中添加SwizzleNavBar.swizzle进行方法交换）详细请参考DEMO
 3. BaseVC
 针对几个常用的VC做了父类化封装。方便开发过程中的VC创建，只需要继承相关父类，调用相关方法执行相应的代理即可
 * JHViewController   --继承后方便设置导航栏左右按钮以及可选某些页面关闭滑动返回，统一返回方法
