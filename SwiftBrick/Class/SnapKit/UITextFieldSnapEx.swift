@@ -53,13 +53,14 @@ public extension UITextField {
         field.textAlignment = textAlignment
         field.backgroundColor = backColor
         
-        if supView != nil{
-            supView?.addSubview(field)
-            field.snp.makeConstraints { (make) in
-                snapKitMaker!(make)
-            }
+        guard let sv = supView, let maker = snapKitMaker else {
+            return field
         }
         
+        sv.addSubview(field)
+        field.snp.makeConstraints { (make) in
+            maker(make)
+        }
         return field
     }
 }

@@ -34,16 +34,20 @@ public extension UIView {
         let view = UIView.init()
         view.backgroundColor = backColor
         
-        if supView != nil{
-            supView?.addSubview(view)
-            view.snp.makeConstraints { (make) in
-                snapKitMaker!(make)
-            }
+        guard let sv = supView, let maker = snapKitMaker else {
+            return view
         }
         
-        if snpTapGesture != nil {
-            view.snpAddTapGestureWithCallback(snpTapGesture: snpTapGesture)
+        sv.addSubview(view)
+        view.snp.makeConstraints { (make) in
+            maker(make)
         }
+        
+        guard let ges = snpTapGesture else {
+            return view
+        }
+        view.snpAddTapGestureWithCallback(snpTapGesture: ges)
+
         
         return view
     }

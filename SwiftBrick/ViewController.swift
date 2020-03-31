@@ -23,7 +23,7 @@ class ViewController: JHTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       let cell = JHTableViewCell.dequeueReusableCell(tableView: tableView)
+       let cell = JHTableViewCell.dequeueReusableCell(tableView: tableView) ?? JHTableViewCell.init(style: .default)
         cell.textLabel?.text = self.mainDatas[indexPath.row] as? String
        return cell
     }

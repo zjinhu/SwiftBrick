@@ -8,18 +8,37 @@
 
 import UIKit
 
+//@available(iOS 13.0, *)
+//extension UIResponder {
+//    @objc var coordinatingResponder: UIResponder? {
+//        return self.next
+//    }
+//}
+//
+//@available(iOS 13.0, *)
+//extension UIScene{
+//    override open var next: UIResponder? {
+//        SwizzleNavBar.swizzle
+//        return super.next
+//    }
+//}
+
 extension UIApplication {
-    private static let runOnce: Void = {
-        UIViewController.swizzleMethod()
-        UINavigationController.swizzle()
-    }()
     override open var next: UIResponder? {
-        UIApplication.runOnce
+        SwizzleNavBar.swizzle
         return super.next
     }
 }
 
+public class SwizzleNavBar {
+    public static let swizzle: Void = {
+        UIViewController.swizzleMethod()
+        UINavigationController.swizzle()
+    }()
+}
+
 public extension NSObject {
+
     static func swizzlingForClass(_ forClass: AnyClass, originalSelector: Selector, swizzledSelector: Selector) {
         guard let originalMethod = class_getInstanceMethod(forClass, originalSelector),
               let swizzledMethod = class_getInstanceMethod(forClass, swizzledSelector) else {
@@ -36,7 +55,7 @@ public extension NSObject {
 }
 
 public extension UIViewController {
-    
+ 
     private struct Associated {
         static var WillAppearInject: String = "WillAppearInject"
     }

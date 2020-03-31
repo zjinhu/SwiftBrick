@@ -78,13 +78,12 @@ open class JHCollectionViewController: JHViewController ,UICollectionViewDelegat
         self.collectionView?.contentInsetAdjustmentBehavior = .automatic
         
         // Do any additional setup after loading the view.
-        let gestureArray : [UIGestureRecognizer] = (self.navigationController?.view.gestureRecognizers)!
-        for gesture in gestureArray {
+        let gestureArray : [UIGestureRecognizer]? = self.navigationController?.view.gestureRecognizers
+        gestureArray?.forEach({ (gesture) in
             if gesture.isEqual(UIScreenEdgePanGestureRecognizer.self) {
                 self.collectionView?.panGestureRecognizer.require(toFail: gesture)
             }
-        }
-        
+        })
         JHCollectionViewCell.registerCell(collectionView: self.collectionView!)
     }
     // MARK: - 数据源判断

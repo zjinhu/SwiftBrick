@@ -163,11 +163,12 @@ public extension UITextView {
         
         textView.backgroundColor = backColor
         
-        if supView != nil{
-            supView?.addSubview(textView)
-            textView.snp.makeConstraints { (make) in
-                snapKitMaker!(make)
-            }
+        guard let sv = supView, let maker = snapKitMaker else {
+            return textView
+        }
+        sv.addSubview(textView)
+        textView.snp.makeConstraints { (make) in
+            maker(make)
         }
         
         return textView

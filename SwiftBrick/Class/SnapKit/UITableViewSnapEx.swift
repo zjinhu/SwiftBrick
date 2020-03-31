@@ -39,11 +39,13 @@ public extension UITableView {
         tableView.delaysContentTouches = true
         tableView.contentInsetAdjustmentBehavior = .automatic
         
-        if supView != nil{
-            supView?.addSubview(tableView)
-            tableView.snp.makeConstraints { (make) in
-                snapKitMaker!(make)
-            }
+        guard let sv = supView, let maker = snapKitMaker else {
+            return tableView
+        }
+        
+        sv.addSubview(tableView)
+        tableView.snp.makeConstraints { (make) in
+            maker(make)
         }
         
         return tableView

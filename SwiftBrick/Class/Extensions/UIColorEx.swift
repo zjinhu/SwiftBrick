@@ -68,29 +68,29 @@ public extension UIColor {
     }
     //随机色
     
-    static var random: UIColor {
+    static var random: UIColor? {
         let red = Int.random(in: 0...255)
         let green = Int.random(in: 0...255)
         let blue = Int.random(in: 0...255)
-        return UIColor.init(red: red, green: green, blue: blue)!
+        return UIColor.init(red: red, green: green, blue: blue)
     }
     
     
     struct FlatUI {
 
-        public static let turquoise             = UIColor.init(hex: 0x1abc9c)!
+        public static let turquoise             = UIColor.init(hex: 0x1abc9c)
 
         /// SwifterSwift: hex #16A085
-        public static let greenSea              = UIColor.init(hex: 0x16a085)!
+        public static let greenSea              = UIColor.init(hex: 0x16a085)
 
         /// SwifterSwift: hex #2ECC71
-        public static let emerald               = UIColor.init(hex: 0x2ecc71)!
+        public static let emerald               = UIColor.init(hex: 0x2ecc71)
 
         /// SwifterSwift: hex #27AE60
-        public static let nephritis             = UIColor.init(hex: 0x27ae60)!
+        public static let nephritis             = UIColor.init(hex: 0x27ae60)
 
         /// SwifterSwift: hex #3498DB
-        public static let peterRiver            = UIColor.init(hex: 0x3498db)!
+        public static let peterRiver            = UIColor.init(hex: 0x3498db)
 
     }
 }

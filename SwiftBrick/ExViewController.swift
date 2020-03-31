@@ -114,7 +114,7 @@ class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = JHTableViewCell.dequeueReusableCell(tableView: tableView)
+        let cell = JHTableViewCell.dequeueReusableCell(tableView: tableView) ?? JHTableViewCell.init(style: .default)
         for view in cell.contentView.subviews {
             view.removeFromSuperview()
         }

@@ -51,6 +51,7 @@ open class JHViewController: UIViewController {
                 return
             }
         }
+
         if (self.presentingViewController != nil) {
             self.dismiss(animated: true, completion: nil)
         }

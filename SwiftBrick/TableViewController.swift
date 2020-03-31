@@ -47,7 +47,7 @@ class TableViewController: JHTableViewController {
         return view
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       let cell = JHTableViewCell.dequeueReusableCell(tableView: tableView)
+       let cell = JHTableViewCell.dequeueReusableCell(tableView: tableView) ?? JHTableViewCell.init(style: .default)
         var str : String?
         if indexPath.row % 2 == 0 {
             str = "隐藏导航栏的VC"

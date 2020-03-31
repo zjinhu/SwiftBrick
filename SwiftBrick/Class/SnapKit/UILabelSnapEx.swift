@@ -42,11 +42,13 @@ public extension UILabel {
         }else{
             label.lineBreakMode = .byWordWrapping
         }
-        if supView != nil{
-            supView?.addSubview(label)
-            label.snp.makeConstraints { (make) in
-                snapKitMaker!(make)
-            }
+        guard let sv = supView, let maker = snapKitMaker else {
+            return label
+        }
+        
+        sv.addSubview(label)
+        label.snp.makeConstraints { (make) in
+            maker(make)
         }
         
         return label

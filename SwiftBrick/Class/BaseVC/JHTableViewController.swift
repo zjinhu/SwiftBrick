@@ -84,12 +84,13 @@ open class JHTableViewController: JHViewController ,UITableViewDelegate,UITableV
         
         self.tableView?.contentInsetAdjustmentBehavior = .automatic
 
-        let gestureArray : [UIGestureRecognizer] = (self.navigationController?.view.gestureRecognizers)!
-        for gesture in gestureArray {
+        let gestureArray : [UIGestureRecognizer]? = self.navigationController?.view.gestureRecognizers
+        
+        gestureArray?.forEach({ (gesture) in
             if gesture.isEqual(UIScreenEdgePanGestureRecognizer.self) {
                 self.tableView?.panGestureRecognizer.require(toFail: gesture)
             }
-        }
+        })
         
         JHTableViewCell.registerCell(tableView: self.tableView!)
         
@@ -139,7 +140,7 @@ open class JHTableViewController: JHViewController ,UITableViewDelegate,UITableV
      }
      
      open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = JHTableViewCell.dequeueReusableCell(tableView: tableView)
+        let cell = JHTableViewCell.dequeueReusableCell(tableView: tableView) ?? JHTableViewCell.init(style: .default)
         cell.textLabel?.text = String.init(describing: indexPath.row)
         return cell
      }

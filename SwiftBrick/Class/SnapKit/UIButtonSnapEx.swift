@@ -84,27 +84,29 @@ public extension UIButton {
             btn.layer.borderWidth = CGFloat(borderWidth)
         }
         
-        if supView != nil{
-            supView?.addSubview(btn)
-            btn.snp.makeConstraints { (make) in
-                snapKitMaker!(make)
-            }
+        guard let sv = supView, let maker = snapKitMaker else {
+            return btn
         }
-        
-        if (touchUp != nil) {
-            btn.snpAddTouchUpInSideBtnAction(touchUp: touchUp)
+        sv.addSubview(btn)
+        btn.snp.makeConstraints { (make) in
+            maker(make)
         }
-        
+        guard let ges = touchUp else {
+            return btn
+        }
+        btn.snpAddTouchUpInSideBtnAction(touchUp: ges)
+
         return btn
     }
     
     @objc func snpAddTouchUpInSideBtnAction(touchUp : JHSnapKitTool.JHButtonBlock?){
         
         self.removeTarget(self, action: #selector(touchUpInSideBtnAction), for: .touchUpInside)
-        if touchUp != nil {
-            self.snpAction = touchUp
-            self.addTarget(self, action: #selector(touchUpInSideBtnAction), for: .touchUpInside)
+        guard let ges = touchUp else {
+            return
         }
+        self.snpAction = ges
+        self.addTarget(self, action: #selector(touchUpInSideBtnAction), for: .touchUpInside)
     }
     
     @objc func touchUpInSideBtnAction() {

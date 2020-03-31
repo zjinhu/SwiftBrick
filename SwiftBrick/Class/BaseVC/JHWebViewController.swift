@@ -56,13 +56,19 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
     
     public var closeWebPopGesture : Bool? {
         didSet{
-            self.webView.allowsBackForwardNavigationGestures = closeWebPopGesture!
+            guard let close = closeWebPopGesture else {
+                return
+            }
+            self.webView.allowsBackForwardNavigationGestures = close
         }
     }
     
     public var injectCookie : (key :String, value :String)? {
         didSet{
-            let cookieStr = String.init(format: "%@=%@", injectCookie!.key , injectCookie!.value)
+            guard let cookie = injectCookie else {
+                return
+            }
+            let cookieStr = String.init(format: "%@=%@", cookie.key , cookie.value)
             let jsStr = String.init(format: "document.cookie = '%@';", cookieStr)
             ///js方式
             let script = WKUserScript.init(source: jsStr, injectionTime: WKUserScriptInjectionTime.atDocumentStart, forMainFrameOnly: false)
@@ -80,8 +86,8 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         didSet{
             let web = UIWebView.init()
             var oldAgent = web.stringByEvaluatingJavaScript(from: "navigator.userAgent")
-            oldAgent! += ";"
-            oldAgent! += agent!
+            oldAgent? += ";"
+            oldAgent? += agent!
             self.webView.customUserAgent = oldAgent
         }
     }
@@ -97,8 +103,11 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
     
     public convenience init(url: String, cookie: Dictionary<String, String>) {
          self.init()
+        guard let urlReal = URL.init(string: url) else {
+            return
+        }
         self.url = url
-        var request = URLRequest.init(url: URL.init(string: url)!)
+        var request = URLRequest.init(url: urlReal)
         var cookieStr = ""
         if cookie.count > 0 {
             for (key,value) in cookie {
@@ -163,20 +172,22 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
             webView.load(navigationAction.request)
         }
         
-        let cUrl = navigationAction.request.url
-        let urlString = cUrl?.absoluteString
-        self.currentUrl = urlString
-        let scheme = cUrl?.scheme
-        switch scheme {
-        case "tel":
-            if UIApplication.shared.canOpenURL(cUrl!) {
-                UIApplication.shared.open(cUrl!, options: [:], completionHandler: nil)
-                decisionHandler(.cancel)
-                return
+        if let cUrl = navigationAction.request.url{
+            let urlString = cUrl.absoluteString
+            self.currentUrl = urlString
+            let scheme = cUrl.scheme
+            switch scheme {
+            case "tel":
+                if UIApplication.shared.canOpenURL(cUrl) {
+                    UIApplication.shared.open(cUrl, options: [:], completionHandler: nil)
+                    decisionHandler(.cancel)
+                    return
+                }
+            default:
+                print("")
             }
-        default:
-            print("")
         }
+
         decisionHandler(.allow)
     }
     open func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
@@ -290,10 +301,11 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
     }
     // MARK: - 发起请求
     open func loadRequest() {
-        if self.request != nil {
-            self.webView.load(self.request!)
-        }else{
-            self.webView.load(URLRequest.init(url: URL.init(string: self.url!)!))
+ 
+        if let re = self.request {
+            self.webView.load(re)
+        }else if let url = self.url, let realURL = URL.init(string: url) {
+            self.webView.load(URLRequest.init(url: realURL))
         }
     }
     // MARK: - 方法
@@ -321,7 +333,10 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
     @objc func reloadWebView(){
         self.loadingProgressView.progress = 0
         self.loadingProgressView.isHidden = false
-        self.webView.load(URLRequest.init(url: URL.init(string: self.currentUrl!)!))
+        guard let url = self.currentUrl, let realURL = URL.init(string: url) else{
+            return
+        }
+        self.webView.load(URLRequest.init(url: realURL))
     }
 
     // MARK: - 生命周期结束 清理

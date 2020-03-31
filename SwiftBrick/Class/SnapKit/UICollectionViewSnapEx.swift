@@ -42,11 +42,13 @@ public extension UICollectionView {
         collectionView.delaysContentTouches = true
         collectionView.contentInsetAdjustmentBehavior = .automatic
         
-        if supView != nil{
-            supView?.addSubview(collectionView)
-            collectionView.snp.makeConstraints { (make) in
-                snapKitMaker!(make)
-            }
+        guard let sv = supView, let maker = snapKitMaker else {
+            return collectionView
+        }
+        
+        sv.addSubview(collectionView)
+        collectionView.snp.makeConstraints { (make) in
+            maker(make)
         }
         
         return collectionView

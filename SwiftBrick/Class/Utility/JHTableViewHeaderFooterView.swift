@@ -16,7 +16,7 @@ open class JHTableViewHeaderFooterView: UITableViewHeaderFooterView {
         }
     }
     
-    override init(reuseIdentifier: String?) {
+    override init(reuseIdentifier: String? = String.init(describing: self)) {
         super.init(reuseIdentifier: reuseIdentifier)
         self.backgroundView = UIView(frame: self.bounds)
         self.backgroundView?.backgroundColor = .clear
@@ -48,7 +48,7 @@ open class JHTableViewHeaderFooterView: UITableViewHeaderFooterView {
         tableView.register(self, forHeaderFooterViewReuseIdentifier: reuseIdentifier)
     }
     // MARK: - 复用取值
-    public class func dequeueReusableHeaderFooterView(tableView: UITableView, reuseIdentifier: String = String.init(describing: self)) ->UITableViewHeaderFooterView{
-        return tableView.dequeueReusableHeaderFooterView(withIdentifier: reuseIdentifier)!
+    public class func dequeueReusableHeaderFooterView(tableView: UITableView, reuseIdentifier: String = String.init(describing: self)) ->UITableViewHeaderFooterView?{
+        return tableView.dequeueReusableHeaderFooterView(withIdentifier: reuseIdentifier)
     }
 }

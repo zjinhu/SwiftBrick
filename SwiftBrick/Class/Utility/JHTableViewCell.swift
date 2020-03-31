@@ -24,7 +24,7 @@ open class JHTableViewCell: UITableViewCell {
     required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String? = String.init(describing: self)) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.contentView.backgroundColor = .clear
         self.configCellViews()
@@ -52,7 +52,7 @@ open class JHTableViewCell: UITableViewCell {
         tableView.register(self, forCellReuseIdentifier: reuseIdentifier)
     }
     // MARK: - 复用取值
-    public class func dequeueReusableCell(tableView: UITableView, reuseIdentifier: String = String.init(describing: self)) ->UITableViewCell{
-        return tableView.dequeueReusableCell(withIdentifier: reuseIdentifier)!
+    public class func dequeueReusableCell(tableView: UITableView, reuseIdentifier: String = String.init(describing: self)) ->UITableViewCell?{
+        return tableView.dequeueReusableCell(withIdentifier: reuseIdentifier)
     }
 }

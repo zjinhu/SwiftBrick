@@ -37,16 +37,19 @@ public extension UIImageView {
         
         imageView.image = image
         
-        if supView != nil{
-            supView?.addSubview(imageView)
-            imageView.snp.makeConstraints { (make) in
-                snapKitMaker!(make)
-            }
+        guard let sv = supView, let maker = snapKitMaker else {
+            return imageView
+        }
+        sv.addSubview(imageView)
+        imageView.snp.makeConstraints { (make) in
+            maker(make)
         }
         
-        if snpTapGesture != nil {
-            imageView.snpAddTapGestureWithCallback(snpTapGesture: snpTapGesture)
+        guard let ges = snpTapGesture else {
+            return imageView
         }
+        imageView.snpAddTapGestureWithCallback(snpTapGesture: ges)
+        
         
         return imageView
     }
