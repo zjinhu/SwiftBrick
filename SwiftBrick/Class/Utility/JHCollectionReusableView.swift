@@ -14,7 +14,7 @@ open class JHCollectionReusableView: UICollectionReusableView {
         case SectionFooter//UICollectionElementKindSectionFooter
     }
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         self.configCellViews()
         self.backgroundColor = .clear

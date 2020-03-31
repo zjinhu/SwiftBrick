@@ -54,15 +54,6 @@ public func IS_IOS12() -> Bool { return (UIDevice.current.systemVersion as NSStr
 public func IS_IOS13() -> Bool { return (UIDevice.current.systemVersion as NSString).doubleValue >= 13.0 }
 public let systemVersion = (UIDevice.current.systemVersion as String)
 
-
-// MARK:- 打印输出
-//public func SLog<T>(_ message : T, file : String = #file, funcName : String = #function, lineNum : Int = #line) {
-//    #if DEBUG
-//        let fileName = (file as NSString).lastPathComponent
-//        print("\n\n<><><><><>-「LOG」-<><><><><>\n\n>>>>>>>>>>>>>>>所在类:>>>>>>>>>>>>>>>\n\n\(fileName)\n\n>>>>>>>>>>>>>>>所在行:>>>>>>>>>>>>>>>\n\n\(lineNum)\n\n>>>>>>>>>>>>>>>信 息:>>>>>>>>>>>>>>>\n\n\(message)\n\n<><><><><>-「END」-<><><><><>\n\n")
-//    #endif
-//}
-
 // MARK:- 字体
 public let FONT_11 = UIFont.systemFont(ofSize: 11)
 public let FONT_12 = UIFont.systemFont(ofSize: 12)
@@ -77,3 +68,12 @@ public var SystemMediumFont : (CGFloat) -> UIFont = {size in
 public var SystemFont : (CGFloat) -> UIFont = {size in
     return UIFont.systemFont(ofSize: size)
 }
+
+
+// MARK:- 打印输出
+//public func SLog<T>(_ message : T, file : String = #file, funcName : String = #function, lineNum : Int = #line) {
+//    #if DEBUG
+//        let fileName = (file as NSString).lastPathComponent
+//        print("\n\n<><><><><>-「LOG」-<><><><><>\n\n>>>>>>>>>>>>>>>所在类:>>>>>>>>>>>>>>>\n\n\(fileName)\n\n>>>>>>>>>>>>>>>所在行:>>>>>>>>>>>>>>>\n\n\(lineNum)\n\n>>>>>>>>>>>>>>>信 息:>>>>>>>>>>>>>>>\n\n\(message)\n\n<><><><><>-「END」-<><><><><>\n\n")
+//    #endif
+//}

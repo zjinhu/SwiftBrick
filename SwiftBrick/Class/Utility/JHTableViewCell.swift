@@ -24,7 +24,7 @@ open class JHTableViewCell: UITableViewCell {
     required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String? = String.init(describing: self)) {
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String? = String.init(describing: self)) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.contentView.backgroundColor = .clear
         self.configCellViews()
