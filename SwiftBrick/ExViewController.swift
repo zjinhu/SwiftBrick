@@ -62,7 +62,7 @@ class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSou
                         make.height.equalTo(40)
         },
                        snpTapGesture: { (view) in
-                        JHLogIgnore("点击UIView")
+                        print("点击UIView")
         },
                        backColor: .orange)
     }
@@ -76,7 +76,7 @@ class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSou
                                     make.height.equalTo(40)
         },
                                  snpTapGesture: { (imageView) in
-                                    JHLogIgnore("点击图片")
+                                    print("点击图片")
         },
                                  backColor: .purple)
     }
@@ -99,7 +99,7 @@ class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSou
             make.top.equalTo(supView).offset(40)
             make.centerX.equalTo(supView)
         }, touchUp: { (btn) in
-            JHLogIgnore("点击Button")
+            print("点击Button")
         }, backColor: .orange)
         btn.setImage(UIImage.init(named: "share_haoyou_btn"), for: .normal)
         btn.layoutButton(.imagePositionRight, space: 10)
@@ -145,6 +145,6 @@ class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSou
     }
     
     deinit{
-        JHLogIgnore("释放")
+        print("释放")
     }
 }

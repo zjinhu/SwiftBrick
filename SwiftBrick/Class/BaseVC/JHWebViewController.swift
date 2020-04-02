@@ -159,12 +159,12 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
     }
     // MARK: - WKScriptMessageHandler JS调用原生交互
     open func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        JHLogInfo("\(message.name)-\(message.body)")
+        debugPrint("\(message.name)-\(message.body)")
         switch message.name {
         case "JumpViewController":
-            JHLogInfo("JumpViewController")
+            debugPrint("JumpViewController")
         default:
-            JHLogIgnore("")
+            debugPrint("")
         }
     }
     // MARK: - WKNavigationDelegate
@@ -211,7 +211,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
             self.navigationItem.title = result as? String
         }
         webView.evaluateJavaScript("navigator.userAgent") { (result, error) in
-            JHLogInfo("\(String(describing: result))")
+            debugPrint("\(String(describing: result))")
         }
     }
     
@@ -352,7 +352,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         let websiteDataTypes = WKWebsiteDataStore.allWebsiteDataTypes()
         let modifiedSince = Date.init(timeIntervalSince1970: 0)
         WKWebsiteDataStore.default().removeData(ofTypes: websiteDataTypes, modifiedSince: modifiedSince) {
-            JHLogIgnore("清理完成")
+            debugPrint("清理完成")
         }
         URLCache.shared.removeAllCachedResponses()
         URLCache.shared.diskCapacity = 0

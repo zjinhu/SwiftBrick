@@ -12,11 +12,7 @@ class ViewController: JHTableViewController {
 
 
     override func viewDidLoad() {
-        JHLogIgnore("SwiftBrick示例")
-        JHLogDebug("SwiftBrick示例")
-        JHLogInfo("SwiftBrick示例")
-        JHLogWarn("SwiftBrick示例")
-        JHLogError("SwiftBrick示例")
+ 
         super.viewDidLoad()
         self.title = "SwiftBrick示例"
         self.mainDatas = ["跳转Tableview","跳转CollectionView","跳转WebView","跳转EXView"]
@@ -47,7 +43,7 @@ class ViewController: JHTableViewController {
         }
     }
     deinit{
-        JHLogIgnore("1释放")
+        print("1释放")
     }
 }
 
