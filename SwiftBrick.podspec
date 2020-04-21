@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SwiftBrick'
-  s.version          = '0.6.0'
+  s.version          = '0.7.0'
   s.summary          = '工具类组件.'
  
   s.description      = <<-DESC
@@ -37,9 +37,9 @@ Pod::Spec.new do |s|
       ss.source_files = 'SwiftBrick/Class/BaseVC/**/*' 
     end
    
-  	s.subspec 'SnapKit' do |ss|
+  	s.subspec 'ViewFactory' do |ss|
       ss.dependency 'SnapKit'
-		  ss.source_files = 'SwiftBrick/Class/SnapKit/**/*' 
+	  ss.source_files = 'SwiftBrick/Class/ViewFactory/**/*' 
     end
 
 end

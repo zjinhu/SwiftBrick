@@ -151,7 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				9111502223838DD100AE47DF /* Images.xcassets */,
-				917FBC22238BA1240083721A /* SnapKit */,
+				917FBC22238BA1240083721A /* ViewFactory */,
 				9111501C23838DD100AE47DF /* Extensions */,
 				9111501D23838DD100AE47DF /* BaseVC */,
 				9111502323838DD100AE47DF /* Utility */,
@@ -196,7 +196,7 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
-		917FBC22238BA1240083721A /* SnapKit */ = {
+		917FBC22238BA1240083721A /* ViewFactory */ = {
 			isa = PBXGroup;
 			children = (
 				9128EBB12387B032006890C9 /* JHSnapKitTool.swift */,
@@ -209,7 +209,7 @@
 				9128EBBF2387EFF6006890C9 /* UITableViewSnapEx.swift */,
 				9128EBC12387F00F006890C9 /* UICollectionViewSnapEx.swift */,
 			);
-			path = SnapKit;
+			path = ViewFactory;
 			sourceTree = "<group>";
 		};
 		C74C00F04E10698BB2D79B49 /* Pods */ = {

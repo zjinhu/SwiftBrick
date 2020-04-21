@@ -6,6 +6,6 @@ target 'SwiftBrick' do
   use_frameworks!
 
   # Pods for SwiftBrick
-  pod 'SwifterSwift'
+#  pod 'SwifterSwift'
   pod 'SnapKit'
 end
