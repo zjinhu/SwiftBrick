@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		81185EB52455A9260030329B /* UITabBarEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81185EB42455A9260030329B /* UITabBarEx.swift */; };
 		816DABED2433351000E2B77B /* StatusBaEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816DABEC2433351000E2B77B /* StatusBaEx.swift */; };
 		81F709FF23CF18CC002E9DFA /* UIButtonEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F709FE23CF18CC002E9DFA /* UIButtonEx.swift */; };
 		9111500823838CC200AE47DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111500723838CC200AE47DF /* AppDelegate.swift */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		77965A09D8F67F588257CBE9 /* Pods-SwiftBrick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBrick.debug.xcconfig"; path = "Target Support Files/Pods-SwiftBrick/Pods-SwiftBrick.debug.xcconfig"; sourceTree = "<group>"; };
+		81185EB42455A9260030329B /* UITabBarEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarEx.swift; sourceTree = "<group>"; };
 		816DABEC2433351000E2B77B /* StatusBaEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBaEx.swift; sourceTree = "<group>"; };
 		81F709FE23CF18CC002E9DFA /* UIButtonEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonEx.swift; sourceTree = "<group>"; };
 		82CE79D1DBAE0B9E369C40C8 /* Pods-SwiftBrick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBrick.release.xcconfig"; path = "Target Support Files/Pods-SwiftBrick/Pods-SwiftBrick.release.xcconfig"; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				917FBC27238CCD520083721A /* UINavigationControllerEx.swift */,
 				81F709FE23CF18CC002E9DFA /* UIButtonEx.swift */,
 				816DABEC2433351000E2B77B /* StatusBaEx.swift */,
+				81185EB42455A9260030329B /* UITabBarEx.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				9111502A23838DD100AE47DF /* JHViewController.swift in Sources */,
 				9128EBBA2387EFAA006890C9 /* UILabelSnapEx.swift in Sources */,
 				9111500A23838CC200AE47DF /* SceneDelegate.swift in Sources */,
+				81185EB52455A9260030329B /* UITabBarEx.swift in Sources */,
 				9128EBBC2387EFC3006890C9 /* UITextFieldSnapEx.swift in Sources */,
 				917FBC28238CCD520083721A /* UINavigationControllerEx.swift in Sources */,
 				9111502923838DD100AE47DF /* JHWebViewController.swift in Sources */,

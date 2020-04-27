@@ -14,7 +14,7 @@ class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "示例UITableView"
+//        self.title = "示例UITableView"
         
         let tableView = UITableView.snpTableView(supView: self.view,
                                                  snapKitMaker: { (make) in
@@ -26,6 +26,12 @@ class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSou
                                                  backColor: .white)
         
         JHTableViewCell.registerCell(tableView: tableView)
+//         self.tabBarController?.tabBar.badgePoint = CGPoint(x: 25, y: -3)
+        self.tabBarController?.tabBar.badgeSize = CGSize(width: 20, height: 20)
+//        self.tabBarController?.tabBar.badgeColor = UIColor.red
+//        self.tabBarController?.tabBar.badgeImage = UIImage(named: "share_haoyou_btn")
+        self.tabBarController?.tabBar.badgeValue = 200
+        self.tabBarController?.tabBar.showBadgeOnItemIndex(index: 0)
         
     }
     // MARK:-示例快速创建UIView 使用部分默认参数 --初始化使用SnapKit
@@ -77,6 +83,7 @@ class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSou
         },
                                  snpTapGesture: { (imageView) in
                                     print("点击图片")
+                                    self.tabBarController?.tabBar.hiddenRedPointOnIndex(index: 0, animation: true)
         },
                                  backColor: .purple)
     }

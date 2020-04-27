@@ -18,6 +18,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         SwizzleNavBar.swizzle
+        let tabVC = UITabBarController()
+        let demo1VC  = ViewController()
+        let nav1 = UINavigationController.init(rootViewController: demo1VC)
+        nav1.tabBarItem = UITabBarItem(title: "11", image:  UIImage(named: "tab_chat_nor"),selectedImage:  UIImage(named: "tab_chat_hi"))
+        let demo2VC  = ExViewController()
+        demo2VC.tabBarItem = UITabBarItem(title: "22", image:  UIImage(named: "tab_home_nor"),selectedImage:  UIImage(named: "tab_home_hi"))
+        tabVC.viewControllers = [nav1, demo2VC]
+        
+        tabVC.tabBar.tintColor = UIColor(red: 255/255.0, green: 204/255.0, blue: 13/255.0, alpha: 1)
+        tabVC.tabBar.unselectedItemTintColor = .purple
+        tabVC.tabBar.isTranslucent = true
+        
+        let windowScene = scene as! UIWindowScene
+        window? = UIWindow.init(windowScene: windowScene)
+        window?.frame = windowScene.coordinateSpace.bounds
+        window?.makeKeyAndVisible()
+        window?.rootViewController = tabVC
+        window?.backgroundColor = .white
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 
