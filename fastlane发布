@@ -1,0 +1,49 @@
+#!/bin/bash
+#!/bin/bash
+fadir()  
+{  
+    local this_dir=`pwd`  
+    local child_dir="$1" 
+    dirname "$child_dir" 
+    cd $this_dir  
+} 
+CUR_DIR=$(cd `dirname $0` && pwd -P ) 
+echo "当前文件路径 $CUR_DIR"
+cd $CUR_DIR
+
+
+
+echo "----------------------------------"
+echo "请选择要发布的podspec:"
+echo "(0) 退出"
+  a=1
+  list=`find . -type f -name "*.podspec"`
+  for i in $list  
+    do  
+    echo " ($a) $i"  
+    array[$a]=$i
+    a=$(($a+1)) 
+  done  
+echo "----------------------------------"
+read input
+case $input in
+    [1-9])
+
+	name1=${array[1]} 
+
+	name2=${name1#*/}
+
+	podspec=${name2%.*}
+    echo "$input--$podspec"
+    read -p " 
+
+🚀 请输入版本号: " user_tags
+
+    fastlane $podspec tag:$user_tags;;
+    0)
+    exit;;
+esac
+
+exit
+ 
+
