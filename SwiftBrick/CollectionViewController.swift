@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CollectionKit
 class CollectionViewController: JHCollectionViewController {
 
     override func viewDidLoad() {
@@ -17,6 +17,7 @@ class CollectionViewController: JHCollectionViewController {
         // Do any additional setup after loading the view.
         JHCollectionReusableView.registerHeaderFooterView(collectionView: self.collectionView!, viewType: .SectionHeader)
         JHCollectionReusableView.registerHeaderFooterView(collectionView: self.collectionView!, viewType: .SectionFooter)
+         
     }
     
 

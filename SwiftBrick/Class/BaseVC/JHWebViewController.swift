@@ -77,6 +77,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
             self.request?.setValue(cookieStr, forHTTPHeaderField: "Cookie")
         }
     }
+    
     @objc
     public var navTitle : String?
     @objc
@@ -157,6 +158,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         //        // 为estimatedProgress添加KVO
         self.webView.addObserver(self, forKeyPath: "estimatedProgress", options: [.old, .new], context: nil)
     }
+    
     // MARK: - WKScriptMessageHandler JS调用原生交互
     open func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         debugPrint("\(message.name)-\(message.body)")
@@ -167,6 +169,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
             debugPrint("")
         }
     }
+    
     // MARK: - WKNavigationDelegate
     open func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         
@@ -192,6 +195,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         
         decisionHandler(.allow)
     }
+    
     open func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
         decisionHandler(.allow)
     }
@@ -247,6 +251,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         }))
         self.present(alert, animated: true, completion: nil)
     }
+    
     open func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Void) {
         
         let alert = UIAlertController(title: nil, message: prompt, preferredStyle: .alert)
@@ -264,6 +269,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         }))
         self.present(alert, animated: true, completion: nil)
     }
+    
     // MARK: - 监听进度条
     //    func setupObserver(){
     //        progressObervation = self.webView.observe(\.estimatedProgress, options: .new, changeHandler: { (self, change) in
@@ -299,6 +305,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
             }
         }
     }
+    
     // MARK: - 发起请求
     open func loadRequest() {
         
@@ -308,6 +315,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
             self.webView.load(URLRequest.init(url: realURL))
         }
     }
+    
     // MARK: - 方法
     ///重写父类返回方法
     open override func goBack() {
@@ -317,6 +325,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
             self.closeVC()
         }
     }
+    
     ///关闭当前VC
     open func closeVC() {
         if let viewControllers: [UIViewController] = self.navigationController?.viewControllers {
@@ -329,6 +338,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
             self.dismiss(animated: true, completion: nil)
         }
     }
+    
     ///reload按钮点击
     @objc func reloadWebView(){
         self.loadingProgressView.progress = 0

@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class JHTableViewHeaderFooterView: UITableViewHeaderFooterView {
+open class JHTableViewHeaderFooterView: UITableViewHeaderFooterView, CellProtocol{
 
     public var backColor : UIColor? {
         didSet{
@@ -26,14 +26,7 @@ open class JHTableViewHeaderFooterView: UITableViewHeaderFooterView {
     required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    // MARK: - 继承 在内部实现布局
-    open func configCellViews() {
-        
-    }
-    // MARK: - cell赋值
-    open func setCellModel(model: Any) {
-        
-    }
+
     // MARK: - 获取高度
     public func getCellHeightWithModel(model: Any) -> CGFloat {
         self.setCellModel(model: model)
@@ -47,6 +40,7 @@ open class JHTableViewHeaderFooterView: UITableViewHeaderFooterView {
     public class func registerHeaderFooterView(tableView: UITableView, reuseIdentifier: String = String.init(describing: self)) {
         tableView.register(self, forHeaderFooterViewReuseIdentifier: reuseIdentifier)
     }
+    
     // MARK: - 复用取值
     public class func dequeueReusableHeaderFooterView(tableView: UITableView, reuseIdentifier: String = String.init(describing: self)) ->UITableViewHeaderFooterView?{
         return tableView.dequeueReusableHeaderFooterView(withIdentifier: reuseIdentifier)

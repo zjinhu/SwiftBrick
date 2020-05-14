@@ -20,6 +20,7 @@ open class JHCollectionViewController: JHViewController ,UICollectionViewDelegat
     public var mainDatas : Array<Any> = []
     public var scrollDirectionType : ScrollDirectionType = .ScrollVertical
     public var flowLayout : UICollectionViewFlowLayout?
+    
    // MARK: - 初始化
     public convenience init(scrollDirectionType: ScrollDirectionType = .ScrollVertical) {
         self.init()
@@ -86,6 +87,7 @@ open class JHCollectionViewController: JHViewController ,UICollectionViewDelegat
         })
         JHCollectionViewCell.registerCell(collectionView: self.collectionView!)
     }
+    
     // MARK: - 数据源判断
     func isMultiDatas() -> Bool {
         let data = self.mainDatas.first

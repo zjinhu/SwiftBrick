@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class JHCollectionReusableView: UICollectionReusableView {
+open class JHCollectionReusableView: UICollectionReusableView, CellProtocol{
     public enum ReusableViewType {
         case SectionHeader//UICollectionElementKindSectionHeader
         case SectionFooter//UICollectionElementKindSectionFooter
@@ -23,14 +23,7 @@ open class JHCollectionReusableView: UICollectionReusableView {
     required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    // MARK: - 继承 在内部实现布局
-    open func configCellViews() {
-        
-    }
-    // MARK: - cell赋值
-    open func setCellModel(model: Any) {
-        
-    }
+
     // MARK: - 获取高度
     public func getCellHeightWithModel(model: Any) -> CGFloat {
         self.setCellModel(model: model)
@@ -39,6 +32,7 @@ open class JHCollectionReusableView: UICollectionReusableView {
         let height = self.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
         return height
     }
+    
     // MARK: - 注册
     public class func registerHeaderFooterView(collectionView: UICollectionView, reuseIdentifier: String = String.init(describing: self), viewType: ReusableViewType) {
         
@@ -52,6 +46,7 @@ open class JHCollectionReusableView: UICollectionReusableView {
         
         collectionView.register(self, forSupplementaryViewOfKind: kind, withReuseIdentifier: reuseIdentifier)
     }
+    
     // MARK: - 复用取值
     public class func dequeueReusableHeaderFooterView(collectionView: UICollectionView, reuseIdentifier: String = String.init(describing: self), viewType: ReusableViewType, indexPath: IndexPath) ->UICollectionReusableView{
         

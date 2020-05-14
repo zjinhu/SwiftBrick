@@ -9,6 +9,7 @@
 import UIKit
 
 open class JHViewController: UIViewController {
+    
     // MARK: - 参数变量
     public lazy var leftBarButton : UIButton = {
         let leftBarButton = UIButton.init(type: .custom)
@@ -22,6 +23,7 @@ open class JHViewController: UIViewController {
         rightBarButton.frame = CGRect.init(x: 0, y: 0, width: NAVBAR_HEIGHT, height: NAVBAR_HEIGHT)
         return rightBarButton
     }()
+    
     // MARK: - 布局
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +58,7 @@ open class JHViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
     }
+    
     // MARK: - 设置导航栏按钮方法
     /**
     *  修正左侧按钮位置
@@ -72,6 +75,7 @@ open class JHViewController: UIViewController {
             self.navigationItem.leftBarButtonItems = [space,btnItem]
         }
     }
+    
     /**
     *  修正右侧按钮位置
     */
@@ -87,6 +91,7 @@ open class JHViewController: UIViewController {
             self.navigationItem.rightBarButtonItems = [space,btnItem]
         }
     }
+    
     /**
     *  设置导航默认返回按钮
     */
@@ -100,6 +105,7 @@ open class JHViewController: UIViewController {
 
         self.fixSpaceLeftBarButton(btnItem: btnItem)
     }
+    
     /**
     *  设置导航左侧按钮图片
     *
@@ -115,6 +121,7 @@ open class JHViewController: UIViewController {
         
         self.fixSpaceLeftBarButton(btnItem: btnItem)
     }
+    
     /**
     *  设置导航左侧按钮文本
     *
@@ -149,6 +156,7 @@ open class JHViewController: UIViewController {
         
         self.fixSpaceRightBarButton(btnItem: btnItem)
     }
+    
  /**
     *  设置导航右侧按钮文本
     *

@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class JHTableViewCell: UITableViewCell {
+open class JHTableViewCell: UITableViewCell, CellProtocol{
 
     override open func awakeFromNib() {
         super.awakeFromNib()
@@ -24,20 +24,13 @@ open class JHTableViewCell: UITableViewCell {
     required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String? = String.init(describing: self)) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.contentView.backgroundColor = .clear
         self.configCellViews()
     }
-    
-    // MARK: - 继承 在内部实现布局
-    open func configCellViews() {
-        
-    }
-    // MARK: - cell赋值
-    open func setCellModel(model: Any) {
-        
-    }
+
     // MARK: - 获取高度
     public func getCellHeightWithModel(model: Any) -> CGFloat {
         self.setCellModel(model: model)
@@ -51,6 +44,7 @@ open class JHTableViewCell: UITableViewCell {
     public class func registerCell(tableView: UITableView, reuseIdentifier: String = String.init(describing: self)) {
         tableView.register(self, forCellReuseIdentifier: reuseIdentifier)
     }
+    
     // MARK: - 复用取值
     public class func dequeueReusableCell(tableView: UITableView, reuseIdentifier: String = String.init(describing: self)) ->UITableViewCell?{
         return tableView.dequeueReusableCell(withIdentifier: reuseIdentifier)

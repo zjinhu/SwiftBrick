@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class JHCollectionViewCell: UICollectionViewCell {
+open class JHCollectionViewCell: UICollectionViewCell, CellProtocol{
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -19,14 +19,7 @@ open class JHCollectionViewCell: UICollectionViewCell {
     required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    // MARK: - 继承 在内部实现布局
-    open func configCellViews() {
-        
-    }
-    // MARK: - cell赋值
-    open func setCellModel(model: Any) {
-        
-    }
+
     // MARK: - 获取高度
     public func getCellHeightWithModel(model: Any) -> CGFloat {
         self.setCellModel(model: model)
@@ -40,6 +33,7 @@ open class JHCollectionViewCell: UICollectionViewCell {
     public class func registerCell(collectionView: UICollectionView, reuseIdentifier: String = String.init(describing: self)) {
         collectionView.register(self, forCellWithReuseIdentifier: reuseIdentifier)
     }
+    
     // MARK: - 复用取值
     public class func dequeueReusableCell(collectionView: UICollectionView, reuseIdentifier: String = String.init(describing: self), indexPath: IndexPath) ->UICollectionViewCell{
         return collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)

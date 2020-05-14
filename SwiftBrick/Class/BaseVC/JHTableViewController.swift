@@ -95,6 +95,7 @@ open class JHTableViewController: JHViewController ,UITableViewDelegate,UITableV
         JHTableViewCell.registerCell(tableView: self.tableView!)
         
     }
+    
     // MARK: - 数据源判断
     func isMultiDatas() -> Bool {
         let data = self.mainDatas.first
@@ -121,6 +122,7 @@ open class JHTableViewController: JHViewController ,UITableViewDelegate,UITableV
     open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return UIView.init()
     }
+    
     open func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView.init()
     }
