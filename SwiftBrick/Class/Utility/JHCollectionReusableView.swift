@@ -9,6 +9,8 @@
 import UIKit
 
 open class JHCollectionReusableView: UICollectionReusableView{
+    
+    /// 样式，header还是footer
     public enum ReusableViewType {
         case SectionHeader//UICollectionElementKindSectionHeader
         case SectionFooter//UICollectionElementKindSectionFooter
@@ -25,17 +27,23 @@ open class JHCollectionReusableView: UICollectionReusableView{
     }
     
     // MARK: - 继承 在内部实现布局
+    /// 子类重写，进行view布局
     open func configCellViews() {
         
     }
     
     // MARK: - cell赋值
-    open func setCellModel(model: Any) {
+    /// cell的model赋值，也是需要子类重写
+    /// - Parameter model: 赋值
+    open func setCellModel<T>(model: T) {
         
     }
 
     // MARK: - 获取高度
-    public func getCellHeightWithModel(model: Any) -> CGFloat {
+    /// 获取cell高度
+    /// - Parameter model: model
+    /// - Returns: 高度
+    public func getCellHeightWithModel<T>(model: T) -> CGFloat {
         self.setCellModel(model: model)
         self.layoutIfNeeded()
         self.updateConstraintsIfNeeded()
@@ -44,6 +52,11 @@ open class JHCollectionReusableView: UICollectionReusableView{
     }
     
     // MARK: - 注册
+    /// 注册HeaderFooter
+    /// - Parameters:
+    ///   - collectionView: collectionView
+    ///   - reuseIdentifier: reuseIdentifier
+    ///   - viewType: viewType
     public class func registerHeaderFooterView(collectionView: UICollectionView, reuseIdentifier: String = String.init(describing: self), viewType: ReusableViewType) {
         
         var kind : String
@@ -58,6 +71,13 @@ open class JHCollectionReusableView: UICollectionReusableView{
     }
     
     // MARK: - 复用取值
+    /// 重用HeaderFooter
+    /// - Parameters:
+    ///   - collectionView: collectionView
+    ///   - reuseIdentifier: reuseIdentifier
+    ///   - viewType: viewType
+    ///   - indexPath: indexPath
+    /// - Returns: UICollectionReusableView
     public class func dequeueReusableHeaderFooterView(collectionView: UICollectionView, reuseIdentifier: String = String.init(describing: self), viewType: ReusableViewType, indexPath: IndexPath) ->UICollectionReusableView{
         
         var kind : String

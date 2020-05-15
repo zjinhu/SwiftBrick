@@ -28,17 +28,23 @@ open class JHTableViewHeaderFooterView: UITableViewHeaderFooterView{
     }
 
     // MARK: - 继承 在内部实现布局
+    /// 子类重写，进行view布局
     open func configCellViews() {
         
     }
     
     // MARK: - cell赋值
-    open func setCellModel(model: Any) {
+    /// cell的model赋值，也是需要子类重写
+    /// - Parameter model: 赋值
+    open func setCellModel<T>(model: T) {
         
     }
 
     // MARK: - 获取高度
-    public func getCellHeightWithModel(model: Any) -> CGFloat {
+    /// 获取cell高度
+    /// - Parameter model: model
+    /// - Returns: 高度
+    public func getCellHeightWithModel<T>(model: T) -> CGFloat {
         self.setCellModel(model: model)
         self.layoutIfNeeded()
         self.updateConstraintsIfNeeded()
@@ -47,11 +53,20 @@ open class JHTableViewHeaderFooterView: UITableViewHeaderFooterView{
     }
     
     // MARK: - 注册
+    /// 注册HeaderFooter
+    /// - Parameters:
+    ///   - tableView: tableView description
+    ///   - reuseIdentifier: reuseIdentifier description
     public class func registerHeaderFooterView(tableView: UITableView, reuseIdentifier: String = String.init(describing: self)) {
         tableView.register(self, forHeaderFooterViewReuseIdentifier: reuseIdentifier)
     }
     
     // MARK: - 复用取值
+    /// HeaderFooter重用
+    /// - Parameters:
+    ///   - tableView: tableView description
+    ///   - reuseIdentifier: reuseIdentifier description
+    /// - Returns: UITableViewHeaderFooterView
     public class func dequeueReusableHeaderFooterView(tableView: UITableView, reuseIdentifier: String = String.init(describing: self)) ->UITableViewHeaderFooterView?{
         return tableView.dequeueReusableHeaderFooterView(withIdentifier: reuseIdentifier)
     }

@@ -21,17 +21,23 @@ open class JHCollectionViewCell: UICollectionViewCell{
     }
     
     // MARK: - 继承 在内部实现布局
+    /// 子类重写，进行view布局
     open func configCellViews() {
         
     }
     
     // MARK: - cell赋值
-    open func setCellModel(model: Any) {
+    /// cell的model赋值，也是需要子类重写
+    /// - Parameter model: 赋值
+    open func setCellModel<T>(model: T) {
         
     }
 
     // MARK: - 获取高度
-    public func getCellHeightWithModel(model: Any) -> CGFloat {
+    /// 获取cell高度
+    /// - Parameter model: model
+    /// - Returns: 高度
+    public func getCellHeightWithModel<T>(model: T) -> CGFloat {
         self.setCellModel(model: model)
         self.layoutIfNeeded()
         self.updateConstraintsIfNeeded()
@@ -40,11 +46,23 @@ open class JHCollectionViewCell: UICollectionViewCell{
     }
     
     // MARK: - 注册
+    
+    /// 注册cell
+    /// - Parameters:
+    ///   - collectionView: collectionView description
+    ///   - reuseIdentifier: reuseIdentifier description
     public class func registerCell(collectionView: UICollectionView, reuseIdentifier: String = String.init(describing: self)) {
         collectionView.register(self, forCellWithReuseIdentifier: reuseIdentifier)
     }
     
     // MARK: - 复用取值
+    
+    /// 重用获取
+    /// - Parameters:
+    ///   - collectionView: collectionView description
+    ///   - reuseIdentifier: reuseIdentifier description
+    ///   - indexPath: indexPath description
+    /// - Returns: UICollectionViewCell
     public class func dequeueReusableCell(collectionView: UICollectionView, reuseIdentifier: String = String.init(describing: self), indexPath: IndexPath) ->UICollectionViewCell{
         return collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
     }
