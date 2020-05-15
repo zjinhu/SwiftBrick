@@ -9,7 +9,7 @@
 import Foundation
 
 class CountDownHeadCell: JHTableViewCell{
-    func configCellViews() {
+    override func configCellViews() {
         
     }
     

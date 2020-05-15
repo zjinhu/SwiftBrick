@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class JHCollectionReusableView: UICollectionReusableView, CellProtocol{
+open class JHCollectionReusableView: UICollectionReusableView{
     public enum ReusableViewType {
         case SectionHeader//UICollectionElementKindSectionHeader
         case SectionFooter//UICollectionElementKindSectionFooter
@@ -22,6 +22,16 @@ open class JHCollectionReusableView: UICollectionReusableView, CellProtocol{
     
     required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - 继承 在内部实现布局
+    open func configCellViews() {
+        
+    }
+    
+    // MARK: - cell赋值
+    open func setCellModel(model: Any) {
+        
     }
 
     // MARK: - 获取高度

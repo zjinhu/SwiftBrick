@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class JHTableViewCell: UITableViewCell, CellProtocol{
+open class JHTableViewCell: UITableViewCell{
 
     override open func awakeFromNib() {
         super.awakeFromNib()
@@ -29,6 +29,16 @@ open class JHTableViewCell: UITableViewCell, CellProtocol{
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.contentView.backgroundColor = .clear
         self.configCellViews()
+    }
+    
+    // MARK: - 继承 在内部实现布局
+    open func configCellViews() {
+        
+    }
+    
+    // MARK: - cell赋值
+    open func setCellModel(model: Any) {
+        
     }
 
     // MARK: - 获取高度
