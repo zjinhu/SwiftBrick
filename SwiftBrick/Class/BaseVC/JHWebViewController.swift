@@ -13,7 +13,7 @@ import SnapKit
 open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDelegate,WKScriptMessageHandler,UIScrollViewDelegate{
     // MARK: - 参数变量
     public dynamic lazy var webView : WKWebView = {
-        let webView = WKWebView.init(frame: .zero, configuration: self.config)
+        let webView = WKWebView.init(frame: .zero, configuration: config)
         webView.navigationDelegate = self
         webView.uiDelegate = self
         webView.scrollView.delegate = self
@@ -59,7 +59,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
             guard let close = closeWebPopGesture else {
                 return
             }
-            self.webView.allowsBackForwardNavigationGestures = close
+            webView.allowsBackForwardNavigationGestures = close
         }
     }
     
@@ -72,9 +72,9 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
             let jsStr = String.init(format: "document.cookie = '%@';", cookieStr)
             ///js方式
             let script = WKUserScript.init(source: jsStr, injectionTime: WKUserScriptInjectionTime.atDocumentStart, forMainFrameOnly: false)
-            self.config.userContentController.addUserScript(script)
+            config.userContentController.addUserScript(script)
             ///PHP方式
-            self.request?.setValue(cookieStr, forHTTPHeaderField: "Cookie")
+            request?.setValue(cookieStr, forHTTPHeaderField: "Cookie")
         }
     }
     
@@ -134,29 +134,29 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         super.viewDidLoad()
         self.edgesForExtendedLayout = [.left,.right,.bottom]
         
-        self.title = self.navTitle
+        self.title = navTitle
         
-        self.view.addSubview(self.reloadButton)
+        self.view.addSubview(reloadButton)
         
-        self.view.addSubview(self.webView)
-        self.webView.snp.makeConstraints({ (make) in
+        self.view.addSubview(webView)
+        webView.snp.makeConstraints({ (make) in
             make.top.equalTo(self.view.safeAreaInsets.top );
             make.left.equalTo(self.view.safeAreaInsets.left);
             make.right.equalTo(self.view.safeAreaInsets.right);
             make.bottom.equalTo(self.view.safeAreaInsets.bottom);
         })
         
-        self.view.addSubview(self.loadingProgressView)
+        self.view.addSubview(loadingProgressView)
         
-        self.webView.configuration.userContentController.add(WeakScriptMessageDelegate.init(delegate: self), name: "JumpViewController")
+        webView.configuration.userContentController.add(WeakScriptMessageDelegate.init(delegate: self), name: "JumpViewController")
         
-        self.loadRequest()
+        loadRequest()
         //        self.webView?.evaluateJavaScript("navigator.userAgent") {[weak self] (result, error) in
         //         if let agent = result as? String {
         //            self?.webView?.customUserAgent = agent + " customAgent"
         //         }
         //        // 为estimatedProgress添加KVO
-        self.webView.addObserver(self, forKeyPath: "estimatedProgress", options: [.old, .new], context: nil)
+        webView.addObserver(self, forKeyPath: "estimatedProgress", options: [.old, .new], context: nil)
     }
     
     // MARK: - WKScriptMessageHandler JS调用原生交互
@@ -179,7 +179,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         
         if let cUrl = navigationAction.request.url{
             let urlString = cUrl.absoluteString
-            self.currentUrl = urlString
+            currentUrl = urlString
             let scheme = cUrl.scheme
             switch scheme {
             case "tel":
@@ -201,15 +201,15 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
     }
     
     open func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        self.webView.isHidden = false
-        self.loadingProgressView.isHidden = false
+        webView.isHidden = false
+        loadingProgressView.isHidden = false
         if webView.url?.scheme == "about" {
             webView.isHidden = true
         }
     }
     
     open func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        self.webView.isHidden = false
+        webView.isHidden = false
         //        self.loadingProgressView.isHidden = true
         webView.evaluateJavaScript("document.title") { (result, error) in
             self.navigationItem.title = result as? String
@@ -220,8 +220,8 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
     }
     
     open func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        self.webView.isHidden = true
-        self.loadingProgressView.isHidden = false
+        webView.isHidden = true
+        loadingProgressView.isHidden = false
     }
     
     open func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
@@ -236,7 +236,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
             // We must call back js
             completionHandler()
         }))
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
     open func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
@@ -249,7 +249,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
             // We must call back js
             completionHandler(false)
         }))
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
     open func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Void) {
@@ -267,7 +267,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
             // We must call back js
             completionHandler(nil)
         }))
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
     // MARK: - 监听进度条
@@ -280,7 +280,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
     //    }
     // 监听网络加载进度，加载过程中在navigationBar显示加载进度，加载完成显示网站标题
     open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if let webView = object as? WKWebView, webView == self.webView && keyPath == "estimatedProgress" {
+        if let webView = object as? WKWebView, webView == webView && keyPath == "estimatedProgress" {
             
             guard let changes = change else { return }
             //  请注意这里读取options中数值的方法
@@ -289,7 +289,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
             
             // 因为我们已经设置了进度条为0.1，所以只有在进度大于0.1后再进行变化
             if newValue > oldValue && newValue > 0.1 {
-                self.loadingProgressView.setProgress(Float.init(newValue), animated: true)
+                loadingProgressView.setProgress(Float.init(newValue), animated: true)
             }
             // 当进度为100%时，隐藏progressLayer并将其初始值改为0
             if newValue == 1.0 {
@@ -309,20 +309,20 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
     // MARK: - 发起请求
     open func loadRequest() {
         
-        if let re = self.request {
-            self.webView.load(re)
-        }else if let url = self.url, let realURL = URL.init(string: url) {
-            self.webView.load(URLRequest.init(url: realURL))
+        if let re = request {
+            webView.load(re)
+        }else if let url = url, let realURL = URL.init(string: url) {
+            webView.load(URLRequest.init(url: realURL))
         }
     }
     
     // MARK: - 方法
     ///重写父类返回方法
     open override func goBack() {
-        if self.webView.canGoBack {
-            self.webView.goBack()
+        if webView.canGoBack {
+            webView.goBack()
         }else{
-            self.closeVC()
+            closeVC()
         }
     }
     
@@ -335,27 +335,27 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
             }
         }
         if (self.presentingViewController != nil) {
-            self.dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: nil)
         }
     }
     
     ///reload按钮点击
     @objc func reloadWebView(){
-        self.loadingProgressView.progress = 0
-        self.loadingProgressView.isHidden = false
-        guard let url = self.currentUrl, let realURL = URL.init(string: url) else{
+        loadingProgressView.progress = 0
+        loadingProgressView.isHidden = false
+        guard let url = currentUrl, let realURL = URL.init(string: url) else{
             return
         }
-        self.webView.load(URLRequest.init(url: realURL))
+        webView.load(URLRequest.init(url: realURL))
     }
     
     // MARK: - 生命周期结束 清理
     deinit{
-        self.cleanAllWebsiteDataStore()
-        self.webView.removeObserver(self, forKeyPath: "estimatedProgress")
-        self.webView.uiDelegate = nil
-        self.webView.navigationDelegate = nil
-        self.webView.scrollView.delegate = nil
+        cleanAllWebsiteDataStore()
+        webView.removeObserver(self, forKeyPath: "estimatedProgress")
+        webView.uiDelegate = nil
+        webView.navigationDelegate = nil
+        webView.scrollView.delegate = nil
     }
     
     func cleanAllWebsiteDataStore() {
@@ -379,7 +379,7 @@ class WeakScriptMessageDelegate : NSObject, WKScriptMessageHandler {
     }
     func userContentController(_ userContentController: WKUserContentController,
                                didReceive message: WKScriptMessage) {
-        self.delegate?.userContentController(
+        delegate?.userContentController(
             userContentController, didReceive: message)
     }
 }

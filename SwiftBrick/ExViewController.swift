@@ -25,7 +25,7 @@ class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSou
                                                  dataSource: self,
                                                  backColor: .white)
         
-        JHTableViewCell.registerCell(tableView: tableView)
+        tableView.registerCell(JHTableViewCell.self)
 //         self.tabBarController?.tabBar.badgePoint = CGPoint(x: 25, y: -3)
         self.tabBarController?.tabBar.badgeSize = CGSize(width: 20, height: 20)
 //        self.tabBarController?.tabBar.badgeColor = UIColor.red
@@ -121,7 +121,8 @@ class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = JHTableViewCell.dequeueReusableCell(tableView: tableView) ?? JHTableViewCell.init(style: .default)
+        
+        let cell = tableView.dequeueReusableCell(JHTableViewCell.self)
         for view in cell.contentView.subviews {
             view.removeFromSuperview()
         }

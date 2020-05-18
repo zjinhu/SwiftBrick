@@ -19,7 +19,7 @@ class TableViewController: JHTableViewController {
     }
     
     override func configTableViewStyleType() {
-        self.tableViewStyleType = .StyleGrouped
+        self.tableViewStyleType = .styleGrouped
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ class TableViewController: JHTableViewController {
         
         self.mainDatas = [["","","","","","","","",""],["","","","","","","","",""]]
         
-        JHTableViewHeaderFooterView.registerHeaderFooterView(tableView: self.tableView!)
+        self.tableView?.registerHeaderFooterView(JHTableViewHeaderFooterView.self)
     }
     
 
@@ -45,17 +45,17 @@ class TableViewController: JHTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = JHTableViewHeaderFooterView.dequeueReusableHeaderFooterView(tableView: tableView) as! JHTableViewHeaderFooterView
-        view.backColor = .red
+        let view = tableView.dequeueReusableHeaderFooterView(JHTableViewHeaderFooterView.self)
+        view?.backColor = .red
         return view
     }
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let view = JHTableViewHeaderFooterView.dequeueReusableHeaderFooterView(tableView: tableView) as! JHTableViewHeaderFooterView
-        view.backColor = .yellow
+        let view = tableView.dequeueReusableHeaderFooterView(JHTableViewHeaderFooterView.self)
+        view?.backColor = .yellow
         return view
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       let cell = JHTableViewCell.dequeueReusableCell(tableView: tableView) ?? JHTableViewCell.init(style: .default)
+        let cell = tableView.dequeueReusableCell(JHTableViewCell.self)
         var str : String?
         if indexPath.row % 2 == 0 {
             str = "隐藏导航栏的VC"
@@ -69,7 +69,7 @@ class TableViewController: JHTableViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         if indexPath.row % 2 == 0 {
-            let vc = TableViewController.init(tableViewStyle: .StyleGrouped)
+            let vc = TableViewController.init(tableViewStyle: .styleGrouped)
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
             let vc = CollectionViewController.init()

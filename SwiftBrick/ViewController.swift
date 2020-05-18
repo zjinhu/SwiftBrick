@@ -20,7 +20,7 @@ class ViewController: JHTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       let cell = JHTableViewCell.dequeueReusableCell(tableView: tableView) ?? JHTableViewCell.init(style: .default)
+        let cell = tableView.dequeueReusableCell(JHTableViewCell.self)
         cell.textLabel?.text = self.mainDatas[indexPath.row] as? String
        return cell
     }
@@ -28,7 +28,7 @@ class ViewController: JHTableViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            let vc = TableViewController.init(tableViewStyle: .StyleGrouped)
+            let vc = TableViewController.init(tableViewStyle: .styleGrouped)
             self.navigationController?.pushViewController(vc, animated: true)
         case 1:
             let vc = CollectionViewController.init()

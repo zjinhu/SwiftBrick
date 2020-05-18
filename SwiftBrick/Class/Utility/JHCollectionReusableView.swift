@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class JHCollectionReusableView: UICollectionReusableView{
+open class JHCollectionReusableView: UICollectionReusableView, Reusable{
     
     /// 样式，header还是footer
     public enum ReusableViewType {
@@ -18,7 +18,7 @@ open class JHCollectionReusableView: UICollectionReusableView{
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        self.configCellViews()
+        configCellViews()
         self.backgroundColor = .clear
     }
     
@@ -44,50 +44,10 @@ open class JHCollectionReusableView: UICollectionReusableView{
     /// - Parameter model: model
     /// - Returns: 高度
     public func getCellHeightWithModel<T>(model: T) -> CGFloat {
-        self.setCellModel(model: model)
+        setCellModel(model: model)
         self.layoutIfNeeded()
         self.updateConstraintsIfNeeded()
         let height = self.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
         return height
-    }
-    
-    // MARK: - 注册
-    /// 注册HeaderFooter
-    /// - Parameters:
-    ///   - collectionView: collectionView
-    ///   - reuseIdentifier: reuseIdentifier
-    ///   - viewType: viewType
-    public class func registerHeaderFooterView(collectionView: UICollectionView, reuseIdentifier: String = String.init(describing: self), viewType: ReusableViewType) {
-        
-        var kind : String
-        switch viewType {
-        case .SectionHeader:
-            kind = UICollectionView.elementKindSectionHeader
-        case .SectionFooter:
-            kind = UICollectionView.elementKindSectionFooter
-        }
-        
-        collectionView.register(self, forSupplementaryViewOfKind: kind, withReuseIdentifier: reuseIdentifier)
-    }
-    
-    // MARK: - 复用取值
-    /// 重用HeaderFooter
-    /// - Parameters:
-    ///   - collectionView: collectionView
-    ///   - reuseIdentifier: reuseIdentifier
-    ///   - viewType: viewType
-    ///   - indexPath: indexPath
-    /// - Returns: UICollectionReusableView
-    public class func dequeueReusableHeaderFooterView(collectionView: UICollectionView, reuseIdentifier: String = String.init(describing: self), viewType: ReusableViewType, indexPath: IndexPath) ->UICollectionReusableView{
-        
-        var kind : String
-        switch viewType {
-        case .SectionHeader:
-            kind = UICollectionView.elementKindSectionHeader
-        case .SectionFooter:
-            kind = UICollectionView.elementKindSectionFooter
-        }
-        
-        return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseIdentifier, for: indexPath)
     }
 }

@@ -33,7 +33,7 @@ open class JHViewController: UIViewController {
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
         
-        self.configDefaultBackBarButton()
+        configDefaultBackBarButton()
         // Do any additional setup after loading the view.
     }
     
@@ -64,46 +64,34 @@ open class JHViewController: UIViewController {
     *  修正左侧按钮位置
     */
     func fixSpaceLeftBarButton(btnItem: UIBarButtonItem){
-        if #available(iOS 11.0, *) {
-            self.leftBarButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: -10, bottom: 0, right: 0)
-            self.leftBarButton.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: -10, bottom: 0, right: 0)
+            leftBarButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: -10, bottom: 0, right: 0)
+            leftBarButton.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: -10, bottom: 0, right: 0)
             btnItem.imageInsets = UIEdgeInsets.init(top: 0, left: -10, bottom: 0, right: 0)
             self.navigationItem.leftBarButtonItem = btnItem
-        }else{
-            let space = UIBarButtonItem.init(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-            space.width = -10
-            self.navigationItem.leftBarButtonItems = [space,btnItem]
-        }
     }
     
     /**
     *  修正右侧按钮位置
     */
     func fixSpaceRightBarButton(btnItem: UIBarButtonItem){
-        if #available(iOS 11.0, *) {
-            self.rightBarButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: -10)
-            self.rightBarButton.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: -10)
+            rightBarButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: -10)
+            rightBarButton.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: -10)
             btnItem.imageInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: -10)
             self.navigationItem.rightBarButtonItem = btnItem
-        }else{
-            let space = UIBarButtonItem.init(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-            space.width = -4
-            self.navigationItem.rightBarButtonItems = [space,btnItem]
-        }
-    }
+      }
     
     /**
     *  设置导航默认返回按钮
     */
     public func configDefaultBackBarButton() {
 
-        self.leftBarButton.setImage(JHImageLoader.loadToolsImage(with: "nav_ic_back"), for: .normal)
-        self.leftBarButton.setImage(JHImageLoader.loadToolsImage(with: "nav_ic_back"), for: .highlighted)
+        leftBarButton.setImage(JHImageLoader.loadToolsImage(with: "nav_ic_back"), for: .normal)
+        leftBarButton.setImage(JHImageLoader.loadToolsImage(with: "nav_ic_back"), for: .highlighted)
 
-        self.leftBarButton.addTarget(self, action:#selector(goBack) , for: .touchUpInside)
-        let btnItem = UIBarButtonItem.init(customView: self.leftBarButton)
+        leftBarButton.addTarget(self, action:#selector(goBack) , for: .touchUpInside)
+        let btnItem = UIBarButtonItem.init(customView: leftBarButton)
 
-        self.fixSpaceLeftBarButton(btnItem: btnItem)
+        fixSpaceLeftBarButton(btnItem: btnItem)
     }
     
     /**
@@ -113,13 +101,13 @@ open class JHViewController: UIViewController {
     *  @param highLightImage 高亮图片
     */
     public func configLeftBarButtonWithImage(normalImage: UIImage, highLightImage: UIImage){
-        self.leftBarButton.setImage(normalImage, for: .normal)
-        self.leftBarButton.setImage(highLightImage, for: .highlighted)
+        leftBarButton.setImage(normalImage, for: .normal)
+        leftBarButton.setImage(highLightImage, for: .highlighted)
 
-        self.leftBarButton.addTarget(self, action:#selector(goBack) , for: .touchUpInside)
-        let btnItem = UIBarButtonItem.init(customView: self.leftBarButton)
+        leftBarButton.addTarget(self, action:#selector(goBack) , for: .touchUpInside)
+        let btnItem = UIBarButtonItem.init(customView: leftBarButton)
         
-        self.fixSpaceLeftBarButton(btnItem: btnItem)
+        fixSpaceLeftBarButton(btnItem: btnItem)
     }
     
     /**
@@ -128,18 +116,18 @@ open class JHViewController: UIViewController {
     *  @param text 导航按钮文本
     */
     public func configLeftBarButtonWithText(text: String, normalColor: UIColor, highlightColor: UIColor){
-        self.leftBarButton.titleLabel?.font = FONT_16
-        self.leftBarButton.setTitle(text, for: .normal)
-        self.leftBarButton.setTitle(text, for: .highlighted)
+        leftBarButton.titleLabel?.font = FONT_16
+        leftBarButton.setTitle(text, for: .normal)
+        leftBarButton.setTitle(text, for: .highlighted)
 
-        self.leftBarButton.setTitleColor(normalColor, for: .normal)
-        self.leftBarButton.setTitleColor(highlightColor, for: .highlighted)
+        leftBarButton.setTitleColor(normalColor, for: .normal)
+        leftBarButton.setTitleColor(highlightColor, for: .highlighted)
 
         
-        self.leftBarButton.addTarget(self, action:#selector(goBack) , for: .touchUpInside)
-        let btnItem = UIBarButtonItem.init(customView: self.leftBarButton)
+        leftBarButton.addTarget(self, action:#selector(goBack) , for: .touchUpInside)
+        let btnItem = UIBarButtonItem.init(customView: leftBarButton)
         
-        self.fixSpaceLeftBarButton(btnItem: btnItem)
+        fixSpaceLeftBarButton(btnItem: btnItem)
     }
     
     /**
@@ -149,12 +137,12 @@ open class JHViewController: UIViewController {
     *  @param highLightImage 高亮图片
     */
     public func configRightBarButtonWithImage(normalImage: UIImage, highLightImage: UIImage){
-        self.rightBarButton.setImage(normalImage, for: .normal)
-        self.rightBarButton.setImage(highLightImage, for: .highlighted)
+        rightBarButton.setImage(normalImage, for: .normal)
+        rightBarButton.setImage(highLightImage, for: .highlighted)
 
-        let btnItem = UIBarButtonItem.init(customView: self.rightBarButton)
+        let btnItem = UIBarButtonItem.init(customView: rightBarButton)
         
-        self.fixSpaceRightBarButton(btnItem: btnItem)
+        fixSpaceRightBarButton(btnItem: btnItem)
     }
     
  /**
@@ -163,13 +151,13 @@ open class JHViewController: UIViewController {
     *  @param text 导航按钮文本
     */
     public func configRightBarButtonWithText(text: String, normalColor: UIColor, highlightColor: UIColor){
-        self.rightBarButton.titleLabel?.font = FONT_16
-        self.rightBarButton.setTitle(text, for: .normal)
-        self.rightBarButton.setTitle(text, for: .highlighted)
-        self.rightBarButton.setTitleColor(normalColor, for: .normal)
-        self.rightBarButton.setTitleColor(highlightColor, for: .highlighted)
-        let btnItem = UIBarButtonItem.init(customView: self.rightBarButton)
+        rightBarButton.titleLabel?.font = FONT_16
+        rightBarButton.setTitle(text, for: .normal)
+        rightBarButton.setTitle(text, for: .highlighted)
+        rightBarButton.setTitleColor(normalColor, for: .normal)
+        rightBarButton.setTitleColor(highlightColor, for: .highlighted)
+        let btnItem = UIBarButtonItem.init(customView: rightBarButton)
         
-        self.fixSpaceRightBarButton(btnItem: btnItem)
+        fixSpaceRightBarButton(btnItem: btnItem)
     }
 }

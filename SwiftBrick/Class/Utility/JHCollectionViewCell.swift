@@ -8,11 +8,11 @@
 
 import UIKit
 
-open class JHCollectionViewCell: UICollectionViewCell{
+open class JHCollectionViewCell: UICollectionViewCell, Reusable{
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        self.configCellViews()
+        configCellViews()
         self.contentView.backgroundColor = .clear
     }
     
@@ -38,32 +38,11 @@ open class JHCollectionViewCell: UICollectionViewCell{
     /// - Parameter model: model
     /// - Returns: 高度
     public func getCellHeightWithModel<T>(model: T) -> CGFloat {
-        self.setCellModel(model: model)
+        setCellModel(model: model)
         self.layoutIfNeeded()
         self.updateConstraintsIfNeeded()
         let height = self.contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
         return height
     }
-    
-    // MARK: - 注册
-    
-    /// 注册cell
-    /// - Parameters:
-    ///   - collectionView: collectionView description
-    ///   - reuseIdentifier: reuseIdentifier description
-    public class func registerCell(collectionView: UICollectionView, reuseIdentifier: String = String.init(describing: self)) {
-        collectionView.register(self, forCellWithReuseIdentifier: reuseIdentifier)
-    }
-    
-    // MARK: - 复用取值
-    
-    /// 重用获取
-    /// - Parameters:
-    ///   - collectionView: collectionView description
-    ///   - reuseIdentifier: reuseIdentifier description
-    ///   - indexPath: indexPath description
-    /// - Returns: UICollectionViewCell
-    public class func dequeueReusableCell(collectionView: UICollectionView, reuseIdentifier: String = String.init(describing: self), indexPath: IndexPath) ->UICollectionViewCell{
-        return collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    }
+
 }

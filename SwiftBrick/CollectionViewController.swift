@@ -15,9 +15,9 @@ class CollectionViewController: JHCollectionViewController {
         self.prefersNavigationBarHidden = false
         self.mainDatas = [["","","","","","","",""],["","","","","","",""],["","","","","","","","","","",""],["","","","","","","","","",""]]
         // Do any additional setup after loading the view.
-        JHCollectionReusableView.registerHeaderFooterView(collectionView: self.collectionView!, viewType: .SectionHeader)
-        JHCollectionReusableView.registerHeaderFooterView(collectionView: self.collectionView!, viewType: .SectionFooter)
-         
+        
+        self.collectionView?.registerHeaderFooterView(JHCollectionReusableView.self, kindType: .sectionHeader)
+        self.collectionView?.registerHeaderFooterView(JHCollectionReusableView.self, kindType: .sectionFooter)
     }
     
 
@@ -37,11 +37,11 @@ class CollectionViewController: JHCollectionViewController {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
-            let header = JHCollectionReusableView.dequeueReusableHeaderFooterView(collectionView: collectionView, viewType: .SectionHeader, indexPath: indexPath)
+            let header = collectionView.dequeueReusableHeaderFooterView(JHCollectionReusableView.self, kindType: .sectionHeader, indexPath: indexPath)
             header.backgroundColor = .purple
             return header
         default:
-            let footer = JHCollectionReusableView.dequeueReusableHeaderFooterView(collectionView: collectionView, viewType: .SectionHeader, indexPath: indexPath)
+            let footer = collectionView.dequeueReusableHeaderFooterView(JHCollectionReusableView.self, kindType: .sectionFooter, indexPath: indexPath)
             footer.backgroundColor = .yellow
             return footer
         }
@@ -54,7 +54,7 @@ class CollectionViewController: JHCollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = JHCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
+        let cell = collectionView.dequeueReusableCell(JHCollectionViewCell.self, indexPath: indexPath)
         cell.backgroundColor = .random
         return cell
     }

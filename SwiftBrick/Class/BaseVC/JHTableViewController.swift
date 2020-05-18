@@ -11,20 +11,20 @@ import SnapKit
 open class JHTableViewController: JHViewController ,UITableViewDelegate,UITableViewDataSource{
     // MARK: - 参数变量
     public enum TableViewStyleType {
-        case StylePlain
-        case StyleGrouped
+        case stylePlain
+        case styleGrouped
         @available(iOS 13.0, *)
-        case StyleInsetGrouped
+        case styleInsetGrouped
     }
     
     public var tableView : UITableView?
     public var mainDatas : Array<Any> = []
-    public var tableViewStyleType : TableViewStyleType = .StylePlain
+    public var tableViewStyleType : TableViewStyleType = .stylePlain
 
     // MARK: - 初始化
-    public convenience init(tableViewStyle: TableViewStyleType = .StylePlain) {
+    public convenience init(tableViewStyle: TableViewStyleType = .stylePlain) {
         self.init()
-        self.tableViewStyleType = tableViewStyle
+        tableViewStyleType = tableViewStyle
     }
     
     /// 子类继承时重写此方法可设置Table样式：self.tableViewStyleType =  .StyleGrouped，或者Init时候设置
@@ -38,68 +38,66 @@ open class JHTableViewController: JHViewController ,UITableViewDelegate,UITableV
         
         configTableViewStyleType()
         
-        switch self.tableViewStyleType {
-        case .StyleInsetGrouped:
+        switch tableViewStyleType {
+        case .styleInsetGrouped:
             if #available(iOS 13.0, *) {
-                self.tableView = UITableView.init(frame: .zero, style: .insetGrouped)
+                tableView = UITableView.init(frame: .zero, style: .insetGrouped)
             }else{
-                self.tableView = UITableView.init(frame: .zero, style: .grouped)
+                tableView = UITableView.init(frame: .zero, style: .grouped)
             }
             
-        case .StyleGrouped:
-            self.tableView = UITableView.init(frame: .zero, style: .grouped)
+        case .styleGrouped:
+            tableView = UITableView.init(frame: .zero, style: .grouped)
             
-        case .StylePlain:
-            self.tableView = UITableView.init(frame: .zero, style: .plain)
+        case .stylePlain:
+            tableView = UITableView.init(frame: .zero, style: .plain)
             
         }
 
-        self.tableView?.backgroundColor = .clear
-        self.tableView?.delegate = self
-        self.tableView?.dataSource = self
+        tableView?.backgroundColor = .clear
+        tableView?.delegate = self
+        tableView?.dataSource = self
 
-        self.tableView?.separatorStyle = .none
-//        self.tableView?.separatorColor = .lightGray
-        self.tableView?.showsVerticalScrollIndicator = false
-        self.tableView?.showsHorizontalScrollIndicator = false
-        self.tableView?.estimatedRowHeight = 100
-        self.tableView?.rowHeight = UITableView.automaticDimension
-        self.tableView?.estimatedSectionHeaderHeight = CGFloat.leastNormalMagnitude
-        self.tableView?.estimatedSectionFooterHeight = CGFloat.leastNormalMagnitude
+        tableView?.separatorStyle = .none
+//        tableView?.separatorColor = .lightGray
+        tableView?.showsVerticalScrollIndicator = false
+        tableView?.showsHorizontalScrollIndicator = false
+        tableView?.estimatedRowHeight = 100
+        tableView?.rowHeight = UITableView.automaticDimension
+        tableView?.estimatedSectionHeaderHeight = CGFloat.leastNormalMagnitude
+        tableView?.estimatedSectionFooterHeight = CGFloat.leastNormalMagnitude
             //头角需要自适应高度的话请设置
-        //    self.tableView.estimatedSectionHeaderHeight = 200;
-        //    self.tableView.sectionHeaderHeight = UITableViewAutomaticDimension;
-        //    self.tableView.estimatedSectionFooterHeight = 200;
-        //    self.tableView.sectionFooterHeight = UITableViewAutomaticDimension;
-        self.tableView?.delaysContentTouches = true
+        //    tableView.estimatedSectionHeaderHeight = 200;
+        //    tableView.sectionHeaderHeight = UITableViewAutomaticDimension;
+        //    tableView.estimatedSectionFooterHeight = 200;
+        //    tableView.sectionFooterHeight = UITableViewAutomaticDimension;
+        tableView?.delaysContentTouches = true
         // Do any additional setup after loading the view.
-        self.view.addSubview(self.tableView!)
+        self.view.addSubview(tableView!)
 
-        self.tableView?.snp.makeConstraints({ (make) in
-            make.top.equalTo(self.view.safeAreaInsets.top );
+        tableView?.snp.makeConstraints({ (make) in
+            make.top.equalTo(self.view.safeAreaInsets.top);
             make.left.equalTo(self.view.safeAreaInsets.left);
             make.right.equalTo(self.view.safeAreaInsets.right);
             make.bottom.equalTo(self.view.safeAreaInsets.bottom);
         })
         
-        self.tableView?.contentInsetAdjustmentBehavior = .automatic
+        tableView?.contentInsetAdjustmentBehavior = .automatic
 
         let gestureArray : [UIGestureRecognizer]? = self.navigationController?.view.gestureRecognizers
         
         gestureArray?.forEach({ (gesture) in
             if gesture.isEqual(UIScreenEdgePanGestureRecognizer.self) {
-                self.tableView?.panGestureRecognizer.require(toFail: gesture)
+                tableView?.panGestureRecognizer.require(toFail: gesture)
             }
         })
-        
-        JHTableViewCell.registerCell(tableView: self.tableView!)
-        
+        tableView?.registerCell(JHTableViewCell.self)
     }
     
     // MARK: - 数据源判断
     func isMultiDatas() -> Bool {
-        let data = self.mainDatas.first
-        if data is Array<Any> && self.mainDatas.count > 0{
+        let data = mainDatas.first
+        if data is Array<Any> && mainDatas.count > 0{
             return true
         }else{
             return false
@@ -108,7 +106,7 @@ open class JHTableViewController: JHViewController ,UITableViewDelegate,UITableV
     
      // MARK: - tableView代理
     open func numberOfSections(in tableView: UITableView) -> Int {
-        return self.isMultiDatas() ? self.mainDatas.count : 1
+        return isMultiDatas() ? mainDatas.count : 1
     }
     
     open func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -133,16 +131,16 @@ open class JHTableViewController: JHViewController ,UITableViewDelegate,UITableV
     
     open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if self.isMultiDatas() {
-            let data  = self.mainDatas[section] as! Array<Any>
+        if isMultiDatas() {
+            let data  = mainDatas[section] as! Array<Any>
             return data.count
         }else{
-          return self.mainDatas.count
+          return mainDatas.count
         }
      }
      
      open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = JHTableViewCell.dequeueReusableCell(tableView: tableView) ?? JHTableViewCell.init(style: .default)
+        let cell = tableView.dequeueReusableCell(JHTableViewCell.self)
         cell.textLabel?.text = String.init(describing: indexPath.row)
         return cell
      }

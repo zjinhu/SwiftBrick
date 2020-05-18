@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class JHTableViewHeaderFooterView: UITableViewHeaderFooterView{
+open class JHTableViewHeaderFooterView: UITableViewHeaderFooterView, Reusable{
 
     public var backColor : UIColor? {
         didSet{
@@ -20,7 +20,7 @@ open class JHTableViewHeaderFooterView: UITableViewHeaderFooterView{
         super.init(reuseIdentifier: reuseIdentifier)
         self.backgroundView = UIView(frame: self.bounds)
         self.backgroundView?.backgroundColor = .clear
-        self.configCellViews()
+        configCellViews()
     }
     
     required public init?(coder: NSCoder) {
@@ -45,29 +45,11 @@ open class JHTableViewHeaderFooterView: UITableViewHeaderFooterView{
     /// - Parameter model: model
     /// - Returns: 高度
     public func getCellHeightWithModel<T>(model: T) -> CGFloat {
-        self.setCellModel(model: model)
+        setCellModel(model: model)
         self.layoutIfNeeded()
         self.updateConstraintsIfNeeded()
         let height = self.contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
         return height
     }
-    
-    // MARK: - 注册
-    /// 注册HeaderFooter
-    /// - Parameters:
-    ///   - tableView: tableView description
-    ///   - reuseIdentifier: reuseIdentifier description
-    public class func registerHeaderFooterView(tableView: UITableView, reuseIdentifier: String = String.init(describing: self)) {
-        tableView.register(self, forHeaderFooterViewReuseIdentifier: reuseIdentifier)
-    }
-    
-    // MARK: - 复用取值
-    /// HeaderFooter重用
-    /// - Parameters:
-    ///   - tableView: tableView description
-    ///   - reuseIdentifier: reuseIdentifier description
-    /// - Returns: UITableViewHeaderFooterView
-    public class func dequeueReusableHeaderFooterView(tableView: UITableView, reuseIdentifier: String = String.init(describing: self)) ->UITableViewHeaderFooterView?{
-        return tableView.dequeueReusableHeaderFooterView(withIdentifier: reuseIdentifier)
-    }
+
 }
