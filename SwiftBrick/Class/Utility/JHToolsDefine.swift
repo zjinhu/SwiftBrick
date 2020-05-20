@@ -62,11 +62,16 @@ public let FONT_14 = UIFont.systemFont(ofSize: 14)
 public let FONT_15 = UIFont.systemFont(ofSize: 15)
 public let FONT_16 = UIFont.systemFont(ofSize: 16)
 
-public var SystemMediumFont : (CGFloat) -> UIFont = {size in
-    return UIFont.systemFont(ofSize: size, weight: UIFont.Weight.medium)
-}
-public var SystemFont : (CGFloat) -> UIFont = {size in
+public func Font(_ size: CGFloat) -> UIFont {
     return UIFont.systemFont(ofSize: size)
+}
+
+public func FontBold(_ size: CGFloat) -> UIFont {
+    return UIFont.boldSystemFont(ofSize: size)
+}
+
+public func FontWeight(_ size: CGFloat, weight: UIFont.Weight) -> UIFont {
+    return UIFont.systemFont(ofSize: size, weight: weight)
 }
 
 
