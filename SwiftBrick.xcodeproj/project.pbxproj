@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		81185EB52455A9260030329B /* UITabBarEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81185EB42455A9260030329B /* UITabBarEx.swift */; };
+		81583DD324752ED800260DCF /* UITableViewCellEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81583DD224752ED700260DCF /* UITableViewCellEX.swift */; };
 		816DABED2433351000E2B77B /* StatusBaEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816DABEC2433351000E2B77B /* StatusBaEx.swift */; };
 		81F0617B246E945D00F0B2D3 /* CellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F0617A246E945D00F0B2D3 /* CellProtocol.swift */; };
 		81F709FF23CF18CC002E9DFA /* UIButtonEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F709FE23CF18CC002E9DFA /* UIButtonEx.swift */; };
@@ -52,6 +53,7 @@
 /* Begin PBXFileReference section */
 		77965A09D8F67F588257CBE9 /* Pods-SwiftBrick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBrick.debug.xcconfig"; path = "Target Support Files/Pods-SwiftBrick/Pods-SwiftBrick.debug.xcconfig"; sourceTree = "<group>"; };
 		81185EB42455A9260030329B /* UITabBarEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarEx.swift; sourceTree = "<group>"; };
+		81583DD224752ED700260DCF /* UITableViewCellEX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellEX.swift; sourceTree = "<group>"; };
 		816DABEC2433351000E2B77B /* StatusBaEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBaEx.swift; sourceTree = "<group>"; };
 		81F0617A246E945D00F0B2D3 /* CellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProtocol.swift; sourceTree = "<group>"; };
 		81F709FE23CF18CC002E9DFA /* UIButtonEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonEx.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				81F709FE23CF18CC002E9DFA /* UIButtonEx.swift */,
 				816DABEC2433351000E2B77B /* StatusBaEx.swift */,
 				81185EB42455A9260030329B /* UITabBarEx.swift */,
+				81583DD224752ED700260DCF /* UITableViewCellEX.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				81F709FF23CF18CC002E9DFA /* UIButtonEx.swift in Sources */,
 				9111502D23838DD100AE47DF /* JHTableViewCell.swift in Sources */,
 				9162261A2385534D0050F228 /* ExViewController.swift in Sources */,
+				81583DD324752ED800260DCF /* UITableViewCellEX.swift in Sources */,
 				911150322383BD8300AE47DF /* JHTableViewHeaderFooterView.swift in Sources */,
 				9128EBB42387B0DE006890C9 /* UIGestureRecognizerEx.swift in Sources */,
 				9111502C23838DD100AE47DF /* JHImageLoader.swift in Sources */,

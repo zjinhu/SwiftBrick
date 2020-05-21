@@ -46,16 +46,19 @@ class TableViewController: JHTableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableHeaderFooterView(JHTableViewHeaderFooterView.self)
-        view?.backColor = .red
+//        view?.backColor = .red
         return view
     }
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableHeaderFooterView(JHTableViewHeaderFooterView.self)
-        view?.backColor = .yellow
+//        view?.backColor = .yellow
         return view
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(JHTableViewCell.self)
+//        cell.addDownLine(tableView: tableView, indexPath: indexPath, leftMarign: 30)
+//        cell.addMiddleLine(tableView: tableView, indexPath: indexPath, leftMarign: 30)
+        cell.addAllLine(tableView: tableView, indexPath: indexPath, leftMarign: 20, rightMarign: 0, isHeadFootMarign: false, lineColor: .red)
         var str : String?
         if indexPath.row % 2 == 0 {
             str = "隐藏导航栏的VC"
@@ -63,7 +66,7 @@ class TableViewController: JHTableViewController {
             str = "显示导航栏的VC"
         }
         cell.textLabel?.text = String.init(describing: indexPath.row) + (str ?? "")
-    cell.backgroundColor = .random
+//    cell.backgroundColor = .random
        return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -75,8 +78,6 @@ class TableViewController: JHTableViewController {
             let vc = CollectionViewController.init()
             self.navigationController?.pushViewController(vc, animated: true)
         }
-
-
     }
     @available(iOS 13.0, *)
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

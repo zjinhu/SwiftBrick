@@ -76,21 +76,22 @@ public extension UIColor {
     }
     
     
-    struct FlatUI {
+    struct BaseUI {
 
         public static let turquoise             = UIColor.init(hex: 0x1abc9c)
 
-        /// SwifterSwift: hex #16A085
         public static let greenSea              = UIColor.init(hex: 0x16a085)
 
-        /// SwifterSwift: hex #2ECC71
         public static let emerald               = UIColor.init(hex: 0x2ecc71)
 
-        /// SwifterSwift: hex #27AE60
         public static let nephritis             = UIColor.init(hex: 0x27ae60)
 
-        /// SwifterSwift: hex #3498DB
         public static let peterRiver            = UIColor.init(hex: 0x3498db)
-
+        
+        
+        public static let baseLine              = UIColor.init(hex: 0xe3e3e3)
+        public static let baseText              = UIColor.init(hex: 0x333333)
+        public static let baseGrayText          = UIColor.init(hex: 0x666666)
+        public static let baseBackground        = UIColor.init(hex: 0x666666)
     }
 }
