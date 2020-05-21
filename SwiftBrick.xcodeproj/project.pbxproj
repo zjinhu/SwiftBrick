@@ -118,6 +118,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		81583DD42476483900260DCF /* Define */ = {
+			isa = PBXGroup;
+			children = (
+				9111502623838DD100AE47DF /* JHToolsDefine.swift */,
+				9111502423838DD100AE47DF /* JHImageLoader.swift */,
+			);
+			path = Define;
+			sourceTree = "<group>";
+		};
 		91114FFB23838CC200AE47DF = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				9111502223838DD100AE47DF /* Images.xcassets */,
+				81583DD42476483900260DCF /* Define */,
 				917FBC22238BA1240083721A /* ViewFactory */,
 				9111501C23838DD100AE47DF /* Extensions */,
 				9111501D23838DD100AE47DF /* BaseVC */,
@@ -197,8 +207,6 @@
 		9111502323838DD100AE47DF /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				9111502623838DD100AE47DF /* JHToolsDefine.swift */,
-				9111502423838DD100AE47DF /* JHImageLoader.swift */,
 				81F0617A246E945D00F0B2D3 /* CellProtocol.swift */,
 				9111502523838DD100AE47DF /* JHTableViewCell.swift */,
 				911150312383BD8300AE47DF /* JHTableViewHeaderFooterView.swift */,
