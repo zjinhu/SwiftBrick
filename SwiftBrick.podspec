@@ -38,6 +38,7 @@ Pod::Spec.new do |s|
     end
     s.subspec 'BaseVC' do |ss| 
       ss.dependency 'SwiftBrick/Define'
+      ss.dependency 'SwiftBrick/Utility'
       ss.source_files = 'SwiftBrick/Class/BaseVC/**/*' 
     end
    
