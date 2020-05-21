@@ -173,7 +173,7 @@
 				917FBC22238BA1240083721A /* ViewFactory */,
 				9111501C23838DD100AE47DF /* Extensions */,
 				9111501D23838DD100AE47DF /* BaseVC */,
-				9111502323838DD100AE47DF /* Utility */,
+				9111502323838DD100AE47DF /* BaseCell */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -204,7 +204,7 @@
 			path = BaseVC;
 			sourceTree = "<group>";
 		};
-		9111502323838DD100AE47DF /* Utility */ = {
+		9111502323838DD100AE47DF /* BaseCell */ = {
 			isa = PBXGroup;
 			children = (
 				81F0617A246E945D00F0B2D3 /* CellProtocol.swift */,
@@ -213,7 +213,7 @@
 				911150332383BDA100AE47DF /* JHCollectionViewCell.swift */,
 				911150352383BDB300AE47DF /* JHCollectionReusableView.swift */,
 			);
-			path = Utility;
+			path = BaseCell;
 			sourceTree = "<group>";
 		};
 		917FBC22238BA1240083721A /* ViewFactory */ = {

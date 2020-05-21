@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SwiftBrick'
-  s.version          = '0.7.8'
+  s.version          = '0.7.9'
   s.summary          = '工具类组件.'
  
   s.description      = <<-DESC
@@ -33,12 +33,12 @@ Pod::Spec.new do |s|
       ss.dependency 'SwiftBrick/Define'
       ss.source_files = 'SwiftBrick/Class/Extensions/**/*' 
     end
-    s.subspec 'Utility' do |ss| 
-      ss.source_files = 'SwiftBrick/Class/Utility/**/*' 
+    s.subspec 'BaseCell' do |ss| 
+      ss.source_files = 'SwiftBrick/Class/BaseCell/**/*' 
     end
     s.subspec 'BaseVC' do |ss| 
       ss.dependency 'SwiftBrick/Define'
-      ss.dependency 'SwiftBrick/Utility'
+      ss.dependency 'SwiftBrick/BaseCell'
       ss.source_files = 'SwiftBrick/Class/BaseVC/**/*' 
     end
    
