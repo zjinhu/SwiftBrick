@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import SnapKit
 let TopLineTag         = 19003
 let BottomLineTag      = 19004
 ///UITableView 自定义下划线
