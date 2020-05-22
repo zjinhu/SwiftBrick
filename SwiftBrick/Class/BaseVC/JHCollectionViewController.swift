@@ -42,11 +42,12 @@ open class JHCollectionViewController: JHViewController ,UICollectionViewDelegat
          self.flowLayout = flowLayout
      }
     
-    func configFlowLayout() {
+    open func configFlowLayout() {
         flowLayout = UICollectionViewFlowLayout.init()
         flowLayout?.minimumLineSpacing = 0
         flowLayout?.minimumInteritemSpacing = 0
         flowLayout?.minimumLineSpacing = 0
+        flowLayout?.scrollDirection = UICollectionView.ScrollDirection.vertical
     }
     
     // MARK: - 布局
@@ -55,7 +56,6 @@ open class JHCollectionViewController: JHViewController ,UICollectionViewDelegat
 
         if flowLayout == nil  {
             configFlowLayout()
-            flowLayout?.scrollDirection = UICollectionView.ScrollDirection.vertical
         }
         
         collectionView = UICollectionView.init(frame: .zero, collectionViewLayout: flowLayout!)
