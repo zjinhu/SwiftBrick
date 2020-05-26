@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CollectionKit
+
 class CollectionViewController: JHCollectionViewController {
 
     override func viewDidLoad() {
