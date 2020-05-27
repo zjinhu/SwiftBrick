@@ -9,8 +9,9 @@
 import UIKit
 
 public class JHImageLoader{
-    static var bundle: Bundle = {
-        let bundle = Bundle.init(for: JHImageLoader.self)
+    static var bundle: Bundle? = {
+        let path = Bundle.init(for: JHImageLoader.self).path(forResource: "SwiftBrick", ofType: "bundle", inDirectory: nil)
+        let bundle = Bundle.init(path: path ?? "")
         return bundle
     }()
     

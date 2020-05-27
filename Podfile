@@ -9,5 +9,5 @@ target 'SwiftBrick' do
   # Pods for SwiftBrick
 #  pod 'SwifterSwift'
   pod 'SnapKit'
-
+  pod 'SwiftyRefresh'
 end

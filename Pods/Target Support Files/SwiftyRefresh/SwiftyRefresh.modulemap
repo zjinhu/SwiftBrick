@@ -1,0 +1,6 @@
+framework module SwiftyRefresh {
+  umbrella header "SwiftyRefresh-umbrella.h"
+
+  export *
+  module * { export * }
+}

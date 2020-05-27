@@ -1,16 +1,21 @@
 PODS:
   - SnapKit (5.0.1)
+  - SwiftyRefresh (0.3.1):
+    - SnapKit
 
 DEPENDENCIES:
   - SnapKit
+  - SwiftyRefresh
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - SnapKit
+    - SwiftyRefresh
 
 SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftyRefresh: 0cbd36016248ee930a3d77fc3a74f19c0b7c84d6
 
-PODFILE CHECKSUM: c175b11baf3fa66bc215aacf8a07373e8fa85d2b
+PODFILE CHECKSUM: f04db2a867ff987f1ac5eb92654b0345c51e2f82
 
 COCOAPODS: 1.9.2

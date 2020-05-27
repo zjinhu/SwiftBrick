@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SwiftyRefresh
 class TableViewController: JHTableViewController {
 
     override var prefersStatusBarHidden: Bool {
@@ -33,6 +33,17 @@ class TableViewController: JHTableViewController {
         self.mainDatas = [["","","","","","","","",""],["","","","","","","","",""]]
         
         self.tableView?.registerHeaderFooterView(JHTableViewHeaderFooterView.self)
+        
+        self.tableView?.refresh.addRefreshHeader(handler: { (header) in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                header.endRefreshing()
+            }
+        })
+        self.tableView?.refresh.addRefreshAutoFooter(handler: { (footer) in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                footer.showNoMoreData()
+            }
+        })
     }
     
 
@@ -46,12 +57,12 @@ class TableViewController: JHTableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableHeaderFooterView(JHTableViewHeaderFooterView.self)
-//        view?.backColor = .red
+        view?.backColor = .red
         return view
     }
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableHeaderFooterView(JHTableViewHeaderFooterView.self)
-//        view?.backColor = .yellow
+        view?.backColor = .yellow
         return view
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
