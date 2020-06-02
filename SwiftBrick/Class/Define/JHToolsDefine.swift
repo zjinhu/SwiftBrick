@@ -13,8 +13,8 @@ import Foundation
 // MARK:- 屏幕
 public let SCREEN_HEIGHT = UIScreen.main.bounds.height
 public let SCREEN_WIDTH = UIScreen.main.bounds.width
-public let FIT_WIDTH = UIScreen.main.bounds.size.width / 375
-public let FIT_HEIGHT = UIScreen.main.bounds.size.height / 667
+public let FIT_WIDTH = min(UIScreen.main.bounds.width, UIScreen.main.bounds.height) / 375
+public let FIT_HEIGHT = max(UIScreen.main.bounds.width, UIScreen.main.bounds.height) / 667
 
 public func StatusBarHeight() ->CGFloat {
     if #available(iOS 13.0, *){
