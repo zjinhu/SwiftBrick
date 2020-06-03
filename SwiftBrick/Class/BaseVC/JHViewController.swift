@@ -28,7 +28,7 @@ open class JHViewController: UIViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = L.color("bgColor")
         self.edgesForExtendedLayout = .all
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
