@@ -1,7 +1,7 @@
 # UI工具组件--SwiftBrick
 UI工具类集合，方便快速搭建APP UI ，依赖SnapKit。
 ### 文件目录
-1. SnapKit
+1. ViewFactory
 基于SnapKit封装常用UI控件，一个函数创建UI控件，比如UILabel
 ```
     /// 快速初始化UILabel 包含默认参数,初始化过程可以删除部分默认参数简化方法
@@ -45,14 +45,15 @@ let _ = UILabel.snpLabel(text: “我是Label”, textColor: .red, supView: self
 * JHCollectionViewController  --同上
 * JHWebViewController --方便创建WKWebView视图VC，可选择更改UA、注入Cookie等，退出清理缓存
 详细用法参见DEMO
-4. Utility
-* 封装Table、Collection的Cell以及HeaderView，方便快速注册，复用，传递Model，只需要继承后在configViews里做相关布局UI即可。
-* 封装一个常用宏工具类，方便开发过程用调用、
+4. BaseCell
+* 泛型封装Table、Collection的Cell以及HeaderView，方便快速注册，复用，传递Model，只需要继承后在configViews里做相关布局UI即可。
+5. Define
+* 常量，工具
 
 ### 安装
 #### cocoapods导入
 几个Group可单独引用也可全体引入
-比如 `pod ‘SwiftBrick/SnapKit’`
+比如 `pod ‘SwiftBrick/ViewFactory’`
 * 1.在 Podfile 中添加 `pod ‘SwiftBrick’`
 * 2.执行 `pod install 或 pod update`
 * 3.导入 `import SwiftBrick`
