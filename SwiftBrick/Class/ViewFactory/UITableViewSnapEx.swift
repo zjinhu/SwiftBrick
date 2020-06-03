@@ -20,7 +20,7 @@ public extension UITableView {
     ///   - backColor: 背景色
     @discardableResult
     class func snpTableView(supView: UIView? = nil,
-                            snapKitMaker : JHSnapKitTool.JHSnapMaker? = nil,
+                            snapKitMaker : SnapKitTool.SnapMaker? = nil,
                             style: UITableView.Style = .plain,
                             delegate: UITableViewDelegate,
                             dataSource: UITableViewDataSource,

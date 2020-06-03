@@ -32,7 +32,7 @@ public extension UITextField {
                             textColor: UIColor = .black,
                             textAlignment: NSTextAlignment = .left,
                             supView: UIView? = nil,
-                            snapKitMaker : JHSnapKitTool.JHSnapMaker? = nil,
+                            snapKitMaker : SnapKitTool.SnapMaker? = nil,
                             delegate: UITextFieldDelegate,
                             backColor: UIColor) -> UITextField{
         

@@ -10,12 +10,12 @@ import Foundation
 import UIKit
 
 public extension UIButton {
-    @objc internal var snpAction: JHSnapKitTool.JHButtonBlock? {
+    @objc internal var snpAction: SnapKitTool.ButtonClosure? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.JHButtonTouchUpKey) as? JHSnapKitTool.JHButtonBlock
+            return objc_getAssociatedObject(self, &AssociatedKeys.ButtonTouchUpKey) as? SnapKitTool.ButtonClosure
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.JHButtonTouchUpKey, newValue, .OBJC_ASSOCIATION_COPY)
+            objc_setAssociatedObject(self, &AssociatedKeys.ButtonTouchUpKey, newValue, .OBJC_ASSOCIATION_COPY)
         }
     }
     /// 快速初始化UIButton 包含默认参数,初始化过程可以删除部分默认参数简化方法
@@ -44,8 +44,8 @@ public extension UIButton {
                          borderColor : UIColor? = nil,
                          borderWidth : Float = 0,
                          cornerRadius : Float = 0,
-                         snapKitMaker : JHSnapKitTool.JHSnapMaker? = nil,
-                         touchUp : JHSnapKitTool.JHButtonBlock? = nil,
+                         snapKitMaker : SnapKitTool.SnapMaker? = nil,
+                         touchUp : SnapKitTool.ButtonClosure? = nil,
                          backColor: UIColor) -> UIButton{
         
         let btn = UIButton.init(type: .custom)
@@ -99,7 +99,7 @@ public extension UIButton {
         return btn
     }
     
-    @objc func snpAddTouchUpInSideBtnAction(touchUp : JHSnapKitTool.JHButtonBlock?){
+    @objc func snpAddTouchUpInSideBtnAction(touchUp : SnapKitTool.ButtonClosure?){
         
         self.removeTarget(self, action: #selector(touchUpInSideBtnAction), for: .touchUpInside)
         guard let ges = touchUp else {

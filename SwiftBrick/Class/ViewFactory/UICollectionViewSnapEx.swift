@@ -20,7 +20,7 @@ public extension UICollectionView {
     ///   - backColor: 背景色
     @discardableResult
     class func snpCollectionView(supView: UIView? = nil,
-                                 snapKitMaker : JHSnapKitTool.JHSnapMaker? = nil,
+                                 snapKitMaker : SnapKitTool.SnapMaker? = nil,
                                  scrollDirectionType: UICollectionView.ScrollDirection = .vertical,
                                  delegate: UICollectionViewDelegate,
                                  dataSource: UICollectionViewDataSource,

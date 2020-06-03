@@ -10,9 +10,9 @@ import UIKit
 
 public extension UIView {
     
-    @objc internal var snpTapGesture: JHSnapKitTool.JHTapGestureBlock? {
+    @objc internal var snpTapGesture: SnapKitTool.TapGestureClosure? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.TapGestureKey) as? JHSnapKitTool.JHTapGestureBlock
+            return objc_getAssociatedObject(self, &AssociatedKeys.TapGestureKey) as? SnapKitTool.TapGestureClosure
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.TapGestureKey, newValue, .OBJC_ASSOCIATION_COPY)
@@ -27,8 +27,8 @@ public extension UIView {
     ///   - backColor: 背景色
     @discardableResult
     class func snpView(supView : UIView? = nil,
-                       snapKitMaker : JHSnapKitTool.JHSnapMaker? = nil,
-                       snpTapGesture : JHSnapKitTool.JHTapGestureBlock? = nil,
+                       snapKitMaker : SnapKitTool.SnapMaker? = nil,
+                       snpTapGesture : SnapKitTool.TapGestureClosure? = nil,
                        backColor: UIColor) -> UIView{
         
         let view = UIView.init()
@@ -52,7 +52,7 @@ public extension UIView {
         return view
     }
     
-    @objc func snpAddTapGestureWithCallback(snpTapGesture : JHSnapKitTool.JHTapGestureBlock?){
+    @objc func snpAddTapGestureWithCallback(snpTapGesture : SnapKitTool.TapGestureClosure?){
         self.snpTapGesture = snpTapGesture
         self.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(handleTapGesture))

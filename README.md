@@ -47,7 +47,7 @@ let _ = UILabel.snpLabel(text: “我是Label”, textColor: .red, supView: self
 详细用法参见DEMO
 4. BaseCell
 * 泛型封装Table、Collection的Cell以及HeaderView，方便快速注册，复用，传递Model，只需要继承后在configViews里做相关布局UI即可。
-5. Define
+5. Util
 * 常量，工具
 
 ### 安装

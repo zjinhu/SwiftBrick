@@ -85,8 +85,8 @@ open class JHViewController: UIViewController {
     */
     public func configDefaultBackBarButton() {
 
-        leftBarButton.setImage(JHImageLoader.loadToolsImage(with: "nav_ic_back"), for: .normal)
-        leftBarButton.setImage(JHImageLoader.loadToolsImage(with: "nav_ic_back"), for: .highlighted)
+        leftBarButton.setImage(L.image("nav_ic_back"), for: .normal)
+        leftBarButton.setImage(L.image("nav_ic_back"), for: .highlighted)
 
         leftBarButton.addTarget(self, action:#selector(goBack) , for: .touchUpInside)
         let btnItem = UIBarButtonItem.init(customView: leftBarButton)

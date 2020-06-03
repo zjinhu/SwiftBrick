@@ -144,7 +144,7 @@ public extension UITextView {
                            textColor: UIColor = .black,
                            textAlignment: NSTextAlignment = .left,
                            supView: UIView? = nil,
-                           snapKitMaker : JHSnapKitTool.JHSnapMaker? = nil,
+                           snapKitMaker : SnapKitTool.SnapMaker? = nil,
                            delegate: UITextViewDelegate,
                            backColor: UIColor) -> UITextView{
         

@@ -27,7 +27,7 @@ public extension UILabel {
                         textColor: UIColor = .black,
                         supView: UIView? = nil,
                         textAlignment: NSTextAlignment = .left,
-                        snapKitMaker : JHSnapKitTool.JHSnapMaker? = nil,
+                        snapKitMaker : SnapKitTool.SnapMaker? = nil,
                         backColor: UIColor) -> UILabel{
         
         let label = UILabel.init()

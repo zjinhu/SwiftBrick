@@ -25,8 +25,8 @@ public extension UIImageView {
                             image : UIImage? = nil,
                             isClip : Bool = false,
                             contentMode : UIView.ContentMode  = .scaleAspectFill,
-                            snapKitMaker : JHSnapKitTool.JHSnapMaker? = nil,
-                            snpTapGesture : JHSnapKitTool.JHTapGestureBlock? = nil,
+                            snapKitMaker : SnapKitTool.SnapMaker? = nil,
+                            snpTapGesture : SnapKitTool.TapGestureClosure? = nil,
                             backColor: UIColor) -> UIImageView{
         
         let imageView = UIImageView.init()

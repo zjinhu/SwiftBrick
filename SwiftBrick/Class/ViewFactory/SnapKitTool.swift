@@ -11,16 +11,16 @@ import SnapKit
 
 public struct AssociatedKeys {
     static var TapGestureKey: String = "TapGestureKey"
-    static var JHButtonTouchUpKey: String = "JHButtonTouchUpKey"
+    static var ButtonTouchUpKey: String = "ButtonTouchUpKey"
 }
 
-public class JHSnapKitTool: NSObject {
+public class SnapKitTool: NSObject {
 
-   public typealias JHSnapMaker = (_ make: ConstraintMaker) -> Void
+   public typealias SnapMaker = (_ make: ConstraintMaker) -> Void
     
-   public typealias JHTapGestureBlock = (_ block: Any) -> Void
+   public typealias TapGestureClosure = (_ block: Any) -> Void
 
-   public typealias JHButtonBlock = (_ sender: UIButton) -> Void
+   public typealias ButtonClosure = (_ sender: UIButton) -> Void
 }
 
  // MARK: - 命名空间方案,废弃,没减少一行代码
