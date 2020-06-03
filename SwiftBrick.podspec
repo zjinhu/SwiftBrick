@@ -25,19 +25,19 @@ Pod::Spec.new do |s|
      'SwiftBrick' => ['SwiftBrick/Class/*.xcassets']
   }
 
-    s.subspec 'Define' do |ss| 
-      ss.source_files = 'SwiftBrick/Class/Define/**/*' 
+    s.subspec 'Util' do |ss| 
+      ss.source_files = 'SwiftBrick/Class/Util/**/*' 
     end
 
     s.subspec 'Extensions' do |ss| 
-      ss.dependency 'SwiftBrick/Define'
+      ss.dependency 'SwiftBrick/Util'
       ss.source_files = 'SwiftBrick/Class/Extensions/**/*' 
     end
     s.subspec 'BaseCell' do |ss| 
       ss.source_files = 'SwiftBrick/Class/BaseCell/**/*' 
     end
     s.subspec 'BaseVC' do |ss| 
-      ss.dependency 'SwiftBrick/Define'
+      ss.dependency 'SwiftBrick/Util'
       ss.dependency 'SwiftBrick/BaseCell'
       ss.source_files = 'SwiftBrick/Class/BaseVC/**/*' 
     end
