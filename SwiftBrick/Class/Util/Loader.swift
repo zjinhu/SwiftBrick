@@ -15,18 +15,16 @@ public class L{
         return bundle
     }()
     
-    public static func image(_ named: String) -> UIImage? {
-        var image = UIImage(named: named, in: bundle, compatibleWith: nil)
-        if image == nil {
-            image = UIImage(named: named)
+    public static func image(_ named: String) -> UIImage {
+        guard let image = UIImage(named: named, in: bundle, compatibleWith: nil) else {
+            return UIImage(named: named) ?? UIImage()
         }
         return image
     }
     
-    public static func color(_ named: String) -> UIColor? {
-        var color = UIColor(named: named, in: bundle, compatibleWith: nil)
-        if color == nil {
-            color = UIColor.init(named: named)
+    public static func color(_ named: String) -> UIColor {
+        guard let color = UIColor(named: named, in: bundle, compatibleWith: nil) else {
+            return UIColor.init(named: named) ?? UIColor.clear
         }
         return color
     }
