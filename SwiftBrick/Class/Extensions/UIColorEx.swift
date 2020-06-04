@@ -76,22 +76,25 @@ public extension UIColor {
     }
     
     
+    /// 支持暗黑模式的颜色
     struct BaseUI {
-
-        public static let turquoise             = UIColor.init(hex: 0x1abc9c)
-
-        public static let greenSea              = UIColor.init(hex: 0x16a085)
-
-        public static let emerald               = UIColor.init(hex: 0x2ecc71)
-
-        public static let nephritis             = UIColor.init(hex: 0x27ae60)
-
-        public static let peterRiver            = UIColor.init(hex: 0x3498db)
+        public static let baseBlue = L.color("baseBlue")
+        public static let baseGray = L.color("baseGray")
+        public static let baseGreen = L.color("baseGreen")
+        public static let baseIndigo = L.color("baseIndigo")
+        public static let baseOrange = L.color("baseOrange")
+        public static let basePink = L.color("basePink")
+        public static let basePurple = L.color("basePurple")
+        public static let baseRed = L.color("baseRed")
+        public static let baseTeal = L.color("baseTeal")
+        public static let baseYellow = L.color("baseYellow")
+        public static let baseBackground = L.color("bgColor")
         
+        public static let baseLine = UIColor.init(hex: 0xe3e3e3)
         
-        public static let baseLine              = UIColor.init(hex: 0xe3e3e3)
-        public static let baseText              = UIColor.init(hex: 0x333333)
-        public static let baseGrayText          = UIColor.init(hex: 0x666666)
-        public static let baseBackground        = UIColor.init(hex: 0x666666)
+        public static let textTitleColor = L.color("textTitleColor")
+        public static let textSecColor = L.color("textSecColor")
+        public static let textDesColor = L.color("textDesColor")
+        public static let textLinkColor = L.color("textLinkColor")
     }
 }
