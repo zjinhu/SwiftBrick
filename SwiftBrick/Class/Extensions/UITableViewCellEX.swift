@@ -45,14 +45,14 @@ public extension UITableViewCell {
             return
         }
         
-        var topLineView  = contentView.viewWithTag(TopLineTag)
+        var topLineView  = viewWithTag(TopLineTag)
         
         if topLineView == nil {
             topLineView = UIView.init()
             topLineView?.backgroundColor = color
             topLineView?.tag = TopLineTag
-            contentView.addSubview(topLineView!)
-            contentView.bringSubviewToFront(topLineView!)
+            addSubview(topLineView!)
+            bringSubviewToFront(topLineView!)
             topLineView?.snp.makeConstraints({ (make) in
                 make.top.equalToSuperview()
                 make.left.equalToSuperview().offset(headFootLeftMarign)
@@ -67,14 +67,14 @@ public extension UITableViewCell {
             topLineView?.isHidden = true
         }
         
-        var bottomLineView  = contentView.viewWithTag(BottomLineTag)
+        var bottomLineView  = viewWithTag(BottomLineTag)
         
         if bottomLineView == nil {
             bottomLineView = UIView.init()
             bottomLineView?.backgroundColor = color
             bottomLineView?.tag = BottomLineTag
-            contentView.addSubview(bottomLineView!)
-            contentView.bringSubviewToFront(bottomLineView!)
+            addSubview(bottomLineView!)
+            bringSubviewToFront(bottomLineView!)
             bottomLineView?.snp.makeConstraints({ (make) in
                 make.bottom.equalToSuperview()
                 make.left.equalToSuperview().offset(leftMarign)
@@ -102,12 +102,10 @@ public extension UITableViewCell {
 
     /// 添加中间分割线，首位没有线
     /// - Parameters:
-    ///   - tableView: tableView
     ///   - indexPath: indexPath
     ///   - leftMarign: 左间距
     ///   - rightMarign: 右间距
-    func addMiddleLine(tableView : UITableView,
-                     indexPath : IndexPath,
+    func addMiddleLine(indexPath : IndexPath,
                      leftMarign : CGFloat = 0,
                      rightMarign : CGFloat = 0,
                      lineColor : UIColor = .clear){
@@ -117,14 +115,14 @@ public extension UITableViewCell {
             color = lineColor
         }
         
-        var lineView  = contentView.viewWithTag(TopLineTag)
+        var lineView  = viewWithTag(TopLineTag)
         
         if lineView == nil {
             lineView = UIView.init()
             lineView?.backgroundColor = color
             lineView?.tag = TopLineTag
-            contentView.addSubview(lineView!)
-            contentView.bringSubviewToFront(lineView!)
+            addSubview(lineView!)
+            bringSubviewToFront(lineView!)
             lineView?.snp.makeConstraints({ (make) in
                 make.top.equalToSuperview()
                 make.left.equalToSuperview().offset(leftMarign)
@@ -142,13 +140,9 @@ public extension UITableViewCell {
     
     /// 添加底部分割线
     /// - Parameters:
-    ///   - tableView: tableView
-    ///   - indexPath: indexPath
     ///   - leftMarign: 左侧间距
     ///   - selectedColor: 选中颜色，默认为灰色线
-    func addDownLine(tableView : UITableView,
-                     indexPath : IndexPath,
-                     leftMarign : CGFloat = 0,
+    func addDownLine(leftMarign : CGFloat = 0,
                      lineColor : UIColor = .clear){
         
         var color = UIColor.BaseUI.baseLine
@@ -156,14 +150,14 @@ public extension UITableViewCell {
             color = lineColor
         }
         
-        var lineView  = contentView.viewWithTag(BottomLineTag)
+        var lineView  = viewWithTag(BottomLineTag)
         
         if lineView == nil {
             lineView = UIView.init()
             lineView?.backgroundColor = color
             lineView?.tag = BottomLineTag
-            contentView.addSubview(lineView!)
-            contentView.bringSubviewToFront(lineView!)
+            addSubview(lineView!)
+            bringSubviewToFront(lineView!)
             lineView?.snp.makeConstraints({ (make) in
                 make.bottom.right.equalToSuperview()
                 make.left.equalToSuperview().offset(leftMarign)
