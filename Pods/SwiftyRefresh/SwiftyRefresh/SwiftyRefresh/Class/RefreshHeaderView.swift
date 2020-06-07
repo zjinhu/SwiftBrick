@@ -28,7 +28,7 @@ public class RefreshHeaderView: RefreshView {
     }()
     
     lazy var arrowImageView : UIImageView = {
-        let view = UIImageView.init(image: ImageLoader.loadImage(with: "refresh_arrow"))
+        let view = UIImageView.init(image: Loader.image("refresh_arrow"))
         view.contentMode = .scaleAspectFill
         return view
     }()

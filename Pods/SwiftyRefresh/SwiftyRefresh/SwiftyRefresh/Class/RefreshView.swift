@@ -74,10 +74,6 @@ open class RefreshView : UIView {
     ///scrollView刚开始的inset
     public var scrollViewOriginalEdgeInsets = UIEdgeInsets.zero
     
-    var contentOffsetObs: NSKeyValueObservation?
-    var contentSizeObs: NSKeyValueObservation?
-    var contentInsetObs: NSKeyValueObservation?
-
     public var scrollViewEdgeInsets: UIEdgeInsets {
         guard let scrollView = scrollView else {
             return UIEdgeInsets.zero
@@ -88,7 +84,10 @@ open class RefreshView : UIView {
             return scrollView.contentInset
         }
     }
-
+    
+    var contentOffsetObs: NSKeyValueObservation?
+    var contentSizeObs: NSKeyValueObservation?
+    var contentInsetObs: NSKeyValueObservation?
     //MARK:初始化
     required public init(frame: CGRect, hangingOffsetHeight hangingH: CGFloat = 55, refreshType type: RefreshViewType = .header, refreshHandler handler: @escaping (RefreshView) -> Void) {
         refreshType = type
@@ -208,18 +207,16 @@ extension RefreshView {
     }
 }
 
-public class ImageLoader{
-
+public class Loader{
     static var bundle: Bundle? = {
-        let path = Bundle.init(for: ImageLoader.self).path(forResource: "SwiftyRefresh", ofType: "bundle", inDirectory: nil)
+        let path = Bundle.init(for: Loader.self).path(forResource: "SwiftyRefresh", ofType: "bundle", inDirectory: nil)
         let bundle = Bundle.init(path: path ?? "")
         return bundle
     }()
     
-    public static func loadImage(with name: String) -> UIImage? {
-        var image = UIImage.init(named: name, in: bundle, compatibleWith: nil)
-        if image == nil {
-            image = UIImage(named: name)
+    public static func image(_ named: String) -> UIImage {
+        guard let image = UIImage(named: named, in: bundle, compatibleWith: nil) else {
+            return UIImage(named: named) ?? UIImage()
         }
         return image
     }
