@@ -21,7 +21,7 @@ public extension UITableViewCell {
     ///   - leftMarign: 左间距
     ///   - rightMarign: 右间距
     ///   - isHeadFootMarign: 是否首尾分割线也需要间距
-    ///   - selectedColor: 选中颜色
+    ///   - lineColor: 选中颜色
     func addAllLine(tableView : UITableView,
                      indexPath : IndexPath,
                      leftMarign : CGFloat = 0,
@@ -141,8 +141,10 @@ public extension UITableViewCell {
     /// 添加底部分割线
     /// - Parameters:
     ///   - leftMarign: 左侧间距
-    ///   - selectedColor: 选中颜色，默认为灰色线
+    ///   - rightMarign: 右间距
+    ///   - lineColor: 选中颜色，默认为灰色线
     func addDownLine(leftMarign : CGFloat = 0,
+                     rightMarign : CGFloat = 0,
                      lineColor : UIColor = .clear){
         
         var color = UIColor.BaseUI.baseLine
@@ -159,7 +161,8 @@ public extension UITableViewCell {
             addSubview(lineView!)
             bringSubviewToFront(lineView!)
             lineView?.snp.makeConstraints({ (make) in
-                make.bottom.right.equalToSuperview()
+                make.bottom.equalToSuperview()
+                make.right.equalToSuperview().offset(-rightMarign)
                 make.left.equalToSuperview().offset(leftMarign)
                 make.height.equalTo(LineHeight)
             })
