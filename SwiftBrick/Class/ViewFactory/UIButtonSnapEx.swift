@@ -51,37 +51,42 @@ public extension UIButton {
         let btn = UIButton.init(type: .custom)
         btn.backgroundColor = backColor
         
-        if (title != nil) {
+        if title != nil {
             btn.setTitle(title, for: .normal)
         }
         
-        if (font != nil) {
+        if font != nil {
             btn.titleLabel?.font = font
         }else{
             btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         }
         
-        if (titleNorColor != nil) {
+        if titleNorColor != nil {
             btn.setTitleColor(titleNorColor, for: .normal)
         }else{
             btn.setTitleColor(.black, for: .normal)
         }
         
-        if (titleHigColor != nil) {
+        if titleHigColor != nil {
             btn.setTitleColor(titleHigColor, for: .highlighted)
         }
         
-        if (norImage != nil) {
+        if norImage != nil {
             btn.setImage(norImage, for: .normal)
         }
         
-        if (higImage != nil) {
+        if higImage != nil {
             btn.setImage(higImage, for: .highlighted)
         }
         
-        if (borderColor != nil) {
+        if borderColor != nil {
             btn.layer.borderColor = borderColor?.cgColor
             btn.layer.borderWidth = CGFloat(borderWidth)
+        }
+        
+        if cornerRadius != 0 {
+            btn.layer.cornerRadius = CGFloat(cornerRadius)
+            btn.clipsToBounds = true
         }
         
         guard let sv = supView, let maker = snapKitMaker else {

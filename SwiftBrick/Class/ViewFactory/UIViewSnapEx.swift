@@ -33,7 +33,7 @@ public extension UIView {
         
         let view = UIView.init()
         view.backgroundColor = backColor
-        
+
         guard let sv = supView, let maker = snapKitMaker else {
             return view
         }

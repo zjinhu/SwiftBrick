@@ -24,6 +24,7 @@ public extension UIImageView {
     class func snpImageView(supView : UIView? = nil,
                             image : UIImage? = nil,
                             isClip : Bool = false,
+                            cornerRadius : Float = 0,
                             contentMode : UIView.ContentMode  = .scaleAspectFill,
                             snapKitMaker : SnapKitTool.SnapMaker? = nil,
                             snpTapGesture : SnapKitTool.TapGestureClosure? = nil,
@@ -31,6 +32,10 @@ public extension UIImageView {
         
         let imageView = UIImageView.init()
         imageView.backgroundColor = backColor
+        
+        if cornerRadius != 0 {
+            imageView.layer.cornerRadius = CGFloat(cornerRadius)
+        }
         
         imageView.clipsToBounds = isClip
         imageView.contentMode = contentMode
