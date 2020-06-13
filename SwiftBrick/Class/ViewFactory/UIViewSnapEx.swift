@@ -52,17 +52,17 @@ public extension UIView {
         return view
     }
     
-    @objc func snpAddTapGestureWithCallback(snpTapGesture : SnapKitTool.TapGestureClosure?){
-        self.snpTapGesture = snpTapGesture
-        self.isUserInteractionEnabled = true
+    @objc func snpAddTapGestureWithCallback(snpTapGesture closure : SnapKitTool.TapGestureClosure?){
+        snpTapGesture = closure
+        isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(handleTapGesture))
-        self.addGestureRecognizer(tap)
+        addGestureRecognizer(tap)
     }
     
     
     @objc func handleTapGesture() {
-        if let snpTapGesture =  self.snpTapGesture{
-            snpTapGesture(self)
+        if let closure = snpTapGesture{
+            closure(self)
         }
         
     }

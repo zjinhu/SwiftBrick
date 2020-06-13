@@ -189,7 +189,7 @@ public extension UITabBar {
     // 获取barButtonView
     fileprivate func getBarButttonViewWithIndex(index:Int) -> UIView {
         
-        if let itemss = self.items {
+        if let itemss = items {
             let item = itemss[index]
             let barButtonView = item.value(forKey: "view")
             return barButtonView as! UIView

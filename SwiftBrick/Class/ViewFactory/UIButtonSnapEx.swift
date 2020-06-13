@@ -106,17 +106,17 @@ public extension UIButton {
     
     @objc func snpAddTouchUpInSideBtnAction(touchUp : SnapKitTool.ButtonClosure?){
         
-        self.removeTarget(self, action: #selector(touchUpInSideBtnAction), for: .touchUpInside)
+        removeTarget(self, action: #selector(touchUpInSideBtnAction), for: .touchUpInside)
         guard let ges = touchUp else {
             return
         }
-        self.snpAction = ges
-        self.addTarget(self, action: #selector(touchUpInSideBtnAction), for: .touchUpInside)
+        snpAction = ges
+        addTarget(self, action: #selector(touchUpInSideBtnAction), for: .touchUpInside)
     }
     
     @objc func touchUpInSideBtnAction() {
-        if let snpAction = self.snpAction  {
-            snpAction(self)
+        if let action = snpAction  {
+            action(self)
         }
     }
 }

@@ -28,10 +28,10 @@ open class JHViewController: UIViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = L.color("bgColor")
-        self.edgesForExtendedLayout = .all
-        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
+        view.backgroundColor = L.color("bgColor")
+        edgesForExtendedLayout = .all
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
         
         configDefaultBackBarButton()
         // Do any additional setup after loading the view.
@@ -39,23 +39,23 @@ open class JHViewController: UIViewController {
     
     // MARK: - Navigation 关闭手势返回
     public func closePopGestureRecognizer() {
-        let target = self.navigationController?.interactivePopGestureRecognizer?.delegate
+        let target = navigationController?.interactivePopGestureRecognizer?.delegate
         let pan = UIPanGestureRecognizer.init(target: target, action: nil)
-        self.view.addGestureRecognizer(pan)
+        view.addGestureRecognizer(pan)
     }
     
     // MARK: - 返回方法
      @objc
      public func goBack() {
-        if let viewControllers: [UIViewController] = self.navigationController?.viewControllers {
+        if let viewControllers: [UIViewController] = navigationController?.viewControllers {
             guard viewControllers.count <= 1 else {
-                self.navigationController?.popViewController(animated: true)
+                navigationController?.popViewController(animated: true)
                 return
             }
         }
 
-        if (self.presentingViewController != nil) {
-            self.dismiss(animated: true, completion: nil)
+        if (presentingViewController != nil) {
+            dismiss(animated: true, completion: nil)
         }
     }
     
@@ -67,7 +67,7 @@ open class JHViewController: UIViewController {
             leftBarButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: -10, bottom: 0, right: 0)
             leftBarButton.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: -10, bottom: 0, right: 0)
             btnItem.imageInsets = UIEdgeInsets.init(top: 0, left: -10, bottom: 0, right: 0)
-            self.navigationItem.leftBarButtonItem = btnItem
+            navigationItem.leftBarButtonItem = btnItem
     }
     
     /**
@@ -77,7 +77,7 @@ open class JHViewController: UIViewController {
             rightBarButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: -10)
             rightBarButton.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: -10)
             btnItem.imageInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: -10)
-            self.navigationItem.rightBarButtonItem = btnItem
+            navigationItem.rightBarButtonItem = btnItem
       }
     
     /**

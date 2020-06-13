@@ -27,7 +27,7 @@ open class JHTableViewCell: UITableViewCell, Reusable{
     
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String? = String.init(describing: self)) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.contentView.backgroundColor = .clear
+        contentView.backgroundColor = .clear
         configCellViews()
     }
     
@@ -50,9 +50,9 @@ open class JHTableViewCell: UITableViewCell, Reusable{
     /// - Returns: 高度
     public func getCellHeightWithModel<T>(model: T) -> CGFloat {
         setCellModel(model: model)
-        self.layoutIfNeeded()
-        self.updateConstraintsIfNeeded()
-        let height = self.contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
+        layoutIfNeeded()
+        updateConstraintsIfNeeded()
+        let height = contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
         return height
     }
     

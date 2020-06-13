@@ -29,7 +29,7 @@ open class JHTableViewController: JHViewController ,UITableViewDelegate,UITableV
     
     /// 子类继承时重写此方法可设置Table样式：self.tableViewStyleType =  .StyleGrouped，或者Init时候设置
     open func configTableViewStyleType(){
-//        self.tableViewStyleType = tableViewStyleType
+//        tableViewStyleType = tableViewStyleType
     }
     
     // MARK: - 布局
@@ -73,18 +73,18 @@ open class JHTableViewController: JHViewController ,UITableViewDelegate,UITableV
         //    tableView.sectionFooterHeight = UITableViewAutomaticDimension;
         tableView?.delaysContentTouches = true
         // Do any additional setup after loading the view.
-        self.view.addSubview(tableView!)
+        view.addSubview(tableView!)
 
         tableView?.snp.makeConstraints({ (make) in
-            make.top.equalTo(self.view.safeAreaInsets.top);
-            make.left.equalTo(self.view.safeAreaInsets.left);
-            make.right.equalTo(self.view.safeAreaInsets.right);
-            make.bottom.equalTo(self.view.safeAreaInsets.bottom);
+            make.top.equalTo(view.safeAreaInsets.top)
+            make.left.equalTo(view.safeAreaInsets.left)
+            make.right.equalTo(view.safeAreaInsets.right)
+            make.bottom.equalTo(view.safeAreaInsets.bottom)
         })
         
         tableView?.contentInsetAdjustmentBehavior = .automatic
 
-        let gestureArray : [UIGestureRecognizer]? = self.navigationController?.view.gestureRecognizers
+        let gestureArray : [UIGestureRecognizer]? = navigationController?.view.gestureRecognizers
         
         gestureArray?.forEach({ (gesture) in
             if gesture.isEqual(UIScreenEdgePanGestureRecognizer.self) {

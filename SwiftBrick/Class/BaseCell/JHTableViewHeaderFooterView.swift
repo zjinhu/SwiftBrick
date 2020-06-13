@@ -12,14 +12,14 @@ open class JHTableViewHeaderFooterView: UITableViewHeaderFooterView, Reusable{
 
     public var backColor : UIColor? {
         didSet{
-            self.backgroundView?.backgroundColor = backColor
+            backgroundView?.backgroundColor = backColor
         }
     }
     
     public override init(reuseIdentifier: String? = String.init(describing: self)) {
         super.init(reuseIdentifier: reuseIdentifier)
-        self.backgroundView = UIView(frame: self.bounds)
-        self.backgroundView?.backgroundColor = .clear
+        backgroundView = UIView(frame: bounds)
+        backgroundView?.backgroundColor = .clear
         configCellViews()
     }
     
@@ -46,9 +46,9 @@ open class JHTableViewHeaderFooterView: UITableViewHeaderFooterView, Reusable{
     /// - Returns: 高度
     public func getCellHeightWithModel<T>(model: T) -> CGFloat {
         setCellModel(model: model)
-        self.layoutIfNeeded()
-        self.updateConstraintsIfNeeded()
-        let height = self.contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
+        layoutIfNeeded()
+        updateConstraintsIfNeeded()
+        let height = contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
         return height
     }
 

@@ -19,7 +19,7 @@ open class JHCollectionReusableView: UICollectionReusableView, Reusable{
     public override init(frame: CGRect) {
         super.init(frame: frame)
         configCellViews()
-        self.backgroundColor = .clear
+        backgroundColor = .clear
     }
     
     required public init?(coder: NSCoder) {
@@ -45,9 +45,9 @@ open class JHCollectionReusableView: UICollectionReusableView, Reusable{
     /// - Returns: 高度
     public func getCellHeightWithModel<T>(model: T) -> CGFloat {
         setCellModel(model: model)
-        self.layoutIfNeeded()
-        self.updateConstraintsIfNeeded()
-        let height = self.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
+        layoutIfNeeded()
+        updateConstraintsIfNeeded()
+        let height = systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
         return height
     }
 }

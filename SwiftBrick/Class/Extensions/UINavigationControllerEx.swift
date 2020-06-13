@@ -82,7 +82,7 @@ public extension UIViewController {
     
 //    @_dynamicReplacement(for: viewWillAppear(_ : ))
     @objc func jh_viewWillAppear(_ animated: Bool) {
-        self.jh_viewWillAppear(animated)
+        jh_viewWillAppear(animated)
         guard let block = willAppearInjectBlock else {
             return
         }
@@ -164,7 +164,7 @@ public extension UINavigationController {
         }
         
         // 因为不是所有的都是通过push的方式，把控制器压入stack中，也可能是"-setViewControllers:"的方式，所以需要对栈顶控制器做下判断并赋值。
-        guard let disappearingViewController = self.viewControllers.last, disappearingViewController.willAppearInjectBlock == nil else {
+        guard let disappearingViewController = viewControllers.last, disappearingViewController.willAppearInjectBlock == nil else {
             return
         }
         disappearingViewController.willAppearInjectBlock = { [weak self] (viewController: UIViewController, animated: Bool) in

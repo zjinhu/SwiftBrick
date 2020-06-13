@@ -65,7 +65,7 @@ public extension UITextView {
     var holderLabel: UILabel {
         get {
             var _holderLabel = UILabel.init()
-            _holderLabel.font = self.font ?? UIFont.systemFont(ofSize: 12)
+            _holderLabel.font = font ?? UIFont.systemFont(ofSize: 12)
             _holderLabel.textColor = .darkText
             _holderLabel.textAlignment = .left
             if let label = objc_getAssociatedObject(self, &kTextViewPlaceholderLabel) as? UILabel {

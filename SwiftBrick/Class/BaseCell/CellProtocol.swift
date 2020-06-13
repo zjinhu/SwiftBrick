@@ -24,7 +24,7 @@ public extension UITableView {
     /// - Parameter cellType: UITableViewCell类
     func registerCell<T: UITableViewCell>(_ cellType: T.Type)
         where T: Reusable {
-            self.register(cellType.self, forCellReuseIdentifier: cellType.reuseIdentifier)
+            register(cellType.self, forCellReuseIdentifier: cellType.reuseIdentifier)
     }
     
     /// 复用已注册的UITableViewCell
@@ -32,11 +32,9 @@ public extension UITableView {
     /// - Returns: UITableViewCell
     func dequeueReusableCell<T: UITableViewCell>(_ cellType: T.Type = T.self) -> T
         where T: Reusable {
-            guard let cell = self.dequeueReusableCell(withIdentifier: cellType.reuseIdentifier) as? T else {
+            guard let cell = dequeueReusableCell(withIdentifier: cellType.reuseIdentifier) as? T else {
                 fatalError(
                     "Failed to dequeue a cell with identifier \(cellType.reuseIdentifier) matching type \(cellType.self). "
-                        + "Check that the reuseIdentifier is set properly in your XIB/Storyboard "
-                        + "and that you registered the cell beforehand"
                 )
             }
             return cell
@@ -46,7 +44,7 @@ public extension UITableView {
     /// - Parameter headerFooterViewType: UITableViewHeaderFooterView类
     func registerHeaderFooterView<T: UITableViewHeaderFooterView>(_ headerFooterViewType: T.Type)
         where T: Reusable {
-            self.register(headerFooterViewType.self, forHeaderFooterViewReuseIdentifier: headerFooterViewType.reuseIdentifier)
+            register(headerFooterViewType.self, forHeaderFooterViewReuseIdentifier: headerFooterViewType.reuseIdentifier)
     }
     
     /// 复用已注册的UITableViewHeaderFooterView
@@ -54,12 +52,9 @@ public extension UITableView {
     /// - Returns: UITableViewHeaderFooterView
     func dequeueReusableHeaderFooterView<T: UITableViewHeaderFooterView>(_ headerFooterViewType: T.Type = T.self) -> T?
         where T: Reusable {
-            guard let view = self.dequeueReusableHeaderFooterView(withIdentifier: headerFooterViewType.reuseIdentifier) as? T? else {
+            guard let view = dequeueReusableHeaderFooterView(withIdentifier: headerFooterViewType.reuseIdentifier) as? T? else {
                 fatalError(
                     "Failed to dequeue a header/footer with identifier \(headerFooterViewType.reuseIdentifier) "
-                        + "matching type \(headerFooterViewType.self). "
-                        + "Check that the reuseIdentifier is set properly in your XIB/Storyboard "
-                        + "and that you registered the header/footer beforehand"
                 )
             }
             return view
@@ -73,7 +68,7 @@ public extension UICollectionView {
     /// - Parameter cellType: UICollectionViewCell
     func registerCell<T: UICollectionViewCell>(_ cellType: T.Type)
         where T: Reusable {
-            self.register(cellType.self, forCellWithReuseIdentifier: cellType.reuseIdentifier)
+            register(cellType.self, forCellWithReuseIdentifier: cellType.reuseIdentifier)
     }
     
     /// 复用已经注册的UICollectionViewCell
@@ -83,12 +78,10 @@ public extension UICollectionView {
     /// - Returns: UICollectionViewCell
     func dequeueReusableCell<T: UICollectionViewCell>(_ cellType: T.Type = T.self, indexPath: IndexPath) -> T
         where T: Reusable {
-            let bareCell = self.dequeueReusableCell(withReuseIdentifier: cellType.reuseIdentifier, for: indexPath)
+            let bareCell = dequeueReusableCell(withReuseIdentifier: cellType.reuseIdentifier, for: indexPath)
             guard let cell = bareCell as? T else {
                 fatalError(
                     "Failed to dequeue a cell with identifier \(cellType.reuseIdentifier) matching type \(cellType.self). "
-                        + "Check that the reuseIdentifier is set properly in your XIB/Storyboard "
-                        + "and that you registered the cell beforehand"
                 )
             }
             return cell
@@ -114,7 +107,7 @@ public extension UICollectionView {
             case .sectionFooter:
                 kind = UICollectionView.elementKindSectionFooter
             }
-            self.register(
+            register(
                 headerFooterViewType.self,
                 forSupplementaryViewOfKind: kind,
                 withReuseIdentifier: headerFooterViewType.reuseIdentifier
@@ -139,7 +132,7 @@ public extension UICollectionView {
                 kind = UICollectionView.elementKindSectionFooter
             }
             
-            let view = self.dequeueReusableSupplementaryView(
+            let view = dequeueReusableSupplementaryView(
                 ofKind: kind,
                 withReuseIdentifier: headerFooterViewType.reuseIdentifier,
                 for: indexPath
@@ -147,9 +140,6 @@ public extension UICollectionView {
             guard let typedView = view as? T else {
                 fatalError(
                     "Failed to dequeue a supplementary view with identifier \(headerFooterViewType.reuseIdentifier) "
-                        + "matching type \(headerFooterViewType.self). "
-                        + "Check that the reuseIdentifier is set properly in your XIB/Storyboard "
-                        + "and that you registered the supplementary view beforehand"
                 )
             }
             return typedView

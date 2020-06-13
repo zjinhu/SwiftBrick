@@ -24,7 +24,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
     
     public lazy var reloadButton : UIButton  = {
         let reloadButton = UIButton.init(type: .custom)
-        reloadButton.frame = self.view.bounds
+        reloadButton.frame = view.bounds
         reloadButton.setTitle("加载失败,请点击重试", for: .normal)
         reloadButton.addTarget(self, action: #selector(reloadWebView), for: .touchUpInside)
         return reloadButton
@@ -81,7 +81,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
     @objc
     public var navTitle : String?
     @objc
-    public var url : String?
+    public var urlString : String?
     @objc
     public var agent : String? {
         didSet{
@@ -100,18 +100,18 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
     public var currentUrl : String?
     
     // MARK: - 初始化
-    public convenience init(url: String) {
+    public convenience init(urlString url: String) {
         self.init()
-        self.url = url
+        urlString = url
     }
     
-    public convenience init(url: String, cookie: Dictionary<String, String>) {
+    public convenience init(urlString url: String, cookie: Dictionary<String, String>) {
         self.init()
         guard let urlReal = URL.init(string: url) else {
             return
         }
-        self.url = url
-        var request = URLRequest.init(url: urlReal)
+        urlString = url
+        var req = URLRequest.init(url: urlReal)
         var cookieStr = ""
         if cookie.count > 0 {
             for (key,value) in cookie {
@@ -119,34 +119,34 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
             }
         }
         if cookieStr.count > 1 {
-            request.addValue(cookieStr, forHTTPHeaderField: "Cookie")
+            req.addValue(cookieStr, forHTTPHeaderField: "Cookie")
         }
-        self.request = request
+        request = req
     }
     
-    public convenience init(reqyest: URLRequest) {
+    public convenience init(request req: URLRequest) {
         self.init()
-        self.request = request
+        request = req
     }
     
     // MARK: - 布局
     override open func viewDidLoad() {
         super.viewDidLoad()
-        self.edgesForExtendedLayout = [.left,.right,.bottom]
+        edgesForExtendedLayout = [.left,.right,.bottom]
         
-        self.title = navTitle
+        title = navTitle
         
-        self.view.addSubview(reloadButton)
+        view.addSubview(reloadButton)
         
-        self.view.addSubview(webView)
+        view.addSubview(webView)
         webView.snp.makeConstraints({ (make) in
-            make.top.equalTo(self.view.safeAreaInsets.top );
-            make.left.equalTo(self.view.safeAreaInsets.left);
-            make.right.equalTo(self.view.safeAreaInsets.right);
-            make.bottom.equalTo(self.view.safeAreaInsets.bottom);
+            make.top.equalTo(view.safeAreaInsets.top)
+            make.left.equalTo(view.safeAreaInsets.left)
+            make.right.equalTo(view.safeAreaInsets.right)
+            make.bottom.equalTo(view.safeAreaInsets.bottom)
         })
         
-        self.view.addSubview(loadingProgressView)
+        view.addSubview(loadingProgressView)
         
         webView.configuration.userContentController.add(WeakScriptMessageDelegate.init(delegate: self), name: "JumpViewController")
         
@@ -272,10 +272,10 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
     
     // MARK: - 监听进度条
     //    func setupObserver(){
-    //        progressObervation = self.webView.observe(\.estimatedProgress, options: .new, changeHandler: { (self, change) in
+    //        progressObervation = webView.observe(\.estimatedProgress, options: .new, changeHandler: { (self, change) in
     //            let newValue = change.newValue  ?? 0
     //            print("new value is \(newValue)")
-    //            self.changeLoadingProgress(progress : Float(newValue))
+    //            changeLoadingProgress(progress : Float(newValue))
     //        })
     //    }
     // 监听网络加载进度，加载过程中在navigationBar显示加载进度，加载完成显示网站标题
@@ -311,7 +311,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         
         if let re = request {
             webView.load(re)
-        }else if let url = url, let realURL = URL.init(string: url) {
+        }else if let url = urlString, let realURL = URL.init(string: url) {
             webView.load(URLRequest.init(url: realURL))
         }
     }
@@ -328,13 +328,13 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
     
     ///关闭当前VC
     open func closeVC() {
-        if let viewControllers: [UIViewController] = self.navigationController?.viewControllers {
+        if let viewControllers: [UIViewController] = navigationController?.viewControllers {
             guard viewControllers.count <= 1 else {
-                self.navigationController?.popViewController(animated: true)
+                navigationController?.popViewController(animated: true)
                 return
             }
         }
-        if (self.presentingViewController != nil) {
+        if (presentingViewController != nil) {
             dismiss(animated: true, completion: nil)
         }
     }
@@ -372,11 +372,13 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
 
 // MARK: - WeakScriptMessageDelegate
 class WeakScriptMessageDelegate : NSObject, WKScriptMessageHandler {
-    weak var delegate : WKScriptMessageHandler?
-    init(delegate:WKScriptMessageHandler) {
-        self.delegate = delegate
+    
+    weak var delegate: WKScriptMessageHandler?
+    init(delegate dele: WKScriptMessageHandler) {
+        delegate = dele
         super.init()
     }
+    
     func userContentController(_ userContentController: WKUserContentController,
                                didReceive message: WKScriptMessage) {
         delegate?.userContentController(

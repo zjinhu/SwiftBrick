@@ -13,7 +13,7 @@ open class JHCollectionViewCell: UICollectionViewCell, Reusable{
     public override init(frame: CGRect) {
         super.init(frame: frame)
         configCellViews()
-        self.contentView.backgroundColor = .clear
+        contentView.backgroundColor = .clear
     }
     
     required public init?(coder: NSCoder) {
@@ -39,9 +39,9 @@ open class JHCollectionViewCell: UICollectionViewCell, Reusable{
     /// - Returns: 高度
     public func getCellHeightWithModel<T>(model: T) -> CGFloat {
         setCellModel(model: model)
-        self.layoutIfNeeded()
-        self.updateConstraintsIfNeeded()
-        let height = self.contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
+        layoutIfNeeded()
+        updateConstraintsIfNeeded()
+        let height = contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
         return height
     }
 

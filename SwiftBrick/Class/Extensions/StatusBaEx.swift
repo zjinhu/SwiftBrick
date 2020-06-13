@@ -67,7 +67,7 @@ extension UIViewController {
     func hideOrShowStatusBar(hidden: Bool = false) {
         
         setHiddenStatusBar = hidden
-        self.setNeedsStatusBarAppearanceUpdate()
+        setNeedsStatusBarAppearanceUpdate()
     }
     
     
@@ -76,7 +76,7 @@ extension UIViewController {
     func changeStatusBarStyle(style: UIStatusBarStyle = .default) {
         
         setStyleStatusBar = style
-        self.setNeedsStatusBarAppearanceUpdate()
+        setNeedsStatusBarAppearanceUpdate()
     }
 }
 
