@@ -7,15 +7,21 @@
 //
 
 import UIKit
-
+import SnapKit
 public extension UIView {
     
-    @objc internal var snpTapGesture: SnapKitTool.TapGestureClosure? {
+    struct AssociatedKeys {
+        static var tapGestureKey: String = "TapGestureKey"
+    }
+    
+    typealias tapGestureClosure = (_ view: UIView) -> Void
+    
+    @objc internal var snpTapGesture: tapGestureClosure? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.TapGestureKey) as? SnapKitTool.TapGestureClosure
+            return objc_getAssociatedObject(self, &AssociatedKeys.tapGestureKey) as? tapGestureClosure
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.TapGestureKey, newValue, .OBJC_ASSOCIATION_COPY)
+            objc_setAssociatedObject(self, &AssociatedKeys.tapGestureKey, newValue, .OBJC_ASSOCIATION_COPY)
         }
     }
     
@@ -26,33 +32,38 @@ public extension UIView {
     ///   - snpTapGesture: 点击Block 有默认参数
     ///   - backColor: 背景色
     @discardableResult
-    class func snpView(supView : UIView? = nil,
-                       snapKitMaker : SnapKitTool.SnapMaker? = nil,
-                       snpTapGesture : SnapKitTool.TapGestureClosure? = nil,
-                       backColor: UIColor) -> UIView{
+    class func snpView(supView: UIView? = nil,
+                       backColor: UIColor? = .clear,
+                       cornerRadius: Float = 0,
+                       tapGesture: tapGestureClosure? = nil,
+                       snapKitMaker: ((_ make: ConstraintMaker) -> Void)? = nil) -> UIView {
         
         let view = UIView.init()
         view.backgroundColor = backColor
 
+        if cornerRadius != 0 {
+            view.layer.cornerRadius = CGFloat(cornerRadius)
+            view.clipsToBounds = true
+        }
+        
         guard let sv = supView, let maker = snapKitMaker else {
             return view
         }
-        
         sv.addSubview(view)
         view.snp.makeConstraints { (make) in
             maker(make)
         }
         
-        guard let ges = snpTapGesture else {
+        guard let ges = tapGesture else {
             return view
         }
-        view.snpAddTapGestureWithCallback(snpTapGesture: ges)
+        view.snpAddTapGestureWithCallback(tapGesture: ges)
 
         
         return view
     }
     
-    @objc func snpAddTapGestureWithCallback(snpTapGesture closure : SnapKitTool.TapGestureClosure?){
+    @objc func snpAddTapGestureWithCallback(tapGesture closure : tapGestureClosure?){
         snpTapGesture = closure
         isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(handleTapGesture))

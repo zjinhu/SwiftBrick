@@ -7,10 +7,9 @@
 //
 
 import UIKit
-
+import SnapKit
 public extension UIImageView {
-    
-    
+
     /// 快速初始化UIImageView 包含默认参数,初始化过程可以删除部分默认参数简化方法
     /// - Parameters:
     ///   - supView: 被添加的位置 有默认参数
@@ -22,13 +21,13 @@ public extension UIImageView {
     ///   - backColor: 背景色
     @discardableResult
     class func snpImageView(supView : UIView? = nil,
+                            backColor: UIColor? = .clear,
                             image : UIImage? = nil,
                             isClip : Bool = false,
                             cornerRadius : Float = 0,
                             contentMode : UIView.ContentMode  = .scaleAspectFill,
-                            snapKitMaker : SnapKitTool.SnapMaker? = nil,
-                            snpTapGesture : SnapKitTool.TapGestureClosure? = nil,
-                            backColor: UIColor) -> UIImageView{
+                            snpTapGesture : tapGestureClosure? = nil,
+                            snapKitMaker : ((_ make: ConstraintMaker) -> Void)? = nil) -> UIImageView {
         
         let imageView = UIImageView.init()
         imageView.backgroundColor = backColor
@@ -37,7 +36,10 @@ public extension UIImageView {
             imageView.layer.cornerRadius = CGFloat(cornerRadius)
         }
         
-        imageView.clipsToBounds = isClip
+        if isClip {
+            imageView.clipsToBounds = true
+        }
+        
         imageView.contentMode = contentMode
         
         imageView.image = image
@@ -53,7 +55,7 @@ public extension UIImageView {
         guard let ges = snpTapGesture else {
             return imageView
         }
-        imageView.snpAddTapGestureWithCallback(snpTapGesture: ges)
+        imageView.snpAddTapGestureWithCallback(tapGesture: ges)
         
         
         return imageView

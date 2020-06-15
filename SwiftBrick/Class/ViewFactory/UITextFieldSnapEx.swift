@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SnapKit
 public extension UITextField {
     
     /// 快速初始化UITextField 包含默认参数,初始化过程可以删除部分默认参数简化方法
@@ -24,17 +24,17 @@ public extension UITextField {
     ///   - delegate: 代理
     ///   - backColor: 背景色
     @discardableResult
-    class func snpTextField(holderFont: UIFont = UIFont.systemFont(ofSize: 14),
+    class func snpTextField(supView: UIView? = nil,
+                            backColor: UIColor? = .clear,
+                            holderFont: UIFont = UIFont.systemFont(ofSize: 14),
                             holder: String = "",
                             holderColor: UIColor = .black,
                             font: UIFont = UIFont.systemFont(ofSize: 14),
                             text: String = "",
                             textColor: UIColor = .black,
                             textAlignment: NSTextAlignment = .left,
-                            supView: UIView? = nil,
-                            snapKitMaker : SnapKitTool.SnapMaker? = nil,
-                            delegate: UITextFieldDelegate,
-                            backColor: UIColor) -> UITextField{
+                            delegate: UITextFieldDelegate? = nil,
+                            snapKitMaker : ((_ make: ConstraintMaker) -> Void)? = nil) -> UITextField {
         
         let field = UITextField.init()
         
@@ -42,8 +42,10 @@ public extension UITextField {
         field.autocorrectionType = .no
         field.autocapitalizationType = .none
         field.spellCheckingType = .no
-        
-        field.delegate = delegate
+
+        if delegate != nil {
+          field.delegate = delegate
+        }
         
         field.attributedPlaceholder = NSAttributedString.init(string: holder, attributes: [NSAttributedString.Key.font : holderFont,NSAttributedString.Key.foregroundColor:holderColor])
         

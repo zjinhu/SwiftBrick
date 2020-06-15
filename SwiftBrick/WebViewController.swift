@@ -12,7 +12,7 @@ class WebViewController: JHWebViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.agent = "hahah"
+//        self.agent = "hahah"
         // Do any additional setup after loading the view.
     }
     

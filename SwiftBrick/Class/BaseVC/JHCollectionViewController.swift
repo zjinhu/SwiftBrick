@@ -10,6 +10,9 @@ import UIKit
 import SnapKit
 
 open class JHCollectionViewController: JHViewController ,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+//    deinit {
+//        print("JHCollectionViewController out")
+//    }
     // MARK: - 参数变量
     public enum ScrollDirectionType {
         case ScrollVertical
@@ -68,12 +71,12 @@ open class JHCollectionViewController: JHViewController ,UICollectionViewDelegat
         collectionView?.showsHorizontalScrollIndicator = false
         
         view.addSubview(collectionView!)
-        collectionView?.snp.makeConstraints({ (make) in
+        collectionView?.snp.makeConstraints{ (make) in
             make.top.equalTo(view.safeAreaInsets.top)
             make.left.equalTo(view.safeAreaInsets.left)
             make.right.equalTo(view.safeAreaInsets.right)
             make.bottom.equalTo(view.safeAreaInsets.bottom)
-        })
+        }
         
         extendedLayoutIncludesOpaqueBars = true
         collectionView?.contentInsetAdjustmentBehavior = .automatic

@@ -34,7 +34,6 @@
 		911150362383BDB300AE47DF /* JHCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911150352383BDB300AE47DF /* JHCollectionReusableView.swift */; };
 		911150382383DABF00AE47DF /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911150372383DABF00AE47DF /* CollectionViewController.swift */; };
 		9128EBB0238786C5006890C9 /* CALayerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128EBAF238786C5006890C9 /* CALayerEx.swift */; };
-		9128EBB22387B032006890C9 /* SnapKitTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128EBB12387B032006890C9 /* SnapKitTool.swift */; };
 		9128EBB42387B0DE006890C9 /* UIGestureRecognizerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128EBB32387B0DE006890C9 /* UIGestureRecognizerEx.swift */; };
 		9128EBB62387C0C0006890C9 /* UIImageViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128EBB52387C0C0006890C9 /* UIImageViewSnapEx.swift */; };
 		9128EBB82387D608006890C9 /* UIButtonSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128EBB72387D608006890C9 /* UIButtonSnapEx.swift */; };
@@ -83,7 +82,6 @@
 		911150352383BDB300AE47DF /* JHCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHCollectionReusableView.swift; sourceTree = "<group>"; };
 		911150372383DABF00AE47DF /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		9128EBAF238786C5006890C9 /* CALayerEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerEx.swift; sourceTree = "<group>"; };
-		9128EBB12387B032006890C9 /* SnapKitTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapKitTool.swift; sourceTree = "<group>"; };
 		9128EBB32387B0DE006890C9 /* UIGestureRecognizerEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizerEx.swift; sourceTree = "<group>"; };
 		9128EBB52387C0C0006890C9 /* UIImageViewSnapEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewSnapEx.swift; sourceTree = "<group>"; };
 		9128EBB72387D608006890C9 /* UIButtonSnapEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonSnapEx.swift; sourceTree = "<group>"; };
@@ -222,7 +220,6 @@
 		917FBC22238BA1240083721A /* ViewFactory */ = {
 			isa = PBXGroup;
 			children = (
-				9128EBB12387B032006890C9 /* SnapKitTool.swift */,
 				91622615238544440050F228 /* UIViewSnapEx.swift */,
 				9128EBB52387C0C0006890C9 /* UIImageViewSnapEx.swift */,
 				9128EBB72387D608006890C9 /* UIButtonSnapEx.swift */,
@@ -383,7 +380,6 @@
 				9128EBB0238786C5006890C9 /* CALayerEx.swift in Sources */,
 				9128EBBE2387EFD8006890C9 /* UITextViewSnapEx.swift in Sources */,
 				9111502E23838DD100AE47DF /* Define.swift in Sources */,
-				9128EBB22387B032006890C9 /* SnapKitTool.swift in Sources */,
 				911150382383DABF00AE47DF /* CollectionViewController.swift in Sources */,
 				816DABED2433351000E2B77B /* StatusBaEx.swift in Sources */,
 				9111500823838CC200AE47DF /* AppDelegate.swift in Sources */,

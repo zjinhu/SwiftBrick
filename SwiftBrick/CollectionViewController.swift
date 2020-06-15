@@ -47,10 +47,10 @@ class CollectionViewController: JHCollectionViewController {
         }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize.init(width: SCREEN_WIDTH, height: 20)
+        return CGSize.init(width: screen_width, height: 20)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize.init(width: SCREEN_WIDTH, height: 60)
+        return CGSize.init(width: screen_width, height: 60)
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

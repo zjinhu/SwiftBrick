@@ -11,12 +11,12 @@ import Foundation
 // MARK: ===================================变量宏定义=========================================
 
 // MARK:- 屏幕
-public let SCREEN_HEIGHT = UIScreen.main.bounds.height
-public let SCREEN_WIDTH = UIScreen.main.bounds.width
-public let FIT_WIDTH = min(UIScreen.main.bounds.width, UIScreen.main.bounds.height) / 375
-public let FIT_HEIGHT = max(UIScreen.main.bounds.width, UIScreen.main.bounds.height) / 667
+public let screen_height = UIScreen.main.bounds.height
+public let screen_width = UIScreen.main.bounds.width
+public let fit_width = min(UIScreen.main.bounds.width, UIScreen.main.bounds.height) / 375
+public let fit_height = max(UIScreen.main.bounds.width, UIScreen.main.bounds.height) / 667
 
-public func StatusBarHeight() ->CGFloat {
+public func status_bar_height() ->CGFloat {
     if #available(iOS 13.0, *){
         let window = UIApplication.shared.windows.first
         return window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
@@ -25,9 +25,9 @@ public func StatusBarHeight() ->CGFloat {
     }
 }
 //导航栏高度:通用
-public let NAVBAR_HEIGHT = UINavigationController().navigationBar.frame.size.height
+public let nav_bar_height = UINavigationController().navigationBar.frame.size.height
 //判断是否iphoneX
-public func ISIPHONEX() -> Bool {
+public func is_bangs_iPhone() -> Bool {
     guard #available(iOS 11.0, *) else {
         return false
     }
@@ -36,41 +36,42 @@ public func ISIPHONEX() -> Bool {
     return isX
 }
 
-public let NAVBARHEIGHT = ISIPHONEX() ? Double(88.0) : Double(64.0)
-public let TABBARHEIGHT = ISIPHONEX() ? Double(49.0+34.0) : Double(49.0)
-public let STATUSBARHEIGHT = ISIPHONEX() ? Double(44.0) : Double(20.0)
+public let nav_status_height = is_bangs_iPhone() ? Double(88.0) : Double(64.0)
+public let tab_bar_height = is_bangs_iPhone() ? Double(49.0+34.0) : Double(49.0)
+public let status_height = is_bangs_iPhone() ? Double(44.0) : Double(20.0)
+
 // MARK:- 画线宽度
-let Scare = UIScreen.main.scale
-public let LineHeight = (Scare >= 1 ? 1/Scare : 1)
+public let scare = UIScreen.main.scale
+public let line_height = (scare >= 1 ? 1/scare : 1)
 
 
 // MARK:- 系统版本
-public let IOS11 = (UIDevice.current.systemVersion as NSString).doubleValue >= 11.0
-public let IOS12 = (UIDevice.current.systemVersion as NSString).doubleValue >= 12.0
-public let IOS13 = (UIDevice.current.systemVersion as NSString).doubleValue >= 13.0
+public let iOS_later_11 = (UIDevice.current.systemVersion as NSString).doubleValue >= 11.0
+public let iOS_later_12 = (UIDevice.current.systemVersion as NSString).doubleValue >= 12.0
+public let iOS_later_13 = (UIDevice.current.systemVersion as NSString).doubleValue >= 13.0
 
-public func IS_IOS11() -> Bool { return (UIDevice.current.systemVersion as NSString).doubleValue >= 11.0 }
-public func IS_IOS12() -> Bool { return (UIDevice.current.systemVersion as NSString).doubleValue >= 12.0 }
-public func IS_IOS13() -> Bool { return (UIDevice.current.systemVersion as NSString).doubleValue >= 13.0 }
-public let systemVersion = (UIDevice.current.systemVersion as String)
+public func later_iOS_11() -> Bool { return (UIDevice.current.systemVersion as NSString).doubleValue >= 11.0 }
+public func later_iOS_12() -> Bool { return (UIDevice.current.systemVersion as NSString).doubleValue >= 12.0 }
+public func later_iOS_13() -> Bool { return (UIDevice.current.systemVersion as NSString).doubleValue >= 13.0 }
+public let system_version = (UIDevice.current.systemVersion as String)
 
 // MARK:- 字体
-public let FONT_11 = UIFont.systemFont(ofSize: 11)
-public let FONT_12 = UIFont.systemFont(ofSize: 12)
-public let FONT_13 = UIFont.systemFont(ofSize: 13)
-public let FONT_14 = UIFont.systemFont(ofSize: 14)
-public let FONT_15 = UIFont.systemFont(ofSize: 15)
-public let FONT_16 = UIFont.systemFont(ofSize: 16)
+public let font_11 = UIFont.systemFont(ofSize: 11)
+public let font_12 = UIFont.systemFont(ofSize: 12)
+public let font_13 = UIFont.systemFont(ofSize: 13)
+public let font_14 = UIFont.systemFont(ofSize: 14)
+public let font_15 = UIFont.systemFont(ofSize: 15)
+public let font_16 = UIFont.systemFont(ofSize: 16)
 
-public func Font(_ size: CGFloat) -> UIFont {
+public func font(_ size: CGFloat) -> UIFont {
     return UIFont.systemFont(ofSize: size)
 }
 
-public func FontBold(_ size: CGFloat) -> UIFont {
+public func font_bold(_ size: CGFloat) -> UIFont {
     return UIFont.boldSystemFont(ofSize: size)
 }
 
-public func FontWeight(_ size: CGFloat, weight: UIFont.Weight) -> UIFont {
+public func font_weight(_ size: CGFloat, weight: UIFont.Weight) -> UIFont {
     return UIFont.systemFont(ofSize: size, weight: weight)
 }
 
@@ -83,6 +84,3 @@ public func FontWeight(_ size: CGFloat, weight: UIFont.Weight) -> UIFont {
 //    #endif
 //}
 
-//#if canImport(lottie)
-//
-//#endif

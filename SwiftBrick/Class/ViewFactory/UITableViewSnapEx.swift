@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SnapKit
 public extension UITableView {
     
     /// 快速初始化UITableView 包含默认参数,初始化过程可以删除部分默认参数简化方法
@@ -20,15 +20,20 @@ public extension UITableView {
     ///   - backColor: 背景色
     @discardableResult
     class func snpTableView(supView: UIView? = nil,
-                            snapKitMaker : SnapKitTool.SnapMaker? = nil,
+                            backColor: UIColor? = .clear,
                             style: UITableView.Style = .plain,
-                            delegate: UITableViewDelegate,
-                            dataSource: UITableViewDataSource,
-                            backColor: UIColor) -> UITableView{
+                            delegate: UITableViewDelegate? = nil,
+                            dataSource: UITableViewDataSource? = nil,
+                            snapKitMaker : ((_ make: ConstraintMaker) -> Void)? = nil) -> UITableView {
         
         let tableView = UITableView.init(frame: .zero, style: style)
-        tableView.delegate = delegate
-        tableView.dataSource = dataSource
+        if delegate != nil {
+          tableView.delegate = delegate
+        }
+        if dataSource != nil {
+          tableView.dataSource = dataSource
+        }
+
         tableView.backgroundColor = backColor
         
         tableView.separatorStyle = .none

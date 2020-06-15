@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SnapKit
 public extension UICollectionView {
     
     /// 快速初始化UICollectionView 包含默认参数,初始化过程可以删除部分默认参数简化方法
@@ -20,11 +20,12 @@ public extension UICollectionView {
     ///   - backColor: 背景色
     @discardableResult
     class func snpCollectionView(supView: UIView? = nil,
-                                 snapKitMaker : SnapKitTool.SnapMaker? = nil,
+                                 backColor: UIColor? = .clear,
                                  scrollDirectionType: UICollectionView.ScrollDirection = .vertical,
-                                 delegate: UICollectionViewDelegate,
-                                 dataSource: UICollectionViewDataSource,
-                                 backColor: UIColor) -> UICollectionView{
+                                 delegate: UICollectionViewDelegate? = nil,
+                                 dataSource: UICollectionViewDataSource? = nil,
+                                 snapKitMaker : ((_ make: ConstraintMaker) -> Void)? = nil) -> UICollectionView{
+        
         let flowLayout = UICollectionViewFlowLayout.init()
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
@@ -32,8 +33,15 @@ public extension UICollectionView {
         flowLayout.scrollDirection = scrollDirectionType
         
         let collectionView = UICollectionView.init(frame: .zero, collectionViewLayout: flowLayout)
-        collectionView.delegate = delegate
-        collectionView.dataSource = dataSource
+
+        if delegate != nil {
+          collectionView.delegate = delegate
+        }
+        
+        if dataSource != nil {
+          collectionView.dataSource = dataSource
+        }
+        
         collectionView.backgroundColor = backColor
         
         collectionView.showsVerticalScrollIndicator = false

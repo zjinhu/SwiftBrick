@@ -9,18 +9,20 @@
 import UIKit
 
 open class JHViewController: UIViewController {
-    
+//    deinit {
+//        print("JHViewController out")
+//    }
     // MARK: - 参数变量
     public lazy var leftBarButton : UIButton = {
         let leftBarButton = UIButton.init(type: .custom)
         leftBarButton.imageView?.contentMode = .center
-        leftBarButton.frame = CGRect.init(x: 0, y: 0, width: NAVBAR_HEIGHT, height: NAVBAR_HEIGHT)
+        leftBarButton.frame = CGRect.init(x: 0, y: 0, width: nav_bar_height, height: nav_bar_height)
         return leftBarButton
     }()
     public lazy var rightBarButton : UIButton = {
         let rightBarButton = UIButton.init(type: .custom)
         rightBarButton.imageView?.contentMode = .center
-        rightBarButton.frame = CGRect.init(x: 0, y: 0, width: NAVBAR_HEIGHT, height: NAVBAR_HEIGHT)
+        rightBarButton.frame = CGRect.init(x: 0, y: 0, width: nav_bar_height, height: nav_bar_height)
         return rightBarButton
     }()
     
@@ -33,7 +35,7 @@ open class JHViewController: UIViewController {
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
         
-        configDefaultBackBarButton()
+//        configDefaultBackBarButton()
         // Do any additional setup after loading the view.
     }
     
@@ -83,7 +85,7 @@ open class JHViewController: UIViewController {
     /**
     *  设置导航默认返回按钮
     */
-    public func configDefaultBackBarButton() {
+    public func addDefaultBackBarButton() {
 
         leftBarButton.setImage(L.image("nav_ic_back"), for: .normal)
         leftBarButton.setImage(L.image("nav_ic_back"), for: .highlighted)
@@ -100,7 +102,7 @@ open class JHViewController: UIViewController {
     *  @param normalImage    正常图片
     *  @param highLightImage 高亮图片
     */
-    public func configLeftBarButtonWithImage(normalImage: UIImage, highLightImage: UIImage){
+    public func addLeftBarButtonWithImage(normalImage: UIImage, highLightImage: UIImage){
         leftBarButton.setImage(normalImage, for: .normal)
         leftBarButton.setImage(highLightImage, for: .highlighted)
 
@@ -115,8 +117,8 @@ open class JHViewController: UIViewController {
     *
     *  @param text 导航按钮文本
     */
-    public func configLeftBarButtonWithText(text: String, normalColor: UIColor, highlightColor: UIColor){
-        leftBarButton.titleLabel?.font = FONT_16
+    public func addLeftBarButtonWithText(text: String, normalColor: UIColor, highlightColor: UIColor){
+        leftBarButton.titleLabel?.font = font_16
         leftBarButton.setTitle(text, for: .normal)
         leftBarButton.setTitle(text, for: .highlighted)
 
@@ -136,7 +138,7 @@ open class JHViewController: UIViewController {
     *  @param normalImage    正常图片
     *  @param highLightImage 高亮图片
     */
-    public func configRightBarButtonWithImage(normalImage: UIImage, highLightImage: UIImage){
+    public func addRightBarButtonWithImage(normalImage: UIImage, highLightImage: UIImage){
         rightBarButton.setImage(normalImage, for: .normal)
         rightBarButton.setImage(highLightImage, for: .highlighted)
 
@@ -150,8 +152,8 @@ open class JHViewController: UIViewController {
     *
     *  @param text 导航按钮文本
     */
-    public func configRightBarButtonWithText(text: String, normalColor: UIColor, highlightColor: UIColor){
-        rightBarButton.titleLabel?.font = FONT_16
+    public func addRightBarButtonWithText(text: String, normalColor: UIColor, highlightColor: UIColor){
+        rightBarButton.titleLabel?.font = font_16
         rightBarButton.setTitle(text, for: .normal)
         rightBarButton.setTitle(text, for: .highlighted)
         rightBarButton.setTitleColor(normalColor, for: .normal)

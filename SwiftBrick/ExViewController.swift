@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSource{
     
     var mainArray = ["示例UIView1","示例UIView2","示例UIView3-可点击","示例UIImageView-可点击","示例UIImageView","示例Button"]
@@ -15,15 +16,10 @@ class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSou
         super.viewDidLoad()
         
 //        self.title = "示例UITableView"
-        
-        let tableView = UITableView.snpTableView(supView: self.view,
-                                                 snapKitMaker: { (make) in
-                                                    make.edges.equalToSuperview()
-        },
-                                                 style: .plain,
-                                                 delegate: self,
-                                                 dataSource: self,
-                                                 backColor: .white)
+
+        let tableView = UITableView.snpTableView(supView: view, delegate: self, dataSource: self) { (make) in
+            make.edges.equalToSuperview()
+        }
         
         tableView.registerCell(JHTableViewCell.self)
 //         self.tabBarController?.tabBar.badgePoint = CGPoint(x: 25, y: -3)
@@ -36,14 +32,13 @@ class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSou
     }
     // MARK:-示例快速创建UIView 使用部分默认参数 --初始化使用SnapKit
     func demoView1(supView: UIView){
-        UIView.snpView(supView: supView,
-                       snapKitMaker: { (make) in
-                        make.top.equalTo(supView).offset(10)
-                        make.centerX.equalTo(supView)
-                        make.width.equalTo(80)
-                        make.height.equalTo(40)
-        },
-                       backColor: .red)
+        
+        UIView.snpView(supView: supView, backColor: .purple) { (make) in
+            make.top.equalTo(supView).offset(10)
+            make.centerX.equalTo(supView)
+            make.width.equalTo(80)
+            make.height.equalTo(40)
+        }
         
     }
     // MARK:-示例快速创建UIView 使用部分默认参数--初始化不使用SnapKit
@@ -60,54 +55,48 @@ class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSou
     }
     // MARK:-示例快速创建UIView 使用全部参数--有单击操作
     func demoView3(supView: UIView){
-        UIView.snpView(supView: supView,
-                       snapKitMaker: { (make) in
-                        make.top.equalTo(supView).offset(20)
-                        make.centerX.equalTo(supView)
-                        make.width.equalTo(80)
-                        make.height.equalTo(40)
-        },
-                       snpTapGesture: { (view) in
-                        print("点击UIView")
-        },
-                       backColor: .orange)
+        UIView.snpView(supView: supView, backColor: .purple, tapGesture: { (view) in
+            print("1111")
+        }) { (make) in
+            make.top.equalTo(supView).offset(20)
+            make.centerX.equalTo(supView)
+            make.width.equalTo(80)
+            make.height.equalTo(40)
+        }
     }
     // MARK:-示例快速创建UIimageView
     func demoImageView1(supView: UIView){
-        UIImageView.snpImageView(supView: supView,
-                                 snapKitMaker: { (make) in
-                                    make.top.equalTo(supView).offset(30)
-                                    make.centerX.equalTo(supView)
-                                    make.width.equalTo(80)
-                                    make.height.equalTo(40)
-        },
-                                 snpTapGesture: { (imageView) in
-                                    print("点击图片")
-                                    self.tabBarController?.tabBar.hiddenRedPointOnIndex(index: 0, animation: true)
-        },
-                                 backColor: .purple)
+        
+        UIImageView.snpImageView(supView: supView, backColor: .purple) { (make) in
+            make.top.equalTo(supView).offset(30)
+            make.centerX.equalTo(supView)
+            make.width.equalTo(80)
+            make.height.equalTo(40)
+        }
+
     }
     
     func demoImageView2(supView: UIView){
-        UIImageView.snpImageView(supView: supView,
-                                 image: UIImage.init(named: "share_haoyou_btn"),
-                                 isClip: true,
-                                 snapKitMaker: { (make) in
-                                    make.top.equalTo(supView).offset(30)
-                                    make.centerX.equalTo(supView)
-                                    make.width.equalTo(80)
-                                    make.height.equalTo(40)
-        },
-                                 backColor: .clear)
+        UIImageView.snpImageView(supView: supView, backColor: .orange, image: UIImage.init(named: "share_haoyou_btn"), isClip : true, snpTapGesture: { (view) in
+            print("点击图片")
+            self.tabBarController?.tabBar.hiddenRedPointOnIndex(index: 0, animation: true)
+        }) { (make) in
+            make.top.equalTo(supView).offset(30)
+            make.centerX.equalTo(supView)
+            make.width.equalTo(80)
+            make.height.equalTo(40)
+        }
+
     }
     // MARK:-示例快速创建按钮
     func demoButton(supView: UIView){
-        let btn = UIButton.snpButton(supView: supView, title: "buttonbuttonbuttonbuttonbutton", snapKitMaker: { (make) in
+        let btn = UIButton.snpButton(supView: supView, backColor: .orange, title: "button", touchUp: { (btn) in
+            print("点击Button")
+        }) { (make) in
             make.top.equalTo(supView).offset(40)
             make.centerX.equalTo(supView)
-        }, touchUp: { (btn) in
-            print("点击Button")
-        }, backColor: .orange)
+        }
+
         btn.setImage(UIImage.init(named: "share_haoyou_btn"), for: .normal)
         btn.layoutButton(.imagePositionRight, space: 10)
     }

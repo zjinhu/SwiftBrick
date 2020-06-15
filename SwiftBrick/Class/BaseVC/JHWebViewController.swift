@@ -11,6 +11,7 @@ import WebKit
 import SnapKit
 
 open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDelegate,WKScriptMessageHandler,UIScrollViewDelegate{
+
     // MARK: - 参数变量
     public dynamic lazy var webView : WKWebView = {
         let webView = WKWebView.init(frame: .zero, configuration: config)
@@ -31,7 +32,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
     }()
     
     lazy var loadingProgressView : UIProgressView = {
-        let progressView = UIProgressView.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: 4))
+        let progressView = UIProgressView.init(frame: CGRect.init(x: 0, y: 0, width: screen_width, height: 4))
         progressView.trackTintColor = .clear
         progressView.tintColor = .red
         return progressView
@@ -39,7 +40,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
     
     lazy var config : WKWebViewConfiguration = {
         let preferences = WKPreferences.init()
-        preferences.minimumFontSize = 0.0
+//        preferences.minimumFontSize = 0.0
         preferences.javaScriptEnabled = true
         preferences.javaScriptCanOpenWindowsAutomatically = true
         
@@ -139,12 +140,12 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         view.addSubview(reloadButton)
         
         view.addSubview(webView)
-        webView.snp.makeConstraints({ (make) in
+        webView.snp.makeConstraints { (make) in
             make.top.equalTo(view.safeAreaInsets.top)
             make.left.equalTo(view.safeAreaInsets.left)
             make.right.equalTo(view.safeAreaInsets.right)
             make.bottom.equalTo(view.safeAreaInsets.bottom)
-        })
+        }
         
         view.addSubview(loadingProgressView)
         
@@ -356,6 +357,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         webView.uiDelegate = nil
         webView.navigationDelegate = nil
         webView.scrollView.delegate = nil
+//        print("JHWebViewController out")
     }
     
     func cleanAllWebsiteDataStore() {

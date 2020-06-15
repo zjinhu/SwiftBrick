@@ -25,21 +25,21 @@ class TableViewController: JHTableViewController {
         super.viewDidLoad()
         
         ///是否需要展示导航栏，方便实用
-        self.prefersNavigationBarHidden = true
+        prefersNavigationBarHidden = true
         // Do any additional setup after loading the view.
 //        self.configRightBarButtonWithImage(normalImage: JHImageLoader.loadToolsImage(with: "ic_arrow_gray_right")!, highLightImage: JHImageLoader.loadToolsImage(with: "ic_arrow_gray_right")!)
-        self.configRightBarButtonWithText(text: "123", normalColor: .darkGray, highlightColor: .lightGray)
+        addRightBarButtonWithText(text: "123", normalColor: .darkGray, highlightColor: .lightGray)
         
-        self.mainDatas = [["","","","","","","","",""],["","","","","","","","",""]]
+        mainDatas = [["","","","","","","","",""],["","","","","","","","",""]]
         
-        self.tableView?.registerHeaderFooterView(JHTableViewHeaderFooterView.self)
+        tableView?.registerHeaderFooterView(JHTableViewHeaderFooterView.self)
         
-        self.tableView?.refresh.addRefreshHeader(handler: { (header) in
+        tableView?.refresh.addRefreshHeader(handler: { (header) in
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 header.endRefreshing()
             }
         })
-        self.tableView?.refresh.addRefreshAutoFooter(handler: { (footer) in
+        tableView?.refresh.addRefreshAutoFooter(handler: { (footer) in
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 footer.showNoMoreData()
             }

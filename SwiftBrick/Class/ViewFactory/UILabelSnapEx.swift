@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SnapKit
 public extension UILabel {
     
     /// 快速初始化UILabel 包含默认参数,初始化过程可以删除部分默认参数简化方法
@@ -21,14 +21,14 @@ public extension UILabel {
     ///   - snapKitMaker: SnapKit 有默认参数
     ///   - backColor: 背景色
     @discardableResult
-    class func snpLabel(font: UIFont = UIFont.systemFont(ofSize: 14),
+    class func snpLabel(supView: UIView? = nil,
+                        backColor: UIColor? = .clear,
+                        font: UIFont = UIFont.systemFont(ofSize: 14),
                         lines: Int = 0,
                         text: String = "",
                         textColor: UIColor = .black,
-                        supView: UIView? = nil,
                         textAlignment: NSTextAlignment = .left,
-                        snapKitMaker : SnapKitTool.SnapMaker? = nil,
-                        backColor: UIColor) -> UILabel{
+                        snapKitMaker : ((_ make: ConstraintMaker) -> Void)? = nil) -> UILabel {
         
         let label = UILabel.init()
         label.text = text
@@ -37,11 +37,7 @@ public extension UILabel {
         label.backgroundColor = backColor
         label.textColor = textColor
         label.numberOfLines = lines
-        if lines != 0 {
-            label.lineBreakMode = .byTruncatingTail
-        }else{
-            label.lineBreakMode = .byWordWrapping
-        }
+
         guard let sv = supView, let maker = snapKitMaker else {
             return label
         }

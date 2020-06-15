@@ -9,6 +9,9 @@
 import UIKit
 import SnapKit
 open class JHTableViewController: JHViewController ,UITableViewDelegate,UITableViewDataSource{
+//    deinit {
+//        print("JHTableViewController out")
+//    }
     // MARK: - 参数变量
     public enum TableViewStyleType {
         case stylePlain
@@ -75,12 +78,12 @@ open class JHTableViewController: JHViewController ,UITableViewDelegate,UITableV
         // Do any additional setup after loading the view.
         view.addSubview(tableView!)
 
-        tableView?.snp.makeConstraints({ (make) in
+        tableView?.snp.makeConstraints{ (make) in
             make.top.equalTo(view.safeAreaInsets.top)
             make.left.equalTo(view.safeAreaInsets.left)
             make.right.equalTo(view.safeAreaInsets.right)
             make.bottom.equalTo(view.safeAreaInsets.bottom)
-        })
+        }
         
         tableView?.contentInsetAdjustmentBehavior = .automatic
 

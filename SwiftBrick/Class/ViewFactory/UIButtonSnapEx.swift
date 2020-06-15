@@ -6,16 +6,22 @@
 //  Copyright © 2019 狄烨 . All rights reserved.
 //
 
-import Foundation
 import UIKit
-
+import SnapKit
 public extension UIButton {
-    @objc internal var snpAction: SnapKitTool.ButtonClosure? {
+    
+    struct AssociatedKeys {
+        static var buttonTouchUpKey: String = "ButtonTouchUpKey"
+    }
+ 
+    typealias buttonClosure = (_ sender: UIButton) -> Void
+    
+    @objc internal var snpAction: buttonClosure? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.ButtonTouchUpKey) as? SnapKitTool.ButtonClosure
+            return objc_getAssociatedObject(self, &AssociatedKeys.buttonTouchUpKey) as? buttonClosure
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.ButtonTouchUpKey, newValue, .OBJC_ASSOCIATION_COPY)
+            objc_setAssociatedObject(self, &AssociatedKeys.buttonTouchUpKey, newValue, .OBJC_ASSOCIATION_COPY)
         }
     }
     /// 快速初始化UIButton 包含默认参数,初始化过程可以删除部分默认参数简化方法
@@ -35,6 +41,7 @@ public extension UIButton {
     ///   - backColor: 背景色
     @discardableResult
     class func snpButton(supView : UIView? = nil,
+                         backColor: UIColor? = .clear,
                          title : String? = nil,
                          font : UIFont? = nil,
                          titleNorColor : UIColor? = nil,
@@ -44,9 +51,8 @@ public extension UIButton {
                          borderColor : UIColor? = nil,
                          borderWidth : Float = 0,
                          cornerRadius : Float = 0,
-                         snapKitMaker : SnapKitTool.SnapMaker? = nil,
-                         touchUp : SnapKitTool.ButtonClosure? = nil,
-                         backColor: UIColor) -> UIButton{
+                         touchUp : buttonClosure? = nil,
+                         snapKitMaker : ((_ make: ConstraintMaker) -> Void)? = nil) -> UIButton {
         
         let btn = UIButton.init(type: .custom)
         btn.backgroundColor = backColor
@@ -81,6 +87,9 @@ public extension UIButton {
         
         if borderColor != nil {
             btn.layer.borderColor = borderColor?.cgColor
+        }
+        
+        if borderWidth != 0 { 
             btn.layer.borderWidth = CGFloat(borderWidth)
         }
         
@@ -104,7 +113,7 @@ public extension UIButton {
         return btn
     }
     
-    @objc func snpAddTouchUpInSideBtnAction(touchUp : SnapKitTool.ButtonClosure?){
+    @objc func snpAddTouchUpInSideBtnAction(touchUp : buttonClosure?){
         
         removeTarget(self, action: #selector(touchUpInSideBtnAction), for: .touchUpInside)
         guard let ges = touchUp else {

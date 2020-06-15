@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SnapKit
+
 fileprivate var kTextViewPlaceholderLabel : Int = 0x2019_00
 fileprivate var kTextViewPlaceholder      : Int = 0x2019_01
 fileprivate var kTextViewPlaceholderColor : Int = 0x2019_02
@@ -136,17 +138,17 @@ public extension UITextView {
     ///   - delegate: 代理
     ///   - backColor: 背景色
     @discardableResult
-    class func snpTextView(holderFont: UIFont = UIFont.systemFont(ofSize: 14),
+    class func snpTextView(supView: UIView? = nil,
+                           backColor: UIColor? = .clear,
+                           holderFont: UIFont = UIFont.systemFont(ofSize: 14),
                            holder: String = "",
                            holderColor: UIColor = .black,
                            font: UIFont = UIFont.systemFont(ofSize: 14),
                            text: String = "",
                            textColor: UIColor = .black,
                            textAlignment: NSTextAlignment = .left,
-                           supView: UIView? = nil,
-                           snapKitMaker : SnapKitTool.SnapMaker? = nil,
-                           delegate: UITextViewDelegate,
-                           backColor: UIColor) -> UITextView{
+                           delegate: UITextViewDelegate? = nil,
+                           snapKitMaker : ((_ make: ConstraintMaker) -> Void)? = nil) -> UITextView {
         
         let textView = UITextView.init()
         textView.holderFont = holderFont
@@ -159,7 +161,9 @@ public extension UITextView {
         
         textView.textAlignment = textAlignment
         
-        textView.delegate = delegate
+        if delegate != nil {
+          textView.delegate = delegate
+        }
         
         textView.backgroundColor = backColor
         
