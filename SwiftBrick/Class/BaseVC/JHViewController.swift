@@ -35,7 +35,10 @@ open class JHViewController: UIViewController {
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
         
-//        configDefaultBackBarButton()
+        if let viewControllers: [UIViewController] = navigationController?.viewControllers , viewControllers.count > 1{
+            addDefaultBackBarButton()
+        }
+        
         // Do any additional setup after loading the view.
     }
     
