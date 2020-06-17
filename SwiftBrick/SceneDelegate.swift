@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let demo1VC  = ViewController()
         let nav1 = UINavigationController.init(rootViewController: demo1VC)
         nav1.tabBarItem = UITabBarItem(title: "11", image:  UIImage(named: "tab_chat_nor"),selectedImage:  UIImage(named: "tab_chat_hi"))
-        let demo2VC  = ExViewController()
+        let demo2VC  = EViewController()
         demo2VC.tabBarItem = UITabBarItem(title: "22", image:  UIImage(named: "tab_home_nor"),selectedImage:  UIImage(named: "tab_home_hi"))
         tabVC.viewControllers = [nav1, demo2VC]
         

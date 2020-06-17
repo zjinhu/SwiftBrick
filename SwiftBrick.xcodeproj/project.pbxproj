@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		81185EB52455A9260030329B /* UITabBarEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81185EB42455A9260030329B /* UITabBarEx.swift */; };
+		8148D47C2499EC4000C0B4BA /* EViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148D47B2499EC4000C0B4BA /* EViewController.swift */; };
 		81583DD324752ED800260DCF /* UITableViewCellEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81583DD224752ED700260DCF /* UITableViewCellEX.swift */; };
 		816DABED2433351000E2B77B /* StatusBaEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816DABEC2433351000E2B77B /* StatusBaEx.swift */; };
 		81DAE107247E3E1B00F5AB69 /* CoutemHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DAE106247E3E1B00F5AB69 /* CoutemHeader.swift */; };
@@ -53,6 +54,7 @@
 /* Begin PBXFileReference section */
 		77965A09D8F67F588257CBE9 /* Pods-SwiftBrick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBrick.debug.xcconfig"; path = "Target Support Files/Pods-SwiftBrick/Pods-SwiftBrick.debug.xcconfig"; sourceTree = "<group>"; };
 		81185EB42455A9260030329B /* UITabBarEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarEx.swift; sourceTree = "<group>"; };
+		8148D47B2499EC4000C0B4BA /* EViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EViewController.swift; sourceTree = "<group>"; };
 		81583DD224752ED700260DCF /* UITableViewCellEX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellEX.swift; sourceTree = "<group>"; };
 		816DABEC2433351000E2B77B /* StatusBaEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBaEx.swift; sourceTree = "<group>"; };
 		81DAE106247E3E1B00F5AB69 /* CoutemHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoutemHeader.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				911150372383DABF00AE47DF /* CollectionViewController.swift */,
 				916226102385247F0050F228 /* WebViewController.swift */,
 				81FF04DE246D4D7300367E2D /* TestCell.swift */,
+				8148D47B2499EC4000C0B4BA /* EViewController.swift */,
 				9111500D23838CC200AE47DF /* Main.storyboard */,
 				9111501023838CC300AE47DF /* Assets.xcassets */,
 				9111501223838CC300AE47DF /* LaunchScreen.storyboard */,
@@ -375,6 +378,7 @@
 				911150322383BD8300AE47DF /* JHTableViewHeaderFooterView.swift in Sources */,
 				9128EBB42387B0DE006890C9 /* UIGestureRecognizerEx.swift in Sources */,
 				9111502C23838DD100AE47DF /* Loader.swift in Sources */,
+				8148D47C2499EC4000C0B4BA /* EViewController.swift in Sources */,
 				917FBC24238BC3640083721A /* UIColorEx.swift in Sources */,
 				9128EBB62387C0C0006890C9 /* UIImageViewSnapEx.swift in Sources */,
 				9128EBB0238786C5006890C9 /* CALayerEx.swift in Sources */,

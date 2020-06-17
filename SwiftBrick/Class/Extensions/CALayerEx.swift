@@ -33,11 +33,43 @@ public extension CALayer {
         let path = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius)
         shadowPath = path.cgPath
     }
+    
+    /// 设置阴影
+    /// - Parameters:
+    ///   - color: 阴影颜色
+    ///   - x: shadowOffset
+    ///   - y: shadowOffset
+    ///   - alpha: shadowOpacity
+    ///   - radius: shadowRadius
+    func setShadow(color: UIColor? = .black,
+                   x: CGFloat = 0,
+                   y: CGFloat = 0,
+                   alpha: Float = 0.5,
+                   radius: CGFloat = 0) {
+        //设置阴影颜色
+        shadowColor = color?.cgColor
+        //设置透明度
+        shadowOpacity = alpha
+        //设置阴影半径
+        shadowRadius = radius
+        //设置阴影偏移量
+        shadowOffset = CGSize(width: x, height: y)
+    }
+    
+    /// 设置边框 或 圆角
+    /// - Parameters:
+    ///   - color: 阴影颜色
+    ///   - width: borderWidth
+    ///   - corner: cornerRadius
+    func setBorder(color: UIColor? = .clear,
+                   width: CGFloat = 0.5,
+                   corner: CGFloat = 0){
+        //设置视图边框宽度
+        borderWidth = width
+        //设置边框颜色
+        borderColor = color?.cgColor
+        //设置边框圆角
+        cornerRadius = corner
+    }
 }
-
-//layer.jhSetShadow(color: .black, alpha: 0.5,
-//                    x: 0, y: 10,
-//                    blur: 20,
-//                    spread: 10)
-
 

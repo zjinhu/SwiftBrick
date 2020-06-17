@@ -77,7 +77,7 @@ class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSou
     }
     
     func demoImageView2(supView: UIView){
-        UIImageView.snpImageView(supView: supView, backColor: .orange, image: UIImage.init(named: "share_haoyou_btn"), isClip : true, snpTapGesture: { (view) in
+        UIImageView.snpImageView(supView: supView, backColor: .orange, image: UIImage.init(named: "share_haoyou_btn"), snpTapGesture: { (view) in
             print("点击图片")
             self.tabBarController?.tabBar.hiddenRedPointOnIndex(index: 0, animation: true)
         }) { (make) in

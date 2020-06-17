@@ -17,8 +17,10 @@ open class JHViewController: UIViewController {
         let leftBarButton = UIButton.init(type: .custom)
         leftBarButton.imageView?.contentMode = .center
         leftBarButton.frame = CGRect.init(x: 0, y: 0, width: nav_bar_height, height: nav_bar_height)
+        leftBarButton.addTarget(self, action:#selector(goBack) , for: .touchUpInside)
         return leftBarButton
     }()
+    
     public lazy var rightBarButton : UIButton = {
         let rightBarButton = UIButton.init(type: .custom)
         rightBarButton.imageView?.contentMode = .center
@@ -85,84 +87,108 @@ open class JHViewController: UIViewController {
             navigationItem.rightBarButtonItem = btnItem
       }
     
-    /**
-    *  设置导航默认返回按钮
-    */
+    /// 设置导航默认返回按钮
     public func addDefaultBackBarButton() {
-
-        leftBarButton.setImage(L.image("nav_ic_back"), for: .normal)
-        leftBarButton.setImage(L.image("nav_ic_back"), for: .highlighted)
-
-        leftBarButton.addTarget(self, action:#selector(goBack) , for: .touchUpInside)
-        let btnItem = UIBarButtonItem.init(customView: leftBarButton)
-
-        fixSpaceLeftBarButton(btnItem: btnItem)
+        addLeftBarButton(normalImage: L.image("nav_ic_back"), highLightImage: L.image("nav_ic_back"))
     }
     
-    /**
-    *  设置导航左侧按钮图片
-    *
-    *  @param normalImage    正常图片
-    *  @param highLightImage 高亮图片
-    */
-    public func addLeftBarButtonWithImage(normalImage: UIImage, highLightImage: UIImage){
-        leftBarButton.setImage(normalImage, for: .normal)
-        leftBarButton.setImage(highLightImage, for: .highlighted)
-
-        leftBarButton.addTarget(self, action:#selector(goBack) , for: .touchUpInside)
+    /// 设置导航左侧按钮图片
+    /// - Parameters:
+    ///   - normalImage: normalImage
+    ///   - highLightImage: highLightImage
+    public func addLeftBarButton(normalImage: UIImage, highLightImage: UIImage){
+        
+        comfigLeftBarButton(normalImage: normalImage, highLightImage: highLightImage)
         let btnItem = UIBarButtonItem.init(customView: leftBarButton)
         
         fixSpaceLeftBarButton(btnItem: btnItem)
     }
     
-    /**
-    *  设置导航左侧按钮文本
-    *
-    *  @param text 导航按钮文本
-    */
-    public func addLeftBarButtonWithText(text: String, normalColor: UIColor, highlightColor: UIColor){
-        leftBarButton.titleLabel?.font = font_16
-        leftBarButton.setTitle(text, for: .normal)
-        leftBarButton.setTitle(text, for: .highlighted)
-
-        leftBarButton.setTitleColor(normalColor, for: .normal)
-        leftBarButton.setTitleColor(highlightColor, for: .highlighted)
-
+    /// 设置导航左侧按钮文本
+    /// - Parameters:
+    ///   - text: text
+    ///   - normalColor: normalColor
+    ///   - highlightColor: highlightColor
+    public func addLeftBarButton(text: String, normalColor: UIColor, highlightColor: UIColor){
         
-        leftBarButton.addTarget(self, action:#selector(goBack) , for: .touchUpInside)
+        comfigLeftBarButton(text: text, normalColor: normalColor, highlightColor: highlightColor)
         let btnItem = UIBarButtonItem.init(customView: leftBarButton)
         
         fixSpaceLeftBarButton(btnItem: btnItem)
     }
     
-    /**
-    *  设置导航右侧按钮图片
-    *
-    *  @param normalImage    正常图片
-    *  @param highLightImage 高亮图片
-    */
-    public func addRightBarButtonWithImage(normalImage: UIImage, highLightImage: UIImage){
-        rightBarButton.setImage(normalImage, for: .normal)
-        rightBarButton.setImage(highLightImage, for: .highlighted)
+    /// 设置导航右侧按钮图片
+    /// - Parameters:
+    ///   - normalImage: normalImage
+    ///   - highLightImage: highLightImage
+    public func addRightBarButton(normalImage: UIImage, highLightImage: UIImage){
 
+        comfigRightBarButton(normalImage: normalImage, highLightImage: highLightImage)
         let btnItem = UIBarButtonItem.init(customView: rightBarButton)
         
         fixSpaceRightBarButton(btnItem: btnItem)
     }
     
- /**
-    *  设置导航右侧按钮文本
-    *
-    *  @param text 导航按钮文本
-    */
-    public func addRightBarButtonWithText(text: String, normalColor: UIColor, highlightColor: UIColor){
-        rightBarButton.titleLabel?.font = font_16
+    /// 设置导航右侧按钮文本
+    /// - Parameters:
+    ///   - text: text
+    ///   - normalColor: normalColor
+    ///   - highlightColor: highlightColor
+    public func addRightBarButton(text: String, normalColor: UIColor, highlightColor: UIColor){
+
+        comfigRightBarButton(text: text, normalColor: normalColor, highlightColor: highlightColor)
+        let btnItem = UIBarButtonItem.init(customView: rightBarButton)
+        
+        fixSpaceRightBarButton(btnItem: btnItem)
+    }
+    
+    /// 配置左侧导航栏按钮
+    /// - Parameters:
+    ///   - text: text
+    ///   - font: font
+    ///   - normalColor: normalColor
+    ///   - highlightColor: highlightColor
+    ///   - normalImage: normalImage
+    ///   - highLightImage: highLightImage
+    public func comfigLeftBarButton(text: String? = nil,
+                                    font: UIFont? = font_16,
+                                    normalColor: UIColor? = nil,
+                                    highlightColor: UIColor? = nil,
+                                    normalImage: UIImage? = nil,
+                                    highLightImage: UIImage? = nil){
+        
+        leftBarButton.titleLabel?.font = font
+        leftBarButton.setTitle(text, for: .normal)
+        leftBarButton.setTitle(text, for: .highlighted)
+        leftBarButton.setTitleColor(normalColor, for: .normal)
+        leftBarButton.setTitleColor(highlightColor, for: .highlighted)
+        
+        leftBarButton.setImage(normalImage, for: .normal)
+        leftBarButton.setImage(highLightImage, for: .highlighted)
+    }
+    
+    /// 配置右侧导航栏按钮
+    /// - Parameters:
+    ///   - text: text
+    ///   - font: font
+    ///   - normalColor: normalColor
+    ///   - highlightColor: highlightColor
+    ///   - normalImage: normalImage
+    ///   - highLightImage: highLightImage
+    public func comfigRightBarButton(text: String? = nil,
+                                     font: UIFont? = font_16,
+                                     normalColor: UIColor? = nil,
+                                     highlightColor: UIColor? = nil,
+                                     normalImage: UIImage? = nil,
+                                     highLightImage: UIImage? = nil){
+        
+        rightBarButton.titleLabel?.font = font
         rightBarButton.setTitle(text, for: .normal)
         rightBarButton.setTitle(text, for: .highlighted)
         rightBarButton.setTitleColor(normalColor, for: .normal)
         rightBarButton.setTitleColor(highlightColor, for: .highlighted)
-        let btnItem = UIBarButtonItem.init(customView: rightBarButton)
         
-        fixSpaceRightBarButton(btnItem: btnItem)
+        rightBarButton.setImage(normalImage, for: .normal)
+        rightBarButton.setImage(highLightImage, for: .highlighted)
     }
 }

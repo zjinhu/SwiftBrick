@@ -28,7 +28,7 @@ class TableViewController: JHTableViewController {
         prefersNavigationBarHidden = true
         // Do any additional setup after loading the view.
 //        self.configRightBarButtonWithImage(normalImage: JHImageLoader.loadToolsImage(with: "ic_arrow_gray_right")!, highLightImage: JHImageLoader.loadToolsImage(with: "ic_arrow_gray_right")!)
-        addRightBarButtonWithText(text: "123", normalColor: .darkGray, highlightColor: .lightGray)
+        addRightBarButton(text: "123", normalColor: .darkGray, highlightColor: .lightGray)
         
         mainDatas = [["","","","","","","","",""],["","","","","","","","",""]]
         
