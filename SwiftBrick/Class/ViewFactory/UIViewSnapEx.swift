@@ -34,18 +34,12 @@ public extension UIView {
     @discardableResult
     class func snpView(supView: UIView? = nil,
                        backColor: UIColor? = .clear,
-                       cornerRadius: Float = 0,
                        tapGesture: tapGestureClosure? = nil,
                        snapKitMaker: ((_ make: ConstraintMaker) -> Void)? = nil) -> UIView {
         
         let view = UIView.init()
         view.backgroundColor = backColor
 
-        if cornerRadius != 0 {
-            view.layer.cornerRadius = CGFloat(cornerRadius)
-            view.clipsToBounds = true
-        }
-        
         guard let sv = supView, let maker = snapKitMaker else {
             return view
         }

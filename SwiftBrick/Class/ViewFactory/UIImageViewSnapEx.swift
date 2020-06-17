@@ -14,7 +14,6 @@ public extension UIImageView {
     /// - Parameters:
     ///   - supView: 被添加的位置 有默认参数
     ///   - image: 图片对象 有默认参数
-    ///   - isClip: 是否裁剪超出视图部分 有默认参数
     ///   - contentMode: contentMode 有默认参数
     ///   - snapKitMaker: SnapKit 有默认参数
     ///   - snpTapGesture: 点击Block 有默认参数
@@ -23,23 +22,12 @@ public extension UIImageView {
     class func snpImageView(supView : UIView? = nil,
                             backColor: UIColor? = .clear,
                             image : UIImage? = nil,
-                            isClip : Bool = false,
-                            cornerRadius : Float = 0,
                             contentMode : UIView.ContentMode  = .scaleAspectFill,
                             snpTapGesture : tapGestureClosure? = nil,
                             snapKitMaker : ((_ make: ConstraintMaker) -> Void)? = nil) -> UIImageView {
         
         let imageView = UIImageView.init()
         imageView.backgroundColor = backColor
-        
-        if cornerRadius != 0 {
-            imageView.layer.cornerRadius = CGFloat(cornerRadius)
-        }
-        
-        if isClip {
-            imageView.clipsToBounds = true
-        }
-        
         imageView.contentMode = contentMode
         
         imageView.image = image

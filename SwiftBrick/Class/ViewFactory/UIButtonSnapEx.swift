@@ -33,9 +33,6 @@ public extension UIButton {
     ///   - titleHigColor: 高亮字体颜色 有默认参数
     ///   - norImage: 默认图片 有默认参数
     ///   - higImage: 高亮图片 有默认参数
-    ///   - borderColor: 边框颜色 有默认参数
-    ///   - borderWidth: 边框宽度 有默认参数
-    ///   - cornerRadius: 圆角 有默认参数
     ///   - snapKitMaker: SnapKit 有默认参数
     ///   - touchUp: 点击Block 有默认参数
     ///   - backColor: 背景色
@@ -48,9 +45,6 @@ public extension UIButton {
                          titleHigColor : UIColor? = nil,
                          norImage : UIImage? = nil,
                          higImage : UIImage? = nil,
-                         borderColor : UIColor? = nil,
-                         borderWidth : Float = 0,
-                         cornerRadius : Float = 0,
                          touchUp : buttonClosure? = nil,
                          snapKitMaker : ((_ make: ConstraintMaker) -> Void)? = nil) -> UIButton {
         
@@ -83,19 +77,6 @@ public extension UIButton {
         
         if higImage != nil {
             btn.setImage(higImage, for: .highlighted)
-        }
-        
-        if borderColor != nil {
-            btn.layer.borderColor = borderColor?.cgColor
-        }
-        
-        if borderWidth != 0 { 
-            btn.layer.borderWidth = CGFloat(borderWidth)
-        }
-        
-        if cornerRadius != 0 {
-            btn.layer.cornerRadius = CGFloat(cornerRadius)
-            btn.clipsToBounds = true
         }
         
         guard let sv = supView, let maker = snapKitMaker else {
