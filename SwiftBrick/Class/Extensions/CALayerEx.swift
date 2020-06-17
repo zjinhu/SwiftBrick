@@ -9,10 +9,20 @@
 import UIKit
 
 public extension CALayer {
-    func jhSetShadow(color: UIColor? = .black,
+    
+    /// 设置阴影--sketch效果
+    /// - Parameters:
+    ///   - color: 阴影颜色
+    ///   - alpha: 透明度
+    ///   - x: 以view的center算
+    ///   - y: 以view的center算
+    ///   - blur: 半径,多大阴影需要多大半径,必须比view的半径大
+    ///   - spread: 模糊范围
+    func sketchShadow(color: UIColor? = .black,
                        alpha: CGFloat = 0.5,
-                       x: CGFloat = 0, y: CGFloat = 2,
-                       blur: CGFloat = 4,
+                       x: CGFloat = 0,
+                       y: CGFloat = 0,
+                       blur: CGFloat = 0,
                        spread: CGFloat = 0) {
         shadowOffset = CGSize(width: x, height: y)
         shadowRadius = blur * 0.5
