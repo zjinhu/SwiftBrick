@@ -15,6 +15,8 @@ class CollectionViewController: JHCollectionViewController {
         self.prefersNavigationBarHidden = false
         self.mainDatas = [["","","","","","","",""],["","","","","","",""],["","","","","","","","","","",""],["","","","","","","","","",""]]
         // Do any additional setup after loading the view.
+        addRightBarButton(normalImage: UIImage.init(named: "tab_chat_hi"), highLightImage: UIImage.init(named: "tab_home_hi"))
+        addRightBarButton(text: "123", normalColor: .darkGray, highlightColor: .lightGray)
         
         self.collectionView?.registerHeaderFooterView(JHCollectionReusableView.self, kindType: .sectionHeader)
         self.collectionView?.registerHeaderFooterView(JHCollectionReusableView.self, kindType: .sectionFooter)
