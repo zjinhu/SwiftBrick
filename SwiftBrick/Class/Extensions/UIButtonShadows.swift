@@ -328,7 +328,7 @@ extension UIButton {
         let lightOffsetY:CGFloat = (Params.shadowHighlightedOffsetY[tmpAddress] != nil) ? Params.shadowHighlightedOffsetY[tmpAddress]! : 2.0
         shadowLayerLight.shadowOffset = CGSize( width: reverse*lightOffsetX, height: reverse*lightOffsetY)
         if(self.isEnabled){
-            shadowLayerLight.shadowColor = (Params.shadowHighlightedShadowColor[tmpAddress] != nil) ? Params.shadowHighlightedShadowColor[tmpAddress]?.cgColor : UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.7).cgColor
+            shadowLayerLight.shadowColor = (Params.shadowHighlightedShadowColor[tmpAddress] != nil) ? Params.shadowHighlightedShadowColor[tmpAddress]?.cgColor : UIColor.black.withAlphaComponent(0.5).cgColor
         }else{
             shadowLayerLight.shadowColor = UIColor.clear.cgColor
         }

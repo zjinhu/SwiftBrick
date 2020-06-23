@@ -30,7 +30,7 @@ class EViewController: UIViewController {
 //        btn.shadowHighlightedOffsetX = -6
 //        btn.shadowHighlightedOffsetY = -6
         btn.cornerRadius = 25
-        btn.shadowNormalColor = .black
+//        btn.shadowNormalColor = .black
 //        btn.shadowHighlightedShadowColor = .red
         btn.backColor = .orange
 //        btn.selectedBackColor = .red
