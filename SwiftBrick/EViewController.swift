@@ -16,7 +16,7 @@ class EViewController: UIViewController {
             
         }) { (make) in
             make.center.equalToSuperview()
-            make.width.equalTo(screen_width-60)
+            make.width.equalTo(50)
             make.height.equalTo(50)
             }
 //        // Do any additional setup after loading the view.
@@ -24,13 +24,14 @@ class EViewController: UIViewController {
 //        btn.layer.setBorder(color: .red, width: 1, corner: 10)
 
         
-        btn.active = true 
-        btn.shadowDarkOffsetX = 6
-        btn.shadowDarkOffsetY = 6
-        btn.shadowLightOffsetX = -6
-        btn.shadowLightOffsetY = -6
+        btn.shadowActive = true
+        btn.shadowNormalOffsetX = 6
+        btn.shadowNormalOffsetY = 6
+//        btn.shadowHighlightedOffsetX = -6
+//        btn.shadowHighlightedOffsetY = -6
         btn.cornerRadius = 25
-        btn.darkShadowColor = .black
+        btn.shadowNormalColor = .black
+//        btn.shadowHighlightedShadowColor = .red
         btn.backColor = .orange
 //        btn.selectedBackColor = .red
 //        btn.isToggle = true
