@@ -34,11 +34,13 @@ Pod::Spec.new do |s|
       ss.source_files = 'SwiftBrick/Class/Extensions/**/*' 
     end
     s.subspec 'BaseCell' do |ss| 
+      ss.dependency 'SwiftBrick/Extensions'
       ss.source_files = 'SwiftBrick/Class/BaseCell/**/*' 
     end
     s.subspec 'BaseVC' do |ss| 
       ss.dependency 'SwiftBrick/Util'
       ss.dependency 'SwiftBrick/BaseCell'
+      ss.dependency 'SwiftBrick/Extensions'
       ss.source_files = 'SwiftBrick/Class/BaseVC/**/*' 
     end
    
