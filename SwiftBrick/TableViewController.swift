@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SwiftyRefresh
+//import SwiftyRefresh
 class TableViewController: JHTableViewController {
 
     override var prefersStatusBarHidden: Bool {
@@ -34,16 +34,16 @@ class TableViewController: JHTableViewController {
         
         tableView?.registerHeaderFooterView(JHTableViewHeaderFooterView.self)
         
-        tableView?.refresh.addRefreshHeader(handler: { (header) in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                header.endRefreshing()
-            }
-        })
-        tableView?.refresh.addRefreshAutoFooter(handler: { (footer) in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                footer.showNoMoreData()
-            }
-        })
+//        tableView?.refresh.addRefreshHeader(handler: { (header) in
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//                header.endRefreshing()
+//            }
+//        })
+//        tableView?.refresh.addRefreshAutoFooter(handler: { (footer) in
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//                footer.showNoMoreData()
+//            }
+//        })
     }
     
 
