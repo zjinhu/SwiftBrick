@@ -25,7 +25,7 @@ let package = Package(
         .target(
             name: "SwiftBrick",
             dependencies: ["SnapKit"],
-            path: "SwiftBrick")
+            path: "SwiftBrick/Class")
     ],
     swiftLanguageVersions: [
         .v5
