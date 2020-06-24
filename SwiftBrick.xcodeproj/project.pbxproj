@@ -47,7 +47,7 @@
 		9162261A2385534D0050F228 /* ExViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916226192385534D0050F228 /* ExViewController.swift */; };
 		917FBC24238BC3640083721A /* UIColorEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FBC23238BC3640083721A /* UIColorEx.swift */; };
 		917FBC28238CCD520083721A /* UINavigationControllerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FBC27238CCD520083721A /* UINavigationControllerEx.swift */; };
-		E2A4A6EA24A0A9280088F1CC /* UIButtonShadows.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A4A6E824A0A9280088F1CC /* UIButtonShadows.swift */; };
+		E2A4A6EA24A0A9280088F1CC /* ShadowsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A4A6E824A0A9280088F1CC /* ShadowsButton.swift */; };
 		F9A51B6F3DF1CF4CF6DB8395 /* Pods_SwiftBrick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9342C3A00A9D0D1AC583F1C /* Pods_SwiftBrick.framework */; };
 /* End PBXBuildFile section */
 
@@ -97,7 +97,7 @@
 		917FBC23238BC3640083721A /* UIColorEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorEx.swift; sourceTree = "<group>"; };
 		917FBC27238CCD520083721A /* UINavigationControllerEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerEx.swift; sourceTree = "<group>"; };
 		A9342C3A00A9D0D1AC583F1C /* Pods_SwiftBrick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftBrick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E2A4A6E824A0A9280088F1CC /* UIButtonShadows.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonShadows.swift; sourceTree = "<group>"; };
+		E2A4A6E824A0A9280088F1CC /* ShadowsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowsButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,7 +192,6 @@
 				816DABEC2433351000E2B77B /* StatusBaEx.swift */,
 				81185EB42455A9260030329B /* UITabBarEx.swift */,
 				81583DD224752ED700260DCF /* UITableViewCellEX.swift */,
-				E2A4A6E824A0A9280088F1CC /* UIButtonShadows.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -223,10 +222,11 @@
 		917FBC22238BA1240083721A /* ViewFactory */ = {
 			isa = PBXGroup;
 			children = (
+				E2A4A6E824A0A9280088F1CC /* ShadowsButton.swift */,
 				91622615238544440050F228 /* UIViewSnapEx.swift */,
 				9128EBB52387C0C0006890C9 /* UIImageViewSnapEx.swift */,
-				9128EBB72387D608006890C9 /* UIButtonSnapEx.swift */,
 				9128EBB92387EFAA006890C9 /* UILabelSnapEx.swift */,
+				9128EBB72387D608006890C9 /* UIButtonSnapEx.swift */,
 				9128EBBB2387EFC3006890C9 /* UITextFieldSnapEx.swift */,
 				9128EBBD2387EFD8006890C9 /* UITextViewSnapEx.swift */,
 				9128EBBF2387EFF6006890C9 /* UITableViewSnapEx.swift */,
@@ -374,7 +374,7 @@
 				9111502D23838DD100AE47DF /* JHTableViewCell.swift in Sources */,
 				9162261A2385534D0050F228 /* ExViewController.swift in Sources */,
 				81583DD324752ED800260DCF /* UITableViewCellEX.swift in Sources */,
-				E2A4A6EA24A0A9280088F1CC /* UIButtonShadows.swift in Sources */,
+				E2A4A6EA24A0A9280088F1CC /* ShadowsButton.swift in Sources */,
 				911150322383BD8300AE47DF /* JHTableViewHeaderFooterView.swift in Sources */,
 				9128EBB42387B0DE006890C9 /* UIGestureRecognizerEx.swift in Sources */,
 				9111502C23838DD100AE47DF /* Loader.swift in Sources */,

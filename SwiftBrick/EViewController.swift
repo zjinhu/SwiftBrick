@@ -12,7 +12,7 @@ class EViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let btn = UIButton.snpButton(supView: view, backColor: .clear, title: "Login", font: font_14, titleNorColor: .white, titleHigColor: .lightGray, touchUp: { (btn) in
+        let btn = UIButton.snpButton(supView: view, backColor: .red, title: "Login", font: font_14, titleNorColor: .white, titleHigColor: .lightGray, touchUp: { (btn) in
             
         }) { (make) in
             make.center.equalToSuperview()
@@ -22,19 +22,39 @@ class EViewController: UIViewController {
 //        // Do any additional setup after loading the view.
 //        btn.layer.setShadow(x: 0, y: 10, radius: 6)
 //        btn.layer.setBorder(color: .red, width: 1, corner: 10)
-
+        btn.layer.cornerRadius = 15
         
-        btn.shadowActive = true
-        btn.shadowNormalOffsetX = 6
-        btn.shadowNormalOffsetY = 6
-//        btn.shadowHighlightedOffsetX = -6
-//        btn.shadowHighlightedOffsetY = -6
-        btn.cornerRadius = 25
-//        btn.shadowNormalColor = .black
-//        btn.shadowHighlightedShadowColor = .red
-        btn.backColor = .orange
-//        btn.selectedBackColor = .red
-//        btn.isToggle = true
+//        btn.shadowActive = true
+//        btn.shadowNormalOffsetX = 6
+//        btn.shadowNormalOffsetY = 6
+////        btn.shadowHighlightedOffsetX = -6
+////        btn.shadowHighlightedOffsetY = -6
+//        btn.cornerRadius = 25
+////        btn.shadowNormalColor = .black
+////        btn.shadowHighlightedShadowColor = .red
+//        btn.backColor = .orange
+////        btn.selectedBackColor = .red
+////        btn.isToggle = true
+        let bb = ShadowsButton()
+        bb.setTitle("123", for: .normal)
+        bb.shadowActive = true
+        bb.shadowNormalOffsetX = 6
+        bb.shadowNormalOffsetY = 6
+        //        btn.shadowHighlightedOffsetX = -6
+        //        btn.shadowHighlightedOffsetY = -6
+        bb.cornerRadius = 25
+        //        btn.shadowNormalColor = .black
+        //        btn.shadowHighlightedShadowColor = .red
+        bb.backColor = .orange
+        //        btn.selectedBackColor = .red
+        //        btn.isToggle = true
+        view.addSubview(bb)
+        bb.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(100)
+            make.width.equalTo(50)
+            make.height.equalTo(50)
+        }
     }
     
 

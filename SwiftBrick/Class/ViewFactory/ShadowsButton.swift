@@ -1,17 +1,17 @@
 
 import UIKit
 
-extension UIButton {
+public class ShadowsButton: UIButton {
     
     struct Params {
         ///触感反馈
-        static var hapticLevel          = [String:Int]()        //0: disabled; 1: light; 2: medium; 3: heavy light; 4: soft; 5: rigid (4 - 5 only iOS 13)
+        static var hapticLevel = [String:Int]()        //0: disabled; 1: light; 2: medium; 3: heavy light; 4: soft; 5: rigid (4 - 5 only iOS 13)
         ///是否可选中
-        static var isToggle             = [String:Bool]()
+        static var isToggle = [String:Bool]()
         ///非选中模式背景色
-        static var backColor          = [String:UIColor]()
+        static var backColor = [String:UIColor]()
         ///选中模式背景色
-        static var selectedBackColor       = [String:UIColor]()
+        static var selectedBackColor = [String:UIColor]()
         ///阴影开关
         static var shadowActive = [String:Bool]()
         ///圆角
@@ -226,6 +226,7 @@ extension UIButton {
     }
     
     open override func draw(_ rect: CGRect) {
+        super.draw(rect)
         let tmpAddress = String(format: "%p", unsafeBitCast(self, to: Int.self))
         if(Params.shadowActive[tmpAddress] == true){
             setupShadows()
@@ -273,7 +274,7 @@ extension UIButton {
             corners.insert(.bottomRight)
         }
         
-        var bgColor: UIColor = self.backgroundColor!
+        var bgColor: UIColor? = self.backgroundColor
         
         if(Params.backColor[tmpAddress] != nil) {
             bgColor = Params.backColor[tmpAddress]!
@@ -284,7 +285,7 @@ extension UIButton {
             self.layer.insertSublayer(shadowLayerDark, at: 0)
             let content:CAShapeLayer = CAShapeLayer()
             content.frame = bounds
-            content.backgroundColor = bgColor.cgColor
+            content.backgroundColor = bgColor?.cgColor
             roundCorners(layer:content, corners: corners, radius: Params.cornerRadius[tmpAddress]!)
             content.masksToBounds = true
             shadowLayerDark.addSublayer(content)
@@ -314,7 +315,7 @@ extension UIButton {
             self.layer.insertSublayer(shadowLayerLight, at: 0)
             let content:CAShapeLayer = CAShapeLayer()
             content.frame = bounds
-            content.backgroundColor = bgColor.cgColor
+            content.backgroundColor = bgColor?.cgColor
             
             roundCorners(layer:content, corners: corners, radius: Params.cornerRadius[tmpAddress]!)
             content.masksToBounds = true
