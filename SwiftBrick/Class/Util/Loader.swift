@@ -12,7 +12,7 @@ public class L{
     static var bundle: Bundle? = {
         let path = Bundle(for: L.self).path(forResource: "SwiftBrick", ofType: "bundle", inDirectory: nil)
         let bundle = Bundle(path: path ?? "")
-        return bundle
+        return bundle ?? Bundle(for: L.self)
     }()
     
     public static func image(_ named: String) -> UIImage {
