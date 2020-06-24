@@ -24,17 +24,7 @@ class EViewController: UIViewController {
 //        btn.layer.setBorder(color: .red, width: 1, corner: 10)
         btn.layer.cornerRadius = 15
         
-//        btn.shadowActive = true
-//        btn.shadowNormalOffsetX = 6
-//        btn.shadowNormalOffsetY = 6
-////        btn.shadowHighlightedOffsetX = -6
-////        btn.shadowHighlightedOffsetY = -6
-//        btn.cornerRadius = 25
-////        btn.shadowNormalColor = .black
-////        btn.shadowHighlightedShadowColor = .red
-//        btn.backColor = .orange
-////        btn.selectedBackColor = .red
-////        btn.isToggle = true
+        
         let bb = ShadowsButton()
         bb.setTitle("123", for: .normal)
         bb.shadowActive = true
