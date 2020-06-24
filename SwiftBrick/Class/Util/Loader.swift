@@ -9,7 +9,7 @@
 import UIKit
 
 public class L{
-    static var bundle: Bundle? = {
+    static var bundle: Bundle = {
         let path = Bundle(for: L.self).path(forResource: "SwiftBrick", ofType: "bundle", inDirectory: nil)
         let bundle = Bundle(path: path ?? "")
         return bundle ?? Bundle(for: L.self)
