@@ -37,23 +37,4 @@ open class JHTableViewCell: UITableViewCell, Reusable{
         
     }
     
-    // MARK: - cell赋值
-    /// cell的model赋值，也是需要子类重写
-    /// - Parameter model: 赋值
-    open func setCellModel<T>(model: T) {
-        
-    }
-
-    // MARK: - 获取高度
-    /// 获取cell高度
-    /// - Parameter model: model
-    /// - Returns: 高度
-    public func getCellHeightWithModel<T>(model: T) -> CGFloat {
-        setCellModel(model: model)
-        layoutIfNeeded()
-        updateConstraintsIfNeeded()
-        let height = contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
-        return height
-    }
-    
 }

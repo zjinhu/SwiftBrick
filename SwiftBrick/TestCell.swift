@@ -12,11 +12,4 @@ class CountDownHeadCell: JHTableViewCell{
     override func configCellViews() {
         
     }
-    override func setCellModel<maa>(model: maa) {
-        
-    }
-}
-
-class maa {
-    
 }
