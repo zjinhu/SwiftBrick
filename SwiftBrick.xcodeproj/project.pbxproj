@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		81185EB52455A9260030329B /* UITabBarEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81185EB42455A9260030329B /* UITabBarEx.swift */; };
 		8148D47C2499EC4000C0B4BA /* EViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148D47B2499EC4000C0B4BA /* EViewController.swift */; };
+		8148EFE724AEE1E900691650 /* ArrayViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148EFE624AEE1E900691650 /* ArrayViewSnapEx.swift */; };
 		81583DD324752ED800260DCF /* UITableViewCellEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81583DD224752ED700260DCF /* UITableViewCellEX.swift */; };
 		816DABED2433351000E2B77B /* StatusBaEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816DABEC2433351000E2B77B /* StatusBaEx.swift */; };
 		81F0617B246E945D00F0B2D3 /* CellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F0617A246E945D00F0B2D3 /* CellProtocol.swift */; };
@@ -55,6 +56,7 @@
 		77965A09D8F67F588257CBE9 /* Pods-SwiftBrick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBrick.debug.xcconfig"; path = "Target Support Files/Pods-SwiftBrick/Pods-SwiftBrick.debug.xcconfig"; sourceTree = "<group>"; };
 		81185EB42455A9260030329B /* UITabBarEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarEx.swift; sourceTree = "<group>"; };
 		8148D47B2499EC4000C0B4BA /* EViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EViewController.swift; sourceTree = "<group>"; };
+		8148EFE624AEE1E900691650 /* ArrayViewSnapEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayViewSnapEx.swift; sourceTree = "<group>"; };
 		81583DD224752ED700260DCF /* UITableViewCellEX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellEX.swift; sourceTree = "<group>"; };
 		816DABEC2433351000E2B77B /* StatusBaEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBaEx.swift; sourceTree = "<group>"; };
 		81F0617A246E945D00F0B2D3 /* CellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProtocol.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				9128EBBD2387EFD8006890C9 /* UITextViewSnapEx.swift */,
 				9128EBBF2387EFF6006890C9 /* UITableViewSnapEx.swift */,
 				9128EBC12387F00F006890C9 /* UICollectionViewSnapEx.swift */,
+				8148EFE624AEE1E900691650 /* ArrayViewSnapEx.swift */,
 			);
 			path = ViewFactory;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				917FBC24238BC3640083721A /* UIColorEx.swift in Sources */,
 				9128EBB62387C0C0006890C9 /* UIImageViewSnapEx.swift in Sources */,
 				9128EBB0238786C5006890C9 /* CALayerEx.swift in Sources */,
+				8148EFE724AEE1E900691650 /* ArrayViewSnapEx.swift in Sources */,
 				9128EBBE2387EFD8006890C9 /* UITextViewSnapEx.swift in Sources */,
 				9111502E23838DD100AE47DF /* Define.swift in Sources */,
 				911150382383DABF00AE47DF /* CollectionViewController.swift in Sources */,
