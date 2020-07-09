@@ -45,6 +45,16 @@ class EViewController: UIViewController {
             make.width.equalTo(50)
             make.height.equalTo(50)
         }
+        
+        
+       let ive = UIImageView.snpImageView(supView: view, backColor: .cyan, contentMode: .scaleAspectFill) { (make) in
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(160)
+            make.width.equalTo(150)
+            make.height.equalTo(150)
+        }
+        
+        ive.setPlaceHolder(image: UIImage.init(named: "share_haoyou_btn"), size: .init(width: 150, height: 150))
     }
     
 

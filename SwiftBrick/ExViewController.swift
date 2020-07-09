@@ -28,7 +28,7 @@ class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSou
 //        self.tabBarController?.tabBar.badgeImage = UIImage(named: "share_haoyou_btn")
         self.tabBarController?.tabBar.badgeValue = 200
         self.tabBarController?.tabBar.showBadgeOnItemIndex(index: 0)
-        
+
     }
     // MARK:-示例快速创建UIView 使用部分默认参数 --初始化使用SnapKit
     func demoView1(supView: UIView){

@@ -36,13 +36,13 @@ public func is_bangs_iPhone() -> Bool {
     return isX
 }
 
-public let nav_status_height = is_bangs_iPhone() ? Double(88.0) : Double(64.0)
-public let tab_bar_height = is_bangs_iPhone() ? Double(49.0+34.0) : Double(49.0)
-public let status_height = is_bangs_iPhone() ? Double(44.0) : Double(20.0)
+public let nav_status_height = is_bangs_iPhone() ? Float(88.0) : Float(64.0)
+public let tab_bar_height = is_bangs_iPhone() ? Float(49.0+34.0) : Float(49.0)
+public let status_height = is_bangs_iPhone() ? Float(44.0) : Float(20.0)
 
 // MARK:- 画线宽度
 public let scare = UIScreen.main.scale
-public let line_height = (scare >= 1 ? 1/scare : 1)
+public let line_height = Float(scare >= 1 ? 1/scare : 1)
 
 
 // MARK:- 系统版本
