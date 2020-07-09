@@ -54,7 +54,7 @@ class EViewController: UIViewController {
             make.height.equalTo(150)
         }
         
-        ive.setPlaceHolder(image: UIImage.init(named: "share_haoyou_btn"), size: .init(width: 150, height: 150))
+        ive.image = UIImage.createPlaceHolderImage(image: UIImage.init(named: "dongman"), imageView: ive)
     }
     
 

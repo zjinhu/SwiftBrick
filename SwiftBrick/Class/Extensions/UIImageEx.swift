@@ -9,19 +9,14 @@
 import UIKit
 import CommonCrypto
 
-extension UIImageView {
-    func setPlaceHolder(image : UIImage?, size : CGSize){
-        guard let im = image else {
-            return
-        }
-        self.image = UIImage.createImage(image: im, size: size)
-    }
-}
-
 extension UIImage {
-    static func createImage(image : UIImage, size : CGSize) -> UIImage?{
+    static func createPlaceHolderImage(image : UIImage?, imageView : UIImageView) -> UIImage?{
+        imageView.layoutIfNeeded()
+        guard let image = image else {
+            return nil
+        }
         let name = image.md5
-        let imageName = "placeHolder_\(size.width)_\(size.height)_\(name).png"
+        let imageName = "placeHolder_\(imageView.bounds.size.width)_\(imageView.bounds.size.height)_\(name).png"
         let fileManager = FileManager.default
         let path : String = NSHomeDirectory() + "/Documents/PlaceHolder/"
         let filePath = path + imageName
@@ -32,26 +27,30 @@ extension UIImage {
             return image
         }
         
-        UIGraphicsBeginImageContext(size)
+        UIGraphicsBeginImageContext(imageView.bounds.size)
         if let ctx = UIGraphicsGetCurrentContext() {
             ctx.setFillColor(UIColor.clear.cgColor)
-            ctx.fill(CGRect(origin: CGPoint.zero, size: size))
+            ctx.fill(CGRect(origin: CGPoint.zero, size: imageView.bounds.size))
             
-            let placeholderRect = CGRect(x: (size.width - image.size.width) / 2.0,
-                                         y: (size.height - image.size.height) / 2.0,
+            let placeholderRect = CGRect(x: (imageView.bounds.size.width - image.size.width) / 2.0,
+                                         y: (imageView.bounds.size.height - image.size.height) / 2.0,
                                          width: image.size.width,
                                          height: image.size.height)
             
+            ctx.saveGState()
+            ctx.translateBy(x: placeholderRect.origin.x, y: placeholderRect.origin.y)
+            ctx.translateBy(x: 0, y: placeholderRect.size.height)
+            ctx.scaleBy(x: 1.0, y: -1.0)
+            ctx.translateBy(x: -placeholderRect.origin.x, y: -placeholderRect.origin.y)
             ctx.draw(image.cgImage!, in: placeholderRect, byTiling: false)
+            ctx.restoreGState()
         }
         
-        if let image = UIGraphicsGetImageFromCurrentImageContext() {
+        if let placeHolder = UIGraphicsGetImageFromCurrentImageContext() {
             UIGraphicsEndImageContext()
-            // 镜像翻转
-            let aResult = UIImage(cgImage: image.cgImage!, scale: 1.0, orientation: .downMirrored)
             try? fileManager.createDirectory(at: URL.init(fileURLWithPath: path), withIntermediateDirectories: true, attributes: nil)
-            fileManager.createFile(atPath: filePath, contents: aResult.pngData(), attributes: nil)
-            return aResult
+            fileManager.createFile(atPath: filePath, contents: placeHolder.pngData(), attributes: nil)
+            return placeHolder
         }
         UIGraphicsEndImageContext()
         return nil

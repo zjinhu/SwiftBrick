@@ -12,7 +12,7 @@
 		8148EFE724AEE1E900691650 /* ArrayViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148EFE624AEE1E900691650 /* ArrayViewSnapEx.swift */; };
 		81583DD324752ED800260DCF /* UITableViewCellEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81583DD224752ED700260DCF /* UITableViewCellEX.swift */; };
 		816DABED2433351000E2B77B /* StatusBaEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816DABEC2433351000E2B77B /* StatusBaEx.swift */; };
-		81E9FB5D24B6C4F7009AB99F /* UIImageViewEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E9FB5C24B6C4F7009AB99F /* UIImageViewEx.swift */; };
+		81E9FB5D24B6C4F7009AB99F /* UIImageEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E9FB5C24B6C4F7009AB99F /* UIImageEx.swift */; };
 		81F0617B246E945D00F0B2D3 /* CellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F0617A246E945D00F0B2D3 /* CellProtocol.swift */; };
 		81F709FF23CF18CC002E9DFA /* UIButtonEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F709FE23CF18CC002E9DFA /* UIButtonEx.swift */; };
 		81FF04DF246D4D7300367E2D /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FF04DE246D4D7300367E2D /* TestCell.swift */; };
@@ -60,7 +60,7 @@
 		8148EFE624AEE1E900691650 /* ArrayViewSnapEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayViewSnapEx.swift; sourceTree = "<group>"; };
 		81583DD224752ED700260DCF /* UITableViewCellEX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellEX.swift; sourceTree = "<group>"; };
 		816DABEC2433351000E2B77B /* StatusBaEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBaEx.swift; sourceTree = "<group>"; };
-		81E9FB5C24B6C4F7009AB99F /* UIImageViewEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewEx.swift; sourceTree = "<group>"; };
+		81E9FB5C24B6C4F7009AB99F /* UIImageEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageEx.swift; sourceTree = "<group>"; };
 		81F0617A246E945D00F0B2D3 /* CellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProtocol.swift; sourceTree = "<group>"; };
 		81F709FE23CF18CC002E9DFA /* UIButtonEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonEx.swift; sourceTree = "<group>"; };
 		81FF04DE246D4D7300367E2D /* TestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
@@ -196,7 +196,7 @@
 				816DABEC2433351000E2B77B /* StatusBaEx.swift */,
 				81185EB42455A9260030329B /* UITabBarEx.swift */,
 				81583DD224752ED700260DCF /* UITableViewCellEX.swift */,
-				81E9FB5C24B6C4F7009AB99F /* UIImageViewEx.swift */,
+				81E9FB5C24B6C4F7009AB99F /* UIImageEx.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -378,7 +378,7 @@
 				9128EBC22387F00F006890C9 /* UICollectionViewSnapEx.swift in Sources */,
 				81F709FF23CF18CC002E9DFA /* UIButtonEx.swift in Sources */,
 				9111502D23838DD100AE47DF /* JHTableViewCell.swift in Sources */,
-				81E9FB5D24B6C4F7009AB99F /* UIImageViewEx.swift in Sources */,
+				81E9FB5D24B6C4F7009AB99F /* UIImageEx.swift in Sources */,
 				9162261A2385534D0050F228 /* ExViewController.swift in Sources */,
 				81583DD324752ED800260DCF /* UITableViewCellEX.swift in Sources */,
 				E2A4A6EA24A0A9280088F1CC /* ShadowsButton.swift in Sources */,
