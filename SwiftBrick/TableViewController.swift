@@ -18,7 +18,7 @@ class TableViewController: JHTableViewController {
         return self.setStyleStatusBar
     }
     
-    override func configTableViewStyleType() {
+    override func setupTableViewStyleType() {
         self.tableViewStyleType = .styleGrouped
     }
     override func viewDidLoad() {

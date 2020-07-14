@@ -18,7 +18,7 @@ open class JHCollectionReusableView: UICollectionReusableView, Reusable{
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        configCellViews()
+        setupCellViews()
         backgroundColor = .clear
     }
     
@@ -28,7 +28,7 @@ open class JHCollectionReusableView: UICollectionReusableView, Reusable{
     
     // MARK: - 继承 在内部实现布局
     /// 子类重写，进行view布局
-    open func configCellViews() {
+    open func setupCellViews() {
         
     }
     

@@ -12,7 +12,7 @@ open class JHCollectionViewCell: UICollectionViewCell, Reusable{
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        configCellViews()
+        setupCellViews()
         contentView.backgroundColor = .clear
     }
     
@@ -22,7 +22,7 @@ open class JHCollectionViewCell: UICollectionViewCell, Reusable{
     
     // MARK: - 继承 在内部实现布局
     /// 子类重写，进行view布局
-    open func configCellViews() {
+    open func setupCellViews() {
         
     }
 

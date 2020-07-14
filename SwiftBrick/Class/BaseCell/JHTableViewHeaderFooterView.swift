@@ -20,7 +20,7 @@ open class JHTableViewHeaderFooterView: UITableViewHeaderFooterView, Reusable{
         super.init(reuseIdentifier: reuseIdentifier)
         backgroundView = UIView(frame: bounds)
         backgroundView?.backgroundColor = .clear
-        configCellViews()
+        setupCellViews()
     }
     
     required public init?(coder: NSCoder) {
@@ -29,7 +29,7 @@ open class JHTableViewHeaderFooterView: UITableViewHeaderFooterView, Reusable{
 
     // MARK: - 继承 在内部实现布局
     /// 子类重写，进行view布局
-    open func configCellViews() {
+    open func setupCellViews() {
         
     }
     

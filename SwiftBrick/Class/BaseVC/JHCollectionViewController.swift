@@ -28,7 +28,7 @@ open class JHCollectionViewController: JHViewController ,UICollectionViewDelegat
     public convenience init(scrollDirectionType: ScrollDirectionType = .ScrollVertical) {
         self.init()
         
-        configFlowLayout()
+        setupFlowLayout()
         switch scrollDirectionType {
         case .ScrollHorizontal:
             flowLayout?.scrollDirection = UICollectionView.ScrollDirection.horizontal
@@ -45,11 +45,10 @@ open class JHCollectionViewController: JHViewController ,UICollectionViewDelegat
          flowLayout = layout
      }
     
-    open func configFlowLayout() {
+    open func setupFlowLayout() {
         flowLayout = UICollectionViewFlowLayout.init()
         flowLayout?.minimumLineSpacing = 0
-        flowLayout?.minimumInteritemSpacing = 0
-        flowLayout?.minimumLineSpacing = 0
+        flowLayout?.minimumInteritemSpacing = 0 
         flowLayout?.scrollDirection = UICollectionView.ScrollDirection.vertical
     }
     
@@ -58,7 +57,7 @@ open class JHCollectionViewController: JHViewController ,UICollectionViewDelegat
         super.viewDidLoad()
 
         if flowLayout == nil  {
-            configFlowLayout()
+            setupFlowLayout()
         }
         
         collectionView = UICollectionView.init(frame: .zero, collectionViewLayout: flowLayout!)

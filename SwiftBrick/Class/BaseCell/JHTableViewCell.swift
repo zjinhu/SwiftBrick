@@ -28,12 +28,12 @@ open class JHTableViewCell: UITableViewCell, Reusable{
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String? = String.init(describing: self)) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = .clear
-        configCellViews()
+        setupCellViews()
     }
     
     // MARK: - 继承 在内部实现布局
     /// 子类重写，进行view布局
-    open func configCellViews() {
+    open func setupCellViews() {
         
     }
     
