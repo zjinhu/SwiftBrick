@@ -58,7 +58,7 @@ class EViewController: UIViewController {
 
         
         notifiCenter.addNotification(UIApplication.didChangeStatusBarFrameNotification) { (_) in
-            print("\(BottomHomeHeight)---\(TabBarHeight())")
+            print("\(BottomHomeHeight)---\(TabBarHeight)")
         }
     }
  

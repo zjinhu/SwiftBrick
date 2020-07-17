@@ -50,16 +50,19 @@ public func IsBangs_iPhone() -> Bool {
     let isX = UIApplication.shared.windows[0].safeAreaInsets.bottom > 0
     return isX
 }
+
 /// 获取屏幕导航栏+信号栏总高度
 public let NavAndStatusHeight = StatusBarHeight() + NavBarHeight()
 /// 获取刘海屏底部home键高度,普通屏为0
 public let BottomHomeHeight = UIApplication.shared.windows[0].safeAreaInsets.bottom
 
-/// TabBar+home键高度 实时获取,可获取不同分辨率手机横竖屏切换后的实时高度变化
+/// TabBar高度 实时获取,可获取不同分辨率手机横竖屏切换后的实时高度变化
 /// - Returns: 高度
-public func TabBarHeight() ->CGFloat {
-    return UITabBarController().tabBar.frame.size.height + BottomHomeHeight
+public func TabbarHeight() ->CGFloat {
+    return UITabBarController().tabBar.frame.size.height
 }
+//刘海屏=TabBar高度+Home键高度, 普通屏幕为TabBar高度
+public let TabBarHeight = TabbarHeight() + BottomHomeHeight
 
 // MARK:- 系统版本
 public let SystemVersion : Double = Double(UIDevice.current.systemVersion) ?? 0
