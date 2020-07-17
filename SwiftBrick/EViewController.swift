@@ -7,12 +7,12 @@
 //
 
 import UIKit
-
+import Swift_Notification
 class EViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let btn = UIButton.snpButton(supView: view, backColor: .red, title: "Login", font: font_14, titleNorColor: .white, titleHigColor: .lightGray, touchUp: { (btn) in
+        let btn = UIButton.snpButton(supView: view, backColor: .red, title: "Login", font: Font(12), titleNorColor: .white, titleHigColor: .lightGray, touchUp: { (btn) in
             
         }) { (make) in
             make.center.equalToSuperview()
@@ -55,9 +55,13 @@ class EViewController: UIViewController {
         }
         
         ive.image = UIImage.createPlaceHolderImage(image: UIImage.init(named: "dongman"), imageView: ive)
-    }
-    
 
+        
+        notifiCenter.addNotification(UIApplication.didChangeStatusBarFrameNotification) { (_) in
+            print("\(BottomHomeHeight)---\(TabBarHeight())")
+        }
+    }
+ 
     /*
     // MARK: - Navigation
 

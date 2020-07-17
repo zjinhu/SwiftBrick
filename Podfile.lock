@@ -1,21 +1,25 @@
 PODS:
   - SnapKit (5.0.1)
+  - Swift_Notification (0.2.1)
   - SwiftyRefresh (0.3.7):
     - SnapKit
 
 DEPENDENCIES:
   - SnapKit
+  - Swift_Notification
   - SwiftyRefresh
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - SnapKit
+    - Swift_Notification
     - SwiftyRefresh
 
 SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  Swift_Notification: 2abcac767f62c2800d07125d5f05b740093c70d3
   SwiftyRefresh: d094396e97c89acd5253de75478a8c42738433af
 
-PODFILE CHECKSUM: f04db2a867ff987f1ac5eb92654b0345c51e2f82
+PODFILE CHECKSUM: ca396b678a4b6cd2d865cc3f218ddd75a82249ce
 
 COCOAPODS: 1.9.3
