@@ -45,7 +45,7 @@ class EViewController: UIViewController {
             make.width.equalTo(50)
             make.height.equalTo(50)
         }
-        
+
         
        let ive = UIImageView.snpImageView(supView: view, backColor: .cyan, contentMode: .scaleAspectFill) { (make) in
             make.centerX.equalToSuperview()
@@ -60,6 +60,30 @@ class EViewController: UIViewController {
         notifiCenter.addNotification(UIApplication.didChangeStatusBarFrameNotification) { (_) in
             print("\(BottomHomeHeight)---\(TabBarHeight)")
         }
+        
+        
+        let la = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: 120, height: 30))
+        la.backgroundColor = .black
+        
+        
+        let av = UIView.snpView(supView: view, backColor: .orange) { (make) in
+            make.centerX.equalToSuperview().offset(-150)
+            make.top.equalToSuperview().offset(260)
+            make.width.equalTo(150)
+            make.height.equalTo(150)
+        }
+        
+        av.addSubview(la)
+        
+        let bv = UIView.snpView(supView: view, backColor: .orange) { (make) in
+            make.centerX.equalToSuperview().offset(150)
+            make.top.equalToSuperview().offset(260)
+            make.width.equalTo(150)
+            make.height.equalTo(150)
+        }
+        
+         bv.addSubview(la)
+        
     }
  
     /*
