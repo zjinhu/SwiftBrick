@@ -14,9 +14,7 @@ class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSou
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        self.title = "示例UITableView"
-
+ 
         let tableView = UITableView.snpTableView(supView: view, delegate: self, dataSource: self) { (make) in
             make.edges.equalToSuperview()
         }
