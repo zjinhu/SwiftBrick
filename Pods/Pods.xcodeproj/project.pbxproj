@@ -8,99 +8,99 @@
 
 /* Begin PBXBuildFile section */
 		00F16EC7807E5F424B379A4C2CF762A1 /* SwiftNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72515B87B06A743AF013CF64ED0BACC8 /* SwiftNotification.swift */; };
-		01AC9C54731F0EC48A0EA3CA172A0D0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A5D43734115D0BBEB15840ADAF1482 /* Foundation.framework */; };
 		01C550A53C9E2047C83F8E85BBB558E6 /* ConstraintLayoutSupportDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF2543E7B62E8EF77DB78068370691E /* ConstraintLayoutSupportDSL.swift */; };
 		039EAFE7935113805F3FC21BF1B7C9D5 /* LayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340AD0EB5843B9AEDD0A182791B6BEE6 /* LayoutConstraint.swift */; };
 		04543980C4A7CE442330B0F1BC4A9A54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A5D43734115D0BBEB15840ADAF1482 /* Foundation.framework */; };
+		1073A4FFD08EEA5D990B77A7499B61EB /* SwiftyRefresh-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC6FBF960F9818879EA3DF79885454 /* SwiftyRefresh-dummy.m */; };
 		1956E392D500F3CD899D39A5F805736D /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E4D0229E2445CD59ED973B5B85665 /* Typealiases.swift */; };
 		1AFB1E9136716C0B61D6C700FF1E60FD /* ConstraintLayoutGuide+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D533C540E12E24BC39B90EAD7D2F5E88 /* ConstraintLayoutGuide+Extensions.swift */; };
 		1DC224EB7EB58AF6B9BC36CC5DBE1A89 /* Swift_Notification-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 869DC775B6F60D8CF2FD916435F6B792 /* Swift_Notification-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21AB1101BBE4D28D74ED4EDF0D59025A /* ConstraintInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D47AA2B52119A5C1D51C41C747CBFC /* ConstraintInsets.swift */; };
 		232B2F922E972D9F43D2EE15ACECE734 /* ConstraintPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF41A490C8F3851882ECBFBE2C44F9 /* ConstraintPriority.swift */; };
-		27E5C904D82FCCA64C9B0C32194CB239 /* RefreshHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EB7F7FFD128E1B74AE0B6AD5480193 /* RefreshHeaderView.swift */; };
 		2A1BBBC87AC2367BD14610A9D10D285E /* ConstraintAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F70B3D97AC3D93D67926FDB262D65FB /* ConstraintAttributes.swift */; };
 		2C06F2E972444D359754D21AC46BFFE2 /* ConstraintInsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE679A1AAFDEC284F6C8749CF9FF7E7E /* ConstraintInsetTarget.swift */; };
+		3641F5EDC8D29CC4BBCA9CF577224B3F /* Pods-SwiftBrick-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 378BC98C7373189DC7E202AEC0AA7010 /* Pods-SwiftBrick-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3BFC243AB9BD579969F0D5756560BCAA /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3413072BC6083B461EC5A719C0D5886F /* Constraint.swift */; };
 		3C27C60881DC1BC6389EC67A00F20DEA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A5D43734115D0BBEB15840ADAF1482 /* Foundation.framework */; };
-		3DFA41692832A40EB19F71FE53DF67CE /* ScrollViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D0D61F59303856CFBB99D5B96A2F1B /* ScrollViewProtocol.swift */; };
 		3E5285F4F36EAD77ECABBFB7F36BB1BB /* ConstraintView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAE6937B036C4059416D1E2CD712675 /* ConstraintView+Extensions.swift */; };
 		3E6DC4F8140560134B2E93C03C18D238 /* Swift_Notification-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 13ED18568106A2602829A4FE9834ED26 /* Swift_Notification-dummy.m */; };
-		4445F8B9A2919F504ECA5365C491F673 /* Pods-SwiftBrick-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 92267844D1AA506C88C53E3688EE7298 /* Pods-SwiftBrick-dummy.m */; };
+		4ADCAAC3692122681C76A791470183F6 /* RefreshHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EB7F7FFD128E1B74AE0B6AD5480193 /* RefreshHeaderView.swift */; };
+		4BDD795D5CF6A5D761F758E54F1CFE13 /* Pods-SwiftBrick-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 92267844D1AA506C88C53E3688EE7298 /* Pods-SwiftBrick-dummy.m */; };
 		4C7A676DAE95EEAC3787A75349F0862D /* SnapKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4616EF4812F1F7068B7BBB9EE8540C /* SnapKit-dummy.m */; };
 		51CD5887014967E77E58F5A163996454 /* ConstraintMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8051834C7B75F5723D661B78AA9748E0 /* ConstraintMaker.swift */; };
 		57B1876F2BE4168E5BFDB63D8CC849A0 /* ConstraintLayoutSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746F1017B505F425B291223736E810D3 /* ConstraintLayoutSupport.swift */; };
 		5854DF509E8A016B6235793D04083035 /* ConstraintConstantTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF0AB81102541676F4837F85C96C9BA /* ConstraintConstantTarget.swift */; };
 		69CCBEEDFCA6D743D80026568D961919 /* ConstraintMakerExtendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450C6216043C3FB45E5DCC9382E8F96E /* ConstraintMakerExtendable.swift */; };
 		69E3A06BBDFDC7D06A9D4BDC4E895E73 /* ConstraintRelatableTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B1FF99FD2FF94E0661FA33A7FA46C1 /* ConstraintRelatableTarget.swift */; };
+		6AE2C193E0B35A67B2FE213A78138681 /* ScrollViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D0D61F59303856CFBB99D5B96A2F1B /* ScrollViewProtocol.swift */; };
 		6E0EB9E7FAAEDBB7A73ECF3095F69C4A /* UILayoutSupport+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B963375A59B06F7DC697295EB1CF9A5F /* UILayoutSupport+Extensions.swift */; };
 		71DE9DC2FA583526AB4D1FD7F00C099C /* ConstraintDirectionalInsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06737ADF034AA3ACDEE15EE97D740DA6 /* ConstraintDirectionalInsetTarget.swift */; };
 		75E146C12D1287228A0B493E87CDE31F /* ConstraintMakerRelatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29D4513FF4227D05E81BAF57A4AA8E /* ConstraintMakerRelatable.swift */; };
 		77C9889055A3B32EA13A9616824DB0ED /* ConstraintLayoutGuideDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F04629EB45625116554A977051DDA45 /* ConstraintLayoutGuideDSL.swift */; };
-		7859D7BF4AE955E682779C5ACEE7C56E /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E769393FE2F7DCF3E342575F5DF05239 /* SnapKit.framework */; };
 		7C1702076F3A31D8D2D45A4A9F09B266 /* ConstraintMakerEditable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D0A88BCB20C3155A5956956D23FB3D /* ConstraintMakerEditable.swift */; };
-		81BED224CBC4D6C03728409648B31D2A /* SwiftyRefresh-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E253782DA9FA68A8039B9D92C4512F1B /* SwiftyRefresh-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8277256ADEC3C4DCF79957D1CA681A9A /* ConstraintDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF129B12530A0CFC848C531FBEC8FEC /* ConstraintDSL.swift */; };
+		83662549676CFBAE2C83EDB4121FD13D /* RefreshFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644381BEA2A531107E113213AD75C794 /* RefreshFooterView.swift */; };
 		8705BBF0D428BF0AE1B554A377ECC540 /* ConstraintOffsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84B4FAA3EA19DB8EBD007BF6E9F659D /* ConstraintOffsetTarget.swift */; };
-		8844D3C3827DDAF1E2113763C370F4B4 /* SwiftyRefresh-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC6FBF960F9818879EA3DF79885454 /* SwiftyRefresh-dummy.m */; };
+		8A81FFEDD1D9A8DEA084DD0E9CCAD806 /* RefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B8C7B48B3B0D67A2B002429F0B786 /* RefreshView.swift */; };
+		8BB55E5062DA799B9BACCC56C3718A49 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A5D43734115D0BBEB15840ADAF1482 /* Foundation.framework */; };
 		99B5296A5EDECE0557B9DA53D9E19CA1 /* ConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4296383B7F90724967B94F3952BD6ED3 /* ConstraintItem.swift */; };
 		9B09968922C73D50040C6EEF57890D6E /* ConstraintConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B685312E9AEBA10D011A2A86C1381617 /* ConstraintConfig.swift */; };
 		A270CD9EC3C541FE86E65AEDCEF500CF /* ConstraintLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8E91EC0F93ADFF75C8E773D6A31665 /* ConstraintLayoutGuide.swift */; };
 		A66ED57B365A35434C5BAF4B990819B7 /* SnapKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2573E58A82E05A6535CE146C8718B903 /* SnapKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A88F24D56FBEC21AEC404F6CE5824775 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 867F734B2B72D6AC7D93E69C704AF60F /* UIKit.framework */; };
 		AC35C9341C4BB156BB26FDD237EE3721 /* ConstraintDirectionalInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C484B74CBD7E2386FE6168D6B0D88D47 /* ConstraintDirectionalInsets.swift */; };
-		AED5A071D602BAF6EE71C50E5698C5BA /* RefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B8C7B48B3B0D67A2B002429F0B786 /* RefreshView.swift */; };
 		B599696DFEF6B2A5ECF528F4E5BB1846 /* ConstraintDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9800A007E87AEFA112AFC207708F80C /* ConstraintDescription.swift */; };
 		B780B272106411CBE258BB60FFC45410 /* Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB8BDE7EE951B118B1FBB7BC242D754 /* Debugging.swift */; };
 		BECA67DFB5E0984DFAEFCB775C31972E /* ConstraintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91323049C65BBCEED82FE67323424EB1 /* ConstraintView.swift */; };
-		C2BEA00288A761BC8D515378A1DC44F3 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED886869B973A411CCBD403904E2088F /* Image.xcassets */; };
 		C412F27D75AFC0DF0F0289DBB270931C /* ConstraintMakerFinalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC30FE6EFD26C398986CD7511C150719 /* ConstraintMakerFinalizable.swift */; };
+		C6B3BBD91BCD46AE940A0E3102CE381B /* SwiftyRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 61386DCD4102BFB77E72982A7CA94018 /* SwiftyRefresh.bundle */; };
 		CE62FEABA57B2B53EABF8C7DCCC6B2C4 /* ConstraintRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B00B005A2F44B3310932E917C59983 /* ConstraintRelation.swift */; };
+		D1BB506C80E6C96C0186CCACD83EB1D3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 867F734B2B72D6AC7D93E69C704AF60F /* UIKit.framework */; };
 		D4697DC40F3B059E4A0867838CA1814E /* ConstraintMultiplierTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F81921240B7FE813137750D2D1AE4F /* ConstraintMultiplierTarget.swift */; };
-		D75B24D490CE523E9E0353CDA0812A0E /* Pods-SwiftBrick-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 378BC98C7373189DC7E202AEC0AA7010 /* Pods-SwiftBrick-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DFB56B77E612150C803839B1675DD380 /* RefreshFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644381BEA2A531107E113213AD75C794 /* RefreshFooterView.swift */; };
 		E8F2429683B3015CBD39CE883770BCA7 /* ConstraintPriorityTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A05D991912970ED1063B182369AD9E4 /* ConstraintPriorityTarget.swift */; };
-		E91B869A4684FF9A0448E8978F2C4F46 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A5D43734115D0BBEB15840ADAF1482 /* Foundation.framework */; };
 		E9A970BC24EA15832F248EA020072746 /* LayoutConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FA3795E91D640683DB088E6BAC29D9 /* LayoutConstraintItem.swift */; };
 		EB1726F5E0D0EEBA20E4528B1E37A8FA /* ConstraintViewDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A05F0F63D50B8032DC07B62BD65AB00 /* ConstraintViewDSL.swift */; };
 		EE909C7C786140109051BC9562EEC7C8 /* ConstraintMakerPriortizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E706AC8AAAC87094A29EFA6F097CC4 /* ConstraintMakerPriortizable.swift */; };
-		F496E433CEE47D17C4296A6E1CE43061 /* SwiftyRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 61386DCD4102BFB77E72982A7CA94018 /* SwiftyRefresh.bundle */; };
+		F5C8F3A8BF46444778B318FBEA41B796 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED886869B973A411CCBD403904E2088F /* Image.xcassets */; };
+		F8648BF622E0A2FD91F7A39C4CE716BA /* SwiftyRefresh-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E253782DA9FA68A8039B9D92C4512F1B /* SwiftyRefresh-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FA58E06FF953828ACA676AE7E24E976B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A5D43734115D0BBEB15840ADAF1482 /* Foundation.framework */; };
+		FC7254F1C7152B0B6A437779E926BC5D /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E769393FE2F7DCF3E342575F5DF05239 /* SnapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1B253E41D950423B6821372344320D20 /* PBXContainerItemProxy */ = {
+		049A7B6251A51ED12B08D25FD8FBDCF9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3D85600BE947A1853B48879A7578980F;
-			remoteInfo = "SwiftyRefresh-SwiftyRefresh";
+			remoteGlobalIDString = 19622742EBA51E823D6DAE3F8CDBFAD4;
+			remoteInfo = SnapKit;
 		};
-		3A98F19C4E2154DA0D13C7D4A600546F /* PBXContainerItemProxy */ = {
+		19E34AF8BCC4838D500A6850F420C245 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 42897A94A7A9CEA565D165854AAA7D9B;
 			remoteInfo = Swift_Notification;
 		};
-		7861125906DBEA6A62EFDA3435FA344E /* PBXContainerItemProxy */ = {
+		288F50C8D013636A37B0DDE6790B9FF3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3D85600BE947A1853B48879A7578980F;
+			remoteInfo = "SwiftyRefresh-SwiftyRefresh";
+		};
+		9647BDBD464B0BDE5B6D0626530D7CD3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 19622742EBA51E823D6DAE3F8CDBFAD4;
 			remoteInfo = SnapKit;
 		};
-		8182E1A96B1CD3BB0B3B52765A828929 /* PBXContainerItemProxy */ = {
+		FE863B95359CBD01CEFE8BD0B479D3D9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3B883B1D637904A31344A4AA87332C29;
 			remoteInfo = SwiftyRefresh;
-		};
-		969D5D06C53F7FBCE207CE48791FED9E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 19622742EBA51E823D6DAE3F8CDBFAD4;
-			remoteInfo = SnapKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -190,10 +190,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		05F2C1E695A61EEB5C7F0959E9184D65 /* Frameworks */ = {
+		214EB6D7E13D734CECCFBA0F4678404F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA58E06FF953828ACA676AE7E24E976B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,21 +214,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4B467C28F44EE3BBF5421DB6D89EC6EF /* Frameworks */ = {
+		AD9B554F4DB6B7938AA9BDAD2E855ADE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01AC9C54731F0EC48A0EA3CA172A0D0B /* Foundation.framework in Frameworks */,
-				7859D7BF4AE955E682779C5ACEE7C56E /* SnapKit.framework in Frameworks */,
-				A88F24D56FBEC21AEC404F6CE5824775 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B32145700CC66BE9ABC04501E65D010E /* Frameworks */ = {
+		E492D996D95FBC7809E5B041BDEC60A6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E91B869A4684FF9A0448E8978F2C4F46 /* Foundation.framework in Frameworks */,
+				8BB55E5062DA799B9BACCC56C3718A49 /* Foundation.framework in Frameworks */,
+				FC7254F1C7152B0B6A437779E926BC5D /* SnapKit.framework in Frameworks */,
+				D1BB506C80E6C96C0186CCACD83EB1D3 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +436,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		3512399B3EBEE935FE2028F0C4023B16 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8648BF622E0A2FD91F7A39C4CE716BA /* SwiftyRefresh-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7DFCF5F12AEEED0500986DBC9BF76170 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -444,19 +452,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		86AC48158640521C10988EA6E8EF6501 /* Headers */ = {
+		E9ECEEA3C2348EEFB58EDB4D55BEFE04 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D75B24D490CE523E9E0353CDA0812A0E /* Pods-SwiftBrick-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BD6A64892836B8EB928D2E96E6307096 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				81BED224CBC4D6C03728409648B31D2A /* SwiftyRefresh-umbrella.h in Headers */,
+				3641F5EDC8D29CC4BBCA9CF577224B3F /* Pods-SwiftBrick-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,19 +491,19 @@
 		};
 		2503F92B78D37C2486024CA47CB26FBF /* Pods-SwiftBrick */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 81B426AA148758ACF0B929B90425B00B /* Build configuration list for PBXNativeTarget "Pods-SwiftBrick" */;
+			buildConfigurationList = F335BA15604A3D1F90F4F5070B8ED34D /* Build configuration list for PBXNativeTarget "Pods-SwiftBrick" */;
 			buildPhases = (
-				86AC48158640521C10988EA6E8EF6501 /* Headers */,
-				13317CC089F00FCCB304513671B580A2 /* Sources */,
-				B32145700CC66BE9ABC04501E65D010E /* Frameworks */,
-				B219B3264978CD0C57C850EF303E66FE /* Resources */,
+				E9ECEEA3C2348EEFB58EDB4D55BEFE04 /* Headers */,
+				271CFFD3943EBC97D103F4EE6C918745 /* Sources */,
+				214EB6D7E13D734CECCFBA0F4678404F /* Frameworks */,
+				5C59E30BF45A655C8259E15C8719ADB9 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				67FF52C91FFC8A55F01837E131518904 /* PBXTargetDependency */,
-				48A014BF1DCF524EA344F07D35F69D20 /* PBXTargetDependency */,
-				0A0BF06917EB34225CB9C8A89A8B8504 /* PBXTargetDependency */,
+				839158098CF172920107A9CFF14CC2F0 /* PBXTargetDependency */,
+				F9EAECC1F7CC0DDED61F2A9A9755836C /* PBXTargetDependency */,
+				06667DBE961DCEC9BE61EC3285589B44 /* PBXTargetDependency */,
 			);
 			name = "Pods-SwiftBrick";
 			productName = "Pods-SwiftBrick";
@@ -512,18 +512,18 @@
 		};
 		3B883B1D637904A31344A4AA87332C29 /* SwiftyRefresh */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BE518406C182ED8FF87FF09418FF9FC2 /* Build configuration list for PBXNativeTarget "SwiftyRefresh" */;
+			buildConfigurationList = 766B4EC4E2C841C00CD84D84EFC1DEDF /* Build configuration list for PBXNativeTarget "SwiftyRefresh" */;
 			buildPhases = (
-				BD6A64892836B8EB928D2E96E6307096 /* Headers */,
-				2822CE73F730B996E900D6510AB3F852 /* Sources */,
-				4B467C28F44EE3BBF5421DB6D89EC6EF /* Frameworks */,
-				38D5EE1BDD36CA66BD557EDB673193CE /* Resources */,
+				3512399B3EBEE935FE2028F0C4023B16 /* Headers */,
+				B1D9835DC2DC5608941AEF4309B4BDF5 /* Sources */,
+				E492D996D95FBC7809E5B041BDEC60A6 /* Frameworks */,
+				EC8BDC11B119F969A8B728324F5C9AC4 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				F78A18EA217C79DE1A35023651CD8B88 /* PBXTargetDependency */,
-				41875F450397BA53FE76BD13A0EC5297 /* PBXTargetDependency */,
+				3230000A0E0970BF6EC65E1B22381DEA /* PBXTargetDependency */,
+				12E0E926C1A5DFB1E7F256882226D379 /* PBXTargetDependency */,
 			);
 			name = SwiftyRefresh;
 			productName = SwiftyRefresh;
@@ -532,11 +532,11 @@
 		};
 		3D85600BE947A1853B48879A7578980F /* SwiftyRefresh-SwiftyRefresh */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 554B675B19913634ECB3308AC4973A15 /* Build configuration list for PBXNativeTarget "SwiftyRefresh-SwiftyRefresh" */;
+			buildConfigurationList = 970799DA1CE11414B1EB73A8F63272C6 /* Build configuration list for PBXNativeTarget "SwiftyRefresh-SwiftyRefresh" */;
 			buildPhases = (
-				6117291F235CD97B3B619C8546B8DA3F /* Sources */,
-				05F2C1E695A61EEB5C7F0959E9184D65 /* Frameworks */,
-				57D747CD2C7EB9A8B339C0590844C0EA /* Resources */,
+				65CB2412D26C59A59CF8BED20F21BA9D /* Sources */,
+				AD9B554F4DB6B7938AA9BDAD2E855ADE /* Frameworks */,
+				C2CC077BC367467F6D2598CE6EBC118E /* Resources */,
 			);
 			buildRules = (
 			);
@@ -604,19 +604,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		38D5EE1BDD36CA66BD557EDB673193CE /* Resources */ = {
+		5C59E30BF45A655C8259E15C8719ADB9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F496E433CEE47D17C4296A6E1CE43061 /* SwiftyRefresh.bundle in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		57D747CD2C7EB9A8B339C0590844C0EA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C2BEA00288A761BC8D515378A1DC44F3 /* Image.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,37 +618,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B219B3264978CD0C57C850EF303E66FE /* Resources */ = {
+		C2CC077BC367467F6D2598CE6EBC118E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5C8F3A8BF46444778B318FBEA41B796 /* Image.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC8BDC11B119F969A8B728324F5C9AC4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6B3BBD91BCD46AE940A0E3102CE381B /* SwiftyRefresh.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		13317CC089F00FCCB304513671B580A2 /* Sources */ = {
+		271CFFD3943EBC97D103F4EE6C918745 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4445F8B9A2919F504ECA5365C491F673 /* Pods-SwiftBrick-dummy.m in Sources */,
+				4BDD795D5CF6A5D761F758E54F1CFE13 /* Pods-SwiftBrick-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2822CE73F730B996E900D6510AB3F852 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DFB56B77E612150C803839B1675DD380 /* RefreshFooterView.swift in Sources */,
-				27E5C904D82FCCA64C9B0C32194CB239 /* RefreshHeaderView.swift in Sources */,
-				AED5A071D602BAF6EE71C50E5698C5BA /* RefreshView.swift in Sources */,
-				3DFA41692832A40EB19F71FE53DF67CE /* ScrollViewProtocol.swift in Sources */,
-				8844D3C3827DDAF1E2113763C370F4B4 /* SwiftyRefresh-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6117291F235CD97B3B619C8546B8DA3F /* Sources */ = {
+		65CB2412D26C59A59CF8BED20F21BA9D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -708,6 +696,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B1D9835DC2DC5608941AEF4309B4BDF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83662549676CFBAE2C83EDB4121FD13D /* RefreshFooterView.swift in Sources */,
+				4ADCAAC3692122681C76A791470183F6 /* RefreshHeaderView.swift in Sources */,
+				8A81FFEDD1D9A8DEA084DD0E9CCAD806 /* RefreshView.swift in Sources */,
+				6AE2C193E0B35A67B2FE213A78138681 /* ScrollViewProtocol.swift in Sources */,
+				1073A4FFD08EEA5D990B77A7499B61EB /* SwiftyRefresh-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BD67C51DA37D7FF1197677B5D476A20A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -720,40 +720,40 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0A0BF06917EB34225CB9C8A89A8B8504 /* PBXTargetDependency */ = {
+		06667DBE961DCEC9BE61EC3285589B44 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftyRefresh;
 			target = 3B883B1D637904A31344A4AA87332C29 /* SwiftyRefresh */;
-			targetProxy = 8182E1A96B1CD3BB0B3B52765A828929 /* PBXContainerItemProxy */;
+			targetProxy = FE863B95359CBD01CEFE8BD0B479D3D9 /* PBXContainerItemProxy */;
 		};
-		41875F450397BA53FE76BD13A0EC5297 /* PBXTargetDependency */ = {
+		12E0E926C1A5DFB1E7F256882226D379 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "SwiftyRefresh-SwiftyRefresh";
 			target = 3D85600BE947A1853B48879A7578980F /* SwiftyRefresh-SwiftyRefresh */;
-			targetProxy = 1B253E41D950423B6821372344320D20 /* PBXContainerItemProxy */;
+			targetProxy = 288F50C8D013636A37B0DDE6790B9FF3 /* PBXContainerItemProxy */;
 		};
-		48A014BF1DCF524EA344F07D35F69D20 /* PBXTargetDependency */ = {
+		3230000A0E0970BF6EC65E1B22381DEA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SnapKit;
+			target = 19622742EBA51E823D6DAE3F8CDBFAD4 /* SnapKit */;
+			targetProxy = 049A7B6251A51ED12B08D25FD8FBDCF9 /* PBXContainerItemProxy */;
+		};
+		839158098CF172920107A9CFF14CC2F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SnapKit;
+			target = 19622742EBA51E823D6DAE3F8CDBFAD4 /* SnapKit */;
+			targetProxy = 9647BDBD464B0BDE5B6D0626530D7CD3 /* PBXContainerItemProxy */;
+		};
+		F9EAECC1F7CC0DDED61F2A9A9755836C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Swift_Notification;
 			target = 42897A94A7A9CEA565D165854AAA7D9B /* Swift_Notification */;
-			targetProxy = 3A98F19C4E2154DA0D13C7D4A600546F /* PBXContainerItemProxy */;
-		};
-		67FF52C91FFC8A55F01837E131518904 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SnapKit;
-			target = 19622742EBA51E823D6DAE3F8CDBFAD4 /* SnapKit */;
-			targetProxy = 969D5D06C53F7FBCE207CE48791FED9E /* PBXContainerItemProxy */;
-		};
-		F78A18EA217C79DE1A35023651CD8B88 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SnapKit;
-			target = 19622742EBA51E823D6DAE3F8CDBFAD4 /* SnapKit */;
-			targetProxy = 7861125906DBEA6A62EFDA3435FA344E /* PBXContainerItemProxy */;
+			targetProxy = 19E34AF8BCC4838D500A6850F420C245 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0C3BECCF032F591F035ACDF1514E7D76 /* Release */ = {
+		05920C28A3E5FAE685ACF5ADE12597CA /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 94E72775E1E60DD411EE0A908BB30DEC /* SwiftyRefresh.release.xcconfig */;
 			buildSettings = {
@@ -825,10 +825,28 @@
 			};
 			name = Debug;
 		};
-		257497152829C177993B5EC99C1D227A /* Release */ = {
+		23CAAF24F1F3747BDD283B2BEEF19E2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0286964FE551BE66B1F60FFB003ADC6 /* SwiftyRefresh.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SwiftyRefresh";
+				IBSC_MODULE = SwiftyRefresh;
+				INFOPLIST_FILE = "Target Support Files/SwiftyRefresh/ResourceBundle-SwiftyRefresh-SwiftyRefresh-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_NAME = SwiftyRefresh;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		3464D62B7CFAF5E00F1507A127682BDF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -885,60 +903,7 @@
 			};
 			name = Release;
 		};
-		6642806BF0E77E0A0BC59AB614D3B840 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A0286964FE551BE66B1F60FFB003ADC6 /* SwiftyRefresh.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftyRefresh/SwiftyRefresh-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftyRefresh/SwiftyRefresh-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SwiftyRefresh/SwiftyRefresh.modulemap";
-				PRODUCT_MODULE_NAME = SwiftyRefresh;
-				PRODUCT_NAME = SwiftyRefresh;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		67FCC0E5CCFDDE00E2C51497FEDF06C9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A0286964FE551BE66B1F60FFB003ADC6 /* SwiftyRefresh.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SwiftyRefresh";
-				IBSC_MODULE = SwiftyRefresh;
-				INFOPLIST_FILE = "Target Support Files/SwiftyRefresh/ResourceBundle-SwiftyRefresh-SwiftyRefresh-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_NAME = SwiftyRefresh;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		6FBC687BFAFCDFE371188BC47470D6EA /* Release */ = {
+		5002DE04C38631367ADAE724348FA41F /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E7D392FDB8AB5208201A770971BD40EE /* Pods-SwiftBrick.release.xcconfig */;
 			buildSettings = {
@@ -1014,27 +979,11 @@
 			};
 			name = Release;
 		};
-		AB1E73392D35AD96E9459FCBFF2B6627 /* Release */ = {
+		AAD3E3D276707523E50E1E67C5FE8D95 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 94E72775E1E60DD411EE0A908BB30DEC /* SwiftyRefresh.release.xcconfig */;
+			baseConfigurationReference = A0286964FE551BE66B1F60FFB003ADC6 /* SwiftyRefresh.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SwiftyRefresh";
-				IBSC_MODULE = SwiftyRefresh;
-				INFOPLIST_FILE = "Target Support Files/SwiftyRefresh/ResourceBundle-SwiftyRefresh-SwiftyRefresh-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_NAME = SwiftyRefresh;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
-		DD4EF0FFFA58887CF4A277741D940F0F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE9FEE0D0E3635410BF1D4931FE9CCC5 /* Swift_Notification.release.xcconfig */;
-			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1044,33 +993,33 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Swift_Notification/Swift_Notification-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Swift_Notification/Swift_Notification-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyRefresh/SwiftyRefresh-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyRefresh/SwiftyRefresh-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/Swift_Notification/Swift_Notification.modulemap";
-				PRODUCT_MODULE_NAME = Swift_Notification;
-				PRODUCT_NAME = Swift_Notification;
+				MODULEMAP_FILE = "Target Support Files/SwiftyRefresh/SwiftyRefresh.modulemap";
+				PRODUCT_MODULE_NAME = SwiftyRefresh;
+				PRODUCT_NAME = SwiftyRefresh;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
-		DD8F832993327D1DD8046C3CBCBD97CD /* Debug */ = {
+		B7D6088174AE53A1462E7AA5C4FBB76F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1131,7 +1080,7 @@
 			};
 			name = Debug;
 		};
-		EB27ECA7C7FA273DDF2EE6D8704C4D80 /* Debug */ = {
+		C76D37DC235D8C8BDD9AD71BD4F47F28 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6B721FE08D1FC5D01311FC87BC897478 /* Pods-SwiftBrick.debug.xcconfig */;
 			buildSettings = {
@@ -1168,6 +1117,59 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		DC7ADDB39C3B517291EC66FB4670BF08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94E72775E1E60DD411EE0A908BB30DEC /* SwiftyRefresh.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SwiftyRefresh";
+				IBSC_MODULE = SwiftyRefresh;
+				INFOPLIST_FILE = "Target Support Files/SwiftyRefresh/ResourceBundle-SwiftyRefresh-SwiftyRefresh-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_NAME = SwiftyRefresh;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		DD4EF0FFFA58887CF4A277741D940F0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE9FEE0D0E3635410BF1D4931FE9CCC5 /* Swift_Notification.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Swift_Notification/Swift_Notification-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Swift_Notification/Swift_Notification-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Swift_Notification/Swift_Notification.modulemap";
+				PRODUCT_MODULE_NAME = Swift_Notification;
+				PRODUCT_NAME = Swift_Notification;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		F93AF49C1CAF2486F9DC6AE9F85C0739 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1220,17 +1222,17 @@
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DD8F832993327D1DD8046C3CBCBD97CD /* Debug */,
-				257497152829C177993B5EC99C1D227A /* Release */,
+				B7D6088174AE53A1462E7AA5C4FBB76F /* Debug */,
+				3464D62B7CFAF5E00F1507A127682BDF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		554B675B19913634ECB3308AC4973A15 /* Build configuration list for PBXNativeTarget "SwiftyRefresh-SwiftyRefresh" */ = {
+		766B4EC4E2C841C00CD84D84EFC1DEDF /* Build configuration list for PBXNativeTarget "SwiftyRefresh" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				67FCC0E5CCFDDE00E2C51497FEDF06C9 /* Debug */,
-				AB1E73392D35AD96E9459FCBFF2B6627 /* Release */,
+				AAD3E3D276707523E50E1E67C5FE8D95 /* Debug */,
+				05920C28A3E5FAE685ACF5ADE12597CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1244,20 +1246,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		81B426AA148758ACF0B929B90425B00B /* Build configuration list for PBXNativeTarget "Pods-SwiftBrick" */ = {
+		970799DA1CE11414B1EB73A8F63272C6 /* Build configuration list for PBXNativeTarget "SwiftyRefresh-SwiftyRefresh" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EB27ECA7C7FA273DDF2EE6D8704C4D80 /* Debug */,
-				6FBC687BFAFCDFE371188BC47470D6EA /* Release */,
+				23CAAF24F1F3747BDD283B2BEEF19E2E /* Debug */,
+				DC7ADDB39C3B517291EC66FB4670BF08 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BE518406C182ED8FF87FF09418FF9FC2 /* Build configuration list for PBXNativeTarget "SwiftyRefresh" */ = {
+		F335BA15604A3D1F90F4F5070B8ED34D /* Build configuration list for PBXNativeTarget "Pods-SwiftBrick" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6642806BF0E77E0A0BC59AB614D3B840 /* Debug */,
-				0C3BECCF032F591F035ACDF1514E7D76 /* Release */,
+				C76D37DC235D8C8BDD9AD71BD4F47F28 /* Debug */,
+				5002DE04C38631367ADAE724348FA41F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
