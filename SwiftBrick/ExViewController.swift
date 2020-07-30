@@ -28,6 +28,7 @@ class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSou
         self.tabBarController?.tabBar.showBadgeOnItemIndex(index: 0)
 
     }
+    
     // MARK:-示例快速创建UIView 使用部分默认参数 --初始化使用SnapKit
     func demoView1(supView: UIView){
         
