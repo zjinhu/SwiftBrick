@@ -180,7 +180,6 @@
 			children = (
 				9111501B23838DD100AE47DF /* Class */,
 				9111500723838CC200AE47DF /* AppDelegate.swift */,
-				8137F42E24D3CCFE0031026C /* DataSource */,
 				9111500923838CC200AE47DF /* SceneDelegate.swift */,
 				916226192385534D0050F228 /* ExViewController.swift */,
 				9111500B23838CC200AE47DF /* ViewController.swift */,
@@ -201,6 +200,7 @@
 		9111501B23838DD100AE47DF /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				8137F42E24D3CCFE0031026C /* DataSource */,
 				9111502223838DD100AE47DF /* Images.xcassets */,
 				81583DD42476483900260DCF /* Util */,
 				917FBC22238BA1240083721A /* ViewFactory */,

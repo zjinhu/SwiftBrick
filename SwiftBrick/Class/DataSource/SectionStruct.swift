@@ -174,15 +174,15 @@ private extension SectionStruct {
     }
 
     func specifiedItemIsNotFound(_ id: ItemID, file: StaticString, line: UInt) -> Never {
-        universalError("Specified item\(id) is not found.", file: file, line: line)
+        universalError("item\(id) 不存在", file: file, line: line)
     }
 
     func specifiedSectionIsNotFound(_ id: SectionID, file: StaticString, line: UInt) -> Never {
-        universalError("Specified section\(id) is not found.", file: file, line: line)
+        universalError("section\(id) 不存在", file: file, line: line)
     }
 
     func thereAreCurrentlyNoSections(file: StaticString, line: UInt) -> Never {
-        universalError("There are currently no sections.", file: file, line: line)
+        universalError("列表没有一个可用的Section", file: file, line: line)
     }
 }
 
@@ -194,5 +194,5 @@ extension Hashable {
 
 
 func universalError(_ message: String, file: StaticString = #file, line: UInt = #line) -> Never {
-    fatalError("[DiffableDataSources] \(message)", file: file, line: line)
+    fatalError("\(message)", file: file, line: line)
 }

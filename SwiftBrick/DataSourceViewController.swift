@@ -50,6 +50,7 @@ class DataSourceViewController: JHTableViewController {
         UIButton.snpButton(supView: view, backColor: .orange, title: "添加section", touchUp: { (_) in
             let sec = Section(title: "2")
             self.shot.appendSections([sec])
+//            self.shot.insertSections([sec], beforeSection: Section(title: "1"))
             self.shot.appendItems([Item(name: "2"),Item(name: "3"),Item(name: "4"),Item(name: "5")], toSection: sec)
             self.dataSource.apply(self.shot)
         }) { (m) in
@@ -60,6 +61,7 @@ class DataSourceViewController: JHTableViewController {
         
         UIButton.snpButton(supView: view, backColor: .orange, title: "s1添加元素", touchUp: { (_) in
             self.shot.appendItems([Item(name: "6"),Item(name: "7"),Item(name: "8"),Item(name: "9")], toSection: Section(title: "1"))
+//            self.shot.insertItems([Item(name: "6"),Item(name: "7"),Item(name: "8"),Item(name: "9")], beforeItem: Item(name: "11"))
             self.dataSource.apply(self.shot)
         }) { (m) in
             m.right.centerY.equalToSuperview()
