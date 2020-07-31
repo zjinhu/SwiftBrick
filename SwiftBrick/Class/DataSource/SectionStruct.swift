@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct SectionStruct<SectionID: Hashable, ItemID: Hashable> {
+struct SectionStruct<SectionID: Hashable, ItemID: Hashable> {
     
     public struct Item: Hashable {
         var differenceIdentifier: ItemID

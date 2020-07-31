@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class DataSource <Section: Hashable, Item: Hashable>{
+class DataSource <Section: Hashable, Item: Hashable>{
     
     typealias SectionWithContent = SectionStruct<Section, Item>.Section
     

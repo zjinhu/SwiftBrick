@@ -42,7 +42,7 @@ open class CollectionViewDataSource<Section, Item>: NSObject, UICollectionViewDa
     }
     
     public func apply(_ snapshot: DiffableDataSource<Section, Item>) {
-        dataSource.sections = snapshot.structure.sections
+        dataSource.sections = snapshot.structer.sections
         collectionView?.reloadData()
     }
 }
