@@ -41,7 +41,7 @@ lane :release_pod do |options|
   else
     # pod trunk push 'spec_path'
 
-    pod_push(path: spec_path, allow_warnings: true, verbose: true, sources: 'https://github.com/CocoaPods/Specs.git')
+    pod_push(path: spec_path, allow_warnings: true, verbose: true)
 
   end
 end

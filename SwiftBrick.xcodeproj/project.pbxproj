@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		81185EB52455A9260030329B /* UITabBarEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81185EB42455A9260030329B /* UITabBarEx.swift */; };
+		8137F43024D3CD200031026C /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8137F42F24D3CD200031026C /* DataSource.swift */; };
+		8137F43224D3CD6D0031026C /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8137F43124D3CD6D0031026C /* TableViewDataSource.swift */; };
+		8137F43424D3CE1C0031026C /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8137F43324D3CE1C0031026C /* CollectionViewDataSource.swift */; };
+		8137F43624D3D4940031026C /* DataSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8137F43524D3D4940031026C /* DataSourceViewController.swift */; };
 		8148D47C2499EC4000C0B4BA /* EViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148D47B2499EC4000C0B4BA /* EViewController.swift */; };
 		8148EFE724AEE1E900691650 /* ArrayViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148EFE624AEE1E900691650 /* ArrayViewSnapEx.swift */; };
 		81583DD324752ED800260DCF /* UITableViewCellEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81583DD224752ED700260DCF /* UITableViewCellEX.swift */; };
@@ -56,6 +60,10 @@
 /* Begin PBXFileReference section */
 		77965A09D8F67F588257CBE9 /* Pods-SwiftBrick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBrick.debug.xcconfig"; path = "Target Support Files/Pods-SwiftBrick/Pods-SwiftBrick.debug.xcconfig"; sourceTree = "<group>"; };
 		81185EB42455A9260030329B /* UITabBarEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarEx.swift; sourceTree = "<group>"; };
+		8137F42F24D3CD200031026C /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		8137F43124D3CD6D0031026C /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
+		8137F43324D3CE1C0031026C /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
+		8137F43524D3D4940031026C /* DataSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceViewController.swift; sourceTree = "<group>"; };
 		8148D47B2499EC4000C0B4BA /* EViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EViewController.swift; sourceTree = "<group>"; };
 		8148EFE624AEE1E900691650 /* ArrayViewSnapEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayViewSnapEx.swift; sourceTree = "<group>"; };
 		81583DD224752ED700260DCF /* UITableViewCellEX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellEX.swift; sourceTree = "<group>"; };
@@ -124,6 +132,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8137F42E24D3CCFE0031026C /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				8137F42F24D3CD200031026C /* DataSource.swift */,
+				8137F43124D3CD6D0031026C /* TableViewDataSource.swift */,
+				8137F43324D3CE1C0031026C /* CollectionViewDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
 		81583DD42476483900260DCF /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +174,7 @@
 			children = (
 				9111501B23838DD100AE47DF /* Class */,
 				9111500723838CC200AE47DF /* AppDelegate.swift */,
+				8137F42E24D3CCFE0031026C /* DataSource */,
 				9111500923838CC200AE47DF /* SceneDelegate.swift */,
 				916226192385534D0050F228 /* ExViewController.swift */,
 				9111500B23838CC200AE47DF /* ViewController.swift */,
@@ -164,6 +183,7 @@
 				916226102385247F0050F228 /* WebViewController.swift */,
 				81FF04DE246D4D7300367E2D /* TestCell.swift */,
 				8148D47B2499EC4000C0B4BA /* EViewController.swift */,
+				8137F43524D3D4940031026C /* DataSourceViewController.swift */,
 				9111500D23838CC200AE47DF /* Main.storyboard */,
 				9111501023838CC300AE47DF /* Assets.xcassets */,
 				9111501223838CC300AE47DF /* LaunchScreen.storyboard */,
@@ -376,10 +396,12 @@
 				9128EBB82387D608006890C9 /* UIButtonSnapEx.swift in Sources */,
 				81FF04DF246D4D7300367E2D /* TestCell.swift in Sources */,
 				9128EBC22387F00F006890C9 /* UICollectionViewSnapEx.swift in Sources */,
+				8137F43624D3D4940031026C /* DataSourceViewController.swift in Sources */,
 				81F709FF23CF18CC002E9DFA /* UIButtonEx.swift in Sources */,
 				9111502D23838DD100AE47DF /* JHTableViewCell.swift in Sources */,
 				81E9FB5D24B6C4F7009AB99F /* UIImageEx.swift in Sources */,
 				9162261A2385534D0050F228 /* ExViewController.swift in Sources */,
+				8137F43424D3CE1C0031026C /* CollectionViewDataSource.swift in Sources */,
 				81583DD324752ED800260DCF /* UITableViewCellEX.swift in Sources */,
 				E2A4A6EA24A0A9280088F1CC /* ShadowsButton.swift in Sources */,
 				911150322383BD8300AE47DF /* JHTableViewHeaderFooterView.swift in Sources */,
@@ -394,6 +416,7 @@
 				9111502E23838DD100AE47DF /* Define.swift in Sources */,
 				911150382383DABF00AE47DF /* CollectionViewController.swift in Sources */,
 				816DABED2433351000E2B77B /* StatusBaEx.swift in Sources */,
+				8137F43224D3CD6D0031026C /* TableViewDataSource.swift in Sources */,
 				9111500823838CC200AE47DF /* AppDelegate.swift in Sources */,
 				81F0617B246E945D00F0B2D3 /* CellProtocol.swift in Sources */,
 				9128EBC02387EFF6006890C9 /* UITableViewSnapEx.swift in Sources */,
@@ -405,6 +428,7 @@
 				917FBC28238CCD520083721A /* UINavigationControllerEx.swift in Sources */,
 				9111502923838DD100AE47DF /* JHWebViewController.swift in Sources */,
 				9111502723838DD100AE47DF /* JHCollectionViewController.swift in Sources */,
+				8137F43024D3CD200031026C /* DataSource.swift in Sources */,
 				916226112385247F0050F228 /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
