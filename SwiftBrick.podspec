@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SwiftBrick'
-  s.version          = '1.0.5'
+  s.version          = '1.0.6'
   s.summary          = '工具类组件.'
  
   s.description      = <<-DESC
@@ -27,6 +27,10 @@ Pod::Spec.new do |s|
 
     s.subspec 'Util' do |ss| 
       ss.source_files = 'SwiftBrick/Class/Util/**/*' 
+    end
+
+    s.subspec 'DataSource' do |ss| 
+      ss.source_files = 'SwiftBrick/Class/DataSource/**/*' 
     end
 
     s.subspec 'Extensions' do |ss| 
