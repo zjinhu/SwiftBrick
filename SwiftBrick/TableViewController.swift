@@ -86,9 +86,9 @@ class TableViewController: JHTableViewController {
             let vc = TableViewController.init(tableViewStyle: .styleGrouped)
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
-//            let vc = CollectionViewController.init()
-//            self.navigationController?.pushViewController(vc, animated: true)
-            self.navigationController?.pushViewController(DataSourceViewController(), animated: true)
+            let vc = CollectionViewController.init()
+            self.navigationController?.pushViewController(vc, animated: true)
+            
         }
     }
     @available(iOS 13.0, *)

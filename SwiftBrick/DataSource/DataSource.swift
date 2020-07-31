@@ -7,34 +7,33 @@
 //
 
 import Foundation
-public protocol SectionedDataSource: class {
-    associatedtype _Section
-    associatedtype _Item
-    
-    typealias SectionWithContent = (section: _Section, items: [_Item])
-    
-    var sections: [SectionWithContent] { get set }
-}
 
-public extension SectionedDataSource {
+public class DataSource <Section: Hashable, Item: Hashable>{
+    
+    typealias SectionWithContent = SectionStruct<Section, Item>.Section
+    
+    var sections: [SectionWithContent] = []
     
     func sectionsCount() -> Int{
         return sections.count
     }
 
     func itemsCount(in section: Int) -> Int{
-        return sections[section].items.count
+        return sections[section].elements.count
     }
 
-    subscript(sectionIndex: Int) -> _Section{
-        get{
-            return sections[sectionIndex].section
+    func itemIdentifier(for indexPath: IndexPath) -> Item? {
+        guard 0..<sections.endIndex ~= indexPath.section else {
+            return nil
         }
-    }
 
-    subscript(indexPath: IndexPath) -> _Item{
-        get{
-            return sections[indexPath.section].items[indexPath.item]
+        let items = sections[indexPath.section].elements
+
+        guard 0..<items.endIndex ~= indexPath.item else {
+            return nil
         }
+
+        return items[indexPath.item].differenceIdentifier
     }
 }
+

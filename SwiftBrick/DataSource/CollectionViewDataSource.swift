@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-open class CollectionViewDataSource<Section, Item>: NSObject, SectionedDataSource, UICollectionViewDataSource  where Section : Hashable, Item : Hashable {
+open class CollectionViewDataSource<Section, Item>: NSObject, UICollectionViewDataSource  where Section : Hashable, Item : Hashable {
  
     public typealias CellProvider  = (UICollectionView, IndexPath, Item) -> UICollectionViewCell
 
@@ -18,26 +18,31 @@ open class CollectionViewDataSource<Section, Item>: NSObject, SectionedDataSourc
     private weak var collectionView: UICollectionView?
     public required init(_ collectionView: UICollectionView, cellGetter: @escaping CellProvider ) {
         self.cellProvider  = cellGetter
+        self.collectionView = collectionView
         super.init()
         collectionView.dataSource = self
     }
- 
-    public typealias _Section = Section
-    
-    public typealias _Item = Item
-    
-    public var sections: [SectionWithContent] = []
+
+    private let dataSource = DataSource<Section, Item>()
  
     open func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return sectionsCount()
+        return dataSource.sectionsCount()
     }
  
     open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return itemsCount(in: section)
+        return dataSource.itemsCount(in: section)
     }
  
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = cellProvider (collectionView, indexPath, self[indexPath])
+        guard let item = dataSource.itemIdentifier(for: indexPath) else {
+            fatalError("cell nil")
+        }
+        let cell = cellProvider (collectionView, indexPath, item)
         return cell
+    }
+    
+    public func apply(_ snapshot: DiffableDataSource<Section, Item>) {
+        dataSource.sections = snapshot.structure.sections
+        collectionView?.reloadData()
     }
 }

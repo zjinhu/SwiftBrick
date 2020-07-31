@@ -12,6 +12,8 @@
 		8137F43224D3CD6D0031026C /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8137F43124D3CD6D0031026C /* TableViewDataSource.swift */; };
 		8137F43424D3CE1C0031026C /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8137F43324D3CE1C0031026C /* CollectionViewDataSource.swift */; };
 		8137F43624D3D4940031026C /* DataSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8137F43524D3D4940031026C /* DataSourceViewController.swift */; };
+		8137F43A24D421670031026C /* SectionStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8137F43924D421670031026C /* SectionStruct.swift */; };
+		8137F43C24D422820031026C /* DiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8137F43B24D422820031026C /* DiffableDataSource.swift */; };
 		8148D47C2499EC4000C0B4BA /* EViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148D47B2499EC4000C0B4BA /* EViewController.swift */; };
 		8148EFE724AEE1E900691650 /* ArrayViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148EFE624AEE1E900691650 /* ArrayViewSnapEx.swift */; };
 		81583DD324752ED800260DCF /* UITableViewCellEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81583DD224752ED700260DCF /* UITableViewCellEX.swift */; };
@@ -64,6 +66,8 @@
 		8137F43124D3CD6D0031026C /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		8137F43324D3CE1C0031026C /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
 		8137F43524D3D4940031026C /* DataSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceViewController.swift; sourceTree = "<group>"; };
+		8137F43924D421670031026C /* SectionStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionStruct.swift; sourceTree = "<group>"; };
+		8137F43B24D422820031026C /* DiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableDataSource.swift; sourceTree = "<group>"; };
 		8148D47B2499EC4000C0B4BA /* EViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EViewController.swift; sourceTree = "<group>"; };
 		8148EFE624AEE1E900691650 /* ArrayViewSnapEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayViewSnapEx.swift; sourceTree = "<group>"; };
 		81583DD224752ED700260DCF /* UITableViewCellEX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellEX.swift; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				8137F42F24D3CD200031026C /* DataSource.swift */,
+				8137F43924D421670031026C /* SectionStruct.swift */,
+				8137F43B24D422820031026C /* DiffableDataSource.swift */,
 				8137F43124D3CD6D0031026C /* TableViewDataSource.swift */,
 				8137F43324D3CE1C0031026C /* CollectionViewDataSource.swift */,
 			);
@@ -391,6 +397,7 @@
 				9111502823838DD100AE47DF /* JHTableViewController.swift in Sources */,
 				911150342383BDA100AE47DF /* JHCollectionViewCell.swift in Sources */,
 				91622616238544440050F228 /* UIViewSnapEx.swift in Sources */,
+				8137F43A24D421670031026C /* SectionStruct.swift in Sources */,
 				911150362383BDB300AE47DF /* JHCollectionReusableView.swift in Sources */,
 				9111503023838E1A00AE47DF /* TableViewController.swift in Sources */,
 				9128EBB82387D608006890C9 /* UIButtonSnapEx.swift in Sources */,
@@ -427,6 +434,7 @@
 				9128EBBC2387EFC3006890C9 /* UITextFieldSnapEx.swift in Sources */,
 				917FBC28238CCD520083721A /* UINavigationControllerEx.swift in Sources */,
 				9111502923838DD100AE47DF /* JHWebViewController.swift in Sources */,
+				8137F43C24D422820031026C /* DiffableDataSource.swift in Sources */,
 				9111502723838DD100AE47DF /* JHCollectionViewController.swift in Sources */,
 				8137F43024D3CD200031026C /* DataSource.swift in Sources */,
 				916226112385247F0050F228 /* WebViewController.swift in Sources */,

@@ -16,7 +16,7 @@ class ViewController: JHTableViewController {
  
         super.viewDidLoad()
 //        self.title = "SwiftBrick示例"
-        self.mainDatas = ["跳转Tableview","跳转CollectionView","跳转WebView","跳转EXView"]
+        self.mainDatas = ["跳转Tableview","跳转CollectionView","跳转WebView","跳转EXView","跳转DataSource"]
         
     }
     
@@ -40,6 +40,8 @@ class ViewController: JHTableViewController {
         case 3:
             let vc = ExViewController.init()
             self.navigationController?.pushViewController(vc, animated: true)
+        case 4:
+            self.navigationController?.pushViewController(DataSourceViewController(), animated: true)
         default:
             print("")
         }
