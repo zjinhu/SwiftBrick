@@ -107,6 +107,7 @@ public extension UIColor {
         public static let baseTeal = L.color("baseTeal")
         public static let baseYellow = L.color("baseYellow")
         public static let baseBackground = L.color("bgColor")
+        public static let baseBGColor = L.color("backColor")
         
         public static let baseLine = UIColor.init(hex: 0xe3e3e3)
         
