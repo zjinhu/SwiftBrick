@@ -97,7 +97,8 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         }
     }
     
-    var request : URLRequest?
+    @objc
+    public var request : URLRequest?
     public var currentUrl : String?
     
     // MARK: - 初始化
