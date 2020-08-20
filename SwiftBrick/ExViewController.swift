@@ -32,12 +32,12 @@ class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSou
     // MARK:-示例快速创建UIView 使用部分默认参数 --初始化使用SnapKit
     func demoView1(supView: UIView){
         
-        UIView.snpView(supView: supView, backColor: .purple) { (make) in
+        UIView.snpView(supView: supView, backColor: .purple, snapKitMaker:  { (make) in
             make.top.equalTo(supView).offset(10)
             make.centerX.equalTo(supView)
             make.width.equalTo(80)
             make.height.equalTo(40)
-        }
+        })
         
     }
     // MARK:-示例快速创建UIView 使用部分默认参数--初始化不使用SnapKit
@@ -66,12 +66,12 @@ class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSou
     // MARK:-示例快速创建UIimageView
     func demoImageView1(supView: UIView){
         
-        UIImageView.snpImageView(supView: supView, backColor: .purple) { (make) in
+        UIImageView.snpImageView(supView: supView, backColor: .purple, snapKitMaker:  { (make) in
             make.top.equalTo(supView).offset(30)
             make.centerX.equalTo(supView)
             make.width.equalTo(80)
             make.height.equalTo(40)
-        }
+        })
 
     }
     
