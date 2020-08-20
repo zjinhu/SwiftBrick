@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SwiftBrick'
-  s.version          = '1.2.0'
+  s.version          = '1.2.1'
   s.summary          = '工具类组件.'
  
   s.description      = <<-DESC
@@ -22,30 +22,30 @@ Pod::Spec.new do |s|
   
 
    s.resource_bundles = {
-     'SwiftBrick' => ['SwiftBrick/Source/Class/*.xcassets']
+     'SwiftBrick' => ['SwiftBrick/Class/*.xcassets']
   }
 
     s.subspec 'Util' do |ss| 
-      ss.source_files = 'SwiftBrick/Source/Class/Util/**/*' 
+      ss.source_files = 'SwiftBrick/Class/Util/**/*' 
     end
 
     s.subspec 'Extensions' do |ss| 
       ss.dependency 'SwiftBrick/Util'
-      ss.source_files = 'SwiftBrick/Source/Class/Extensions/**/*' 
+      ss.source_files = 'SwiftBrick/Class/Extensions/**/*' 
     end
     s.subspec 'BaseCell' do |ss| 
       ss.dependency 'SwiftBrick/Extensions'
-      ss.source_files = 'SwiftBrick/Source/Class/BaseCell/**/*' 
+      ss.source_files = 'SwiftBrick/Class/BaseCell/**/*' 
     end
     s.subspec 'BaseVC' do |ss| 
       ss.dependency 'SwiftBrick/Util'
       ss.dependency 'SwiftBrick/BaseCell'
       ss.dependency 'SwiftBrick/Extensions'
-      ss.source_files = 'SwiftBrick/Source/Class/BaseVC/**/*' 
+      ss.source_files = 'SwiftBrick/Class/BaseVC/**/*' 
     end
    
-  	s.subspec 'ViewFactory' do |ss| 
-	     ss.source_files = 'SwiftBrick/Source/Class/ViewFactory/**/*' 
+    s.subspec 'ViewFactory' do |ss| 
+	     ss.source_files = 'SwiftBrick/Class/ViewFactory/**/*' 
     end
 
 end
