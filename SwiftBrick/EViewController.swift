@@ -47,12 +47,12 @@ class EViewController: UIViewController {
         }
 
         
-       let ive = UIImageView.snpImageView(supView: view, backColor: .cyan, contentMode: .scaleAspectFill) { (make) in
+        let ive = UIImageView.snpImageView(supView: view, backColor: .cyan, contentMode: .scaleAspectFill, snapKitMaker:  { (make) in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(160)
             make.width.equalTo(150)
             make.height.equalTo(150)
-        }
+        })
         
         ive.image = UIImage.createPlaceHolderImage(image: UIImage.init(named: "dongman"), imageView: ive)
 
@@ -66,21 +66,21 @@ class EViewController: UIViewController {
         la.backgroundColor = .black
         
         
-        let av = UIView.snpView(supView: view, backColor: .orange) { (make) in
+        let av = UIView.snpView(supView: view, backColor: .orange, snapKitMaker:  { (make) in
             make.centerX.equalToSuperview().offset(-150)
             make.top.equalToSuperview().offset(260)
             make.width.equalTo(150)
             make.height.equalTo(150)
-        }
+        })
         
         av.addSubview(la)
         
-        let bv = UIView.snpView(supView: view, backColor: .orange) { (make) in
+        let bv = UIView.snpView(supView: view, backColor: .orange, snapKitMaker:  { (make) in
             make.centerX.equalToSuperview().offset(150)
             make.top.equalToSuperview().offset(260)
             make.width.equalTo(150)
             make.height.equalTo(150)
-        }
+        })
         
          bv.addSubview(la)
         
