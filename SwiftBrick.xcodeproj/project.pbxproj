@@ -157,6 +157,14 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		81EE4CA324EE7DBB00C1E647 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				9111501B23838DD100AE47DF /* Class */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		91114FFB23838CC200AE47DF = {
 			isa = PBXGroup;
 			children = (
@@ -178,8 +186,8 @@
 		9111500623838CC200AE47DF /* SwiftBrick */ = {
 			isa = PBXGroup;
 			children = (
+				81EE4CA324EE7DBB00C1E647 /* Source */,
 				8137F42E24D3CCFE0031026C /* DataSource */,
-				9111501B23838DD100AE47DF /* Class */,
 				9111500723838CC200AE47DF /* AppDelegate.swift */,
 				9111500923838CC200AE47DF /* SceneDelegate.swift */,
 				916226192385534D0050F228 /* ExViewController.swift */,
