@@ -54,7 +54,8 @@ class EViewController: UIViewController {
             make.height.equalTo(150)
         })
         
-        ive.image = UIImage.createPlaceHolderImage(image: UIImage.init(named: "dongman"), imageView: ive)
+        ive.image = .bbbbImage
+//        ive.image = UIImage.createPlaceHolderImage(image: UIImage.init(named: "dongman"), imageView: ive)
 
         
         notifiCenter.addNotification(UIApplication.didChangeStatusBarFrameNotification) { (_) in
