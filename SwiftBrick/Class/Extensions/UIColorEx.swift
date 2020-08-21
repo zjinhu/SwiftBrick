@@ -194,14 +194,3 @@ public extension UIColor {
   
 }
 
-extension Bundle {
-    static let module = Bundle(path: "\(Bundle.main.bundlePath)/path/to/this/targets/resource/bundle")
-}
-
-public extension UIColor {
-    static let mamaColor = UIColor(named: "basePink", in: .module, compatibleWith: nil)
-}
-
-public extension UIImage {
-    static let bbbbImage = UIImage(named: "nav_ic_back", in: .module, compatibleWith: nil)
-}
