@@ -30,15 +30,3 @@ public class L{
         return color
     }
 }
-
-public extension Bundle {
-    static let module = Bundle(path: "\(Bundle.main.bundlePath)/path/to/this/targets/resource/bundle")
-}
-
-public extension UIColor {
-    static let basePink = UIColor(named: "basePink", in: .module, compatibleWith: nil)
-}
-
-public extension UIImage {
-    static let backImage = UIImage(named: "nav_ic_back", in: .module, compatibleWith: nil)
-}
