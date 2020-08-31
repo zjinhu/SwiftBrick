@@ -16,8 +16,9 @@
 		8137F43C24D422820031026C /* DiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8137F43B24D422820031026C /* DiffableDataSource.swift */; };
 		8148D47C2499EC4000C0B4BA /* EViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148D47B2499EC4000C0B4BA /* EViewController.swift */; };
 		8148EFE724AEE1E900691650 /* ArrayViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148EFE624AEE1E900691650 /* ArrayViewSnapEx.swift */; };
-		81583DD324752ED800260DCF /* UITableViewCellEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81583DD224752ED700260DCF /* UITableViewCellEX.swift */; };
+		81583DD324752ED800260DCF /* UITableViewCellEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81583DD224752ED700260DCF /* UITableViewCellEx.swift */; };
 		816DABED2433351000E2B77B /* StatusBaEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816DABEC2433351000E2B77B /* StatusBaEx.swift */; };
+		8184B35C24FCA3B800C1E0A3 /* UIStackViewEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8184B35B24FCA3B800C1E0A3 /* UIStackViewEx.swift */; };
 		81E9FB5D24B6C4F7009AB99F /* UIImageEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E9FB5C24B6C4F7009AB99F /* UIImageEx.swift */; };
 		81F0617B246E945D00F0B2D3 /* CellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F0617A246E945D00F0B2D3 /* CellProtocol.swift */; };
 		81F709FF23CF18CC002E9DFA /* UIButtonEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F709FE23CF18CC002E9DFA /* UIButtonEx.swift */; };
@@ -70,8 +71,9 @@
 		8137F43B24D422820031026C /* DiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableDataSource.swift; sourceTree = "<group>"; };
 		8148D47B2499EC4000C0B4BA /* EViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EViewController.swift; sourceTree = "<group>"; };
 		8148EFE624AEE1E900691650 /* ArrayViewSnapEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayViewSnapEx.swift; sourceTree = "<group>"; };
-		81583DD224752ED700260DCF /* UITableViewCellEX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellEX.swift; sourceTree = "<group>"; };
+		81583DD224752ED700260DCF /* UITableViewCellEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellEx.swift; sourceTree = "<group>"; };
 		816DABEC2433351000E2B77B /* StatusBaEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBaEx.swift; sourceTree = "<group>"; };
+		8184B35B24FCA3B800C1E0A3 /* UIStackViewEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewEx.swift; sourceTree = "<group>"; };
 		81E9FB5C24B6C4F7009AB99F /* UIImageEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageEx.swift; sourceTree = "<group>"; };
 		81F0617A246E945D00F0B2D3 /* CellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProtocol.swift; sourceTree = "<group>"; };
 		81F709FE23CF18CC002E9DFA /* UIButtonEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonEx.swift; sourceTree = "<group>"; };
@@ -221,8 +223,9 @@
 				81F709FE23CF18CC002E9DFA /* UIButtonEx.swift */,
 				816DABEC2433351000E2B77B /* StatusBaEx.swift */,
 				81185EB42455A9260030329B /* UITabBarEx.swift */,
-				81583DD224752ED700260DCF /* UITableViewCellEX.swift */,
+				81583DD224752ED700260DCF /* UITableViewCellEx.swift */,
 				81E9FB5C24B6C4F7009AB99F /* UIImageEx.swift */,
+				8184B35B24FCA3B800C1E0A3 /* UIStackViewEx.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -409,7 +412,7 @@
 				81E9FB5D24B6C4F7009AB99F /* UIImageEx.swift in Sources */,
 				9162261A2385534D0050F228 /* ExViewController.swift in Sources */,
 				8137F43424D3CE1C0031026C /* CollectionViewDataSource.swift in Sources */,
-				81583DD324752ED800260DCF /* UITableViewCellEX.swift in Sources */,
+				81583DD324752ED800260DCF /* UITableViewCellEx.swift in Sources */,
 				E2A4A6EA24A0A9280088F1CC /* ShadowsButton.swift in Sources */,
 				911150322383BD8300AE47DF /* JHTableViewHeaderFooterView.swift in Sources */,
 				9128EBB42387B0DE006890C9 /* UIGestureRecognizerEx.swift in Sources */,
@@ -429,6 +432,7 @@
 				9128EBC02387EFF6006890C9 /* UITableViewSnapEx.swift in Sources */,
 				9111502A23838DD100AE47DF /* JHViewController.swift in Sources */,
 				9128EBBA2387EFAA006890C9 /* UILabelSnapEx.swift in Sources */,
+				8184B35C24FCA3B800C1E0A3 /* UIStackViewEx.swift in Sources */,
 				9111500A23838CC200AE47DF /* SceneDelegate.swift in Sources */,
 				81185EB52455A9260030329B /* UITabBarEx.swift in Sources */,
 				9128EBBC2387EFC3006890C9 /* UITextFieldSnapEx.swift in Sources */,

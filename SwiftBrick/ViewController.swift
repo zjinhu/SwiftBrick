@@ -15,8 +15,6 @@ class ViewController: JHTableViewController {
     override func viewDidLoad() {
  
         super.viewDidLoad()
-        
-        view.backgroundColor = UIColor.mamaColor
 //        self.title = "SwiftBrick示例"
         self.mainDatas = ["跳转Tableview","跳转CollectionView","跳转WebView","跳转EXView","跳转DataSource"]
         
