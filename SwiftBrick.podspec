@@ -44,8 +44,10 @@ Pod::Spec.new do |s|
       ss.source_files = 'SwiftBrick/Class/BaseVC/**/*' 
     end
    
-    s.subspec 'ViewFactory' do |ss| 
-	     ss.source_files = 'SwiftBrick/Class/ViewFactory/**/*' 
+    s.subspec 'ViewFactory' do |ss|
+      ss.dependency 'SwiftBrick/Util'
+      ss.dependency 'SwiftBrick/Extensions'
+      ss.source_files = 'SwiftBrick/Class/ViewFactory/**/*'
     end
 
 end

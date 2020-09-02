@@ -29,9 +29,9 @@ public extension NSObject {
             objc_setAssociatedObject(self, &Associated.NotificationCenterKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
- 
+    
 }
- 
+
 public class NotificationTool: NSObject {
     
     var observers = [NSNotification.Name : Any]()
@@ -87,7 +87,19 @@ public class NotificationTool: NSObject {
         observers.updateValue(ob, forKey: NSNotification.Name.init(rawValue: name))
     }
     
-    /// 注册添加系统通知
+    /// 注册添加多个通知
+    /// - Parameters:
+    ///   - names: 通知名称String数组
+    ///   - callBack: 通知执行的回调
+    public func addNotifications(_ names : [String], callBack : @escaping (Notification) -> Void){
+        names.forEach { (name) in
+            removeNotification(name: name)
+            let ob = NotificationCenter.default.addObserver(forName: NSNotification.Name.init(rawValue: name), object: nil, queue: OperationQueue.main, using: callBack)
+            observers.updateValue(ob, forKey: NSNotification.Name.init(rawValue: name))
+        }
+    }
+    
+    /// 注册添加通知
     /// - Parameters:
     ///   - notiName: NSNotification.Name通知名称
     ///   - callBack: 通知执行的回调
@@ -95,6 +107,18 @@ public class NotificationTool: NSObject {
         removeNotification(notiName: notiName)
         let ob = NotificationCenter.default.addObserver(forName: notiName, object: nil, queue: OperationQueue.main, using: callBack)
         observers.updateValue(ob, forKey: notiName)
+    }
+    
+    /// 注册添加多个通知
+    /// - Parameters:
+    ///   - notiNames: NSNotification.Name通知名称数组
+    ///   - callBack: 通知执行的回调
+    public func addNotifications(_ notiNames : [NSNotification.Name], callBack : @escaping (Notification) -> Void){
+        notiNames.forEach { (notiName) in
+            removeNotification(notiName: notiName)
+            let ob = NotificationCenter.default.addObserver(forName: notiName, object: nil, queue: OperationQueue.main, using: callBack)
+            observers.updateValue(ob, forKey: notiName)
+        }
     }
     
     /// 发送通知

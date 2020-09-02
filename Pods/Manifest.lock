@@ -1,6 +1,6 @@
 PODS:
   - SnapKit (5.0.1)
-  - Swift_Notification (0.2.1)
+  - Swift_Notification (0.3.0)
 
 DEPENDENCIES:
   - SnapKit
@@ -13,7 +13,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
-  Swift_Notification: 2abcac767f62c2800d07125d5f05b740093c70d3
+  Swift_Notification: c04b0b1b00e6489fa0def7aa2bc92fd4eb5b4b27
 
 PODFILE CHECKSUM: 6571fca7b4c30a49c6bf4bff66add8e695d9ddbd
 
