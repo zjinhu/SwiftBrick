@@ -84,6 +84,29 @@ class EViewController: UIViewController {
         
          bv.addSubview(la)
         
+        let line = UILineView()
+        line.lineColor = .red
+        line.isDash = true
+        line.dashPointWidth = 2
+        line.isHorizontal = false
+        view.addSubview(line)
+        line.snp.makeConstraints { (make) in
+
+            make.top.equalToSuperview().offset(500)
+            make.left.equalToSuperview()
+            make.width.equalTo(50)
+            make.height.equalTo(50)
+        }
+        
+        let lineView = UILineView(horizontal: true, width: 10, color: .orange)
+        view.addSubview(lineView)
+        lineView.snp.makeConstraints { (make) in
+
+            make.top.equalToSuperview().offset(500)
+            make.right.equalToSuperview()
+            make.width.equalTo(50)
+            make.height.equalTo(50)
+        }
     }
  
     /*
