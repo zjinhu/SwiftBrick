@@ -28,6 +28,9 @@ extension UIApplication {
         SwizzleNavBar.swizzle
         return super.next
     }
+//    static let runOnce: Void = {
+//        SwizzleNavBar.swizzle
+//    }()
 }
 
 public class SwizzleNavBar {

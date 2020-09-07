@@ -18,6 +18,9 @@ class ViewController: JHTableViewController {
 //        self.title = "SwiftBrick示例"
         self.mainDatas = ["跳转Tableview","跳转CollectionView","跳转WebView","跳转EXView","跳转DataSource"]
         
+        navigationController?.navigationBar.setBackgroundColor(.baseTeal)
+        navigationController?.navigationBar.setLineHidden(hidden: true)
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

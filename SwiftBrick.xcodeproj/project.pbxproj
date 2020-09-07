@@ -18,6 +18,7 @@
 		8148EFE724AEE1E900691650 /* ArrayViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148EFE624AEE1E900691650 /* ArrayViewSnapEx.swift */; };
 		81583DD324752ED800260DCF /* UITableViewCellEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81583DD224752ED700260DCF /* UITableViewCellEx.swift */; };
 		816DABED2433351000E2B77B /* StatusBaEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816DABEC2433351000E2B77B /* StatusBaEx.swift */; };
+		817F0982250256B6001452A4 /* UINavigationBarEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817F0981250256B6001452A4 /* UINavigationBarEx.swift */; };
 		8184B35C24FCA3B800C1E0A3 /* UIStackViewEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8184B35B24FCA3B800C1E0A3 /* UIStackViewEx.swift */; };
 		8184B36F24FF788300C1E0A3 /* UILineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8184B36E24FF788300C1E0A3 /* UILineView.swift */; };
 		81E9FB5D24B6C4F7009AB99F /* UIImageEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E9FB5C24B6C4F7009AB99F /* UIImageEx.swift */; };
@@ -74,6 +75,7 @@
 		8148EFE624AEE1E900691650 /* ArrayViewSnapEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayViewSnapEx.swift; sourceTree = "<group>"; };
 		81583DD224752ED700260DCF /* UITableViewCellEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellEx.swift; sourceTree = "<group>"; };
 		816DABEC2433351000E2B77B /* StatusBaEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBaEx.swift; sourceTree = "<group>"; };
+		817F0981250256B6001452A4 /* UINavigationBarEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBarEx.swift; sourceTree = "<group>"; };
 		8184B35B24FCA3B800C1E0A3 /* UIStackViewEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewEx.swift; sourceTree = "<group>"; };
 		8184B36E24FF788300C1E0A3 /* UILineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILineView.swift; sourceTree = "<group>"; };
 		81E9FB5C24B6C4F7009AB99F /* UIImageEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageEx.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				9128EBAF238786C5006890C9 /* CALayerEx.swift */,
 				917FBC23238BC3640083721A /* UIColorEx.swift */,
 				917FBC27238CCD520083721A /* UINavigationControllerEx.swift */,
+				817F0981250256B6001452A4 /* UINavigationBarEx.swift */,
 				81F709FE23CF18CC002E9DFA /* UIButtonEx.swift */,
 				816DABEC2433351000E2B77B /* StatusBaEx.swift */,
 				81185EB42455A9260030329B /* UITabBarEx.swift */,
@@ -401,6 +404,7 @@
 			files = (
 				9111500C23838CC200AE47DF /* ViewController.swift in Sources */,
 				9111502823838DD100AE47DF /* JHTableViewController.swift in Sources */,
+				817F0982250256B6001452A4 /* UINavigationBarEx.swift in Sources */,
 				911150342383BDA100AE47DF /* JHCollectionViewCell.swift in Sources */,
 				8184B36F24FF788300C1E0A3 /* UILineView.swift in Sources */,
 				91622616238544440050F228 /* UIViewSnapEx.swift in Sources */,
