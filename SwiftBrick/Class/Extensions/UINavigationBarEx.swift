@@ -28,7 +28,6 @@ public extension UINavigationBar {
         }
     }
     
-    
     /// 设置导航栏背景色
     /// - Parameter color: 颜色
     func setBackgroundColor(_ color: UIColor) {
@@ -38,6 +37,7 @@ public extension UINavigationBar {
             overlay = UIView(frame: CGRect(x: 0, y: -StatusBarHeight(), width: self.bounds.width, height: self.bounds.height + StatusBarHeight() ))
             overlay?.isUserInteractionEnabled = false
             overlay?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            overlay?.layer.zPosition = -9999
             insertSubview(overlay!, at: 0)
         }
         
