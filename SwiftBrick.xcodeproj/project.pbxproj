@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		81185EB52455A9260030329B /* UITabBarEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81185EB42455A9260030329B /* UITabBarEx.swift */; };
+		81299654251D8CDE00D1742E /* UIViewEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81299653251D8CDE00D1742E /* UIViewEx.swift */; };
 		8137F43024D3CD200031026C /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8137F42F24D3CD200031026C /* DataSource.swift */; };
 		8137F43224D3CD6D0031026C /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8137F43124D3CD6D0031026C /* TableViewDataSource.swift */; };
 		8137F43424D3CE1C0031026C /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8137F43324D3CE1C0031026C /* CollectionViewDataSource.swift */; };
@@ -65,6 +66,7 @@
 /* Begin PBXFileReference section */
 		77965A09D8F67F588257CBE9 /* Pods-SwiftBrick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBrick.debug.xcconfig"; path = "Target Support Files/Pods-SwiftBrick/Pods-SwiftBrick.debug.xcconfig"; sourceTree = "<group>"; };
 		81185EB42455A9260030329B /* UITabBarEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarEx.swift; sourceTree = "<group>"; };
+		81299653251D8CDE00D1742E /* UIViewEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewEx.swift; sourceTree = "<group>"; };
 		8137F42F24D3CD200031026C /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		8137F43124D3CD6D0031026C /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		8137F43324D3CE1C0031026C /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 		9111501C23838DD100AE47DF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				81299653251D8CDE00D1742E /* UIViewEx.swift */,
 				9128EBB32387B0DE006890C9 /* UIGestureRecognizerEx.swift */,
 				9128EBAF238786C5006890C9 /* CALayerEx.swift */,
 				917FBC23238BC3640083721A /* UIColorEx.swift */,
@@ -433,6 +436,7 @@
 				9128EBBE2387EFD8006890C9 /* UITextViewSnapEx.swift in Sources */,
 				9111502E23838DD100AE47DF /* Define.swift in Sources */,
 				911150382383DABF00AE47DF /* CollectionViewController.swift in Sources */,
+				81299654251D8CDE00D1742E /* UIViewEx.swift in Sources */,
 				816DABED2433351000E2B77B /* StatusBaEx.swift in Sources */,
 				8137F43224D3CD6D0031026C /* TableViewDataSource.swift in Sources */,
 				9111500823838CC200AE47DF /* AppDelegate.swift in Sources */,

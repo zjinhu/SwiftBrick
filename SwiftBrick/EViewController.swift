@@ -55,6 +55,8 @@ class EViewController: UIViewController {
         })
 
         ive.image = UIImage.createPlaceHolderImage(image: UIImage.init(named: "dongman"), imageView: ive)
+        ive.clipsToBounds = true
+        ive.layer.setCorners(15, corners: .bothTop)
 
         
         notifiCenter.addNotification(UIApplication.didChangeStatusBarFrameNotification) { (_) in
