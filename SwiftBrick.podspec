@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/jackiehu/SwiftBrick.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = "11.0" 
-  s.swift_versions     = ['5.0','5.1','5.2']
+  
   s.requires_arc = true
 
   s.frameworks   = "UIKit", "Foundation" #支持的框架
