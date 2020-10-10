@@ -23,16 +23,12 @@ extension Bundle {
     }
 }
 
-public class L{
-    
-    public static func imagePM(named: String) -> UIImage? {
-        return UIImage(named: named, in: .current, compatibleWith: nil)
-    }
+public struct L{
     
     static var bundle: Bundle = {
-        let path = Bundle(for: L.self).path(forResource: "SwiftBrick", ofType: "bundle", inDirectory: nil)
+        let path = Bundle.current.path(forResource: "SwiftBrick", ofType: "bundle", inDirectory: nil)
         let bundle = Bundle(path: path ?? "")
-        return bundle ?? Bundle(for: L.self)
+        return bundle ?? Bundle.current
     }()
     
     public static func image(_ named: String) -> UIImage {
