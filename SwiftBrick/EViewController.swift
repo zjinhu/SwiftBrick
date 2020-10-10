@@ -109,6 +109,7 @@ class EViewController: UIViewController {
             make.width.equalTo(50)
             make.height.equalTo(50)
         }
+        
     }
  
     /*

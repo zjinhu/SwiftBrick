@@ -20,6 +20,7 @@
 		81583DD324752ED800260DCF /* UITableViewCellEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81583DD224752ED700260DCF /* UITableViewCellEx.swift */; };
 		816DABED2433351000E2B77B /* StatusBaEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816DABEC2433351000E2B77B /* StatusBaEx.swift */; };
 		817F0982250256B6001452A4 /* UINavigationBarEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817F0981250256B6001452A4 /* UINavigationBarEx.swift */; };
+		81803F3E253155ED002FFFF6 /* StringEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81803F3D253155ED002FFFF6 /* StringEx.swift */; };
 		8184B35C24FCA3B800C1E0A3 /* UIStackViewEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8184B35B24FCA3B800C1E0A3 /* UIStackViewEx.swift */; };
 		8184B36F24FF788300C1E0A3 /* UILineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8184B36E24FF788300C1E0A3 /* UILineView.swift */; };
 		81E9FB5D24B6C4F7009AB99F /* UIImageEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E9FB5C24B6C4F7009AB99F /* UIImageEx.swift */; };
@@ -78,6 +79,7 @@
 		81583DD224752ED700260DCF /* UITableViewCellEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellEx.swift; sourceTree = "<group>"; };
 		816DABEC2433351000E2B77B /* StatusBaEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBaEx.swift; sourceTree = "<group>"; };
 		817F0981250256B6001452A4 /* UINavigationBarEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBarEx.swift; sourceTree = "<group>"; };
+		81803F3D253155ED002FFFF6 /* StringEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringEx.swift; sourceTree = "<group>"; };
 		8184B35B24FCA3B800C1E0A3 /* UIStackViewEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewEx.swift; sourceTree = "<group>"; };
 		8184B36E24FF788300C1E0A3 /* UILineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILineView.swift; sourceTree = "<group>"; };
 		81E9FB5C24B6C4F7009AB99F /* UIImageEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageEx.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				81583DD224752ED700260DCF /* UITableViewCellEx.swift */,
 				81E9FB5C24B6C4F7009AB99F /* UIImageEx.swift */,
 				8184B35B24FCA3B800C1E0A3 /* UIStackViewEx.swift */,
+				81803F3D253155ED002FFFF6 /* StringEx.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -317,7 +320,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1120;
-				LastUpgradeCheck = 1120;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "狄烨 .";
 				TargetAttributes = {
 					9111500323838CC200AE47DF = {
@@ -408,6 +411,7 @@
 				9111500C23838CC200AE47DF /* ViewController.swift in Sources */,
 				9111502823838DD100AE47DF /* JHTableViewController.swift in Sources */,
 				817F0982250256B6001452A4 /* UINavigationBarEx.swift in Sources */,
+				81803F3E253155ED002FFFF6 /* StringEx.swift in Sources */,
 				911150342383BDA100AE47DF /* JHCollectionViewCell.swift in Sources */,
 				8184B36F24FF788300C1E0A3 /* UILineView.swift in Sources */,
 				91622616238544440050F228 /* UIViewSnapEx.swift in Sources */,
@@ -505,6 +509,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -529,7 +534,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -565,6 +570,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -583,7 +589,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -602,7 +608,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TBQ5ET6KZ4;
 				INFOPLIST_FILE = SwiftBrick/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -624,7 +630,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TBQ5ET6KZ4;
 				INFOPLIST_FILE = SwiftBrick/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
