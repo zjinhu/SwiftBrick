@@ -47,14 +47,15 @@ class EViewController: UIViewController {
         }
 
         
-        let ive = UIImageView.snpImageView(supView: view, backColor: .cyan, contentMode: .scaleAspectFill, snapKitMaker:  { (make) in
+        let ive = UIImageView.snpImageView(supView: view, backColor: L.color("baseYellow"), contentMode: .scaleAspectFill, snapKitMaker:  { (make) in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(160)
             make.width.equalTo(150)
             make.height.equalTo(150)
         })
 
-        ive.image = UIImage.createPlaceHolderImage(image: UIImage.init(named: "dongman"), imageView: ive)
+        ive.image = L.image("ic_arrow_gray_right")
+//            UIImage.createPlaceHolderImage(image: UIImage.init(named: "dongman"), imageView: ive)
         ive.clipsToBounds = true
         ive.layer.setCorners(15, corners: .bothTop)
 
@@ -109,6 +110,8 @@ class EViewController: UIViewController {
             make.width.equalTo(50)
             make.height.equalTo(50)
         }
+        
+        
         
     }
  

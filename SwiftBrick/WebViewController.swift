@@ -12,7 +12,7 @@ class WebViewController: JHWebViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.agent = "hahah"
+        customUserAgent = "hahah"
         // Do any additional setup after loading the view.
         
         request = URLRequest.init(url: URL.init(string: "https://support.qq.com/product/190629")!)

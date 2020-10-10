@@ -25,7 +25,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
                 return
             }
             
-            guard let new = self.agent else {
+            guard let new = self.customUserAgent else {
                 return
             }
             webView.customUserAgent = "\(ua);\(new)"
@@ -106,7 +106,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
     /// 访问地址
     @objc public var urlString : String?
     /// 添加userAgent标记,会拼接;
-    @objc public var agent : String?
+    @objc public var customUserAgent : String?
     /// 自定义请求
     @objc public var request : URLRequest?
     /// 获取当前地址
