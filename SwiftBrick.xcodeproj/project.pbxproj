@@ -48,8 +48,8 @@
 		81804117253165CB002FFFF6 /* UITabBarEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040F3253165CB002FFFF6 /* UITabBarEx.swift */; };
 		81804118253165CB002FFFF6 /* UITableViewCellEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040F4253165CB002FFFF6 /* UITableViewCellEx.swift */; };
 		81804119253165CB002FFFF6 /* StringEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040F5253165CB002FFFF6 /* StringEx.swift */; };
-		8180411A253165CB002FFFF6 /* UIStackViewEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040F6253165CB002FFFF6 /* UIStackViewEx.swift */; };
 		8180411B253165CB002FFFF6 /* UIButtonEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040F7253165CB002FFFF6 /* UIButtonEx.swift */; };
+		818044A12531BDCA002FFFF6 /* UIStackViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818044A02531BDCA002FFFF6 /* UIStackViewSnapEx.swift */; };
 		81FF04DF246D4D7300367E2D /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FF04DE246D4D7300367E2D /* TestCell.swift */; };
 		9111500823838CC200AE47DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111500723838CC200AE47DF /* AppDelegate.swift */; };
 		9111500A23838CC200AE47DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111500923838CC200AE47DF /* SceneDelegate.swift */; };
@@ -107,8 +107,8 @@
 		818040F3253165CB002FFFF6 /* UITabBarEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITabBarEx.swift; sourceTree = "<group>"; };
 		818040F4253165CB002FFFF6 /* UITableViewCellEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCellEx.swift; sourceTree = "<group>"; };
 		818040F5253165CB002FFFF6 /* StringEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringEx.swift; sourceTree = "<group>"; };
-		818040F6253165CB002FFFF6 /* UIStackViewEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStackViewEx.swift; sourceTree = "<group>"; };
 		818040F7253165CB002FFFF6 /* UIButtonEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonEx.swift; sourceTree = "<group>"; };
+		818044A02531BDCA002FFFF6 /* UIStackViewSnapEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewSnapEx.swift; sourceTree = "<group>"; };
 		81FF04DE246D4D7300367E2D /* TestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
 		82CE79D1DBAE0B9E369C40C8 /* Pods-SwiftBrick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBrick.release.xcconfig"; path = "Target Support Files/Pods-SwiftBrick/Pods-SwiftBrick.release.xcconfig"; sourceTree = "<group>"; };
 		9111500423838CC200AE47DF /* SwiftBrick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBrick.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,6 +221,7 @@
 				818040E1253165CB002FFFF6 /* UICollectionViewSnapEx.swift */,
 				818040E2253165CB002FFFF6 /* UITextViewSnapEx.swift */,
 				818040E3253165CB002FFFF6 /* UIImageViewSnapEx.swift */,
+				818044A02531BDCA002FFFF6 /* UIStackViewSnapEx.swift */,
 			);
 			path = ViewFactory;
 			sourceTree = "<group>";
@@ -251,7 +252,6 @@
 				818040F3253165CB002FFFF6 /* UITabBarEx.swift */,
 				818040F4253165CB002FFFF6 /* UITableViewCellEx.swift */,
 				818040F5253165CB002FFFF6 /* StringEx.swift */,
-				818040F6253165CB002FFFF6 /* UIStackViewEx.swift */,
 				818040F7253165CB002FFFF6 /* UIButtonEx.swift */,
 			);
 			path = Extensions;
@@ -443,10 +443,10 @@
 				81804117253165CB002FFFF6 /* UITabBarEx.swift in Sources */,
 				911150382383DABF00AE47DF /* CollectionViewController.swift in Sources */,
 				81804107253165CB002FFFF6 /* UICollectionViewSnapEx.swift in Sources */,
+				818044A12531BDCA002FFFF6 /* UIStackViewSnapEx.swift in Sources */,
 				81804111253165CB002FFFF6 /* UINavigationControllerEx.swift in Sources */,
 				81804113253165CB002FFFF6 /* UIViewEx.swift in Sources */,
 				8137F43224D3CD6D0031026C /* TableViewDataSource.swift in Sources */,
-				8180411A253165CB002FFFF6 /* UIStackViewEx.swift in Sources */,
 				81804102253165CB002FFFF6 /* UILabelSnapEx.swift in Sources */,
 				9111500823838CC200AE47DF /* AppDelegate.swift in Sources */,
 				818040FF253165CB002FFFF6 /* UITableViewSnapEx.swift in Sources */,
