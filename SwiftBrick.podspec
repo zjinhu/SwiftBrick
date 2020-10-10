@@ -22,32 +22,32 @@ Pod::Spec.new do |s|
   
 
    s.resource_bundles = {
-     'SwiftBrick' => ['SwiftBrick/Class/*.xcassets']
+     'SwiftBrick' => ['Sources/SwiftBrick/Resources/*.xcassets']
   }
 
     s.subspec 'Util' do |ss| 
-      ss.source_files = 'SwiftBrick/Class/Util/**/*' 
+      ss.source_files = 'Sources/SwiftBrick/Util/**/*'
     end
 
     s.subspec 'Extensions' do |ss| 
       ss.dependency 'SwiftBrick/Util'
-      ss.source_files = 'SwiftBrick/Class/Extensions/**/*' 
+      ss.source_files = 'Sources/SwiftBrick/Extensions/**/*'
     end
     s.subspec 'BaseCell' do |ss| 
       ss.dependency 'SwiftBrick/Extensions'
-      ss.source_files = 'SwiftBrick/Class/BaseCell/**/*' 
+      ss.source_files = 'Sources/SwiftBrick/BaseCell/**/*'
     end
     s.subspec 'BaseVC' do |ss| 
       ss.dependency 'SwiftBrick/Util'
       ss.dependency 'SwiftBrick/BaseCell'
       ss.dependency 'SwiftBrick/Extensions'
-      ss.source_files = 'SwiftBrick/Class/BaseVC/**/*' 
+      ss.source_files = 'Sources/SwiftBrick/BaseVC/**/*'
     end
    
     s.subspec 'ViewFactory' do |ss|
       ss.dependency 'SwiftBrick/Util'
       ss.dependency 'SwiftBrick/Extensions'
-      ss.source_files = 'SwiftBrick/Class/ViewFactory/**/*'
+      ss.source_files = 'Sources/SwiftBrick/ViewFactory/**/*'
     end
 
 end
