@@ -103,11 +103,12 @@ open class JHViewController: UIViewController {
                                  touchUp: buttonClosure? = nil){
         
         comfigLeftBarButton(normalImage: normalImage,
-                            highLightImage: highLightImage,
-                            touchUp: touchUp)
+                            highLightImage: highLightImage)
         let btnItem = UIBarButtonItem.init(customView: leftBarButton)
         
         fixSpaceLeftBarButton(btnItem: btnItem)
+        
+        addLeftBarButtonAction(touchUp: touchUp)
     }
     
     /// 设置导航左侧按钮文本
@@ -122,11 +123,12 @@ open class JHViewController: UIViewController {
         
         comfigLeftBarButton(text: text,
                             normalColor: normalColor,
-                            highlightColor: highlightColor,
-                            touchUp: touchUp)
+                            highlightColor: highlightColor)
         let btnItem = UIBarButtonItem.init(customView: leftBarButton)
         
         fixSpaceLeftBarButton(btnItem: btnItem)
+        
+        addLeftBarButtonAction(touchUp: touchUp)
     }
     
     /// 设置导航右侧按钮图片
@@ -138,11 +140,12 @@ open class JHViewController: UIViewController {
                                   touchUp: buttonClosure?){
 
         comfigRightBarButton(normalImage: normalImage,
-                             highLightImage: highLightImage,
-                             touchUp: touchUp)
+                             highLightImage: highLightImage)
         let btnItem = UIBarButtonItem.init(customView: rightBarButton)
         
         fixSpaceRightBarButton(btnItem: btnItem)
+        
+        addRightBarButtonAction(touchUp: touchUp)
     }
     
     /// 设置导航右侧按钮文本
@@ -157,11 +160,12 @@ open class JHViewController: UIViewController {
 
         comfigRightBarButton(text: text,
                              normalColor: normalColor,
-                             highlightColor: highlightColor,
-                             touchUp: touchUp)
+                             highlightColor: highlightColor)
         let btnItem = UIBarButtonItem.init(customView: rightBarButton)
         
         fixSpaceRightBarButton(btnItem: btnItem)
+        
+        addRightBarButtonAction(touchUp: touchUp)
     }
     
     /// 配置左侧导航栏按钮
@@ -177,8 +181,7 @@ open class JHViewController: UIViewController {
                                     normalColor: UIColor? = .textTitleColor,
                                     highlightColor: UIColor? = .textDesColor,
                                     normalImage: UIImage? = nil,
-                                    highLightImage: UIImage? = nil,
-                                    touchUp: buttonClosure? = nil){
+                                    highLightImage: UIImage? = nil){
         
         leftBarButton.titleLabel?.font = font
         leftBarButton.setTitle(text, for: .normal)
@@ -188,8 +191,7 @@ open class JHViewController: UIViewController {
         
         leftBarButton.setImage(normalImage, for: .normal)
         leftBarButton.setImage(highLightImage, for: .highlighted)
-        
-        addLeftBarButtonAction(touchUp: touchUp)
+
     }
     
     /// 配置右侧导航栏按钮
@@ -205,8 +207,7 @@ open class JHViewController: UIViewController {
                                      normalColor: UIColor? = nil,
                                      highlightColor: UIColor? = nil,
                                      normalImage: UIImage? = nil,
-                                     highLightImage: UIImage? = nil,
-                                     touchUp: buttonClosure?){
+                                     highLightImage: UIImage? = nil){
         
         rightBarButton.titleLabel?.font = font
         rightBarButton.setTitle(text, for: .normal)
@@ -216,8 +217,7 @@ open class JHViewController: UIViewController {
         
         rightBarButton.setImage(normalImage, for: .normal)
         rightBarButton.setImage(highLightImage, for: .highlighted)
-        
-        addRightBarButtonAction(touchUp: touchUp)
+
     }
     
     /// 重新添加左侧按钮的点击事件,默认是goback
