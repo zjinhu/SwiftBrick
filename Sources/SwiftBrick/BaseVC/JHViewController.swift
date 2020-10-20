@@ -13,14 +13,14 @@ open class JHViewController: UIViewController {
 //        print("JHViewController out")
 //    }
     // MARK: - 参数变量
-    fileprivate lazy var leftBarButton : UIButton = {
+    public lazy var leftBarButton : UIButton = {
         let leftBarButton = UIButton.init(type: .custom)
         leftBarButton.imageView?.contentMode = .center
         leftBarButton.frame = CGRect.init(x: 0, y: 0, width: NavBarHeight(), height: NavBarHeight())
         return leftBarButton
     }()
     
-    fileprivate lazy var rightBarButton : UIButton = {
+    public lazy var rightBarButton : UIButton = {
         let rightBarButton = UIButton.init(type: .custom)
         rightBarButton.imageView?.contentMode = .center
         rightBarButton.frame = CGRect.init(x: 0, y: 0, width: NavBarHeight(), height: NavBarHeight())
