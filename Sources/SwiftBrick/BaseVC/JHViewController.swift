@@ -102,7 +102,7 @@ open class JHViewController: UIViewController {
                                  highLightImage: UIImage? = nil,
                                  touchUp: buttonClosure? = nil){
         
-        comfigLeftBarButton(normalImage: normalImage,
+        configLeftBarButton(normalImage: normalImage,
                             highLightImage: highLightImage)
         let btnItem = UIBarButtonItem.init(customView: leftBarButton)
         
@@ -121,7 +121,7 @@ open class JHViewController: UIViewController {
                                  highlightColor: UIColor? = .textDesColor,
                                  touchUp: buttonClosure? = nil){
         
-        comfigLeftBarButton(text: text,
+        configLeftBarButton(text: text,
                             normalColor: normalColor,
                             highlightColor: highlightColor)
         let btnItem = UIBarButtonItem.init(customView: leftBarButton)
@@ -139,7 +139,7 @@ open class JHViewController: UIViewController {
                                   highLightImage: UIImage? = nil,
                                   touchUp: buttonClosure?){
 
-        comfigRightBarButton(normalImage: normalImage,
+        configRightBarButton(normalImage: normalImage,
                              highLightImage: highLightImage)
         let btnItem = UIBarButtonItem.init(customView: rightBarButton)
         
@@ -158,7 +158,7 @@ open class JHViewController: UIViewController {
                                   highlightColor: UIColor? = .textDesColor,
                                   touchUp: buttonClosure?){
 
-        comfigRightBarButton(text: text,
+        configRightBarButton(text: text,
                              normalColor: normalColor,
                              highlightColor: highlightColor)
         let btnItem = UIBarButtonItem.init(customView: rightBarButton)
@@ -176,7 +176,7 @@ open class JHViewController: UIViewController {
     ///   - highlightColor: highlightColor
     ///   - normalImage: normalImage
     ///   - highLightImage: highLightImage
-    public func comfigLeftBarButton(text: String? = nil,
+    public func configLeftBarButton(text: String? = nil,
                                     font: UIFont? = Font16,
                                     normalColor: UIColor? = .textTitleColor,
                                     highlightColor: UIColor? = .textDesColor,
@@ -202,7 +202,7 @@ open class JHViewController: UIViewController {
     ///   - highlightColor: highlightColor
     ///   - normalImage: normalImage
     ///   - highLightImage: highLightImage
-    public func comfigRightBarButton(text: String? = nil,
+    public func configRightBarButton(text: String? = nil,
                                      font: UIFont? = Font16,
                                      normalColor: UIColor? = nil,
                                      highlightColor: UIColor? = nil,
