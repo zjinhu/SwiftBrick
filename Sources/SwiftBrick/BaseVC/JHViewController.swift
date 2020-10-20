@@ -13,14 +13,14 @@ open class JHViewController: UIViewController {
 //        print("JHViewController out")
 //    }
     // MARK: - 参数变量
-    public lazy var leftBarButton : UIButton = {
+    fileprivate lazy var leftBarButton : UIButton = {
         let leftBarButton = UIButton.init(type: .custom)
         leftBarButton.imageView?.contentMode = .center
         leftBarButton.frame = CGRect.init(x: 0, y: 0, width: NavBarHeight(), height: NavBarHeight())
         return leftBarButton
     }()
     
-    public lazy var rightBarButton : UIButton = {
+    fileprivate lazy var rightBarButton : UIButton = {
         let rightBarButton = UIButton.init(type: .custom)
         rightBarButton.imageView?.contentMode = .center
         rightBarButton.frame = CGRect.init(x: 0, y: 0, width: NavBarHeight(), height: NavBarHeight())
@@ -29,8 +29,8 @@ open class JHViewController: UIViewController {
     
     public typealias buttonClosure = () -> Void
     
-    var leftAction: buttonClosure?
-    var rightAction: buttonClosure?
+    fileprivate var leftAction: buttonClosure?
+    fileprivate var rightAction: buttonClosure?
 
     // MARK: - 布局
     open override func viewDidLoad() {
@@ -72,7 +72,7 @@ open class JHViewController: UIViewController {
     /**
     *  修正左侧按钮位置
     */
-    func fixSpaceLeftBarButton(btnItem: UIBarButtonItem){
+    fileprivate func fixSpaceLeftBarButton(btnItem: UIBarButtonItem){
             leftBarButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: -10, bottom: 0, right: 0)
             leftBarButton.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: -10, bottom: 0, right: 0)
             btnItem.imageInsets = UIEdgeInsets.init(top: 0, left: -10, bottom: 0, right: 0)
@@ -82,7 +82,7 @@ open class JHViewController: UIViewController {
     /**
     *  修正右侧按钮位置
     */
-    func fixSpaceRightBarButton(btnItem: UIBarButtonItem){
+    fileprivate func fixSpaceRightBarButton(btnItem: UIBarButtonItem){
             rightBarButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: -10)
             rightBarButton.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: -10)
             btnItem.imageInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: -10)
@@ -100,7 +100,7 @@ open class JHViewController: UIViewController {
     ///   - highLightImage: highLightImage
     public func addLeftBarButton(normalImage: UIImage? = nil,
                                  highLightImage: UIImage? = nil,
-                                 touchUp : buttonClosure? = nil){
+                                 touchUp: buttonClosure? = nil){
         
         comfigLeftBarButton(normalImage: normalImage,
                             highLightImage: highLightImage,
@@ -118,7 +118,7 @@ open class JHViewController: UIViewController {
     public func addLeftBarButton(text: String,
                                  normalColor: UIColor? = .textTitleColor,
                                  highlightColor: UIColor? = .textDesColor,
-                                 touchUp : buttonClosure? = nil){
+                                 touchUp: buttonClosure? = nil){
         
         comfigLeftBarButton(text: text,
                             normalColor: normalColor,
@@ -135,7 +135,7 @@ open class JHViewController: UIViewController {
     ///   - highLightImage: highLightImage
     public func addRightBarButton(normalImage: UIImage? = nil,
                                   highLightImage: UIImage? = nil,
-                                  touchUp : buttonClosure?){
+                                  touchUp: buttonClosure?){
 
         comfigRightBarButton(normalImage: normalImage,
                              highLightImage: highLightImage,
@@ -153,7 +153,7 @@ open class JHViewController: UIViewController {
     public func addRightBarButton(text: String,
                                   normalColor: UIColor? = .textTitleColor,
                                   highlightColor: UIColor? = .textDesColor,
-                                  touchUp : buttonClosure?){
+                                  touchUp: buttonClosure?){
 
         comfigRightBarButton(text: text,
                              normalColor: normalColor,
@@ -178,7 +178,7 @@ open class JHViewController: UIViewController {
                                     highlightColor: UIColor? = .textDesColor,
                                     normalImage: UIImage? = nil,
                                     highLightImage: UIImage? = nil,
-                                    touchUp : buttonClosure? = nil){
+                                    touchUp: buttonClosure? = nil){
         
         leftBarButton.titleLabel?.font = font
         leftBarButton.setTitle(text, for: .normal)
@@ -189,7 +189,7 @@ open class JHViewController: UIViewController {
         leftBarButton.setImage(normalImage, for: .normal)
         leftBarButton.setImage(highLightImage, for: .highlighted)
         
-        addTouchUpInSideLeftBtnAction(touchUp: touchUp)
+        addLeftBarButtonAction(touchUp: touchUp)
     }
     
     /// 配置右侧导航栏按钮
@@ -206,7 +206,7 @@ open class JHViewController: UIViewController {
                                      highlightColor: UIColor? = nil,
                                      normalImage: UIImage? = nil,
                                      highLightImage: UIImage? = nil,
-                                     touchUp : buttonClosure?){
+                                     touchUp: buttonClosure?){
         
         rightBarButton.titleLabel?.font = font
         rightBarButton.setTitle(text, for: .normal)
@@ -217,28 +217,30 @@ open class JHViewController: UIViewController {
         rightBarButton.setImage(normalImage, for: .normal)
         rightBarButton.setImage(highLightImage, for: .highlighted)
         
-        addTouchUpInSideRightBtnAction(touchUp: touchUp)
+        addRightBarButtonAction(touchUp: touchUp)
     }
     
-    func addTouchUpInSideLeftBtnAction(touchUp : buttonClosure?){
-        
+    /// 重新添加左侧按钮的点击事件,默认是goback
+    /// - Parameter touchUp: 回调
+    public func addLeftBarButtonAction(touchUp : buttonClosure?){
+    
         if let ges = touchUp {
             leftBarButton.removeTarget(self, action: #selector(touchUpInSideLeftBtnAction), for: .touchUpInside)
             leftAction = ges
-            leftBarButton.addTarget(self, action: #selector(touchUpInSideLeftBtnAction), for: .touchUpInside)
-        }else{
-            leftBarButton.addTarget(self, action: #selector(goBack), for: .touchUpInside)
         }
         
+        leftBarButton.addTarget(self, action: #selector(touchUpInSideLeftBtnAction), for: .touchUpInside)
     }
     
-    @objc func touchUpInSideLeftBtnAction() {
+    @objc fileprivate func touchUpInSideLeftBtnAction() {
         if let action = leftAction  {
             action()
+        }else{
+            goBack()
         }
     }
     
-    func addTouchUpInSideRightBtnAction(touchUp : buttonClosure?){
+    fileprivate func addRightBarButtonAction(touchUp : buttonClosure?){
         
         rightBarButton.removeTarget(self, action: #selector(touchUpInSideRightBtnAction), for: .touchUpInside)
         guard let ges = touchUp else {
@@ -248,7 +250,7 @@ open class JHViewController: UIViewController {
         rightBarButton.addTarget(self, action: #selector(touchUpInSideRightBtnAction), for: .touchUpInside)
     }
 
-    @objc func touchUpInSideRightBtnAction() {
+    @objc fileprivate func touchUpInSideRightBtnAction() {
         if let action = rightAction  {
             action()
         }
