@@ -29,12 +29,10 @@ class DataSourceViewController: JHTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        addRightBarButton(text: "清空", normalColor: .darkGray, highlightColor: .lightGray)
-        rightBarButton.addTarget(self, action: #selector(add), for: .touchUpInside)
+        addRightBarButton(text: "清空", normalColor: .darkGray, highlightColor: .lightGray) {
+            
+        }
 
-        
-        
-        
         ////核心代码
         
         shot.appendSections([Section(title: "1")])

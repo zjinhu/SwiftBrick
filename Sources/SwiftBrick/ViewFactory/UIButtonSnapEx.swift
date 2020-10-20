@@ -94,7 +94,7 @@ public extension UIButton {
         return btn
     }
     
-    @objc func snpAddTouchUpInSideBtnAction(touchUp : buttonClosure?){
+    func snpAddTouchUpInSideBtnAction(touchUp : buttonClosure?){
         
         removeTarget(self, action: #selector(touchUpInSideBtnAction), for: .touchUpInside)
         guard let ges = touchUp else {
