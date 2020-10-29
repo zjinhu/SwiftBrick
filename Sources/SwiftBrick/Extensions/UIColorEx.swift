@@ -108,7 +108,7 @@ public extension UIColor {
     static let baseBackground = L.color("bgColor")
     static let baseBGColor = L.color("backColor")
     
-    static let baseLine = UIColor.init(hex: 0xe3e3e3)
+    static let baseLine = L.color("baseLine")
     
     static let textTitleColor = L.color("textTitleColor")
     static let textSecColor = L.color("textSecColor")

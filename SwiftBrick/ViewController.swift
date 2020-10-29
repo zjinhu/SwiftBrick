@@ -26,6 +26,7 @@ class ViewController: JHTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(JHTableViewCell.self)
         cell.textLabel?.text = self.mainDatas[indexPath.row] as? String
+        cell.addDownLine()
        return cell
     }
     
@@ -48,6 +49,7 @@ class ViewController: JHTableViewController {
         default:
             print("")
         }
+        
     }
     deinit{
         print("1释放")

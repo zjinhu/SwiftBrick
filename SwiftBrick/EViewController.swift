@@ -88,7 +88,7 @@ class EViewController: UIViewController {
          bv.addSubview(la)
         
         let line = UILineView()
-        line.lineColor = .red
+        line.lineColor = .baseLine
         line.isDash = true
         line.dashPointWidth = 2
         line.isHorizontal = false
