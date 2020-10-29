@@ -20,14 +20,10 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         webView.scrollView.delegate = self
         webView.scrollView.contentInsetAdjustmentBehavior = .never
         webView.allowsBackForwardNavigationGestures = true
-        webView.evaluateJavaScript("navigator.userAgent", completionHandler: { (obj: Any?, error: Error?) in
-            guard let ua = obj as? String else {
-                return
-            }
-            
-            guard let new = self.customUserAgent else {
-                return
-            }
+        webView.evaluateJavaScript("navigator.userAgent", completionHandler: { [weak self] (obj: Any?, error: Error?) in
+            guard let `self` = self else{return}
+            guard let ua = obj as? String else { return }
+            guard let new = self.customUserAgent else { return }
             webView.customUserAgent = "\(ua);\(new)"
         })
         return webView
@@ -58,7 +54,6 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         let config = WKWebViewConfiguration.init()
         if #available(iOS 13.0, *){
             config.defaultWebpagePreferences.preferredContentMode = .mobile
-            
         }
         
         if #available(iOS 14.0, *){
@@ -72,7 +67,6 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         config.processPool = processPool
         config.allowsInlineMediaPlayback = true
         config.allowsAirPlayForMediaPlayback = true
-
 
         return config
     }()
@@ -112,6 +106,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
     /// 获取当前地址
     public var currentUrl : String?
     
+    fileprivate var first = true
     // MARK: - 初始化
     public convenience init(urlString url: String) {
         self.init()
@@ -229,6 +224,10 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         }
         webView.evaluateJavaScript("navigator.userAgent") { (result, error) in
             debugPrint("\(String(describing: result))")
+        }
+        if SystemVersion >= 12.0, SystemVersion < 12.2, first{
+            webView.reload()
+            first = false
         }
     }
     
