@@ -1,0 +1,6 @@
+framework module CheckDevice {
+  umbrella header "CheckDevice-umbrella.h"
+
+  export *
+  module * { export * }
+}

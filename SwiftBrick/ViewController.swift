@@ -21,6 +21,12 @@ class ViewController: JHTableViewController {
         navigationController?.navigationBar.setBackgroundColor(.baseTeal)
         navigationController?.navigationBar.setLineHidden(hidden: true)
         
+        if IsIPAD{
+            print("1")
+        }else{
+            print("2")
+        }
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

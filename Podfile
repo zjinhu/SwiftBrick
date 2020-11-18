@@ -9,6 +9,7 @@ target 'SwiftBrick' do
   # Pods for SwiftBrick
 #  pod 'SwifterSwift'
   pod 'SnapKit'
+  pod 'CheckDevice'
 #  pod 'SwiftyRefresh'
   pod 'Swift_Notification'
 end

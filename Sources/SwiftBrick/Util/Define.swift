@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import CheckDevice
 // MARK: ===================================变量宏定义=========================================
 
 // MARK:- 屏幕
@@ -50,6 +51,8 @@ public func IsBangs_iPhone() -> Bool {
     let isX = UIApplication.shared.windows[0].safeAreaInsets.bottom > 0
     return isX
 }
+///判断是否iPad
+public let IsIPAD : Bool = (UIDevice.current.userInterfaceIdiom == .pad) ? true : false
 
 /// 获取屏幕导航栏+信号栏总高度
 public let NavAndStatusHeight = StatusBarHeight() + NavBarHeight()

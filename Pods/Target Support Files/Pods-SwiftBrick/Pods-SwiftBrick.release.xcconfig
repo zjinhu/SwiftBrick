@@ -1,11 +1,11 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/SnapKit" "${PODS_CONFIGURATION_BUILD_DIR}/Swift_Notification"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CheckDevice" "${PODS_CONFIGURATION_BUILD_DIR}/SnapKit" "${PODS_CONFIGURATION_BUILD_DIR}/Swift_Notification"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/SnapKit/SnapKit.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Swift_Notification/Swift_Notification.framework/Headers"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CheckDevice/CheckDevice.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SnapKit/SnapKit.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Swift_Notification/Swift_Notification.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_CONFIGURATION_BUILD_DIR}/SnapKit/SnapKit.framework/Headers" -isystem "${PODS_CONFIGURATION_BUILD_DIR}/Swift_Notification/Swift_Notification.framework/Headers" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/SnapKit" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/Swift_Notification"
-OTHER_LDFLAGS = $(inherited) -framework "SnapKit" -framework "Swift_Notification"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_CONFIGURATION_BUILD_DIR}/CheckDevice/CheckDevice.framework/Headers" -isystem "${PODS_CONFIGURATION_BUILD_DIR}/SnapKit/SnapKit.framework/Headers" -isystem "${PODS_CONFIGURATION_BUILD_DIR}/Swift_Notification/Swift_Notification.framework/Headers" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/CheckDevice" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/SnapKit" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/Swift_Notification"
+OTHER_LDFLAGS = $(inherited) -framework "CheckDevice" -framework "SnapKit" -framework "Swift_Notification" -framework "UIKit"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
