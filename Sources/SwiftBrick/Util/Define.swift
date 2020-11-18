@@ -8,7 +8,7 @@
 
 import UIKit
 import Foundation
-import CheckDevice
+
 // MARK: ===================================变量宏定义=========================================
 
 // MARK:- 屏幕
