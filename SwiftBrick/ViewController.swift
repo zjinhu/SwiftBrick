@@ -27,6 +27,7 @@ class ViewController: JHTableViewController {
             print("2")
         }
         
+        print("\(AppState.state)")
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
