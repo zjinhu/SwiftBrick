@@ -13,14 +13,14 @@ import Foundation
 
 // MARK:- 屏幕
 /// 当前屏幕状态 宽度
-public let ScreenHeight = UIScreen.main.bounds.height
+public let ScreenHeight = max(UIScreen.main.bounds.width, UIScreen.main.bounds.height)
 /// 当前屏幕状态 高度
-public let ScreenWidth = UIScreen.main.bounds.width
+public let ScreenWidth = min(UIScreen.main.bounds.width, UIScreen.main.bounds.height)
 
 /// 当前屏幕状态 宽度按照4.7寸 375 屏幕比例 例如 30*FitWidth即可
-public let FitWidth = min(UIScreen.main.bounds.width, UIScreen.main.bounds.height) / 375
+public let FitWidth = ScreenWidth / 375
 /// 当前屏幕状态 高度按照4.7寸 667 屏幕比例 例如 30*FitHeight即可
-public let FitHeight = max(UIScreen.main.bounds.width, UIScreen.main.bounds.height) / 667
+public let FitHeight = ScreenHeight / 667
 /// 当前屏幕比例
 public let Scare = UIScreen.main.scale
 /// 画线宽度 不同分辨率都是一像素
