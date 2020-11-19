@@ -9,8 +9,21 @@
 import UIKit
 import CommonCrypto
 
+extension Data {
+    
+    public var sha256: String {
+        let hash = withUnsafeBytes { (bytes: UnsafeRawBufferPointer) -> [UInt8] in
+            var hash = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
+            CC_SHA256(bytes.baseAddress, CC_LONG(count), &hash)
+            return hash
+        }
+        return hash.reduce("") { $0 + String(format:"%02x", $1) }
+    }
+}
+
 extension UIImage {
-    static func createPlaceHolderImage(image : UIImage?, imageView : UIImageView) -> UIImage?{
+    
+    public static func createPlaceHolderImage(image : UIImage?, imageView : UIImageView) -> UIImage?{
         imageView.layoutIfNeeded()
         guard let image = image else {
             return nil
@@ -66,7 +79,7 @@ extension UIImage {
 //        return hash.map { String(format: "%02x", $0) }.joined()
 //    }
     
-    var sha256: String {
+    public var sha256: String {
         let data = Data(self.pngData()!)
         let hash = data.withUnsafeBytes { (bytes: UnsafeRawBufferPointer) -> [UInt8] in
             var hash = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
