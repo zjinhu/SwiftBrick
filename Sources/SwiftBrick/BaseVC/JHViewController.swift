@@ -52,8 +52,8 @@ open class JHViewController: UIViewController {
     }
     
     // MARK: - 返回方法
-     @objc
-     public func goBack() {
+    @objc
+    open func goBack() {
         if let viewControllers: [UIViewController] = navigationController?.viewControllers {
             guard viewControllers.count <= 1 else {
                 navigationController?.popViewController(animated: true)
