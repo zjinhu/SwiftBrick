@@ -38,6 +38,9 @@ class ViewController: JHTableViewController {
         DispatchQueue.main.asyncAfter(delay: 2) {
             print("修改后\(UserDefaultsSu.test)")
         }
+        NotificationCenter.default.add(name: "123") { (noti) in
+            
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
