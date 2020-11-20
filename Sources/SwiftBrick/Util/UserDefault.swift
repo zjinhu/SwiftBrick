@@ -6,23 +6,27 @@
 //
 
 import Foundation
-
+///https://www.jianshu.com/p/6e963d82b129
 @propertyWrapper
 public struct UserDefault<T> {
     private let key: String
-    private let defaultValue: T
+    private let defaultValue: T?
     
-    public init(key: String, defaultValue: T) {
+    public init(_ key: String, defaultValue: T? = nil) {
         self.key = key
         self.defaultValue = defaultValue
     }
     
-    public var wrappedValue: T {
+    public var wrappedValue: T? {
         get {
             return UserDefaults.standard.object(forKey: key) as? T ?? defaultValue
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: key)
+            if newValue == nil {
+                UserDefaults.standard.removeObject(forKey: key)
+            } else {
+                UserDefaults.standard.set(newValue, forKey: key)
+            }
         }
     }
 }
@@ -31,20 +35,24 @@ public struct UserDefault<T> {
 public struct UserDefaultSuite<T> {
     private let suiteName: String
     private let key: String
-    private let defaultValue: T
+    private let defaultValue: T?
     
-    public init(suiteName: String, key: String, defaultValue: T) {
+    public init(_ suiteName: String, key: String, defaultValue: T? = nil) {
         self.key = key
         self.defaultValue = defaultValue
         self.suiteName = suiteName
     }
     
-    public var wrappedValue: T {
+    public var wrappedValue: T? {
         get {
             return UserDefaults(suiteName: suiteName)?.object(forKey: key) as? T ?? defaultValue
         }
         set {
-            UserDefaults(suiteName: suiteName)?.set(newValue, forKey: key)
+            if newValue == nil {
+                UserDefaults(suiteName: suiteName)?.removeObject(forKey: key)
+            } else {
+                UserDefaults(suiteName: suiteName)?.set(newValue, forKey: key)
+            }
         }
     }
 }

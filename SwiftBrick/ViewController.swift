@@ -29,14 +29,18 @@ class ViewController: JHTableViewController {
         
         print("\(AppState.state)")
         
-        print("修改前\(UserDefaultsConfig.username)")
-        UserDefaultsConfig.username = "789"
-        print("修改后\(UserDefaultsConfig.username)")
+        print("username修改前\(UserDefaultsConfig.username)")
+        UserDefaultsConfig.username = nil
+        print("username修改后\(UserDefaultsConfig.username)")
         
-        print("修改前\(UserDefaultsSu.test)")
-        UserDefaultsSu.test = "789"
+        print("nickname修改前\(UserDefaultsConfig.nickname)")
+        UserDefaultsConfig.nickname = nil
+        print("nickname修改后\(UserDefaultsConfig.nickname)")
+        
+        print("test修改前\(UserDefaultsSu.test)")
+        UserDefaultsSu.test = nil
         DispatchQueue.main.asyncAfter(delay: 2) {
-            print("修改后\(UserDefaultsSu.test)")
+            print("test修改后\(UserDefaultsSu.test)")
         }
         NotificationCenter.default.add(name: "123") { (noti) in
             
@@ -77,11 +81,14 @@ class ViewController: JHTableViewController {
 }
 
 struct UserDefaultsConfig {
-    @UserDefault(key: "username", defaultValue: "123")
-    static var username: String
+    @UserDefault("username")
+    static var username: String?
+    
+    @UserDefault("kkkk", defaultValue: "123")
+    static var nickname: String!
 }
 
 struct UserDefaultsSu {
-    @UserDefaultSuite(suiteName: "app", key: "test", defaultValue: "123")
-    static var test: String
+    @UserDefaultSuite("app", key: "test")
+    static var test: String?
 }
