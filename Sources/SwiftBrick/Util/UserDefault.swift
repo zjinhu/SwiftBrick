@@ -9,8 +9,8 @@ import Foundation
 
 @propertyWrapper
 public struct UserDefault<T> {
-    let key: String
-    let defaultValue: T
+    public let key: String
+    public let defaultValue: T
 
     public var wrappedValue: T {
         get {
@@ -24,9 +24,9 @@ public struct UserDefault<T> {
 
 @propertyWrapper
 public struct UserDefaultSuite<T> {
-    let suiteName: String
-    let key: String
-    let defaultValue: T
+    public let suiteName: String
+    public let key: String
+    public let defaultValue: T
     
     public var wrappedValue: T {
         get {

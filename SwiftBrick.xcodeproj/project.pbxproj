@@ -55,6 +55,7 @@
 		81DA090E25677185009A5215 /* DispatchQueueEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DA090D25677185009A5215 /* DispatchQueueEx.swift */; };
 		81DA091125677275009A5215 /* TapBuzz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DA091025677275009A5215 /* TapBuzz.swift */; };
 		81DA0919256775A1009A5215 /* NotificationCenterEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DA0918256775A1009A5215 /* NotificationCenterEx.swift */; };
+		81DA092425677D7A009A5215 /* UserDefaultsEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DA092325677D7A009A5215 /* UserDefaultsEx.swift */; };
 		81FF04DF246D4D7300367E2D /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FF04DE246D4D7300367E2D /* TestCell.swift */; };
 		9111500823838CC200AE47DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111500723838CC200AE47DF /* AppDelegate.swift */; };
 		9111500A23838CC200AE47DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111500923838CC200AE47DF /* SceneDelegate.swift */; };
@@ -119,6 +120,7 @@
 		81DA090D25677185009A5215 /* DispatchQueueEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueEx.swift; sourceTree = "<group>"; };
 		81DA091025677275009A5215 /* TapBuzz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBuzz.swift; sourceTree = "<group>"; };
 		81DA0918256775A1009A5215 /* NotificationCenterEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterEx.swift; sourceTree = "<group>"; };
+		81DA092325677D7A009A5215 /* UserDefaultsEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsEx.swift; sourceTree = "<group>"; };
 		81FF04DE246D4D7300367E2D /* TestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
 		82CE79D1DBAE0B9E369C40C8 /* Pods-SwiftBrick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBrick.release.xcconfig"; path = "Target Support Files/Pods-SwiftBrick/Pods-SwiftBrick.release.xcconfig"; sourceTree = "<group>"; };
 		9111500423838CC200AE47DF /* SwiftBrick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBrick.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -268,6 +270,7 @@
 				818040F7253165CB002FFFF6 /* UIButtonEx.swift */,
 				81DA090D25677185009A5215 /* DispatchQueueEx.swift */,
 				81DA0918256775A1009A5215 /* NotificationCenterEx.swift */,
+				81DA092325677D7A009A5215 /* UserDefaultsEx.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				81804113253165CB002FFFF6 /* UIViewEx.swift in Sources */,
 				8137F43224D3CD6D0031026C /* TableViewDataSource.swift in Sources */,
 				81804102253165CB002FFFF6 /* UILabelSnapEx.swift in Sources */,
+				81DA092425677D7A009A5215 /* UserDefaultsEx.swift in Sources */,
 				9111500823838CC200AE47DF /* AppDelegate.swift in Sources */,
 				818040FF253165CB002FFFF6 /* UITableViewSnapEx.swift in Sources */,
 				9111500A23838CC200AE47DF /* SceneDelegate.swift in Sources */,
