@@ -35,7 +35,7 @@ public extension UserDefaults {
         return try JSONDecoder().decode(objectType, from: result)
     }
     ///下标脚本
-    subscript(key: String) -> Any? {
+    public subscript(key: String) -> Any? {
         get {
             return object(forKey: key)
         }
@@ -44,20 +44,20 @@ public extension UserDefaults {
         }
     }
     
-    func float(forKey key: String) -> Float? {
+    public func float(forKey key: String) -> Float? {
         return object(forKey: key) as? Float
     }
     
-    func date(forKey key: String) -> Date? {
+    public func date(forKey key: String) -> Date? {
         return object(forKey: key) as? Date
     }
     
-    func object<T: Codable>(_ type: T.Type, with key: String, usingDecoder decoder: JSONDecoder = JSONDecoder()) -> T? {
+    public func object<T: Codable>(_ type: T.Type, with key: String, usingDecoder decoder: JSONDecoder = JSONDecoder()) -> T? {
         guard let data = value(forKey: key) as? Data else { return nil }
         return try? decoder.decode(type.self, from: data)
     }
     
-    func set<T: Codable>(object: T, forKey key: String, usingEncoder encoder: JSONEncoder = JSONEncoder()) {
+    public func set<T: Codable>(object: T, forKey key: String, usingEncoder encoder: JSONEncoder = JSONEncoder()) {
         let data = try? encoder.encode(object)
         set(data, forKey: key)
     }
