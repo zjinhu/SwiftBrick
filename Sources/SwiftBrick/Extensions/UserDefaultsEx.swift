@@ -14,7 +14,7 @@ public extension UserDefaults {
     ///   - object: Codable Object
     ///   - forKey: Key string
     /// - Throws: UserDefaults Error
-    public func setT<T: Codable>(object: T, forKey: String) throws {
+    func setT<T: Codable>(object: T, forKey: String) throws {
         
         let jsonData = try JSONEncoder().encode(object)
         set(jsonData, forKey: forKey)
@@ -26,7 +26,7 @@ public extension UserDefaults {
     ///   - object: Codable Object
     ///   - forKey: Key string
     /// - Throws: UserDefaults Error
-    public func getT<T: Codable>(objectType: T.Type, forKey: String) throws -> T? {
+    func getT<T: Codable>(objectType: T.Type, forKey: String) throws -> T? {
         
         guard let result = value(forKey: forKey) as? Data else {
             return nil
@@ -35,7 +35,7 @@ public extension UserDefaults {
         return try JSONDecoder().decode(objectType, from: result)
     }
     ///下标脚本
-    public subscript(key: String) -> Any? {
+    subscript(key: String) -> Any? {
         get {
             return object(forKey: key)
         }
@@ -44,20 +44,20 @@ public extension UserDefaults {
         }
     }
     
-    public func float(forKey key: String) -> Float? {
+    func float(forKey key: String) -> Float? {
         return object(forKey: key) as? Float
     }
     
-    public func date(forKey key: String) -> Date? {
+    func date(forKey key: String) -> Date? {
         return object(forKey: key) as? Date
     }
     
-    public func object<T: Codable>(_ type: T.Type, with key: String, usingDecoder decoder: JSONDecoder = JSONDecoder()) -> T? {
+    func object<T: Codable>(_ type: T.Type, with key: String, usingDecoder decoder: JSONDecoder = JSONDecoder()) -> T? {
         guard let data = value(forKey: key) as? Data else { return nil }
         return try? decoder.decode(type.self, from: data)
     }
     
-    public func set<T: Codable>(object: T, forKey key: String, usingEncoder encoder: JSONEncoder = JSONEncoder()) {
+    func set<T: Codable>(object: T, forKey key: String, usingEncoder encoder: JSONEncoder = JSONEncoder()) {
         let data = try? encoder.encode(object)
         set(data, forKey: key)
     }

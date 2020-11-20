@@ -7,7 +7,7 @@
 //
 
 import Foundation
-#if canImport(Dispatch)
+//#if canImport(Dispatch)
 import Dispatch
 public extension DispatchQueue {
     static var isMainQueue: Bool {
@@ -61,4 +61,4 @@ public extension DispatchQueue {
         }
     }
 }
-#endif
+//#endif
