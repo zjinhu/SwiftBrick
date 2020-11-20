@@ -138,7 +138,10 @@ open class CheckDevice {
             return .unknown
         }
     }
-    
+    //v1.1
+    static public var  battery : Battery {
+        return Battery()
+    }
     static public func version() -> Version {
         return getVersion(code: getVersionCode())
     }
@@ -147,9 +150,8 @@ open class CheckDevice {
         let w: Double = Double(UIScreen.main.bounds.width)
         let h: Double = Double(UIScreen.main.bounds.height)
         let screenHeight: Double = max(w, h)
-        
+
         switch screenHeight {
-        
         case 480:
             return .screen3_5Inch
         case 568:
@@ -161,7 +163,11 @@ open class CheckDevice {
         case 780:
             return .screen5_4Inch
         case 812:
-            return .screen5_8Inch
+            if #available(iOS 11.0, *) {
+                return UIApplication.shared.windows[0].safeAreaLayoutGuide.layoutFrame.minY != 44 ?  .screen5_4Inch : .screen5_8Inch
+            } else {
+                return .screen5_8Inch
+            }
         case 844 :
             return .screen6_1Inch
         case 896:
@@ -242,5 +248,16 @@ open class CheckDevice {
     static public func isSimulator() -> Bool {
         return type() == .simulator
     }
+    //v1.1
+    static public var isLandscape: Bool {
+        return ( UIApplication.shared.statusBarOrientation == .landscapeLeft
+                    || UIApplication.shared.statusBarOrientation == .landscapeRight )
+    }
+    
+    static public var isPortrait: Bool {
+        return !CheckDevice.isLandscape
+    }
     
 }
+
+

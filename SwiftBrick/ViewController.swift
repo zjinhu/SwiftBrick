@@ -28,6 +28,16 @@ class ViewController: JHTableViewController {
         }
         
         print("\(AppState.state)")
+        
+        print("修改前\(UserDefaultsConfig.username)")
+        UserDefaultsConfig.username = "789"
+        print("修改后\(UserDefaultsConfig.username)")
+        
+        print("修改前\(UserDefaultsSu.test)")
+        UserDefaultsSu.test = "789"
+        DispatchQueue.main.asyncAfter(delay: 2) {
+            print("修改后\(UserDefaultsSu.test)")
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -63,3 +73,12 @@ class ViewController: JHTableViewController {
     }
 }
 
+struct UserDefaultsConfig {
+    @UserDefault(key: "username", defaultValue: "123")
+    static var username: String
+}
+
+struct UserDefaultsSu {
+    @UserDefaultSuite(suiteName: "app", key: "test", defaultValue: "123")
+    static var test: String
+}

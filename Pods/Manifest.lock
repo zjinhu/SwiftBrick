@@ -1,5 +1,5 @@
 PODS:
-  - CheckDevice (1.0.1)
+  - CheckDevice (1.0.3)
   - SnapKit (5.0.1)
   - Swift_Notification (0.5.0)
 
@@ -15,7 +15,7 @@ SPEC REPOS:
     - Swift_Notification
 
 SPEC CHECKSUMS:
-  CheckDevice: c8dc90b4000a872ec63cc34c0273ada11b4acdae
+  CheckDevice: e7c99130492e5b9ea324277ec8d5c58cf845e696
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   Swift_Notification: 61b60a7da330c004cfe74375f6e33b3dcc87b6fb
 
