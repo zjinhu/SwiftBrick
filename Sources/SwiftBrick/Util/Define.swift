@@ -162,22 +162,22 @@ public func FontWeight(_ size: CGFloat, weight: Weight) -> UIFont {
 // MARK:- App信息
 
 /// App 显示名称
-public var displayName: String? {
+public var AppDisplayName: String? {
     return Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String
 }
 
 /// app 的bundleid
-public var bundleID: String? {
+public var AppBundleID: String? {
     return Bundle.main.bundleIdentifier
 }
 
 /// build号
-public var build: String? {
+public var AppBuildNumber: String? {
     return Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String
 }
 
 /// app版本号
-public var version: String? {
+public var AppVersion: String? {
     return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
 }
 
