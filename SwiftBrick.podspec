@@ -26,6 +26,7 @@ s.resource_bundles = {
 }
 
 s.source_files = 'Sources/SwiftBrick/*.swift'
+s.public_header_files = 'Sources/SwiftBrick/*.swift'
 
 s.subspec 'Util' do |ss|
     ss.source_files = 'Sources/SwiftBrick/Util/**/*'
