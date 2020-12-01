@@ -163,6 +163,10 @@ public func FontWeight(_ size: CGFloat, weight: Weight) -> UIFont {
 
 /// App 显示名称
 public var AppDisplayName: String? {
+    return Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String
+}
+
+public var AppName: String? {
     return Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String
 }
 
