@@ -196,7 +196,6 @@
 		818040CE253165CB002FFFF6 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				81074F432575056A00C60057 /* SwiftBrick.swift */,
 				818040CF253165CB002FFFF6 /* Loader.swift */,
 				818040D0253165CB002FFFF6 /* Define.swift */,
 				811372D1256529D200D07554 /* AppState.swift */,
@@ -209,6 +208,7 @@
 		818040D1253165CB002FFFF6 /* BaseVC */ = {
 			isa = PBXGroup;
 			children = (
+				81074F432575056A00C60057 /* SwiftBrick.swift */,
 				818040D2253165CB002FFFF6 /* JHWebViewController.swift */,
 				818040D3253165CB002FFFF6 /* JHViewController.swift */,
 				818040D4253165CB002FFFF6 /* JHCollectionViewController.swift */,
