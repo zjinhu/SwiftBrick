@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SwiftBrick'
-  s.version          = '1.7.0'
+  s.version          = '1.7.1'
   s.summary          = '工具类组件.'
  
   s.description      = <<-DESC
@@ -21,9 +21,11 @@ Pod::Spec.new do |s|
   s.dependency 'SnapKit'
   
 
-   s.resource_bundles = {
-     'SwiftBrick' => ['Sources/SwiftBrick/Resources/*.xcassets']
-  }
+    s.resource_bundles = {
+      'SwiftBrick' => ['Sources/SwiftBrick/Resources/*.xcassets']
+    }
+
+    s.source_files = 'Sources/SwiftBrick/*.swift'
 
     s.subspec 'Util' do |ss| 
       ss.source_files = 'Sources/SwiftBrick/Util/**/*'

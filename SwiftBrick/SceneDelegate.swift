@@ -37,6 +37,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = tabVC
         window?.backgroundColor = .white
         guard let _ = (scene as? UIWindowScene) else { return }
+        SwiftBrick.navBarFixSpace = -7
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

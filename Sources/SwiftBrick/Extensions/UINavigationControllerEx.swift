@@ -8,13 +8,13 @@
 
 import UIKit
 
-extension UIApplication {
-    ///ios13以上失效,需要手动调用SwizzleNavBar.swizzle
-    override open var next: UIResponder? {
-        SwizzleNavBar.swizzle
-        return super.next
-    }
-}
+//extension UIApplication {
+//    ///ios13以上失效,需要手动调用SwizzleNavBar.swizzle
+//    override open var next: UIResponder? {
+//        SwizzleNavBar.swizzle
+//        return super.next
+//    }
+//}
 
 public class SwizzleNavBar {
     public static let swizzle: Void = {

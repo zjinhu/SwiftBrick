@@ -14,6 +14,7 @@ open class JHViewController: UIViewController {
     public lazy var leftBarButton : UIButton = {
         let leftBarButton = UIButton.init(type: .custom)
         leftBarButton.imageView?.contentMode = .center
+        leftBarButton.backgroundColor = .red
         leftBarButton.frame = CGRect.init(x: 0, y: 0, width: NavBarHeight(), height: NavBarHeight())
         return leftBarButton
     }()
@@ -71,9 +72,9 @@ open class JHViewController: UIViewController {
     *  修正左侧按钮位置
     */
     fileprivate func fixSpaceLeftBarButton(btnItem: UIBarButtonItem){
-            leftBarButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: -10, bottom: 0, right: 0)
-            leftBarButton.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: -10, bottom: 0, right: 0)
-            btnItem.imageInsets = UIEdgeInsets.init(top: 0, left: -10, bottom: 0, right: 0)
+            leftBarButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: SwiftBrick.navBarFixSpace, bottom: 0, right: 0)
+            leftBarButton.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: SwiftBrick.navBarFixSpace, bottom: 0, right: 0)
+            btnItem.imageInsets = UIEdgeInsets.init(top: 0, left: SwiftBrick.navBarFixSpace, bottom: 0, right: 0)
             navigationItem.leftBarButtonItem = btnItem
     }
     
@@ -81,9 +82,9 @@ open class JHViewController: UIViewController {
     *  修正右侧按钮位置
     */
     fileprivate func fixSpaceRightBarButton(btnItem: UIBarButtonItem){
-            rightBarButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: -10)
-            rightBarButton.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: -10)
-            btnItem.imageInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: -10)
+            rightBarButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: SwiftBrick.navBarFixSpace)
+            rightBarButton.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: SwiftBrick.navBarFixSpace)
+            btnItem.imageInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: SwiftBrick.navBarFixSpace)
             navigationItem.rightBarButtonItem = btnItem
       }
     
