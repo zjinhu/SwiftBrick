@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        SwizzleNavBar.swizzle
+        
         let tabVC = UITabBarController()
         let demo1VC  = ViewController()
         let nav1 = UINavigationController.init(rootViewController: demo1VC)
@@ -38,6 +38,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.backgroundColor = .white
         guard let _ = (scene as? UIWindowScene) else { return }
         SwiftBrick.navBarFixSpace = -7
+        SwiftBrick.smoothNavBar()
+//        SwiftBrick.navBarNorBackImage = UIImage(named: "back_bar")
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

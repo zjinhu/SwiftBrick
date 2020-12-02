@@ -89,7 +89,8 @@ open class JHViewController: UIViewController {
     
     /// 设置导航默认返回按钮
     public func addDefaultBackBarButton() {
-        addLeftBarButton(normalImage: L.image("nav_ic_back"), highLightImage: L.image("nav_ic_back"))
+        addLeftBarButton(normalImage: SwiftBrick.navBarNorBackImage ?? L.image("nav_ic_back"),
+                         highLightImage: SwiftBrick.navBarHigBackImage ?? L.image("nav_ic_back"))
     }
     
     /// 设置导航左侧按钮图片
