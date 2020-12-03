@@ -26,14 +26,14 @@ class CollectionViewController: JHCollectionViewController {
         // Do any additional setup after loading the view.
         addRightBarButton(normalImage: UIImage.init(named: "nav_ic_back"),
                           highLightImage: UIImage.init(named: "nav_ic_back"),
-                          fixSpace: 3) {
+                          fixSpace: 0) {
             print("touch")
         }
 
         addRightBarButton(text: "54634535",
                           normalColor: .darkGray,
                           highlightColor: .lightGray,
-                          fixSpace: 3) {
+                          fixSpace: 0 ) {
             print("123123")
         }
         

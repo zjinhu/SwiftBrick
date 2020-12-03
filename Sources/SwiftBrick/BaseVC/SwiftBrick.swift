@@ -15,9 +15,9 @@ public struct SwiftBrick{
     public static var navBarNorBackImage: UIImage?
     ///统一设置返回按钮图片(按下)
     public static var navBarHigBackImage: UIImage?
-    ///导航栏左按钮修正距离,默认按钮距离边为20,高为导航栏高44,默认居中,根据大小:左移为-,右移为+
+    ///导航栏左按钮修正距离,默认按钮距离边缘为20:左移为-,右移为+
     public static var navBarLeftFixSpace: CGFloat = 0
-    ///导航栏右按钮修正距离,默认按钮距离边为20,高为导航栏高44,默认居中,根据大小:左移为+,右移为-
+    ///导航栏右按钮修正距离,默认按钮距离边缘为20:左移为+,右移为-
     public static var navBarRightFixSpace: CGFloat = 0
     ///导航栏左按钮宽度
     public static var navBarLeftButtonWidth: CGFloat = 50

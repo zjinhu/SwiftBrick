@@ -15,8 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 //        UITabBar.appearance().tintColor = .red
 //        UITabBar.appearance().unselectedItemTintColor = .gray
-        SwiftBrick.navBarRightFixSpace = 10
-        SwiftBrick.navBarLeftFixSpace = 10
+
         SwiftBrick.navBarSmooth()
         return true
     }
