@@ -25,14 +25,15 @@ class CollectionViewController: JHCollectionViewController {
         self.mainDatas = [["","","","","","","",""],["","","","","","",""],["","","","","","","","","","",""],["","","","","","","","","",""]]
         // Do any additional setup after loading the view.
         addRightBarButton(normalImage: UIImage.init(named: "nav_ic_back"),
-                          highLightImage: UIImage.init(named: "nav_ic_back")) {
+                          highLightImage: UIImage.init(named: "nav_ic_back"),
+                          fixSpace: 3) {
             print("touch")
         }
 
-        addRightBarButton(text: "546",
+        addRightBarButton(text: "54634535",
                           normalColor: .darkGray,
                           highlightColor: .lightGray,
-                          fixSpace: 0) {
+                          fixSpace: 3) {
             print("123123")
         }
         
