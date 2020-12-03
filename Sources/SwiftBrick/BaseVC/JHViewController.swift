@@ -14,6 +14,8 @@ open class JHViewController: UIViewController {
     public lazy var leftBarButton : UIButton = {
         let leftBarButton = UIButton.init(type: .custom)
         leftBarButton.imageView?.contentMode = .center
+        leftBarButton.backgroundColor = .red
+        leftBarButton.imageView?.backgroundColor = .orange
         leftBarButton.frame = CGRect.init(x: 0, y: 0, width: SwiftBrick.navBarLeftButtonWidth, height: NavBarHeight())
         return leftBarButton
     }()
