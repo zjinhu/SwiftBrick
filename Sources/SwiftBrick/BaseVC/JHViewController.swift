@@ -14,14 +14,15 @@ open class JHViewController: UIViewController {
     public lazy var leftBarButton : UIButton = {
         let leftBarButton = UIButton.init(type: .custom)
         leftBarButton.imageView?.contentMode = .center
-        leftBarButton.frame = CGRect.init(x: 0, y: 0, width: NavBarHeight(), height: NavBarHeight())
+        leftBarButton.frame = CGRect.init(x: 0, y: 0, width: SwiftBrick.navBarLeftButtonWidth, height: NavBarHeight())
         return leftBarButton
     }()
     
     public lazy var rightBarButton : UIButton = {
         let rightBarButton = UIButton.init(type: .custom)
         rightBarButton.imageView?.contentMode = .center
-        rightBarButton.frame = CGRect.init(x: 0, y: 0, width: NavBarHeight(), height: NavBarHeight())
+        rightBarButton.contentHorizontalAlignment = .trailing
+        rightBarButton.frame = CGRect.init(x: 0, y: 0, width: SwiftBrick.navBarRightButtonWidth, height: NavBarHeight())
         return rightBarButton
     }()
     
@@ -71,19 +72,19 @@ open class JHViewController: UIViewController {
     *  修正左侧按钮位置
     */
     fileprivate func fixSpaceLeftBarButton(btnItem: UIBarButtonItem){
-            leftBarButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: SwiftBrick.navBarFixSpace, bottom: 0, right: 0)
-            leftBarButton.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: SwiftBrick.navBarFixSpace, bottom: 0, right: 0)
-            btnItem.imageInsets = UIEdgeInsets.init(top: 0, left: SwiftBrick.navBarFixSpace, bottom: 0, right: 0)
+            leftBarButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: SwiftBrick.navBarLeftFixSpace, bottom: 0, right: 0)
+            leftBarButton.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: SwiftBrick.navBarLeftFixSpace, bottom: 0, right: 0)
+            btnItem.imageInsets = UIEdgeInsets.init(top: 0, left: SwiftBrick.navBarLeftFixSpace, bottom: 0, right: 0)
             navigationItem.leftBarButtonItem = btnItem
     }
     
     /**
     *  修正右侧按钮位置
     */
-    fileprivate func fixSpaceRightBarButton(btnItem: UIBarButtonItem){
-            rightBarButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: SwiftBrick.navBarFixSpace)
-            rightBarButton.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: SwiftBrick.navBarFixSpace)
-            btnItem.imageInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: SwiftBrick.navBarFixSpace)
+    fileprivate func fixSpaceRightBarButton(btnItem: UIBarButtonItem, fixSpace: CGFloat = 0){
+        rightBarButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: fixSpace > 0 ? fixSpace : SwiftBrick.navBarRightFixSpace)
+            rightBarButton.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: fixSpace > 0 ? fixSpace : SwiftBrick.navBarRightFixSpace)
+            btnItem.imageInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: fixSpace > 0 ? fixSpace : SwiftBrick.navBarRightFixSpace)
             navigationItem.rightBarButtonItem = btnItem
       }
     
@@ -134,15 +135,17 @@ open class JHViewController: UIViewController {
     /// - Parameters:
     ///   - normalImage: normalImage
     ///   - highLightImage: highLightImage
+    ///   - fixSpace: 图片修正或者文字修正
     public func addRightBarButton(normalImage: UIImage? = nil,
                                   highLightImage: UIImage? = nil,
+                                  fixSpace: CGFloat = 0,
                                   touchUp: buttonClosure?){
 
         configRightBarButton(normalImage: normalImage,
                              highLightImage: highLightImage)
         let btnItem = UIBarButtonItem.init(customView: rightBarButton)
         
-        fixSpaceRightBarButton(btnItem: btnItem)
+        fixSpaceRightBarButton(btnItem: btnItem, fixSpace: fixSpace)
         
         addRightBarButtonAction(touchUp: touchUp)
     }
@@ -152,9 +155,11 @@ open class JHViewController: UIViewController {
     ///   - text: text
     ///   - normalColor: normalColor
     ///   - highlightColor: highlightColor
+    ///   - fixSpace: 图片修正或者文字修正
     public func addRightBarButton(text: String,
                                   normalColor: UIColor? = .textTitleColor,
                                   highlightColor: UIColor? = .textDesColor,
+                                  fixSpace: CGFloat = 0,
                                   touchUp: buttonClosure?){
 
         configRightBarButton(text: text,
@@ -162,7 +167,7 @@ open class JHViewController: UIViewController {
                              highlightColor: highlightColor)
         let btnItem = UIBarButtonItem.init(customView: rightBarButton)
         
-        fixSpaceRightBarButton(btnItem: btnItem)
+        fixSpaceRightBarButton(btnItem: btnItem, fixSpace: fixSpace)
         
         addRightBarButtonAction(touchUp: touchUp)
     }

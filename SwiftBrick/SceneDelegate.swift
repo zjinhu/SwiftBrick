@@ -37,8 +37,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = tabVC
         window?.backgroundColor = .white
         guard let _ = (scene as? UIWindowScene) else { return }
-        SwiftBrick.navBarFixSpace = -7
-        SwiftBrick.smoothNavBar()
+        SwiftBrick.navBarRightFixSpace = -7
+        SwiftBrick.navBarLeftFixSpace = -7
+        SwiftBrick.navBarSmooth()
 //        SwiftBrick.navBarNorBackImage = UIImage(named: "back_bar")
     }
 

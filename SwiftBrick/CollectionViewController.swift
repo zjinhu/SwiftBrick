@@ -24,14 +24,15 @@ class CollectionViewController: JHCollectionViewController {
         self.prefersNavigationBarHidden = false
         self.mainDatas = [["","","","","","","",""],["","","","","","",""],["","","","","","","","","","",""],["","","","","","","","","",""]]
         // Do any additional setup after loading the view.
-        addRightBarButton(normalImage: UIImage.init(named: "tab_chat_hi"),
-                          highLightImage: UIImage.init(named: "tab_home_hi")) {
+        addRightBarButton(normalImage: UIImage.init(named: "nav_ic_back"),
+                          highLightImage: UIImage.init(named: "nav_ic_back")) {
             print("touch")
         }
-        
-        addRightBarButton(text: "123",
+
+        addRightBarButton(text: "546",
                           normalColor: .darkGray,
-                          highlightColor: .lightGray) {
+                          highlightColor: .lightGray,
+                          fixSpace: 0) {
             print("123123")
         }
         
