@@ -9,15 +9,15 @@
 import UIKit
 
 open class JHViewController: UIViewController {
-
+    
     // MARK: - 参数变量
     public lazy var leftBarButton : UIButton = {
         let leftBarButton = UIButton.init(type: .custom)
         leftBarButton.imageView?.contentMode = .center
         leftBarButton.contentHorizontalAlignment = .leading
-//        leftBarButton.backgroundColor = .white
-//        leftBarButton.titleLabel?.backgroundColor = .orange
-//        leftBarButton.imageView?.backgroundColor = .red
+        //        leftBarButton.backgroundColor = .white
+        //        leftBarButton.titleLabel?.backgroundColor = .orange
+        //        leftBarButton.imageView?.backgroundColor = .red
         leftBarButton.frame = CGRect.init(x: 0, y: 0, width: SwiftBrick.navBarLeftButtonWidth, height: NavBarHeight())
         return leftBarButton
     }()
@@ -26,9 +26,9 @@ open class JHViewController: UIViewController {
         let rightBarButton = UIButton.init(type: .custom)
         rightBarButton.imageView?.contentMode = .center
         rightBarButton.contentHorizontalAlignment = .trailing
-//        rightBarButton.backgroundColor = .white
-//        rightBarButton.titleLabel?.backgroundColor = .orange
-//        rightBarButton.imageView?.backgroundColor = .red
+        //        rightBarButton.backgroundColor = .white
+        //        rightBarButton.titleLabel?.backgroundColor = .orange
+        //        rightBarButton.imageView?.backgroundColor = .red
         rightBarButton.frame = CGRect.init(x: 0, y: 0, width: SwiftBrick.navBarRightButtonWidth, height: NavBarHeight())
         return rightBarButton
     }()
@@ -37,11 +37,11 @@ open class JHViewController: UIViewController {
     
     fileprivate var leftAction: buttonClosure?
     fileprivate var rightAction: buttonClosure?
-
+    
     // MARK: - 布局
     open override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = L.color("bgColor")
         edgesForExtendedLayout = .all
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
@@ -68,7 +68,7 @@ open class JHViewController: UIViewController {
                 return
             }
         }
-
+        
         if (presentingViewController != nil) {
             dismiss(animated: true, completion: nil)
         }
@@ -76,24 +76,24 @@ open class JHViewController: UIViewController {
     
     // MARK: - 设置导航栏按钮方法
     /**
-    *  修正左侧按钮位置
-    */
+     *  修正左侧按钮位置
+     */
     fileprivate func fixSpaceLeftBarButton(btnItem: UIBarButtonItem){
-            leftBarButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: SwiftBrick.navBarLeftFixSpace+2, bottom: 0, right: 0)
-            leftBarButton.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: SwiftBrick.navBarLeftFixSpace+2, bottom: 0, right: 0)
-            btnItem.imageInsets = UIEdgeInsets.init(top: 0, left: SwiftBrick.navBarLeftFixSpace+2, bottom: 0, right: 0)
-            navigationItem.leftBarButtonItem = btnItem
+        leftBarButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: SwiftBrick.navBarLeftFixSpace, bottom: 0, right: 0)
+        leftBarButton.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: SwiftBrick.navBarLeftFixSpace, bottom: 0, right: 0)
+        btnItem.imageInsets = UIEdgeInsets.init(top: 0, left: SwiftBrick.navBarLeftFixSpace, bottom: 0, right: 0)
+        navigationItem.leftBarButtonItem = btnItem
     }
     
     /**
-    *  修正右侧按钮位置
-    */
+     *  修正右侧按钮位置
+     */
     fileprivate func fixSpaceRightBarButton(btnItem: UIBarButtonItem, fixSpace: CGFloat = 0){
-        rightBarButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: (fixSpace != 0 ? fixSpace : SwiftBrick.navBarRightFixSpace)+5)
-            rightBarButton.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: (fixSpace != 0 ? fixSpace : SwiftBrick.navBarRightFixSpace)+5)
-            btnItem.imageInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: (fixSpace != 0 ? fixSpace : SwiftBrick.navBarRightFixSpace)+5)
-            navigationItem.rightBarButtonItem = btnItem
-      }
+        rightBarButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: (fixSpace != 0 ? fixSpace : SwiftBrick.navBarRightFixSpace))
+        rightBarButton.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: (fixSpace != 0 ? fixSpace : SwiftBrick.navBarRightFixSpace))
+        btnItem.imageInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: (fixSpace != 0 ? fixSpace : SwiftBrick.navBarRightFixSpace))
+        navigationItem.rightBarButtonItem = btnItem
+    }
     
     /// 设置导航默认返回按钮
     public func addDefaultBackBarButton() {
@@ -101,6 +101,10 @@ open class JHViewController: UIViewController {
                          highLightImage: SwiftBrick.navBarHigBackImage ?? L.image("nav_ic_back"))
     }
     
+    public func hideDefaultBackBarButton(){
+        leftBarButton.isHidden = true
+        navigationItem.hidesBackButton = true
+    }
     /// 设置导航左侧按钮图片
     /// - Parameters:
     ///   - normalImage: normalImage
@@ -147,7 +151,7 @@ open class JHViewController: UIViewController {
                                   highLightImage: UIImage? = nil,
                                   fixSpace: CGFloat = 0,
                                   touchUp: buttonClosure?){
-
+        
         configRightBarButton(normalImage: normalImage,
                              highLightImage: highLightImage)
         let btnItem = UIBarButtonItem.init(customView: rightBarButton)
@@ -168,7 +172,7 @@ open class JHViewController: UIViewController {
                                   highlightColor: UIColor? = .textDesColor,
                                   fixSpace: CGFloat = 0,
                                   touchUp: buttonClosure?){
-
+        
         configRightBarButton(text: text,
                              normalColor: normalColor,
                              highlightColor: highlightColor)
@@ -202,7 +206,7 @@ open class JHViewController: UIViewController {
         
         leftBarButton.setImage(normalImage, for: .normal)
         leftBarButton.setImage(highLightImage, for: .highlighted)
-
+        
     }
     
     /// 配置右侧导航栏按钮
@@ -228,13 +232,13 @@ open class JHViewController: UIViewController {
         
         rightBarButton.setImage(normalImage, for: .normal)
         rightBarButton.setImage(highLightImage, for: .highlighted)
-
+        
     }
     
     /// 重新添加左侧按钮的点击事件,默认是goback
     /// - Parameter touchUp: 回调
     public func addLeftBarButtonAction(touchUp : buttonClosure?){
-    
+        
         if let ges = touchUp {
             leftBarButton.removeTarget(self, action: #selector(touchUpInSideLeftBtnAction), for: .touchUpInside)
             leftAction = ges
@@ -260,10 +264,81 @@ open class JHViewController: UIViewController {
         rightAction = ges
         rightBarButton.addTarget(self, action: #selector(touchUpInSideRightBtnAction), for: .touchUpInside)
     }
-
+    
     @objc fileprivate func touchUpInSideRightBtnAction() {
         if let action = rightAction  {
             action()
         }
+    }
+
+    
+    public func addLeftBarButton(_ button: UIButton...,
+                                 fixSpace: CGFloat = 0,
+                                 buttonSpace: CGFloat = 20){
+        addLeftBarButtons(buttons: button, fixSpace: fixSpace)
+    }
+    
+    fileprivate func addLeftBarButtons(buttons: [UIButton],
+                                  fixSpace: CGFloat = 0,
+                                  buttonSpace: CGFloat = 20){
+
+        navigationItem.leftBarButtonItems?.removeAll()
+        
+        let gap = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.fixedSpace, target: nil, action: nil)
+            gap.width = buttonSpace;
+        
+        var items = [UIBarButtonItem]()
+
+        let count = buttons.count
+        
+        for (index, button) in buttons.enumerated() {
+            button.contentHorizontalAlignment = .leading
+            button.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: fixSpace, bottom: 0, right: 0)
+            if index != count - 1 {
+                let barButton = UIBarButtonItem(customView: button)
+                items.append(barButton)
+                items.append(gap)
+            }else{
+                let barButton = UIBarButtonItem(customView: button)
+                items.append(barButton)
+            }
+        }
+        
+        navigationItem.leftBarButtonItems = items
+    }
+    
+    public func addRightBarButton(_ button: UIButton...,
+                                  fixSpace: CGFloat = 0,
+                                  buttonSpace: CGFloat = 20){
+        addRightBarButtons(buttons: button, fixSpace: fixSpace)
+    }
+    
+    fileprivate func addRightBarButtons(buttons: [UIButton],
+                                   fixSpace: CGFloat = 0,
+                                   buttonSpace: CGFloat = 20){
+        
+        navigationItem.rightBarButtonItems?.removeAll()
+        
+        let gap = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.fixedSpace, target: nil, action: nil)
+            gap.width = buttonSpace;
+        
+        var items = [UIBarButtonItem]()
+
+        let count = buttons.count
+        
+        for (index, button) in buttons.enumerated() {
+            button.contentHorizontalAlignment = .trailing
+            button.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: fixSpace)
+            if index != count - 1 {
+                let barButton = UIBarButtonItem(customView: button)
+                items.append(barButton)
+                items.append(gap)
+            }else{
+                let barButton = UIBarButtonItem(customView: button)
+                items.append(barButton)
+            }
+        }
+        
+        navigationItem.rightBarButtonItems = items
     }
 }

@@ -14,10 +14,10 @@ class WebViewController: JHWebViewController {
         super.viewDidLoad()
         customUserAgent = "hahah"
         // Do any additional setup after loading the view.
-        addLeftBarButton(text: "as", normalColor: .black, highlightColor: .black) {
-            self.goBack()
-        }
-        
+//        addLeftBarButton(text: "as", normalColor: .black, highlightColor: .black) {
+//            self.goBack()
+//        }
+
         request = URLRequest.init(url: URL.init(string: "https://support.qq.com/product/190629")!)
         request?.httpMethod = "POST"
         request?.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")

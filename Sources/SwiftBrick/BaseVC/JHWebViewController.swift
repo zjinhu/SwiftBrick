@@ -12,6 +12,21 @@ import SnapKit
 
 open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDelegate,WKScriptMessageHandler,UIScrollViewDelegate{
 
+    lazy var backButton: UIButton = {
+        let btn = UIButton()
+        btn.setImage(L.image("nav_ic_back"), for: .normal)
+        btn.addTarget(self, action: #selector(goBack), for: .touchUpInside)
+        return btn
+    }()
+    
+    lazy var closeButton: UIButton = {
+        let btn = UIButton()
+        btn.setImage(L.image("nav_ic_close"), for: .normal)
+        btn.addTarget(self, action: #selector(closeVC), for: .touchUpInside)
+        btn.isHidden = true
+        return btn
+    }()
+    
     // MARK: - 参数变量
     public dynamic lazy var webView : WKWebView = {
         let webView = WKWebView.init(frame: .zero, configuration: config)
@@ -141,6 +156,10 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
     override open func viewDidLoad() {
         super.viewDidLoad()
         edgesForExtendedLayout = [.left,.right,.bottom]
+        
+        hideDefaultBackBarButton()
+        
+        addLeftBarButton(backButton, closeButton)
         
         title = navTitle
         
@@ -333,13 +352,14 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
     open override func goBack() {
         if webView.canGoBack {
             webView.goBack()
+            closeButton.isHidden = false
         }else{
             closeVC()
         }
     }
     
     ///关闭当前VC
-    open func closeVC() {
+    @objc open func closeVC() {
         if let viewControllers: [UIViewController] = navigationController?.viewControllers {
             guard viewControllers.count <= 1 else {
                 navigationController?.popViewController(animated: true)
