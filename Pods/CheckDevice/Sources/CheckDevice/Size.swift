@@ -49,6 +49,9 @@ public enum Size: Int, Comparable {
     /// iPad Pro (10.5-inch)
     case screen10_5Inch
     
+    /// iPad Air 4 Gen (10.9-inch)
+    case screen10_9Inch
+    
     /// iPad Pro (11-inch)
     case screen11Inch
     

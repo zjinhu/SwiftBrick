@@ -151,6 +151,7 @@ open class CheckDevice {
         let h: Double = Double(UIScreen.main.bounds.height)
         let screenHeight: Double = max(w, h)
 
+        
         switch screenHeight {
         case 480:
             return .screen3_5Inch
@@ -198,6 +199,8 @@ open class CheckDevice {
             default:
                 return .screen10_5Inch
             }
+        case 1180:
+            return .screen10_9Inch
         case 1194:
             return .screen11Inch
         case 1366:

@@ -248,6 +248,9 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
             webView.reload()
             first = false
         }
+        if webView.canGoBack {
+            closeButton.isHidden = false
+        }
     }
     
     open func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
@@ -352,7 +355,6 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
     open override func goBack() {
         if webView.canGoBack {
             webView.goBack()
-            closeButton.isHidden = false
         }else{
             closeVC()
         }
