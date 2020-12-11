@@ -24,7 +24,7 @@ public let FitHeight = ScreenHeight / 667
 /// 当前屏幕比例
 public let Scare = UIScreen.main.scale
 /// 画线宽度 不同分辨率都是一像素
-public let LineHeight = CGFloat(Scare >= 1 ? 1/Scare : 1)
+public let LineHeight = CGFloat(Scare >= 1 ? 1/Scare: 1)
 
 /// 信号栏高度
 /// - Returns: 高度
@@ -67,22 +67,22 @@ public func IsBangs_iPhone() -> Bool {
     return isX
 }
 
-public var isX : Bool {
+public var isX: Bool {
         var isX = false
         if #available(iOS 11.0, *) {
-            let bottom : CGFloat = UIApplication.shared.delegate?.window??.safeAreaInsets.bottom ?? 0
+            let bottom: CGFloat = UIApplication.shared.delegate?.window??.safeAreaInsets.bottom ?? 0
             isX = bottom > 0.0
         }
         return isX
     }
 
 ///判断是否iPad
-public let IsIPAD : Bool = (UIDevice.current.userInterfaceIdiom == .pad) ? true : false
+public let IsIPAD: Bool = (UIDevice.current.userInterfaceIdiom == .pad) ? true: false
 
 
 
 // MARK:- 系统版本
-public let SystemVersion : Double = Double(UIDevice.current.systemVersion) ?? 0
+public let SystemVersion: Double = Double(UIDevice.current.systemVersion) ?? 0
 public let Later_iOS11 = SystemVersion >= 11.0
 public let Later_iOS12 = SystemVersion >= 12.0
 public let Later_iOS13 = SystemVersion >= 13.0
@@ -160,7 +160,7 @@ public func FontWeight(_ size: CGFloat, weight: Weight) -> UIFont {
     case .thin:
         name = "PingFangSC-Thin"
     }
-    return UIFont.init(name: name, size: size) ?? UIFont.systemFont(ofSize: size)
+    return UIFont(name: name, size: size) ?? UIFont.systemFont(ofSize: size)
 }
 
 // MARK:- App信息
@@ -190,7 +190,7 @@ public var AppVersion: String? {
 }
 
 // MARK:- 打印输出
-public func SLog<T>(_ message : T, file : String = #file, funcName : String = #function, lineNum : Int = #line) {
+public func SLog<T>(_ message: T, file: String = #file, funcName: String = #function, lineNum: Int = #line) {
     #if DEBUG
         let fileName = (file as NSString).lastPathComponent
         print("\n\n<><><><><>-「LOG」-<><><><><>\n\n>>>>>>>>>>>>>>>所在类:>>>>>>>>>>>>>>>\n\n\(fileName)\n\n>>>>>>>>>>>>>>>所在行:>>>>>>>>>>>>>>>\n\n\(lineNum)\n\n>>>>>>>>>>>>>>>信 息:>>>>>>>>>>>>>>>\n\n\(message)\n\n<><><><><>-「END」-<><><><><>\n\n")

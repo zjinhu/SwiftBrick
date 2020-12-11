@@ -37,18 +37,18 @@ public extension UIButton {
     ///   - touchUp: 点击Block 有默认参数
     ///   - backColor: 背景色
     @discardableResult
-    class func snpButton(supView : UIView? = nil,
+    class func snpButton(supView: UIView? = nil,
                          backColor: UIColor? = .clear,
-                         title : String? = nil,
-                         font : UIFont? = nil,
-                         titleNorColor : UIColor? = nil,
-                         titleHigColor : UIColor? = nil,
-                         norImage : UIImage? = nil,
-                         higImage : UIImage? = nil,
-                         touchUp : buttonClosure? = nil,
-                         snapKitMaker : ((ConstraintMaker) -> Void)? = nil) -> UIButton {
+                         title: String? = nil,
+                         font: UIFont? = nil,
+                         titleNorColor: UIColor? = nil,
+                         titleHigColor: UIColor? = nil,
+                         norImage: UIImage? = nil,
+                         higImage: UIImage? = nil,
+                         touchUp: buttonClosure? = nil,
+                         snapKitMaker: ((ConstraintMaker) -> Void)? = nil) -> UIButton {
         
-        let btn = UIButton.init(type: .custom)
+        let btn = UIButton(type: .custom)
         btn.backgroundColor = backColor
         
         if title != nil {
@@ -94,7 +94,7 @@ public extension UIButton {
         return btn
     }
     
-    func snpAddTouchUpInSideBtnAction(touchUp : buttonClosure?){
+    func snpAddTouchUpInSideBtnAction(touchUp: buttonClosure?){
         
         removeTarget(self, action: #selector(touchUpInSideBtnAction), for: .touchUpInside)
         guard let ges = touchUp else {

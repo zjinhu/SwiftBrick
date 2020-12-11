@@ -27,8 +27,8 @@ public extension UIButton{
         let imageHeight = imageV.frame.size.height
         
         guard
-        let labelWidth = titleL.text?.size(withAttributes: [NSAttributedString.Key.font : titleL.font as UIFont]).width,
-        let labelHeight = titleL.text?.size(withAttributes: [NSAttributedString.Key.font : titleL.font as UIFont]).height
+        let labelWidth = titleL.text?.size(withAttributes: [NSAttributedString.Key.font: titleL.font as UIFont]).width,
+        let labelHeight = titleL.text?.size(withAttributes: [NSAttributedString.Key.font: titleL.font as UIFont]).height
         else {
             return
         }
@@ -70,7 +70,7 @@ public extension UIButton{
         
         guard
         let imageWidth = imageView?.image?.size.width,
-            let labelWidth = titleLabel?.text?.size(withAttributes: [NSAttributedString.Key.font : titleLabel?.font ?? UIFont.systemFont(ofSize: 13)]).width
+            let labelWidth = titleLabel?.text?.size(withAttributes: [NSAttributedString.Key.font: titleLabel?.font ?? UIFont.systemFont(ofSize: 13)]).width
         else {
             return
         }

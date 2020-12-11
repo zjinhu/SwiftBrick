@@ -49,8 +49,8 @@ public extension UIViewController {
 
     class func swizzleMethod(){
         guard self == UIViewController.self else { return }
-        let originalSelector = #selector(viewWillAppear(_ : ))
-        let swizzledSelector = #selector(jh_viewWillAppear(_ : ))
+        let originalSelector = #selector(viewWillAppear(_: ))
+        let swizzledSelector = #selector(jh_viewWillAppear(_: ))
         swizzlingForClass(UIViewController.self, originalSelector: originalSelector, swizzledSelector: swizzledSelector)
     }
 
@@ -66,7 +66,7 @@ public extension UIViewController {
         }
     }
     
-//    @_dynamicReplacement(for: viewWillAppear(_ : ))
+//    @_dynamicReplacement(for: viewWillAppear(_: ))
     @objc func jh_viewWillAppear(_ animated: Bool) {
         jh_viewWillAppear(animated)
         guard let block = willAppearInjectBlock else {

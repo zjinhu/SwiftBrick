@@ -9,11 +9,11 @@
 import UIKit
 
 struct Section: Hashable {
-    var title : String
+    var title: String
 }
 
 struct Item: Hashable {
-    var name : String
+    var name: String
 }
 
 class DataSourceViewController: JHTableViewController {

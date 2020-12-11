@@ -14,7 +14,7 @@ public extension NotificationCenter {
              block: @escaping (_ notification: Notification) -> Void) {
         
         var handler: NSObjectProtocol!
-        handler = addObserver(forName: NSNotification.Name.init(rawValue: name), object: obj, queue: queue) { [unowned self] in
+        handler = addObserver(forName: NSNotification.Name(rawValue: name), object: obj, queue: queue) { [unowned self] in
             self.removeObserver(handler!)
             block($0)
         }

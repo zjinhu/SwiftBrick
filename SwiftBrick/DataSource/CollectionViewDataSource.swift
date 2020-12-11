@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-open class CollectionViewDataSource<Section, Item>: NSObject, UICollectionViewDataSource  where Section : Hashable, Item : Hashable {
+open class CollectionViewDataSource<Section, Item>: NSObject, UICollectionViewDataSource  where Section: Hashable, Item: Hashable {
  
     public typealias CellProvider  = (UICollectionView, IndexPath, Item) -> UICollectionViewCell
 
-    public let cellProvider : CellProvider 
+    public let cellProvider: CellProvider 
 
     private weak var collectionView: UICollectionView?
     public required init(_ collectionView: UICollectionView, cellGetter: @escaping CellProvider ) {

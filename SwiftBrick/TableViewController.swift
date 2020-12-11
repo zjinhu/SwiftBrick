@@ -70,7 +70,7 @@ class TableViewController: JHTableViewController {
 //        cell.addDownLine(tableView: tableView, indexPath: indexPath, leftMarign: 30)
 //        cell.addMiddleLine(tableView: tableView, indexPath: indexPath, leftMarign: 30)
         cell.addAllLine(tableView: tableView, indexPath: indexPath, leftMarign: 20, rightMarign: 0, isHeadFootMarign: false, lineColor: .red)
-        var str : String?
+        var str: String?
         if indexPath.row % 2 == 0 {
             str = "隐藏导航栏的VC"
         } else {

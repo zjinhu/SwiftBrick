@@ -11,25 +11,25 @@ import UIKit
 open class JHViewController: UIViewController {
     
     // MARK: - 参数变量
-    public lazy var leftBarButton : UIButton = {
-        let leftBarButton = UIButton.init(type: .custom)
+    public lazy var leftBarButton: UIButton = {
+        let leftBarButton = UIButton(type: .custom)
         leftBarButton.imageView?.contentMode = .center
         leftBarButton.contentHorizontalAlignment = .leading
         //        leftBarButton.backgroundColor = .white
         //        leftBarButton.titleLabel?.backgroundColor = .orange
         //        leftBarButton.imageView?.backgroundColor = .red
-        leftBarButton.frame = CGRect.init(x: 0, y: 0, width: SwiftBrick.navBarLeftButtonWidth, height: NavBarHeight())
+        leftBarButton.frame = CGRect(x: 0, y: 0, width: SwiftBrick.navBarLeftButtonWidth, height: NavBarHeight())
         return leftBarButton
     }()
     
-    public lazy var rightBarButton : UIButton = {
-        let rightBarButton = UIButton.init(type: .custom)
+    public lazy var rightBarButton: UIButton = {
+        let rightBarButton = UIButton(type: .custom)
         rightBarButton.imageView?.contentMode = .center
         rightBarButton.contentHorizontalAlignment = .trailing
         //        rightBarButton.backgroundColor = .white
         //        rightBarButton.titleLabel?.backgroundColor = .orange
         //        rightBarButton.imageView?.backgroundColor = .red
-        rightBarButton.frame = CGRect.init(x: 0, y: 0, width: SwiftBrick.navBarRightButtonWidth, height: NavBarHeight())
+        rightBarButton.frame = CGRect(x: 0, y: 0, width: SwiftBrick.navBarRightButtonWidth, height: NavBarHeight())
         return rightBarButton
     }()
     
@@ -55,7 +55,7 @@ open class JHViewController: UIViewController {
     // MARK: - Navigation 关闭手势返回
     public func closePopGestureRecognizer() {
         let target = navigationController?.interactivePopGestureRecognizer?.delegate
-        let pan = UIPanGestureRecognizer.init(target: target, action: nil)
+        let pan = UIPanGestureRecognizer(target: target, action: nil)
         view.addGestureRecognizer(pan)
     }
     
@@ -79,9 +79,9 @@ open class JHViewController: UIViewController {
      *  修正左侧按钮位置
      */
     fileprivate func fixSpaceLeftBarButton(btnItem: UIBarButtonItem){
-        leftBarButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: SwiftBrick.navBarLeftFixSpace, bottom: 0, right: 0)
-        leftBarButton.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: SwiftBrick.navBarLeftFixSpace, bottom: 0, right: 0)
-        btnItem.imageInsets = UIEdgeInsets.init(top: 0, left: SwiftBrick.navBarLeftFixSpace, bottom: 0, right: 0)
+        leftBarButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: SwiftBrick.navBarLeftFixSpace, bottom: 0, right: 0)
+        leftBarButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: SwiftBrick.navBarLeftFixSpace, bottom: 0, right: 0)
+        btnItem.imageInsets = UIEdgeInsets(top: 0, left: SwiftBrick.navBarLeftFixSpace, bottom: 0, right: 0)
         navigationItem.leftBarButtonItem = btnItem
     }
     
@@ -89,9 +89,9 @@ open class JHViewController: UIViewController {
      *  修正右侧按钮位置
      */
     fileprivate func fixSpaceRightBarButton(btnItem: UIBarButtonItem, fixSpace: CGFloat = 0){
-        rightBarButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: (fixSpace != 0 ? fixSpace : SwiftBrick.navBarRightFixSpace))
-        rightBarButton.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: (fixSpace != 0 ? fixSpace : SwiftBrick.navBarRightFixSpace))
-        btnItem.imageInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: (fixSpace != 0 ? fixSpace : SwiftBrick.navBarRightFixSpace))
+        rightBarButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: (fixSpace != 0 ? fixSpace: SwiftBrick.navBarRightFixSpace))
+        rightBarButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: (fixSpace != 0 ? fixSpace: SwiftBrick.navBarRightFixSpace))
+        btnItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: (fixSpace != 0 ? fixSpace: SwiftBrick.navBarRightFixSpace))
         navigationItem.rightBarButtonItem = btnItem
     }
     
@@ -115,7 +115,7 @@ open class JHViewController: UIViewController {
         
         configLeftBarButton(normalImage: normalImage,
                             highLightImage: highLightImage)
-        let btnItem = UIBarButtonItem.init(customView: leftBarButton)
+        let btnItem = UIBarButtonItem(customView: leftBarButton)
         
         fixSpaceLeftBarButton(btnItem: btnItem)
         
@@ -135,7 +135,7 @@ open class JHViewController: UIViewController {
         configLeftBarButton(text: text,
                             normalColor: normalColor,
                             highlightColor: highlightColor)
-        let btnItem = UIBarButtonItem.init(customView: leftBarButton)
+        let btnItem = UIBarButtonItem(customView: leftBarButton)
         
         fixSpaceLeftBarButton(btnItem: btnItem)
         
@@ -154,7 +154,7 @@ open class JHViewController: UIViewController {
         
         configRightBarButton(normalImage: normalImage,
                              highLightImage: highLightImage)
-        let btnItem = UIBarButtonItem.init(customView: rightBarButton)
+        let btnItem = UIBarButtonItem(customView: rightBarButton)
         
         fixSpaceRightBarButton(btnItem: btnItem, fixSpace: fixSpace)
         
@@ -176,7 +176,7 @@ open class JHViewController: UIViewController {
         configRightBarButton(text: text,
                              normalColor: normalColor,
                              highlightColor: highlightColor)
-        let btnItem = UIBarButtonItem.init(customView: rightBarButton)
+        let btnItem = UIBarButtonItem(customView: rightBarButton)
         
         fixSpaceRightBarButton(btnItem: btnItem, fixSpace: fixSpace)
         
@@ -237,7 +237,7 @@ open class JHViewController: UIViewController {
     
     /// 重新添加左侧按钮的点击事件,默认是goback
     /// - Parameter touchUp: 回调
-    public func addLeftBarButtonAction(touchUp : buttonClosure?){
+    public func addLeftBarButtonAction(touchUp: buttonClosure?){
         
         if let ges = touchUp {
             leftBarButton.removeTarget(self, action: #selector(touchUpInSideLeftBtnAction), for: .touchUpInside)
@@ -255,7 +255,7 @@ open class JHViewController: UIViewController {
         }
     }
     
-    fileprivate func addRightBarButtonAction(touchUp : buttonClosure?){
+    fileprivate func addRightBarButtonAction(touchUp: buttonClosure?){
         
         rightBarButton.removeTarget(self, action: #selector(touchUpInSideRightBtnAction), for: .touchUpInside)
         guard let ges = touchUp else {
@@ -293,7 +293,7 @@ open class JHViewController: UIViewController {
         
         for (index, button) in buttons.enumerated() {
             button.contentHorizontalAlignment = .leading
-            button.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: fixSpace, bottom: 0, right: 0)
+            button.contentEdgeInsets = UIEdgeInsets(top: 0, left: fixSpace, bottom: 0, right: 0)
             if index != count - 1 {
                 let barButton = UIBarButtonItem(customView: button)
                 items.append(barButton)
@@ -328,7 +328,7 @@ open class JHViewController: UIViewController {
         
         for (index, button) in buttons.enumerated() {
             button.contentHorizontalAlignment = .trailing
-            button.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: fixSpace)
+            button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: fixSpace)
             if index != count - 1 {
                 let barButton = UIBarButtonItem(customView: button)
                 items.append(barButton)

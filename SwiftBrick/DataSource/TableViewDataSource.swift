@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-open class TableViewDataSource<Section, Item>: NSObject, UITableViewDataSource where Section : Hashable, Item : Hashable {
+open class TableViewDataSource<Section, Item>: NSObject, UITableViewDataSource where Section: Hashable, Item: Hashable {
 
     public typealias CellProvider = (UITableView, IndexPath, Item) -> UITableViewCell
     
-    public let cellProvider : CellProvider
+    public let cellProvider: CellProvider
 
     private weak var tableView: UITableView?
     
