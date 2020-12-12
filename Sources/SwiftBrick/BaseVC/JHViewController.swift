@@ -14,22 +14,22 @@ open class JHViewController: UIViewController {
     public lazy var leftBarButton: UIButton = {
         let leftBarButton = UIButton(type: .custom)
         leftBarButton.imageView?.contentMode = .center
-        leftBarButton.contentHorizontalAlignment = .leading
-        //        leftBarButton.backgroundColor = .white
-        //        leftBarButton.titleLabel?.backgroundColor = .orange
-        //        leftBarButton.imageView?.backgroundColor = .red
-        leftBarButton.frame = CGRect(x: 0, y: 0, width: SwiftBrick.navBarLeftButtonWidth, height: NavBarHeight())
+//        leftBarButton.contentHorizontalAlignment = .leading
+//        leftBarButton.backgroundColor = .white
+//        leftBarButton.titleLabel?.backgroundColor = .orange
+//        leftBarButton.imageView?.backgroundColor = .red
+        leftBarButton.frame = CGRect(x: 0, y: 0, width: 0, height: NavBarHeight())
         return leftBarButton
     }()
     
     public lazy var rightBarButton: UIButton = {
         let rightBarButton = UIButton(type: .custom)
         rightBarButton.imageView?.contentMode = .center
-        rightBarButton.contentHorizontalAlignment = .trailing
-        //        rightBarButton.backgroundColor = .white
-        //        rightBarButton.titleLabel?.backgroundColor = .orange
-        //        rightBarButton.imageView?.backgroundColor = .red
-        rightBarButton.frame = CGRect(x: 0, y: 0, width: SwiftBrick.navBarRightButtonWidth, height: NavBarHeight())
+//        rightBarButton.contentHorizontalAlignment = .trailing
+//        rightBarButton.backgroundColor = .white
+//        rightBarButton.titleLabel?.backgroundColor = .orange
+//        rightBarButton.imageView?.backgroundColor = .red
+        rightBarButton.frame = CGRect(x: 0, y: 0, width: 0, height: NavBarHeight())
         return rightBarButton
     }()
     
@@ -79,9 +79,9 @@ open class JHViewController: UIViewController {
      *  修正左侧按钮位置
      */
     fileprivate func fixSpaceLeftBarButton(btnItem: UIBarButtonItem){
-        leftBarButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: SwiftBrick.navBarLeftFixSpace, bottom: 0, right: 0)
+//        leftBarButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: SwiftBrick.navBarLeftFixSpace, bottom: 0, right: 0)
         leftBarButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: SwiftBrick.navBarLeftFixSpace, bottom: 0, right: 0)
-        btnItem.imageInsets = UIEdgeInsets(top: 0, left: SwiftBrick.navBarLeftFixSpace, bottom: 0, right: 0)
+//        btnItem.imageInsets = UIEdgeInsets(top: 0, left: SwiftBrick.navBarLeftFixSpace, bottom: 0, right: 0)
         navigationItem.leftBarButtonItem = btnItem
     }
     
@@ -89,9 +89,9 @@ open class JHViewController: UIViewController {
      *  修正右侧按钮位置
      */
     fileprivate func fixSpaceRightBarButton(btnItem: UIBarButtonItem, fixSpace: CGFloat = 0){
-        rightBarButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: (fixSpace != 0 ? fixSpace: SwiftBrick.navBarRightFixSpace))
+//        rightBarButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: (fixSpace != 0 ? fixSpace: SwiftBrick.navBarRightFixSpace))
         rightBarButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: (fixSpace != 0 ? fixSpace: SwiftBrick.navBarRightFixSpace))
-        btnItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: (fixSpace != 0 ? fixSpace: SwiftBrick.navBarRightFixSpace))
+//        btnItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: (fixSpace != 0 ? fixSpace: SwiftBrick.navBarRightFixSpace))
         navigationItem.rightBarButtonItem = btnItem
     }
     
@@ -270,7 +270,7 @@ open class JHViewController: UIViewController {
             action()
         }
     }
-
+    
     
     public func addLeftBarButton(_ button: UIButton...,
                                  fixSpace: CGFloat = 0,
@@ -279,16 +279,16 @@ open class JHViewController: UIViewController {
     }
     
     fileprivate func addLeftBarButtons(buttons: [UIButton],
-                                  fixSpace: CGFloat = 0,
-                                  buttonSpace: CGFloat = 20){
-
+                                       fixSpace: CGFloat = 0,
+                                       buttonSpace: CGFloat = 20){
+        
         navigationItem.leftBarButtonItems?.removeAll()
         
         let gap = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.fixedSpace, target: nil, action: nil)
-            gap.width = buttonSpace;
+        gap.width = buttonSpace;
         
         var items = [UIBarButtonItem]()
-
+        
         let count = buttons.count
         
         for (index, button) in buttons.enumerated() {
@@ -314,16 +314,16 @@ open class JHViewController: UIViewController {
     }
     
     fileprivate func addRightBarButtons(buttons: [UIButton],
-                                   fixSpace: CGFloat = 0,
-                                   buttonSpace: CGFloat = 20){
+                                        fixSpace: CGFloat = 0,
+                                        buttonSpace: CGFloat = 20){
         
         navigationItem.rightBarButtonItems?.removeAll()
         
         let gap = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.fixedSpace, target: nil, action: nil)
-            gap.width = buttonSpace;
+        gap.width = buttonSpace;
         
         var items = [UIBarButtonItem]()
-
+        
         let count = buttons.count
         
         for (index, button) in buttons.enumerated() {
