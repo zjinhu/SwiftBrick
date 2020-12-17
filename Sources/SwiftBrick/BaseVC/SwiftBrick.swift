@@ -36,23 +36,23 @@ public protocol JHBaseVC{
     
     func addLeftBarButton(normalImage: UIImage?,
                           highLightImage: UIImage?,
-                          touchUp: ((_ sender: UIButton) -> Void)?)
+                          touchUp: ButtonClosure?)
     
     func addLeftBarButton(text: String,
                           normalColor: UIColor?,
                           highlightColor: UIColor?,
-                          touchUp: ((_ sender: UIButton) -> Void)?)
+                          touchUp: ButtonClosure?)
     
     func addRightBarButton(normalImage: UIImage?,
                            highLightImage: UIImage?,
                            fixSpace: CGFloat,
-                           touchUp: ((_ sender: UIButton) -> Void)?)
+                           touchUp: ButtonClosure?)
     
     func addRightBarButton(text: String,
                            normalColor: UIColor?,
                            highlightColor: UIColor?,
                            fixSpace: CGFloat,
-                           touchUp: ((_ sender: UIButton) -> Void)?)
+                           touchUp: ButtonClosure?)
     
     func configLeftBarButton(text: String?,
                              font: UIFont?,
@@ -79,7 +79,7 @@ public extension JHBaseVC where Self: UIViewController {
     
     func addLeftBarButton(normalImage: UIImage?,
                           highLightImage: UIImage?,
-                          touchUp: ((_ sender: UIButton) -> Void)?){
+                          touchUp: ButtonClosure?){
         
         configLeftBarButton(normalImage: normalImage,
                             highLightImage: highLightImage)
@@ -96,7 +96,7 @@ public extension JHBaseVC where Self: UIViewController {
     func addLeftBarButton(text: String,
                           normalColor: UIColor? = nil,
                           highlightColor: UIColor? = nil,
-                          touchUp: ((_ sender: UIButton) -> Void)?){
+                          touchUp: ButtonClosure?){
         configLeftBarButton(text: text,
                             normalColor: normalColor,
                             highlightColor: highlightColor)
@@ -112,7 +112,7 @@ public extension JHBaseVC where Self: UIViewController {
     func addRightBarButton(normalImage: UIImage? = nil,
                            highLightImage: UIImage? = nil,
                            fixSpace: CGFloat = 0,
-                           touchUp: ((_ sender: UIButton) -> Void)?){
+                           touchUp: ButtonClosure?){
         configRightBarButton(normalImage: normalImage,
                              highLightImage: highLightImage)
         let btnItem = UIBarButtonItem(customView: rightBarButton)
@@ -128,7 +128,7 @@ public extension JHBaseVC where Self: UIViewController {
                            normalColor: UIColor? = nil,
                            highlightColor: UIColor? = nil,
                            fixSpace: CGFloat = 0,
-                           touchUp: ((_ sender: UIButton) -> Void)?){
+                           touchUp: ButtonClosure?){
         configRightBarButton(text: text,
                              normalColor: normalColor,
                              highlightColor: highlightColor)

@@ -79,24 +79,24 @@ public extension UIButton{
     }
 }
 
+public typealias ButtonClosure = (_ sender: UIButton) -> Void
+
 public extension UIButton {
     
     struct AssociatedKeys {
         static var buttonTouchUpKey: String = "ButtonTouchUpKey"
     }
- 
-    typealias buttonClosure = (_ sender: UIButton) -> Void
-    
-    @objc internal var actionClosure: buttonClosure? {
+
+    @objc internal var actionClosure: ButtonClosure? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.buttonTouchUpKey) as? buttonClosure
+            return objc_getAssociatedObject(self, &AssociatedKeys.buttonTouchUpKey) as? ButtonClosure
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.buttonTouchUpKey, newValue, .OBJC_ASSOCIATION_COPY)
         }
     }
     
-    func addTouchUpInSideBtnAction(touchUp: buttonClosure?){
+    func addTouchUpInSideBtnAction(touchUp: ButtonClosure?){
         
         removeTarget(self, action: #selector(touchUpInSideBtnAction), for: .touchUpInside)
         guard let ges = touchUp else {

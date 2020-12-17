@@ -31,7 +31,7 @@ public extension UIButton {
                          titleHigColor: UIColor? = nil,
                          norImage: UIImage? = nil,
                          higImage: UIImage? = nil,
-                         touchUp: buttonClosure? = nil,
+                         touchUp: ButtonClosure? = nil,
                          snapKitMaker: ((ConstraintMaker) -> Void)? = nil) -> UIButton {
         
         let btn = UIButton(type: .custom)
