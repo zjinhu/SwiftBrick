@@ -78,3 +78,37 @@ public extension UIButton{
         layoutButton(postion, space: space)
     }
 }
+
+public extension UIButton {
+    
+    struct AssociatedKeys {
+        static var buttonTouchUpKey: String = "ButtonTouchUpKey"
+    }
+ 
+    typealias buttonClosure = (_ sender: UIButton) -> Void
+    
+    @objc internal var actionClosure: buttonClosure? {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKeys.buttonTouchUpKey) as? buttonClosure
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.buttonTouchUpKey, newValue, .OBJC_ASSOCIATION_COPY)
+        }
+    }
+    
+    func addTouchUpInSideBtnAction(touchUp: buttonClosure?){
+        
+        removeTarget(self, action: #selector(touchUpInSideBtnAction), for: .touchUpInside)
+        guard let ges = touchUp else {
+            return
+        }
+        actionClosure = ges
+        addTarget(self, action: #selector(touchUpInSideBtnAction), for: .touchUpInside)
+    }
+    
+    @objc func touchUpInSideBtnAction() {
+        if let action = actionClosure  {
+            action(self)
+        }
+    }
+}

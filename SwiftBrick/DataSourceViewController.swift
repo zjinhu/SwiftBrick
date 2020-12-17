@@ -29,7 +29,7 @@ class DataSourceViewController: JHTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        addRightBarButton(text: "清空", normalColor: .darkGray, highlightColor: .lightGray) {
+        addRightBarButton(text: "清空", normalColor: .darkGray, highlightColor: .lightGray) {_ in 
             
         }
 
