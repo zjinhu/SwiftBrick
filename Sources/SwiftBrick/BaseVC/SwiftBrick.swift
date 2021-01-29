@@ -39,6 +39,7 @@ public protocol JHBaseVC{
                           touchUp: ButtonClosure?)
     
     func addLeftBarButton(text: String,
+                          font: UIFont?,
                           normalColor: UIColor?,
                           highlightColor: UIColor?,
                           touchUp: ButtonClosure?)
@@ -51,6 +52,7 @@ public protocol JHBaseVC{
                            touchUp: ButtonClosure?)
     
     func addRightBarButton(text: String,
+                           font: UIFont?,
                            normalColor: UIColor?,
                            highlightColor: UIColor?,
                            selectedColor: UIColor?,
@@ -102,10 +104,12 @@ public extension JHBaseVC where Self: UIViewController {
     }
     
     func addLeftBarButton(text: String,
+                          font: UIFont?,
                           normalColor: UIColor? = nil,
                           highlightColor: UIColor? = nil,
                           touchUp: ButtonClosure?){
         configLeftBarButton(text: text,
+                            font: font,
                             normalColor: normalColor,
                             highlightColor: highlightColor)
         let btnItem = UIBarButtonItem(customView: leftBarButton)
@@ -123,8 +127,11 @@ public extension JHBaseVC where Self: UIViewController {
                            disableImage: UIImage? = nil,
                            fixSpace: CGFloat = 0,
                            touchUp: ButtonClosure?){
+        
         configRightBarButton(normalImage: normalImage,
-                             highLightImage: highLightImage)
+                             highLightImage: highLightImage,
+                             selectedImage: selectedImage,
+                             disableImage: disableImage)
         let btnItem = UIBarButtonItem(customView: rightBarButton)
         
         fixSpaceRightBarButton(btnItem: btnItem, fixSpace: fixSpace)
@@ -135,6 +142,7 @@ public extension JHBaseVC where Self: UIViewController {
     }
     
     func addRightBarButton(text: String,
+                           font: UIFont? = nil,
                            normalColor: UIColor? = nil,
                            highlightColor: UIColor? = nil,
                            selectedColor: UIColor? = nil,
@@ -142,8 +150,11 @@ public extension JHBaseVC where Self: UIViewController {
                            fixSpace: CGFloat = 0,
                            touchUp: ButtonClosure?){
         configRightBarButton(text: text,
+                             font: font,
                              normalColor: normalColor,
-                             highlightColor: highlightColor)
+                             highlightColor: highlightColor,
+                             selectedColor: selectedColor,
+                             disableColor: disableColor)
         let btnItem = UIBarButtonItem(customView: rightBarButton)
         
         fixSpaceRightBarButton(btnItem: btnItem, fixSpace: fixSpace)
@@ -159,7 +170,7 @@ public extension JHBaseVC where Self: UIViewController {
                              highlightColor: UIColor? = nil,
                              normalImage: UIImage? = nil,
                              highLightImage: UIImage? = nil){
-        leftBarButton.titleLabel?.font = font
+        leftBarButton.titleLabel?.font = font ?? Font14
         leftBarButton.setTitle(text, for: .normal)
         leftBarButton.setTitle(text, for: .highlighted)
         leftBarButton.setTitleColor(normalColor, for: .normal)
@@ -179,7 +190,8 @@ public extension JHBaseVC where Self: UIViewController {
                               highLightImage: UIImage? = nil,
                               selectedImage: UIImage? = nil,
                               disableImage: UIImage? = nil){
-        rightBarButton.titleLabel?.font = font
+        
+        rightBarButton.titleLabel?.font = font ?? Font14
         rightBarButton.setTitle(text, for: .normal)
         rightBarButton.setTitle(text, for: .highlighted)
         rightBarButton.setTitle(text, for: .selected)
