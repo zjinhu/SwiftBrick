@@ -45,12 +45,16 @@ public protocol JHBaseVC{
     
     func addRightBarButton(normalImage: UIImage?,
                            highLightImage: UIImage?,
+                           selectedImage: UIImage?,
+                           disableImage: UIImage?,
                            fixSpace: CGFloat,
                            touchUp: ButtonClosure?)
     
     func addRightBarButton(text: String,
                            normalColor: UIColor?,
                            highlightColor: UIColor?,
+                           selectedColor: UIColor?,
+                           disableColor: UIColor?,
                            fixSpace: CGFloat,
                            touchUp: ButtonClosure?)
     
@@ -65,8 +69,12 @@ public protocol JHBaseVC{
                               font: UIFont?,
                               normalColor: UIColor?,
                               highlightColor: UIColor?,
+                              selectedColor: UIColor?,
+                              disableColor: UIColor?,
                               normalImage: UIImage?,
-                              highLightImage: UIImage?)
+                              highLightImage: UIImage?,
+                              selectedImage: UIImage?,
+                              disableImage: UIImage?)
     
 }
 
@@ -111,6 +119,8 @@ public extension JHBaseVC where Self: UIViewController {
     
     func addRightBarButton(normalImage: UIImage? = nil,
                            highLightImage: UIImage? = nil,
+                           selectedImage: UIImage? = nil,
+                           disableImage: UIImage? = nil,
                            fixSpace: CGFloat = 0,
                            touchUp: ButtonClosure?){
         configRightBarButton(normalImage: normalImage,
@@ -127,6 +137,8 @@ public extension JHBaseVC where Self: UIViewController {
     func addRightBarButton(text: String,
                            normalColor: UIColor? = nil,
                            highlightColor: UIColor? = nil,
+                           selectedColor: UIColor? = nil,
+                           disableColor: UIColor? = nil,
                            fixSpace: CGFloat = 0,
                            touchUp: ButtonClosure?){
         configRightBarButton(text: text,
@@ -161,16 +173,27 @@ public extension JHBaseVC where Self: UIViewController {
                               font: UIFont? = nil,
                               normalColor: UIColor? = nil,
                               highlightColor: UIColor? = nil,
+                              selectedColor: UIColor? = nil,
+                              disableColor: UIColor? = nil,
                               normalImage: UIImage? = nil,
-                              highLightImage: UIImage? = nil){
+                              highLightImage: UIImage? = nil,
+                              selectedImage: UIImage? = nil,
+                              disableImage: UIImage? = nil){
         rightBarButton.titleLabel?.font = font
         rightBarButton.setTitle(text, for: .normal)
         rightBarButton.setTitle(text, for: .highlighted)
+        rightBarButton.setTitle(text, for: .selected)
+        rightBarButton.setTitle(text, for: .disabled)
+        
         rightBarButton.setTitleColor(normalColor, for: .normal)
         rightBarButton.setTitleColor(highlightColor, for: .highlighted)
+        rightBarButton.setTitleColor(selectedColor, for: .selected)
+        rightBarButton.setTitleColor(disableColor, for: .disabled)
         
         rightBarButton.setImage(normalImage, for: .normal)
         rightBarButton.setImage(highLightImage, for: .highlighted)
+        rightBarButton.setImage(selectedImage, for: .selected)
+        rightBarButton.setImage(disableImage, for: .disabled)
     }
     
     func fixSpaceLeftBarButton(btnItem: UIBarButtonItem){
