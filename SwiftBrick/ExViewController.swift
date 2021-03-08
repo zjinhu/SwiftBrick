@@ -20,13 +20,6 @@ class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSou
         }
         
         tableView.registerCell(JHTableViewCell.self)
-//         self.tabBarController?.tabBar.badgePoint = CGPoint(x: 25, y: -3)
-        self.tabBarController?.tabBar.badgeSize = CGSize(width: 20, height: 20)
-//        self.tabBarController?.tabBar.badgeColor = UIColor.red
-//        self.tabBarController?.tabBar.badgeImage = UIImage(named: "share_haoyou_btn")
-        self.tabBarController?.tabBar.badgeValue = 200
-        self.tabBarController?.tabBar.showBadgeOnItemIndex(index: 0)
-
     }
     
     // MARK:-示例快速创建UIView 使用部分默认参数 --初始化使用SnapKit
@@ -55,10 +48,10 @@ class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSou
     // MARK:-示例快速创建UIView 使用全部参数--有单击操作
     func demoView3(supView: UIView){
         UIView.snpView(supView: supView, backColor: .purple, tapGesture: { (view) in
-            print("1111")
+            print("点击View")
         }) { (make) in
             make.top.equalTo(supView).offset(20)
-            make.centerX.equalTo(supView)
+            make.centerX.equalTo(supView).offset(30)
             make.width.equalTo(80)
             make.height.equalTo(40)
         }
@@ -76,15 +69,17 @@ class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSou
     }
     
     func demoImageView2(supView: UIView){
-        UIImageView.snpImageView(supView: supView, backColor: .orange, image: UIImage.init(named: "share_haoyou_btn"), snpTapGesture: { (view) in
-            print("点击图片")
-            self.tabBarController?.tabBar.hiddenRedPointOnIndex(index: 0, animation: true)
-        }) { (make) in
+        UIImageView.snpImageView(supView: supView,
+                                 backColor: .orange,
+                                 image: UIImage.init(named: "share_haoyou_btn"),
+                                 snpTapGesture: { (view) in
+                                    print("点击图片")
+                                 }) { (make) in
             make.top.equalTo(supView).offset(30)
             make.centerX.equalTo(supView)
             make.width.equalTo(80)
             make.height.equalTo(40)
-        }
+        }.contentMode = .scaleAspectFit
 
     }
     // MARK:-示例快速创建按钮

@@ -1,24 +1,21 @@
 PODS:
-  - CheckDevice (1.0.4)
   - SnapKit (5.0.1)
-  - Swift_Notification (0.5.0)
+  - Swift_Form (1.0.6):
+    - SnapKit
 
 DEPENDENCIES:
-  - CheckDevice
   - SnapKit
-  - Swift_Notification
+  - Swift_Form
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - CheckDevice
     - SnapKit
-    - Swift_Notification
+    - Swift_Form
 
 SPEC CHECKSUMS:
-  CheckDevice: 18948a59d021f3a6d3fc4b7e70b62324396ee9f4
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
-  Swift_Notification: 61b60a7da330c004cfe74375f6e33b3dcc87b6fb
+  Swift_Form: 65539d8cef741dc494a054aeb100f09ec5e561af
 
-PODFILE CHECKSUM: 591a80ccd81193848f623239b2059889c17f61cf
+PODFILE CHECKSUM: 31b74cb55f882e2536a2f219f6c6538d7b11f2f4
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1

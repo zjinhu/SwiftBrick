@@ -7,9 +7,9 @@ target 'SwiftBrick' do
   use_frameworks!
 
   # Pods for SwiftBrick
-#  pod 'SwifterSwift'
+
   pod 'SnapKit'
-  pod 'CheckDevice'
-#  pod 'SwiftyRefresh'
-  pod 'Swift_Notification'
+
+  pod 'Swift_Form'
+
 end

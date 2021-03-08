@@ -8,16 +8,16 @@
 
 import UIKit
 import SnapKit
-
+import Swift_Form
 class ViewController: JHTableViewController {
 
-
+    lazy var former = Former(tableView: self.tableView!)
+    
     override func viewDidLoad() {
  
         super.viewDidLoad()
-//        self.title = "SwiftBrick示例"
-        self.mainDatas = ["跳转Tableview","跳转CollectionView","跳转WebView","跳转EXView","跳转DataSource"]
-        
+        self.title = "SwiftBrick示例"
+
         navigationController?.navigationBar.setBackgroundColor(.baseTeal)
         navigationController?.navigationBar.setLineHidden(hidden: true)
         
@@ -29,55 +29,82 @@ class ViewController: JHTableViewController {
         
         print("\(AppState.state)")
         
-        print("username修改前\(UserDefaultsConfig.username)")
+        print("username修改前\(String(describing: UserDefaultsConfig.username))")
         UserDefaultsConfig.username = nil
-        print("username修改后\(UserDefaultsConfig.username)")
+        print("username修改后\(String(describing: UserDefaultsConfig.username))")
         
-        print("nickname修改前\(UserDefaultsConfig.nickname)")
+        print("nickname修改前\(String(describing: UserDefaultsConfig.nickname))")
         UserDefaultsConfig.nickname = nil
-        print("nickname修改后\(UserDefaultsConfig.nickname)")
+        print("nickname修改后\(String(describing: UserDefaultsConfig.nickname))")
         
-        print("test修改前\(UserDefaultsSu.test)")
+        print("test修改前\(String(describing: UserDefaultsSu.test))")
         UserDefaultsSu.test = nil
         DispatchQueue.main.asyncAfter(delay: 2) {
-            print("test修改后\(UserDefaultsSu.test)")
+            print("test修改后\(String(describing: UserDefaultsSu.test))")
         }
-        NotificationCenter.default.add(name: "123") { (noti) in
-            
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(JHTableViewCell.self)
-        cell.textLabel?.text = self.mainDatas[indexPath.row] as? String
-        cell.addDownLine()
-       return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.row {
-        case 0:
+
+        let row1 = LabelRow()
+        row1.title = "跳转Tableview"
+        row1.subTitle = "无导航栏"
+        row1.cell.accessoryType = .disclosureIndicator
+        row1.cell.addDownLine()
+        row1.onSelected { [weak self](row) in
+            guard let `self` = self else {return}
             let vc = TableViewController.init(tableViewStyle: .styleGrouped)
             self.navigationController?.pushViewController(vc, animated: true)
-        case 1:
-            let vc = CollectionViewController.init()
-            self.navigationController?.pushViewController(vc, animated: true)
-        case 2:
-            let vc = WebViewController()//.init(urlString: "https://www.baidu.com")
-            self.navigationController?.pushViewController(vc, animated: true)
-        case 3:
-            let vc = ExViewController.init()
-            self.navigationController?.pushViewController(vc, animated: true)
-        case 4:
-            self.navigationController?.pushViewController(DataSourceViewController(), animated: true)
-        default:
-            print("")
+            
         }
         
+        let row2 = LabelRow()
+        row2.title = "跳转CollectionView"
+        row2.subTitle = "有导航栏"
+        row2.cell.accessoryType = .disclosureIndicator
+        row2.cell.addDownLine()
+        row2.onSelected { [weak self](row) in
+            guard let `self` = self else {return}
+            let vc = CollectionViewController.init()
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
+        
+        let row3 = LabelRow()
+        row3.title = "跳转WebView"
+        row3.cell.accessoryType = .disclosureIndicator
+        row3.cell.addDownLine()
+        row3.onSelected { [weak self](row) in
+            guard let `self` = self else {return}
+            let vc = WebViewController()//.init(urlString: "https://www.baidu.com")
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
+        
+        let row4 = LabelRow()
+        row4.title = "跳转EXView"
+        row4.subTitle = "工厂方法"
+        row4.cell.accessoryType = .disclosureIndicator
+        row4.cell.addDownLine()
+        row4.onSelected { [weak self](row) in
+            guard let `self` = self else {return}
+            let vc = ExViewController.init()
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
+        
+        let row5 = LabelRow()
+        row5.title = "测试小功能"
+        row5.cell.accessoryType = .disclosureIndicator
+        row5.cell.addDownLine()
+        row5.onSelected { [weak self](row) in
+            guard let `self` = self else {return}
+            let vc = TestViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
+        let section = SectionFormer(row1, row2, row3, row4, row5)
+        
+        former.append(sectionFormer: section)
     }
-    deinit{
-        print("1释放")
-    }
+    
 }
 
 struct UserDefaultsConfig {

@@ -3,7 +3,7 @@ UI工具类集合，方便快速搭建APP UI ，依赖SnapKit。涉及到的设�
 ### 文件目录
 1. ViewFactory
 基于SnapKit封装常用UI控件，一个函数创建UI控件，比如UILabel
-```
+```swift
     /// 快速初始化UILabel 包含默认参数,初始化过程可以删除部分默认参数简化方法
     /// - Parameters:
     ///   - font: 字体 有默认参数
@@ -14,20 +14,21 @@ UI工具类集合，方便快速搭建APP UI ，依赖SnapKit。涉及到的设�
     ///   - textAlignment: textAlignment 有默认参数
     ///   - snapKitMaker: SnapKit 有默认参数
     ///   - backColor: 背景色
-func snpLabel(font: UIFont = UIFont.systemFont(ofSize: 14),
+    @discardableResult
+    class func snpLabel(supView: UIView? = nil,
+                        backColor: UIColor? = .clear,
+                        font: UIFont = UIFont.systemFont(ofSize: 14),
                         lines: Int = 0,
                         text: String = "",
                         textColor: UIColor = .black,
-                        supView: UIView? = nil,
                         textAlignment: NSTextAlignment = .left,
-                        snapKitMaker : SnapConfig.SnapMaker? = nil,
-                        backColor: UIColor) -> UILabel
+                        snapKitMaker: ((ConstraintMaker) -> Void)? = nil) -> UILabel 
 ```
 可以根据参数需要更改的做保留，不需要更改的直接使用默认参数，例子：
-```
+```swift
 let _ = UILabel.snpLabel(text: “我是Label”, textColor: .red, supView: self.view, snapKitMaker: { (make) in
             make.center.equalToSuperview()
-        }, backColor: .white)
+        })
 ```
 常用的UI控件都做了SnapKit封装，方便实用，且添加了点击手势闭包以及UIButton点击闭包。
 2. Extensions
@@ -38,6 +39,8 @@ let _ = UILabel.snpLabel(text: “我是Label”, textColor: .red, supView: self
 * UINavigationController —对Nav做扩展，给VC添加属性，方便设置隐藏导航栏，以及解决多级页面导航栏隐藏显示过程中的动画问题，
 仅需要在VC的viewDidLoad中设置 `self.prefersNavigationBarHidden = true/false`来控制当前页面的导航栏是否隐藏（ios13需SceneDelegate中添加SwizzleNavBar.swizzle进行方法交换）详细请参考DEMO
 * StatusBaEx --添加状态栏控制工具，添加UIViewController专属参数控制状态栏样式以及显示隐藏，不局限于VC，可在任意位置控制，只要递归到最上层VC即可（参考：https://github.com/jackiehu/SwiftMediator）
+* UITableViewCell -- 分割线快速添加
+* UIButton -- 图文混排按钮扩展
 3. BaseVC
 针对几个常用的VC做了父类化封装。方便开发过程中的VC创建，只需要继承相关父类，调用相关方法执行相应的代理即可
 * JHViewController   --继承后方便设置导航栏左右按钮以及可选某些页面关闭滑动返回，统一返回方法
@@ -50,6 +53,8 @@ let _ = UILabel.snpLabel(text: “我是Label”, textColor: .red, supView: self
 5. Util
 * 常量，工具
 
+具体使用代码api详细参见Demo
+
 ### 安装
 #### cocoapods导入
 几个Group可单独引用也可全体引入
@@ -57,5 +62,10 @@ let _ = UILabel.snpLabel(text: “我是Label”, textColor: .red, supView: self
 * 1.在 Podfile 中添加 `pod ‘SwiftBrick’`
 * 2.执行 `pod install 或 pod update`
 * 3.导入 `import SwiftBrick`
+#### SPM导入
+
+`https://github.com/jackiehu/SwiftBrick`
+
 #### 手动导入
+
 或者手动拖入代码即可

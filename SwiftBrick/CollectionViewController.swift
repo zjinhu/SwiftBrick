@@ -21,24 +21,25 @@ class CollectionViewController: JHCollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.prefersNavigationBarHidden = false
-        self.mainDatas = [["","","","","","","",""],["","","","","","",""],["","","","","","","","","","",""],["","","","","","","","","",""]]
-        // Do any additional setup after loading the view.
+        prefersNavigationBarHidden = false
+
+        mainDatas = [["","","","","","","",""],["","","","","","",""],["","","","","","","","","","",""],["","","","","","","","","",""]]
+
         addRightBarButton(normalImage: UIImage.init(named: "nav_ic_back"),
                           highLightImage: UIImage.init(named: "nav_ic_back"),
                           fixSpace: 0) {_ in 
             print("touch")
         }
 
-        addRightBarButton(text: "54634535",
+        addRightBarButton(text: "信号栏",
                           normalColor: .darkGray,
                           highlightColor: .lightGray,
                           fixSpace: 0 ) {_ in 
-            print("123123")
+        
         }
         
-        self.collectionView?.registerHeaderFooterView(JHCollectionReusableView.self, kindType: .sectionHeader)
-        self.collectionView?.registerHeaderFooterView(JHCollectionReusableView.self, kindType: .sectionFooter)
+        collectionView?.registerHeaderFooterView(JHCollectionReusableView.self, kindType: .sectionHeader)
+        collectionView?.registerHeaderFooterView(JHCollectionReusableView.self, kindType: .sectionFooter)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -57,9 +58,11 @@ class CollectionViewController: JHCollectionViewController {
             return footer
         }
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize.init(width: ScreenWidth, height: 20)
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         return CGSize.init(width: ScreenWidth, height: 60)
     }
@@ -69,4 +72,5 @@ class CollectionViewController: JHCollectionViewController {
         cell.backgroundColor = .random
         return cell
     }
+
 }

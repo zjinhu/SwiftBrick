@@ -13,10 +13,6 @@ class WebViewController: JHWebViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         customUserAgent = "hahah"
-        // Do any additional setup after loading the view.
-//        addLeftBarButton(text: "as", normalColor: .black, highlightColor: .black) {
-//            self.goBack()
-//        }
 
         request = URLRequest.init(url: URL.init(string: "https://support.qq.com/product/190629")!)
         request?.httpMethod = "POST"
@@ -26,16 +22,5 @@ class WebViewController: JHWebViewController {
         loadRequest()
 
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
