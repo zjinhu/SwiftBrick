@@ -10,6 +10,11 @@ import UIKit
 
 class TestViewController: UIViewController {
 
+    let then = UIView().then { (v) in
+        v.backgroundColor = .red
+        v.layer.cornerRadius = 20
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -62,6 +67,13 @@ class TestViewController: UIViewController {
             make.height.equalTo(50)
         }
         
+        view.addSubview(then)
+        then.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(350)
+            make.center.equalToSuperview()
+            make.width.equalTo(150)
+            make.height.equalTo(150)
+        }
         
     }
  

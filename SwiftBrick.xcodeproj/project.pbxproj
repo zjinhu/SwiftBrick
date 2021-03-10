@@ -51,6 +51,7 @@
 		81DA091125677275009A5215 /* TapBuzz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DA091025677275009A5215 /* TapBuzz.swift */; };
 		81DA0919256775A1009A5215 /* NotificationCenterEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DA0918256775A1009A5215 /* NotificationCenterEx.swift */; };
 		81DA092425677D7A009A5215 /* UserDefaultsEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DA092325677D7A009A5215 /* UserDefaultsEx.swift */; };
+		81F74AEC25F86F76007CDB69 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F74AEB25F86F76007CDB69 /* Then.swift */; };
 		9111500823838CC200AE47DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111500723838CC200AE47DF /* AppDelegate.swift */; };
 		9111500A23838CC200AE47DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111500923838CC200AE47DF /* SceneDelegate.swift */; };
 		9111500C23838CC200AE47DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111500B23838CC200AE47DF /* ViewController.swift */; };
@@ -110,6 +111,7 @@
 		81DA091025677275009A5215 /* TapBuzz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBuzz.swift; sourceTree = "<group>"; };
 		81DA0918256775A1009A5215 /* NotificationCenterEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterEx.swift; sourceTree = "<group>"; };
 		81DA092325677D7A009A5215 /* UserDefaultsEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsEx.swift; sourceTree = "<group>"; };
+		81F74AEB25F86F76007CDB69 /* Then.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
 		82CE79D1DBAE0B9E369C40C8 /* Pods-SwiftBrick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBrick.release.xcconfig"; path = "Target Support Files/Pods-SwiftBrick/Pods-SwiftBrick.release.xcconfig"; sourceTree = "<group>"; };
 		9111500423838CC200AE47DF /* SwiftBrick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBrick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9111500723838CC200AE47DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				811372D1256529D200D07554 /* AppState.swift */,
 				81DA090A25676AB9009A5215 /* UserDefault.swift */,
 				81DA091025677275009A5215 /* TapBuzz.swift */,
+				81F74AEB25F86F76007CDB69 /* Then.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				81804117253165CB002FFFF6 /* UITabBarEx.swift in Sources */,
 				911150382383DABF00AE47DF /* CollectionViewController.swift in Sources */,
 				81804107253165CB002FFFF6 /* UICollectionViewSnapEx.swift in Sources */,
+				81F74AEC25F86F76007CDB69 /* Then.swift in Sources */,
 				818044A12531BDCA002FFFF6 /* UIStackViewSnapEx.swift in Sources */,
 				81804111253165CB002FFFF6 /* UINavigationControllerEx.swift in Sources */,
 				81804113253165CB002FFFF6 /* UIViewEx.swift in Sources */,
