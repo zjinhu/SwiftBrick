@@ -46,6 +46,7 @@
 		81804119253165CB002FFFF6 /* StringEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040F5253165CB002FFFF6 /* StringEx.swift */; };
 		8180411B253165CB002FFFF6 /* UIButtonEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040F7253165CB002FFFF6 /* UIButtonEx.swift */; };
 		818044A12531BDCA002FFFF6 /* UIStackViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818044A02531BDCA002FFFF6 /* UIStackViewSnapEx.swift */; };
+		81A919A42600C33800B9964E /* InsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A919A32600C33800B9964E /* InsetLabel.swift */; };
 		81DA090B25676AB9009A5215 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DA090A25676AB9009A5215 /* UserDefault.swift */; };
 		81DA090E25677185009A5215 /* DispatchQueueEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DA090D25677185009A5215 /* DispatchQueueEx.swift */; };
 		81DA091125677275009A5215 /* TapBuzz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DA091025677275009A5215 /* TapBuzz.swift */; };
@@ -106,6 +107,7 @@
 		818040F5253165CB002FFFF6 /* StringEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringEx.swift; sourceTree = "<group>"; };
 		818040F7253165CB002FFFF6 /* UIButtonEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonEx.swift; sourceTree = "<group>"; };
 		818044A02531BDCA002FFFF6 /* UIStackViewSnapEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewSnapEx.swift; sourceTree = "<group>"; };
+		81A919A32600C33800B9964E /* InsetLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetLabel.swift; sourceTree = "<group>"; };
 		81DA090A25676AB9009A5215 /* UserDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		81DA090D25677185009A5215 /* DispatchQueueEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueEx.swift; sourceTree = "<group>"; };
 		81DA091025677275009A5215 /* TapBuzz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBuzz.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				818040E2253165CB002FFFF6 /* UITextViewSnapEx.swift */,
 				818040E3253165CB002FFFF6 /* UIImageViewSnapEx.swift */,
 				818044A02531BDCA002FFFF6 /* UIStackViewSnapEx.swift */,
+				81A919A32600C33800B9964E /* InsetLabel.swift */,
 			);
 			path = ViewFactory;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				81F74AEC25F86F76007CDB69 /* Then.swift in Sources */,
 				818044A12531BDCA002FFFF6 /* UIStackViewSnapEx.swift in Sources */,
 				81804111253165CB002FFFF6 /* UINavigationControllerEx.swift in Sources */,
+				81A919A42600C33800B9964E /* InsetLabel.swift in Sources */,
 				81804113253165CB002FFFF6 /* UIViewEx.swift in Sources */,
 				81804102253165CB002FFFF6 /* UILabelSnapEx.swift in Sources */,
 				81DA092425677D7A009A5215 /* UserDefaultsEx.swift in Sources */,
