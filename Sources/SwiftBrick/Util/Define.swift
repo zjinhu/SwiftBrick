@@ -80,18 +80,36 @@ public var isX: Bool {
 public let IsIPAD: Bool = (UIDevice.current.userInterfaceIdiom == .pad) ? true: false
 
 
-
 // MARK:- 系统版本
-public let SystemVersion: Double = Double(UIDevice.current.systemVersion) ?? 0
-public let Later_iOS11 = SystemVersion >= 11.0
-public let Later_iOS12 = SystemVersion >= 12.0
-public let Later_iOS13 = SystemVersion >= 13.0
-public let Later_iOS14 = SystemVersion >= 14.0
+public let SystemVersion: String = UIDevice.current.systemVersion
 
-public func Later_iOS_11() -> Bool { return SystemVersion >= 11.0 }
-public func Later_iOS_12() -> Bool { return SystemVersion >= 12.0 }
-public func Later_iOS_13() -> Bool { return SystemVersion >= 13.0 }
-public func Later_iOS_14() -> Bool { return SystemVersion >= 14.0 }
+public func Later_iOS11() -> Bool {
+    guard #available(iOS 11.0, *) else {
+        return false
+    }
+    return true
+}
+
+public func Later_iOS12() -> Bool {
+    guard #available(iOS 12.0, *) else {
+        return false
+    }
+    return true
+}
+
+public func Later_iOS13() -> Bool {
+    guard #available(iOS 13.0, *) else {
+        return false
+    }
+    return true
+}
+
+public func Later_iOS14() -> Bool {
+    guard #available(iOS 14.0, *) else {
+        return false
+    }
+    return true
+}
 
 // MARK:- 字体
 /// 系统默认字体

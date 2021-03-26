@@ -52,6 +52,7 @@
 		81DA091125677275009A5215 /* TapBuzz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DA091025677275009A5215 /* TapBuzz.swift */; };
 		81DA0919256775A1009A5215 /* NotificationCenterEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DA0918256775A1009A5215 /* NotificationCenterEx.swift */; };
 		81DA092425677D7A009A5215 /* UserDefaultsEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DA092325677D7A009A5215 /* UserDefaultsEx.swift */; };
+		81E008FF260CA25B00E50E7B /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E008FE260CA25B00E50E7B /* Version.swift */; };
 		81F74AEC25F86F76007CDB69 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F74AEB25F86F76007CDB69 /* Then.swift */; };
 		9111500823838CC200AE47DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111500723838CC200AE47DF /* AppDelegate.swift */; };
 		9111500A23838CC200AE47DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111500923838CC200AE47DF /* SceneDelegate.swift */; };
@@ -113,6 +114,7 @@
 		81DA091025677275009A5215 /* TapBuzz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBuzz.swift; sourceTree = "<group>"; };
 		81DA0918256775A1009A5215 /* NotificationCenterEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterEx.swift; sourceTree = "<group>"; };
 		81DA092325677D7A009A5215 /* UserDefaultsEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsEx.swift; sourceTree = "<group>"; };
+		81E008FE260CA25B00E50E7B /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		81F74AEB25F86F76007CDB69 /* Then.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
 		82CE79D1DBAE0B9E369C40C8 /* Pods-SwiftBrick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBrick.release.xcconfig"; path = "Target Support Files/Pods-SwiftBrick/Pods-SwiftBrick.release.xcconfig"; sourceTree = "<group>"; };
 		9111500423838CC200AE47DF /* SwiftBrick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBrick.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				818040CF253165CB002FFFF6 /* Loader.swift */,
+				81E008FE260CA25B00E50E7B /* Version.swift */,
 				818040D0253165CB002FFFF6 /* Define.swift */,
 				811372D1256529D200D07554 /* AppState.swift */,
 				81DA090A25676AB9009A5215 /* UserDefault.swift */,
@@ -467,6 +470,7 @@
 				81804112253165CB002FFFF6 /* StatusBaEx.swift in Sources */,
 				8180410A253165CB002FFFF6 /* JHTableViewCell.swift in Sources */,
 				81804109253165CB002FFFF6 /* UIImageViewSnapEx.swift in Sources */,
+				81E008FF260CA25B00E50E7B /* Version.swift in Sources */,
 				81804118253165CB002FFFF6 /* UITableViewCellEx.swift in Sources */,
 				81804100253165CB002FFFF6 /* UILineView.swift in Sources */,
 				8180410D253165CB002FFFF6 /* JHCollectionViewCell.swift in Sources */,
@@ -624,7 +628,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 69LR4SZVY2;
+				DEVELOPMENT_TEAM = TBQ5ET6KZ4;
 				INFOPLIST_FILE = SwiftBrick/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -646,7 +650,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 69LR4SZVY2;
+				DEVELOPMENT_TEAM = TBQ5ET6KZ4;
 				INFOPLIST_FILE = SwiftBrick/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
