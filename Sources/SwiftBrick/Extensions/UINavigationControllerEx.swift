@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+// MARK: ===================================扩展: UINavigationController出入栈导航栏隐藏展示平滑切换,只需要①②两步即可=========================================
 //extension UIApplication {
 //    ///ios13以上失效,需要手动调用SwizzleNavBar.swizzle
 //    override open var next: UIResponder? {
@@ -17,6 +17,7 @@ import UIKit
 //}
 
 public class SwizzleNavBar {
+    //MARK: ‼️APP初始化时需要交换一下方法‼️重要①‼️
     public static let swizzle: Void = {
         UIViewController.swizzleMethod()
         UINavigationController.swizzle()
@@ -81,7 +82,8 @@ public extension UIViewController {
     private struct Associate {
         static var NavigationBarHidden: String = "NavigationBarHidden"
     }
-    
+    //MARK: ‼️在需要展示隐藏导航栏的VC中赋值即可处理导航栏‼️重要②‼️
+    /// 处理导航栏在VC内赋值True即可隐藏导航栏
     var prefersNavigationBarHidden: Bool? {
         get {
             return objc_getAssociatedObject(self, &Associate.NavigationBarHidden) as? Bool

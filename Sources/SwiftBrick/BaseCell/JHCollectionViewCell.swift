@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+// MARK: ===================================Cell基类:UICollectionViewCell=========================================
 open class JHCollectionViewCell: UICollectionViewCell, Reusable{
 
     public override init(frame: CGRect) {

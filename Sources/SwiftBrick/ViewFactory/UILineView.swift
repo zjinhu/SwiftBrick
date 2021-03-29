@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+// MARK: ===================================工厂类:虚线 实线=========================================
 public class UILineView: UIView {
     ///线宽度
     public var lineWidth: CGFloat = LineHeight{

@@ -9,7 +9,10 @@
 import Foundation
 //#if canImport(Dispatch)
 import Dispatch
+// MARK: ===================================扩展: DispatchQueue延迟方法=========================================
 public extension DispatchQueue {
+    
+    /// 判断主线程
     static var isMainQueue: Bool {
         enum Static {
             static var key: DispatchSpecificKey<Void> = {
@@ -22,10 +25,11 @@ public extension DispatchQueue {
     }
 }
 
-// MARK: - Methods
 public extension DispatchQueue {
-    /// - Parameter queue: The queue to compare against.
-    /// - Returns: `true` if the current queue is the specified queue, otherwise `false`.
+    
+    /// 判断是不是在主线程
+    /// - Parameter queue: queue
+    /// - Returns: true/false
     static func isCurrent(_ queue: DispatchQueue) -> Bool {
         let key = DispatchSpecificKey<Void>()
 
@@ -34,20 +38,25 @@ public extension DispatchQueue {
 
         return DispatchQueue.getSpecific(key: key) != nil
     }
-
+    
+    /// 延迟闭包
     /// - Parameters:
-    ///   - delay: The time inverval after which the closure will run.
-    ///   - qos: Quality of service at which the work item should be executed.
-    ///   - flags: Flags that control the execution environment of the work item.
-    ///   - work: The closure to run after certain time interval.
+    ///   - delay: 延迟时间
+    ///   - qos: qos
+    ///   - flags: flags
+    ///   - work: 执行闭包
     func asyncAfter(delay: Double,
                     qos: DispatchQoS = .unspecified,
                     flags: DispatchWorkItemFlags = [],
                     execute work: @escaping () -> Void) {
         asyncAfter(deadline: .now() + delay, qos: qos, flags: flags, execute: work)
     }
-
-    func debounce(delay: Double, action: @escaping () -> Void) -> () -> Void {
+    
+    /// 延迟闭包
+    /// - Parameters:
+    ///   - delay: 延迟时间
+    ///   - action: 执行闭包
+    func after(delay: Double, action: @escaping () -> Void) -> () -> Void {
         var lastFireTime = DispatchTime.now()
         let deadline = { lastFireTime + delay }
         return {

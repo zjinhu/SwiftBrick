@@ -7,6 +7,7 @@
 //
 
 import UIKit
+// MARK: ===================================工厂类:带内边距UILabel=========================================
 class InsetLabel: UILabel {
     // 1.定义一个接受间距的属性
     var textInsets = UIEdgeInsets.zero

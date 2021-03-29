@@ -8,6 +8,7 @@
 
 import Foundation
 import CommonCrypto
+// MARK: ===================================扩展: 字符串sha256=========================================
 extension String {
     
     var sha256: String {

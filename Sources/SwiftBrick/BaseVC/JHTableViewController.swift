@@ -8,10 +8,9 @@
 
 import UIKit
 import SnapKit
+// MARK: ===================================VC基类:UITableViewController=========================================
 open class JHTableViewController: JHViewController ,UITableViewDelegate,UITableViewDataSource{
-//    deinit {
-//        print("JHTableViewController out")
-//    }
+
     // MARK: - 参数变量
     public enum TableViewStyleType {
         case stylePlain

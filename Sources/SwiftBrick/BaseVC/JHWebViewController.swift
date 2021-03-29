@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 import SnapKit
-
+// MARK: ===================================VC基类:UIWebViewController=========================================
 open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDelegate,WKScriptMessageHandler,UIScrollViewDelegate{
 
     lazy var backButton: UIButton = {

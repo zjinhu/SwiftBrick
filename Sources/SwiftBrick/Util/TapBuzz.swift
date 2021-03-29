@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+// MARK: ===================================工具类:震动反馈=========================================
 public class TapBuzz{
     public static func light() {
         TapticEngine.impact.feedback(.light)

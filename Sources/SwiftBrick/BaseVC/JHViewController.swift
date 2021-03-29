@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+// MARK: ===================================VC基类:UIViewController=========================================
 open class JHViewController: UIViewController, JHBaseVC {
 
     // MARK: - 布局

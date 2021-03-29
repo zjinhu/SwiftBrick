@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+// MARK: ===================================工厂类:UIImageView SnapKit=========================================
 public extension UIImageView {
 
     /// 快速初始化UIImageView 包含默认参数,初始化过程可以删除部分默认参数简化方法

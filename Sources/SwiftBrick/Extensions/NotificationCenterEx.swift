@@ -7,7 +7,15 @@
 //
 
 import Foundation
+// MARK: ===================================扩展: NotificationCenter闭包监听=========================================
 public extension NotificationCenter {
+    
+    /// NotificationCenter通知监听闭包
+    /// - Parameters:
+    ///   - name: 通知名
+    ///   - obj: 对象
+    ///   - queue: 线程
+    ///   - block: 执行闭包
     func add(name: String,
              obj: Any? = nil,
              queue: OperationQueue? = .main,

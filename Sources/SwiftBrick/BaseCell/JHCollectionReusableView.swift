@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+// MARK: ===================================Cell基类:UICollectionReusableView=========================================
 open class JHCollectionReusableView: UICollectionReusableView, Reusable{
     
     /// 样式，header还是footer

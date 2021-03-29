@@ -8,7 +8,7 @@
 
 import SnapKit
 import UIKit
-
+// MARK: ===================================工厂类:处理视图数组排版=========================================
 public extension Array {
     var snp: ConstraintArrayDSL {
         return ConstraintArrayDSL(array: self as! Array<ConstraintView>)

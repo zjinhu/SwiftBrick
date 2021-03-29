@@ -8,7 +8,7 @@
 
 import UIKit
 import Foundation
-
+// MARK: ===================================扩展: UIGestureRecognizer 点击手势闭包=========================================
 public extension UIGestureRecognizer {
     private class GestureAction {
         var action: (UIGestureRecognizer) -> Void

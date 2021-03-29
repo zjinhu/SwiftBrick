@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+// MARK: ===================================Cell基类:UITableViewHeaderFooterView=========================================
 open class JHTableViewHeaderFooterView: UITableViewHeaderFooterView, Reusable{
 
     public var backColor: UIColor? {

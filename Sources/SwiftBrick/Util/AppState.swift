@@ -7,6 +7,7 @@
 //
 
 import Foundation
+// MARK: ===================================工具类:APP当前状态=========================================
 public enum AppStateMode {
     case Debug
     case TestFlight

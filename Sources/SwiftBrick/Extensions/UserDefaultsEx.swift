@@ -7,25 +7,15 @@
 //
 
 import Foundation
+// MARK: ===================================扩展: UserDefaults=========================================
 public extension UserDefaults {
-    /// Set Codable object into UserDefaults
-    ///
-    /// - Parameters:
-    ///   - object: Codable Object
-    ///   - forKey: Key string
-    /// - Throws: UserDefaults Error
+
     func setT<T: Codable>(object: T, forKey: String) throws {
         
         let jsonData = try JSONEncoder().encode(object)
         set(jsonData, forKey: forKey)
     }
-    
-    /// Get Codable object into UserDefaults
-    ///
-    /// - Parameters:
-    ///   - object: Codable Object
-    ///   - forKey: Key string
-    /// - Throws: UserDefaults Error
+
     func getT<T: Codable>(objectType: T.Type, forKey: String) throws -> T? {
         
         guard let result = value(forKey: forKey) as? Data else {
@@ -34,6 +24,7 @@ public extension UserDefaults {
         
         return try JSONDecoder().decode(objectType, from: result)
     }
+    
     ///下标脚本
     subscript(key: String) -> Any? {
         get {

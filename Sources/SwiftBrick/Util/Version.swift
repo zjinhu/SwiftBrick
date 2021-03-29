@@ -7,20 +7,25 @@
 //
 
 import Foundation
+// MARK: ===================================工具类:iOS系统版本号对比=========================================
 public struct Version {
     
     public let major: Int
-
     public let minor: Int
-
     public let patch: Int
-
+    
+    /// 默认初始化,当前系统的iOS版本号
     public init() {
         major = ProcessInfo.processInfo.operatingSystemVersion.majorVersion
         minor = ProcessInfo.processInfo.operatingSystemVersion.minorVersion
         patch = ProcessInfo.processInfo.operatingSystemVersion.patchVersion
     }
-
+    
+    /// 使用自定义的版本号初始化
+    /// - Parameters:
+    ///   - major: 版本号
+    ///   - minor: 版本号
+    ///   - patch: 版本号
     public init(_ major: Int, _ minor: Int, _ patch: Int) {
         self.major = major
         self.minor = minor
@@ -40,10 +45,20 @@ extension Version: Comparable {
         }
     }
     
+    /// 系统版本号比对
+    /// - Parameters:
+    ///   - lhs: 左
+    ///   - rhs: 右
+    /// - Returns: true/false
     public static func == (lhs: Version, rhs: Version) -> Bool {
         return lhs.major == rhs.major && lhs.minor == rhs.minor && lhs.patch == rhs.patch
     }
     
+    /// 系统版本号比对
+    /// - Parameters:
+    ///   - lhs: 左
+    ///   - rhs: 右
+    /// - Returns: true/false
     public static func < (lhs: Version, rhs: Version) -> Bool {
         let majorComparison = Version.compare(lhs: lhs.major, rhs: rhs.major)
         if majorComparison != .orderedSame {

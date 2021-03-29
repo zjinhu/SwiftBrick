@@ -8,11 +8,9 @@
 
 import UIKit
 import SnapKit
-
+// MARK: ===================================VC基类:UICollectionViewController=========================================
 open class JHCollectionViewController: JHViewController ,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
-//    deinit {
-//        print("JHCollectionViewController out")
-//    }
+
     // MARK: - 参数变量
     public enum ScrollDirectionType {
         case ScrollVertical

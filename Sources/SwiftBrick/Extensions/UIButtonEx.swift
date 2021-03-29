@@ -7,13 +7,20 @@
 //
 
 import UIKit
+// MARK: ===================================扩展: UIButton扩展图文=========================================
 public enum ImagePosition {
     case imagePositionLeft
     case imagePositionRight
     case imagePositionTop
     case imagePositionBottom
 }
+
 public extension UIButton{
+    
+    /// UIButton 图文布局 外观大小不固定 固定间距
+    /// - Parameters:
+    ///   - postion: 布局样式
+    ///   - space: 图文间距
     func layoutButton(_ postion: ImagePosition, space: CGFloat) {
         
         guard let titleL = titleLabel, let imageV = imageView else {
@@ -66,6 +73,10 @@ public extension UIButton{
         }
     }
     
+    /// UIButton 图文布局 外观大小固定
+    /// - Parameters:
+    ///   - postion: 布局样式
+    ///   - margin: 图文距离左右两边
     func layoutButton(_ postion: ImagePosition, margin: CGFloat) {
         
         guard

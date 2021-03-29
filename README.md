@@ -1,5 +1,27 @@
 # UI工具组件--SwiftBrick
-UI工具类集合，方便快速搭建APP UI ，依赖SnapKit。涉及到的设计模式有：工厂，装饰，抽象等等，加快APP开发搭建进度
+这是一个UI工具类集合，方便快速搭建APP UI ，依赖SnapKit。涉及到的设计模式有：工厂，装饰，抽象等等，加快APP开发搭建进度。
+
+支持CocoaPods，SwiftPM。
+
+内含部分图片颜色资源（支持暗黑模式）。
+
+## 功能
+
+- VC基类、协议--继承后即可使用，包括处理导航栏左右按钮，TableView、CollectionView、WKWebview等VC封装
+- Cell基类、协议-- TableView、CollectionView的Cell以及Header/Footer注册，复用
+- UINavigationBar背景色修改，分割线隐藏
+- UINavigationController出入栈导航栏隐藏展示的平滑切换
+- UIStatusBar样式以及展示隐藏
+- View渐变色背景
+- UITableViewCell各种样式分割线
+- UIButton扩展图文
+- 各种View的扩展工厂
+- UIColor扩展
+- UserDefault、UserDefaultSuite属性包裹器
+- iOS系统版本对比判断
+- 震动反馈工具
+- 各种Swift宏定义
+
 ## 文件目录
 1. ### ViewFactory
 
@@ -57,6 +79,32 @@ let _ = UILabel.snpLabel(text: “我是Label”, textColor: .red, supView: self
 * 常量，工具
 
 具体使用代码api详细参见Demo
+
+### 更多砖块工具加速APP开发
+
+[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=jackiehu&repo=SwiftMediator&theme=radical&locale=cn)](https://github.com/jackiehu/SwiftMediator)
+
+[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=jackiehu&repo=SwiftShow&theme=radical&locale=cn)](https://github.com/jackiehu/SwiftShow)
+
+[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=jackiehu&repo=SwiftLog&theme=radical&locale=cn)](https://github.com/jackiehu/SwiftLog)
+
+[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=jackiehu&repo=SwiftyForm&theme=radical&locale=cn)](https://github.com/jackiehu/SwiftyForm)
+
+[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=jackiehu&repo=SwiftEmptyData&theme=radical&locale=cn)](https://github.com/jackiehu/SwiftEmptyData)
+
+[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=jackiehu&repo=SwiftPageView&theme=radical&locale=cn)](https://github.com/jackiehu/SwiftPageView)
+
+[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=jackiehu&repo=JHTabBarController&theme=radical&locale=cn)](https://github.com/jackiehu/JHTabBarController)
+
+[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=jackiehu&repo=SwiftMesh&theme=radical&locale=cn)](https://github.com/jackiehu/SwiftMesh)
+
+[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=jackiehu&repo=SwiftNotification&theme=radical&locale=cn)](https://github.com/jackiehu/SwiftNotification)
+
+[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=jackiehu&repo=SwiftNetSwitch&theme=radical&locale=cn)](https://github.com/jackiehu/SwiftNetSwitch)
+
+[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=jackiehu&repo=SwiftButton&theme=radical&locale=cn)](https://github.com/jackiehu/SwiftButton)
+
+[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=jackiehu&repo=SwiftDatePicker&theme=radical&locale=cn)](https://github.com/jackiehu/SwiftDatePicker)
 
 ## 安装
 #### cocoapods导入
