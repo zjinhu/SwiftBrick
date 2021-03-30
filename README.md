@@ -4,18 +4,14 @@
 [![Platform](https://img.shields.io/cocoapods/p/SwiftBrick.svg?style=flat)](http://cocoapods.org/pods/SwiftBrick)
 [![Language](https://img.shields.io/badge/language-swift-red.svg?style=flat)]()
 [![SPM](https://img.shields.io/badge/SPM-supported-DE5C43.svg?style=flat)](https://swift.org/package-manager/)
-[![Support](https://img.shields.io/badge/support-iOS%2010%2B%20-brightgreen.svg?style=flat)](https://www.apple.com/nl/ios/)
+[![Support](https://img.shields.io/badge/support-iOS%2011%2B%20-brightgreen.svg?style=flat)](https://www.apple.com/nl/ios/)
 [![License](https://img.shields.io/cocoapods/l/SwiftBrick.svg?style=flat)](http://cocoapods.org/pods/SwiftBrick)
+![Xcode 9.0+](https://img.shields.io/badge/Xcode-11.0%2B-blue.svg)
+![iOS 8.0+](https://img.shields.io/badge/iOS-11.0%2B-blue.svg)
+![Swift 4.0+](https://img.shields.io/badge/Swift-5.0%2B-orange.svg)
 
 SwiftBrick是一个简单易用、功能丰富的UI搭建框架，主要目的是为了加速APP开发 。
-
 内含部分图片颜色资源（都支持暗黑模式）。
-
-## 环境要求
-
-- iOS 11.0+
-- Xcode 11.0+
-- Swift 5.0+
 
 ## 功能
 
@@ -77,7 +73,7 @@ SwiftBrick 也支持手动集成，只需把Sources文件夹中的SwiftBrick文�
 
 
 ## 文件目录
-#### ViewFactory：UI控件工厂
+### ViewFactory：UI控件工厂
 
   基于SnapKit封装常用UI控件，一个函数创建UI控件，比如UILabel
 ```swift
@@ -101,12 +97,14 @@ SwiftBrick 也支持手动集成，只需把Sources文件夹中的SwiftBrick文�
                         textAlignment: NSTextAlignment = .left,
                         snapKitMaker: ((ConstraintMaker) -> Void)? = nil) -> UILabel 
 ```
+
 可以根据参数需要更改的做保留，不需要更改的直接使用默认参数，例子：
 ```swift
 UILabel.snpLabel(text: “我是Label”, textColor: .red, supView: self.view, snapKitMaker: { (make) in
      make.center.equalToSuperview()
 })
 ```
+
 对常用的UI控件都做了SnapKit封装、扩展，方便实用，且添加了点击手势闭包以及UIButton点击闭包。
 
 - [x] UITableView
@@ -137,7 +135,7 @@ UILabel.snpLabel(text: “我是Label”, textColor: .red, supView: self.view, s
 
   
 
-#### Extensions：常用的扩展
+### Extensions：常用的扩展
 
 * UIGestureRecognizer        — 添加闭包回调handleAction
 
@@ -160,7 +158,7 @@ UILabel.snpLabel(text: “我是Label”, textColor: .red, supView: self.view, s
 
 
 
-#### BaseVC：VC基类
+### BaseVC：VC基类
 
   针对几个常用的VC做了父类化封装。方便开发过程中的VC创建，只需要继承相关父类，调用相关方法执行相应的代理即可
 * JHViewController   --继承后方便设置导航栏左右按钮以及可选某些页面关闭滑动返回，统一返回方法
@@ -173,13 +171,13 @@ UILabel.snpLabel(text: “我是Label”, textColor: .red, supView: self.view, s
   详细用法参见DEMO
 
   
-#### BaseCell：Cell基类
+### BaseCell：Cell基类
 
 * 泛型封装Table、Collection的Cell以及HeaderView，方便快速注册，复用，传递Model，只需要继承后在setupCellViews()里做相关布局UI即可。
 
 
 
-#### Util：常量，工具
+### Util：常量，工具
 
 * Version --iOS系统版本对比工具
 * Define --各种Swift常用的宏定义
@@ -193,7 +191,7 @@ UILabel.snpLabel(text: “我是Label”, textColor: .red, supView: self.view, s
 
 
 
-### 更多砖块工具加速APP开发
+## 更多砖块工具加速APP开发
 
 [![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=jackiehu&repo=SwiftMediator&theme=radical&locale=cn)](https://github.com/jackiehu/SwiftMediator)
 
