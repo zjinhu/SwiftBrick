@@ -1,4 +1,6 @@
-# SwiftBrick
+
+
+![](Image/logo.png)
 
 [![Version](https://img.shields.io/cocoapods/v/SwiftBrick.svg?style=flat)](http://cocoapods.org/pods/SwiftBrick)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftBrick.svg?style=flat)](http://cocoapods.org/pods/SwiftBrick)
@@ -11,6 +13,7 @@
 ![Swift 4.0+](https://img.shields.io/badge/Swift-5.0%2B-orange.svg)
 
 SwiftBrick是一个简单易用、功能丰富的UI搭建框架，主要目的是为了加速APP开发 。
+
 内含部分图片颜色资源（都支持暗黑模式）。
 
 ## 功能
@@ -47,7 +50,7 @@ SwiftBrick是一个简单易用、功能丰富的UI搭建框架，主要目的�
 
 ## 安装
 
-#### cocoapods
+### cocoapods
 
 几个Group可单独引用也可全体引入
 比如 `pod ‘SwiftBrick/ViewFactory’`
@@ -58,7 +61,7 @@ SwiftBrick是一个简单易用、功能丰富的UI搭建框架，主要目的�
 
 3.导入 `import SwiftBrick`
 
-#### Swift Package Manager
+### Swift Package Manager
 
 从 Xcode 11 开始，集成了 Swift Package Manager，使用起来非常方便。SwiftBrick 也支持通过 Swift Package Manager 集成。
 
@@ -66,7 +69,7 @@ SwiftBrick是一个简单易用、功能丰富的UI搭建框架，主要目的�
 
 `https://github.com/jackiehu/SwiftBrick`，即可完成集成
 
-#### 手动集成
+### 手动集成
 
 SwiftBrick 也支持手动集成，只需把Sources文件夹中的SwiftBrick文件夹拖进需要集成的项目即可
 
