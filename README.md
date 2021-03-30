@@ -5,7 +5,6 @@
 
 [![Version](https://img.shields.io/cocoapods/v/SwiftBrick.svg?style=flat)](http://cocoapods.org/pods/SwiftBrick)
 [![SPM](https://img.shields.io/badge/SPM-supported-DE5C43.svg?style=flat)](https://swift.org/package-manager/)
-[![Support](https://img.shields.io/badge/support-iOS%2011%2B%20-brightgreen.svg?style=flat)](https://www.apple.com/nl/ios/)
 ![Xcode 11.0+](https://img.shields.io/badge/Xcode-11.0%2B-blue.svg)
 ![iOS 11.0+](https://img.shields.io/badge/iOS-11.0%2B-blue.svg)
 ![Swift 5.0+](https://img.shields.io/badge/Swift-5.0%2B-orange.svg)
