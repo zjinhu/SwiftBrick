@@ -27,7 +27,7 @@ public struct SwiftBrick{
 }
 
 public protocol JHBaseVC{
-    
+
     func hideDefaultBackBarButton()
     
     func fixSpaceLeftBarButton(btnItem: UIBarButtonItem)
@@ -104,7 +104,7 @@ public extension JHBaseVC where Self: UIViewController {
     }
     
     func addLeftBarButton(text: String,
-                          font: UIFont?,
+                          font: UIFont? = nil,
                           normalColor: UIColor? = nil,
                           highlightColor: UIColor? = nil,
                           touchUp: ButtonClosure?){
