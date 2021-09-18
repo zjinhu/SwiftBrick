@@ -35,7 +35,7 @@ public func StatusBarHeight() ->CGFloat {
         return UIApplication.shared.statusBarFrame.height
     }
 }
-
+///获取当前设备window用于判断尺寸
 public func getWindow() -> UIWindow?{
     if #available(iOS 13.0, *){
         let winScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
