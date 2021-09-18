@@ -21,6 +21,10 @@ class ViewController: JHTableViewController {
         navigationController?.navigationBar.setBackgroundColor(.baseTeal)
         navigationController?.navigationBar.setLineHidden(hidden: true)
         
+        let a = BottomHomeHeight
+        let b = StatusBarHeight()
+        SLog("\(b)--\(a)")
+        
         if IsIPAD{
             print("1")
         }else{

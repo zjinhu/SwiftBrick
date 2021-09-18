@@ -30,10 +30,18 @@ public let LineHeight = CGFloat(Scare >= 1 ? 1/Scare: 1)
 /// - Returns: 高度
 public func StatusBarHeight() ->CGFloat {
     if #available(iOS 13.0, *){
-        let window = UIApplication.shared.windows.first
-        return window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+        return getWindow()?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
     }else{
         return UIApplication.shared.statusBarFrame.height
+    }
+}
+
+public func getWindow() -> UIWindow?{
+    if #available(iOS 13.0, *){
+        let winScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        return winScene?.windows.first
+    }else{
+        return UIApplication.shared.keyWindow
     }
 }
 
@@ -46,7 +54,7 @@ public func NavBarHeight() ->CGFloat {
 /// 获取屏幕导航栏+信号栏总高度
 public let NavAndStatusHeight = StatusBarHeight() + NavBarHeight()
 /// 获取刘海屏底部home键高度,普通屏为0
-public let BottomHomeHeight = UIApplication.shared.windows[0].safeAreaInsets.bottom
+public let BottomHomeHeight = getWindow()?.safeAreaInsets.bottom ?? 0
 
 /// TabBar高度 实时获取,可获取不同分辨率手机横竖屏切换后的实时高度变化
 /// - Returns: 高度
@@ -57,24 +65,14 @@ public func TabbarHeight() ->CGFloat {
 public let TabBarHeight = TabbarHeight() + BottomHomeHeight
 
 
-
 /// 判断是否iphoneX 带刘海
 public func IsBangs_iPhone() -> Bool {
-    guard #available(iOS 11.0, *) else {
-        return false
-    }
-    let isX = UIApplication.shared.windows[0].safeAreaInsets.bottom > 0
-    return isX
+    return BottomHomeHeight > 0
 }
 
 public var isX: Bool {
-        var isX = false
-        if #available(iOS 11.0, *) {
-            let bottom: CGFloat = UIApplication.shared.delegate?.window??.safeAreaInsets.bottom ?? 0
-            isX = bottom > 0.0
-        }
-        return isX
-    }
+    return BottomHomeHeight > 0
+}
 
 ///判断是否iPad
 public let IsIPAD: Bool = (UIDevice.current.userInterfaceIdiom == .pad) ? true: false
@@ -209,9 +207,9 @@ public var AppVersion: String? {
 
 // MARK:- 打印输出
 public func SLog<T>(_ message: T, file: String = #file, funcName: String = #function, lineNum: Int = #line) {
-    #if DEBUG
-        let fileName = (file as NSString).lastPathComponent
-        print("\n\n<><><><><>-「LOG」-<><><><><>\n\n>>>>>>>>>>>>>>>所在类:>>>>>>>>>>>>>>>\n\n\(fileName)\n\n>>>>>>>>>>>>>>>所在行:>>>>>>>>>>>>>>>\n\n\(lineNum)\n\n>>>>>>>>>>>>>>>信 息:>>>>>>>>>>>>>>>\n\n\(message)\n\n<><><><><>-「END」-<><><><><>\n\n")
-    #endif
+#if DEBUG
+    let fileName = (file as NSString).lastPathComponent
+    print("\n\n<><><><><>-「LOG」-<><><><><>\n\n>>>>>>>>>>>>>>>所在类:>>>>>>>>>>>>>>>\n\n\(fileName)\n\n>>>>>>>>>>>>>>>所在行:>>>>>>>>>>>>>>>\n\n\(lineNum)\n\n>>>>>>>>>>>>>>>信 息:>>>>>>>>>>>>>>>\n\n\(message)\n\n<><><><><>-「END」-<><><><><>\n\n")
+#endif
 }
 
