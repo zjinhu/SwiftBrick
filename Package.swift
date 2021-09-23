@@ -23,6 +23,8 @@ let package = Package(
         .target(name: "SwiftBrick",
                 dependencies: ["SnapKit"],
                 resources: [.process("Resources"),],
-                swiftSettings: [.define("ENABLE_SPM"),]),
+//                cSettings: [.define("CAN_COMPILE", .when(configuration: .debug)),],
+                swiftSettings: [.define("ENABLE_SPM"),]
+               ),
     ]
 )
