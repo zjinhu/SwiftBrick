@@ -84,7 +84,10 @@ open class JHTableViewController: JHViewController ,UITableViewDelegate,UITableV
         }
         
         tableView?.contentInsetAdjustmentBehavior = .automatic
-
+        if #available(iOS 15.0, *) {
+            tableView?.sectionHeaderTopPadding = 0
+        }
+        
         let gestureArray: [UIGestureRecognizer]? = navigationController?.view.gestureRecognizers
         
         gestureArray?.forEach({ (gesture) in
