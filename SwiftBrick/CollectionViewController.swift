@@ -14,7 +14,9 @@ class CollectionViewController: JHCollectionViewController {
         let flowLayout = UICollectionViewFlowLayout.init()
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
-        flowLayout.scrollDirection = UICollectionView.ScrollDirection.vertical
+        flowLayout.headerReferenceSize = CGSize.zero
+        flowLayout.footerReferenceSize = CGSize.zero
+        flowLayout.scrollDirection = UICollectionView.ScrollDirection.horizontal
         return flowLayout
     }
     

@@ -65,49 +65,6 @@ public func TabbarHeight() ->CGFloat {
 public let TabBarHeight = TabbarHeight() + BottomHomeHeight
 
 
-/// 判断是否iphoneX 带刘海
-public func IsBangs_iPhone() -> Bool {
-    return BottomHomeHeight > 0
-}
-
-public var isX: Bool {
-    return BottomHomeHeight > 0
-}
-
-///判断是否iPad
-public let IsIPAD: Bool = (UIDevice.current.userInterfaceIdiom == .pad) ? true: false
-
-
-// MARK:- 系统版本
-public let SystemVersion: String = UIDevice.current.systemVersion
-
-public func Later_iOS11() -> Bool {
-    guard #available(iOS 11.0, *) else {
-        return false
-    }
-    return true
-}
-
-public func Later_iOS12() -> Bool {
-    guard #available(iOS 12.0, *) else {
-        return false
-    }
-    return true
-}
-
-public func Later_iOS13() -> Bool {
-    guard #available(iOS 13.0, *) else {
-        return false
-    }
-    return true
-}
-
-public func Later_iOS14() -> Bool {
-    guard #available(iOS 14.0, *) else {
-        return false
-    }
-    return true
-}
 
 // MARK:- 字体
 /// 系统默认字体
@@ -212,4 +169,3 @@ public func SLog<T>(_ message: T, file: String = #file, funcName: String = #func
     print("\n\n<><><><><>-「LOG」-<><><><><>\n\n>>>>>>>>>>>>>>>所在类:>>>>>>>>>>>>>>>\n\n\(fileName)\n\n>>>>>>>>>>>>>>>所在行:>>>>>>>>>>>>>>>\n\n\(lineNum)\n\n>>>>>>>>>>>>>>>信 息:>>>>>>>>>>>>>>>\n\n\(message)\n\n<><><><><>-「END」-<><><><><>\n\n")
 #endif
 }
-

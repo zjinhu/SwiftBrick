@@ -47,6 +47,9 @@
 		8180411B253165CB002FFFF6 /* UIButtonEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040F7253165CB002FFFF6 /* UIButtonEx.swift */; };
 		818044A12531BDCA002FFFF6 /* UIStackViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818044A02531BDCA002FFFF6 /* UIStackViewSnapEx.swift */; };
 		81A919A42600C33800B9964E /* InsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A919A32600C33800B9964E /* InsetLabel.swift */; };
+		81B362502733B8BD00A80F5A /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B3624F2733B8BD00A80F5A /* Device.swift */; };
+		81B362522733BCBA00A80F5A /* ArrayEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B362512733BCBA00A80F5A /* ArrayEx.swift */; };
+		81B362542733BE1E00A80F5A /* DictionaryEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B362532733BE1E00A80F5A /* DictionaryEx.swift */; };
 		81DA090B25676AB9009A5215 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DA090A25676AB9009A5215 /* UserDefault.swift */; };
 		81DA090E25677185009A5215 /* DispatchQueueEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DA090D25677185009A5215 /* DispatchQueueEx.swift */; };
 		81DA091125677275009A5215 /* TapBuzz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DA091025677275009A5215 /* TapBuzz.swift */; };
@@ -109,6 +112,9 @@
 		818040F7253165CB002FFFF6 /* UIButtonEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonEx.swift; sourceTree = "<group>"; };
 		818044A02531BDCA002FFFF6 /* UIStackViewSnapEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewSnapEx.swift; sourceTree = "<group>"; };
 		81A919A32600C33800B9964E /* InsetLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetLabel.swift; sourceTree = "<group>"; };
+		81B3624F2733B8BD00A80F5A /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		81B362512733BCBA00A80F5A /* ArrayEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayEx.swift; sourceTree = "<group>"; };
+		81B362532733BE1E00A80F5A /* DictionaryEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryEx.swift; sourceTree = "<group>"; };
 		81DA090A25676AB9009A5215 /* UserDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		81DA090D25677185009A5215 /* DispatchQueueEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueEx.swift; sourceTree = "<group>"; };
 		81DA091025677275009A5215 /* TapBuzz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBuzz.swift; sourceTree = "<group>"; };
@@ -183,6 +189,7 @@
 				81DA090A25676AB9009A5215 /* UserDefault.swift */,
 				81DA091025677275009A5215 /* TapBuzz.swift */,
 				81F74AEB25F86F76007CDB69 /* Then.swift */,
+				81B3624F2733B8BD00A80F5A /* Device.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -257,6 +264,8 @@
 				81DA090D25677185009A5215 /* DispatchQueueEx.swift */,
 				81DA0918256775A1009A5215 /* NotificationCenterEx.swift */,
 				81DA092325677D7A009A5215 /* UserDefaultsEx.swift */,
+				81B362512733BCBA00A80F5A /* ArrayEx.swift */,
+				81B362532733BE1E00A80F5A /* DictionaryEx.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -428,6 +437,7 @@
 				9111500C23838CC200AE47DF /* ViewController.swift in Sources */,
 				81804116253165CB002FFFF6 /* UIImageEx.swift in Sources */,
 				9111503023838E1A00AE47DF /* TableViewController.swift in Sources */,
+				81B362502733B8BD00A80F5A /* Device.swift in Sources */,
 				81DA091125677275009A5215 /* TapBuzz.swift in Sources */,
 				8180410F253165CB002FFFF6 /* UINavigationBarEx.swift in Sources */,
 				811372D2256529D200D07554 /* AppState.swift in Sources */,
@@ -472,7 +482,9 @@
 				81804109253165CB002FFFF6 /* UIImageViewSnapEx.swift in Sources */,
 				81E008FF260CA25B00E50E7B /* Version.swift in Sources */,
 				81804118253165CB002FFFF6 /* UITableViewCellEx.swift in Sources */,
+				81B362542733BE1E00A80F5A /* DictionaryEx.swift in Sources */,
 				81804100253165CB002FFFF6 /* UILineView.swift in Sources */,
+				81B362522733BCBA00A80F5A /* ArrayEx.swift in Sources */,
 				8180410D253165CB002FFFF6 /* JHCollectionViewCell.swift in Sources */,
 				8180411B253165CB002FFFF6 /* UIButtonEx.swift in Sources */,
 				81804119253165CB002FFFF6 /* StringEx.swift in Sources */,
