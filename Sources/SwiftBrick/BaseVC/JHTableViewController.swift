@@ -54,7 +54,12 @@ open class JHTableViewController: JHViewController ,UITableViewDelegate,UITableV
             tableView = UITableView(frame: .zero, style: .plain)
             
         }
-
+        
+        if #available(iOS 15.0, *) {
+            tableView?.sectionHeaderTopPadding = 0
+            tableView?.isPrefetchingEnabled = false
+        }
+        
         tableView?.backgroundColor = .clear
         tableView?.delegate = self
         tableView?.dataSource = self
@@ -84,10 +89,7 @@ open class JHTableViewController: JHViewController ,UITableViewDelegate,UITableV
         }
         
         tableView?.contentInsetAdjustmentBehavior = .automatic
-        if #available(iOS 15.0, *) {
-            tableView?.sectionHeaderTopPadding = 0
-        }
-        
+
         let gestureArray: [UIGestureRecognizer]? = navigationController?.view.gestureRecognizers
         
         gestureArray?.forEach({ (gesture) in
