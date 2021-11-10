@@ -17,10 +17,12 @@ public protocol SwitchFormableRow: FormableRow {
 
 /// SwitchForm
 open class SwitchRowFormer<T: UITableViewCell>: BaseRowFormer<T>, Formable where T: SwitchFormableRow {
-
+    ///开关状态
     public var switched = false
     public var switchWhenSelected = false
+    ///开关回调
     public var onSwitchChanged: ((Bool) -> Void)?
+    ///开关样式
     public var selectionStyle: UITableViewCell.SelectionStyle?
     
     /// SwitchForm 状态变化

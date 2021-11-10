@@ -22,17 +22,21 @@ open class InlineDatePickerRowFormer<T: UITableViewCell>: BaseRowFormer<T>, Form
     override open var canBecomeEditing: Bool {
         return enabled
     }
-
+    ///初始日期数据
     public var date: Date = Date()
+    public var displayTextColor: UIColor?
     public var displayDisabledColor: UIColor? = .lightGray
     public var displayEditingColor: UIColor?
     public var titleEditingColor: UIColor?
-    
+    ///选择日期后回调
     public var onDateChanged: ((Date) -> Void)?
+    ///开始数据变化回调
     public var onEditingBegin: ((Date, T) -> Void)?
+    ///数据变化结束回调
     public var onEditingEnded: ((Date, T) -> Void)?
+    ///副标题显示数据回调
     public var displayTextFromDate: ((Date) -> String)?
-    public var displayTextColor: UIColor?
+    
     
     public override init() {
         inlineRowFormer = DatePickerRowFormer<InlineCellType>()

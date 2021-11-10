@@ -18,19 +18,19 @@ open class ImageCell: BaseCell, ImageFormableRow {
     public private(set) weak var subTitleLabel: UILabel!
     public private(set) weak var titleImageView: UIImageView!
     public private(set) weak var coverImageView: UIImageView!
-    
+    /// 标题左侧图标(可修改属性)
     public func formTitleImageView() -> UIImageView? {
         return titleImageView
     }
-    
+    /// 标题Label(可修改属性)
     public func formTitleLabel() -> UILabel? {
         return titleLabel
     }
-    
+    ///获取UIImageView(可修改属性)
     public func formImageView() -> UIImageView? {
         return coverImageView
     }
-    
+    /// 右侧副标题/说明(可修改属性)
     public func formSubTitleLabel() -> UILabel? {
         return subTitleLabel
     }

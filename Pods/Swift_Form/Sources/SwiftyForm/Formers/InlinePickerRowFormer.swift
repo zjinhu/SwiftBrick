@@ -15,7 +15,7 @@ public protocol InlinePickerFormableRow: FormableRow {
 }
 
 open class InlinePickerItem<S>: PickerItem<S> {
-    
+    /// 右侧副标题/说明
     public let displayTitle: NSAttributedString?
     public init(title: String, displayTitle: NSAttributedString? = nil, value: S? = nil) {
         self.displayTitle = displayTitle
@@ -31,17 +31,25 @@ open class InlinePickerRowFormer<T: UITableViewCell, S>: BaseRowFormer<T>, Forma
     override open var canBecomeEditing: Bool {
         return enabled
     }
-
+    /// picker数据源
     public var pickerItems: [InlinePickerItem<S>] = []
+    ///默认选中
     public var selectedRow: Int = 0
-    public var displayDisabledColor: UIColor? = .lightGray
-    public var titleEditingColor: UIColor?
-    public var displayEditingColor: UIColor?
-    
-    public var onValueChanged: ((InlinePickerItem<S>) -> Void)?
-    public var onEditingBegin: ((InlinePickerItem<S>, T) -> Void)?
-    public var onEditingEnded: ((InlinePickerItem<S>, T) -> Void)?
+    ///副标题颜色
     public var displayTextColor: UIColor?
+    ///不可用时副标题颜色
+    public var displayDisabledColor: UIColor? = .lightGray
+    ///标题颜色
+    public var titleEditingColor: UIColor?
+    ///副标题编辑中颜色
+    public var displayEditingColor: UIColor?
+    ///数据变化时回调
+    public var onValueChanged: ((InlinePickerItem<S>) -> Void)?
+    ///开始数据变化回调
+    public var onEditingBegin: ((InlinePickerItem<S>, T) -> Void)?
+    ///数据变化结束回调
+    public var onEditingEnded: ((InlinePickerItem<S>, T) -> Void)?
+    
     
     public override init() {
         inlineRowFormer = PickerRowFormer<InlineCellType, S>()

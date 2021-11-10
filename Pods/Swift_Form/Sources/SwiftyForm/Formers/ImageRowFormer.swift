@@ -18,12 +18,17 @@ public protocol ImageFormableRow: FormableRow {
 
 /// ImageForm 顶部和LabelRorm一样,下边是图片
 open class ImageRowFormer<T: UITableViewCell>: BaseRowFormer<T>, Formable where T: ImageFormableRow {
-
+    /// 右侧副标题/说明 内容
     public var subTitle: String?
-    public var coverImage: UIImage?
-    public var coverRadius: CGFloat = 10
+    /// 右侧副标题/说明 不可用时颜色
     public var subTitleDisabledColor: UIColor? = .lightGray
+    /// 右侧副标题/说明 颜色
     public var subTitleColor: UIColor?
+    ///图片
+    public var coverImage: UIImage?
+    ///图片圆角
+    public var coverRadius: CGFloat = 10
+
  
     open override func initialized() {
         rowHeight = 190

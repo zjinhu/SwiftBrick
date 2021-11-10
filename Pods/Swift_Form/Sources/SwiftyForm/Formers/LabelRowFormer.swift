@@ -18,9 +18,11 @@ public protocol LabelFormableRow: FormableRow {
 
 /// LabelForm
 open class LabelRowFormer<T: UITableViewCell> : BaseRowFormer<T>, Formable where T: LabelFormableRow {
- 
+    ///副标题
     public var subTitle: String?
+    ///不可用时副标题颜色
     public var subTitleDisabledColor: UIColor? = .lightGray
+    ///副标题颜色
     public var subTitleColor: UIColor?
     
     /// LabelForm初始化

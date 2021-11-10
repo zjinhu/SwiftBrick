@@ -21,7 +21,6 @@ open class ViewFormer {
         
     }
     
-    // MARK: Private
     private var _viewInstance: UITableViewHeaderFooterView?
     private final let viewType: UITableViewHeaderFooterView.Type
     internal final var viewSetup: ((UITableViewHeaderFooterView) -> Void)?
@@ -52,9 +51,7 @@ open class ViewFormer {
             formableView.updateHeaderFooterFormer(self)
         }
     }
-    
-    // MARK: Internal
-    
+        
     internal final var dynamicViewHeight: ((UITableView, Int) -> CGFloat)?
     
     internal final var viewInstance: UITableViewHeaderFooterView {

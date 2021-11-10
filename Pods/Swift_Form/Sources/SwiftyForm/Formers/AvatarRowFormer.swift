@@ -18,8 +18,9 @@ public protocol AvatarFormableRow: FormableRow {
 
 /// AvatarForm
 open class AvatarRowFormer<T: UITableViewCell> : BaseRowFormer<T>, Formable where T: AvatarFormableRow {
-
+    ///头像图片
     public var avatarImage: UIImage?
+    ///头像圆角
     public var avatarRadius: CGFloat = 4
     /// AvatarForm初始化
     open override func initialized() {

@@ -9,8 +9,9 @@
 import UIKit
 
 open class BaseRowFormer<T: UITableViewCell>: RowFormer {
-    
+    ///cell不可点击是标题颜色
     public var titleDisabledColor: UIColor? = .lightGray
+    ///cell标题颜色
     public var titleColor: UIColor?
     
     /// 获取form里的cell

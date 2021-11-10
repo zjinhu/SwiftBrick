@@ -8,7 +8,6 @@
 
 import UIKit
 
-// MARK: Inline RowFormer
 public protocol InlineForm{
     
     var inlineRowFormer: RowFormer { get }
@@ -36,7 +35,6 @@ extension ConfigurableInlineForm where Self: RowFormer {
     }
 }
 
-// MARK: Selector RowFormer
 
 public protocol SelectorForm {
     
@@ -59,7 +57,6 @@ extension UpdatableSelectorForm where Self: RowFormer {
     }
 }
 
-// MARK: RowFormer
 
 public protocol Formable: SelectableForm, UpdatableForm, ConfigurableForm {
     

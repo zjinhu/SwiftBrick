@@ -18,19 +18,19 @@ open class TextViewCell: BaseCell, TextViewFormableRow {
     public private(set) weak var titleLabel: UILabel!
     public private(set) weak var titleImageView: UIImageView!
     public private(set) weak var subTitleLabel: UILabel!
-    
+    /// 标题左侧图标(可修改属性)
     public func formTitleImageView() -> UIImageView? {
         return titleImageView
     }
-    
+    /// 输入框(可修改属性)
     public func formTextView() -> UITextView {
         return textView
     }
-    
+    /// 标题Label(可修改属性)
     public func formTitleLabel() -> UILabel? {
         return titleLabel
     }
-    
+    /// 右侧副标题/说明(可修改属性)
     public func formSubTitleLabel() -> UILabel? {
         return subTitleLabel
     }

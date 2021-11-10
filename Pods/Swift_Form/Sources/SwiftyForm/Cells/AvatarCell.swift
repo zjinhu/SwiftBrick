@@ -17,15 +17,15 @@ open class AvatarCell: BaseCell, AvatarFormableRow {
     public private(set) weak var titleLabel: UILabel!
     public private(set) weak var avatarView: UIImageView!
     public private(set) weak var titleImageView: UIImageView!
-    
+    /// 标题左侧图标(可修改属性)
     public func formTitleImageView() -> UIImageView? {
         return titleImageView
     }
-    
+    /// 标题Label(可修改属性)
     public func formTitleLabel() -> UILabel? {
         return titleLabel
     }
-    
+    ///头像(可修改属性)
     public func formAvatarView() -> UIImageView? {
         return avatarView
     }

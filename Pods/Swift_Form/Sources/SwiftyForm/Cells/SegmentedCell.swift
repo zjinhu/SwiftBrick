@@ -17,15 +17,15 @@ open class SegmentedCell: BaseCell, SegmentedFormableRow {
     public private(set) weak var titleLabel: UILabel!
     public private(set) weak var segmentedControl: UISegmentedControl!
     public private(set) weak var titleImageView: UIImageView!
-    
+    /// 标题左侧图标(可修改属性)
     public func formTitleImageView() -> UIImageView? {
         return titleImageView
     }
-    
+    /// 标题Label(可修改属性)
     public func formTitleLabel() -> UILabel? {
         return titleLabel
     }
-    
+    ///获取UISegmentedControl(可修改属性)
     public func formSegmented() -> UISegmentedControl {
         return segmentedControl
     }

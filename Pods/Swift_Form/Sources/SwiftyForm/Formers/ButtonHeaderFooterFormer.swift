@@ -13,14 +13,23 @@ public protocol ButtonFormableView: FormableHeaderFooter {
 }
 
 open class ButtonHeaderFooterFormer<T: UITableViewHeaderFooterView>: BaseHeaderFooterFormer<T> where T: ButtonFormableView {
+    ///按钮背景色
     public var buttonBGColor: UIColor? = .clear
+    ///按钮标题
     public var buttonTitle: String?
+    ///按钮字体
     public var buttonTitleFont: UIFont?
+    ///按钮标题 默认颜色
     public var buttonTitleNorColor: UIColor?
+    ///按钮标题 按下颜色
     public var buttonTitleHigColor: UIColor?
+    ///按钮 默认图片
     public var buttonNorImage: UIImage?
+    ///按钮 按下图片
     public var buttonHigImage: UIImage?
+    ///按钮 圆角
     public var buttonCornerRadius: CGFloat = 4
+    ///点击回调
     fileprivate var buttonClick: (() -> Void)?
 
     /// 右侧按钮点击

@@ -8,7 +8,7 @@
 
 import UIKit
 import SnapKit
-
+///基础cell
 open class BaseCell: UITableViewCell, FormableRow {
     open func updateWithRowFormer(_ rowFormer: RowFormer) {
         

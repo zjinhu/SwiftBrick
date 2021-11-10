@@ -21,15 +21,15 @@ open class RowFormer{
     /// cell高度
     public final var rowHeight: CGFloat = 44
     public final var isEditing = false
-    
-    
     /// cell 标题
     public final var title: String?
+    ///标题使用富文本
     public final var attributedTitle: NSMutableAttributedString?
     /// cell左侧小图片
     public final var titleImage: UIImage?
-    
+    ///是否可用
     public final var enabled = true { didSet { update() } }
+    
     open var canBecomeEditing: Bool {
         return false
     }

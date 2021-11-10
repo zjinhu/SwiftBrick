@@ -14,9 +14,9 @@ public protocol DatePickerFormableRow: FormableRow {
 }
 
 open class DatePickerRowFormer<T: UITableViewCell>: BaseRowFormer<T>, Formable where T: DatePickerFormableRow {
-
+    ///初始日期数据
     public var date: Date = Date()
- 
+    ///选择日期后回调
     public var onDateChanged: ((Date) -> Void)?
     
     @discardableResult

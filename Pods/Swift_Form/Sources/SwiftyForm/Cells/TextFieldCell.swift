@@ -17,15 +17,15 @@ open class TextFieldCell: BaseCell, TextFieldFormableRow {
     public private(set) weak var textField: UITextField!
     public private(set) weak var titleLabel: UILabel!
     public private(set) weak var titleImageView: UIImageView!
-    
+    /// 标题左侧图标(可修改属性)
     public func formTitleImageView() -> UIImageView? {
         return titleImageView
     }
-    
+    /// 输入框(可修改属性)
     public func formTextField() -> UITextField {
         return textField
     }
-    
+    /// 标题Label(可修改属性)
     public func formTitleLabel() -> UILabel? {
         return titleLabel
     }

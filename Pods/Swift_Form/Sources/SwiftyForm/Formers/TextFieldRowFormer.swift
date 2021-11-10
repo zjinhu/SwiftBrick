@@ -22,18 +22,25 @@ open class TextFieldRowFormer<T: UITableViewCell>: BaseRowFormer<T>, Formable wh
     override open var canBecomeEditing: Bool {
         return enabled
     }
-
+    ///输入框内容
     public var text: String?
+    ///输入框占位内容
     public var placeholder: String?
+    ///输入框内容富文本
     public var attributedPlaceholder: NSAttributedString?
+    public var returnToNextRow = true
+    ///输入时点击回车回调
+    public var onReturn: ((String) -> Void)?
+    ///输入回调
+    public var onTextChanged: ((String) -> Void)?
+    ///输入限制文本数量
+    public var textLimit: Int = 0
+    ///输入达到限制时回调
+    public var onLimitAlert: ((Int) -> Void)?
+    ///输入框内容颜色
+    public var textColor: UIColor?
     public var textDisabledColor: UIColor? = .lightGray
     public var titleEditingColor: UIColor?
-    public var returnToNextRow = true
-    public var onReturn: ((String) -> Void)?
-    public var onTextChanged: ((String) -> Void)?
-    public var onLimitAlert: ((Int) -> Void)?
-    public var textColor: UIColor?
-    public var textLimit: Int = 0
     
     private lazy var observer: Observer<T> = Observer<T>(textFieldRowFormer: self)
     

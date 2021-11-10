@@ -14,7 +14,7 @@ public protocol PickerFormableRow: FormableRow {
 }
 
 open class PickerItem<S> {
-    
+    ///标题
     public let title: String
     public let value: S?
     
@@ -25,11 +25,14 @@ open class PickerItem<S> {
 }
 
 open class PickerRowFormer<T: UITableViewCell, S>: BaseRowFormer<T>, Formable where T: PickerFormableRow {
-
+    
+    /// 数据源
     public var pickerItems: [PickerItem<S>] = []
+    ///默认选中
     public var selectedRow: Int = 0
-
+    ///选项变化回调
     public var onValueChanged: ((PickerItem<S>) -> Void)?
+    
     private lazy var observer: Observer<T, S> = Observer<T, S>(pickerRowFormer: self)
     
     deinit {

@@ -16,25 +16,41 @@ public protocol ButtonFormableRow: FormableRow {
 
 /// ButtonForm 隐藏左侧按钮会只展示一个大按钮RightButton
 open class ButtonRowFormer<T: UITableViewCell>: BaseRowFormer<T>, Formable where T: ButtonFormableRow {
-
+    ///左侧按钮背景色
     public var leftButtonBGColor: UIColor? = .clear
+    ///左侧按钮标题
     public var leftButtonTitle: String?
+    ///左侧按钮字体
     public var leftButtonTitleFont: UIFont?
+    ///左侧按钮标题 默认颜色
     public var leftButtonTitleNorColor: UIColor?
+    ///左侧按钮标题 按下颜色
     public var leftButtonTitleHigColor: UIColor?
+    ///左侧按钮 默认图片
     public var leftButtonNorImage: UIImage?
+    ///左侧按钮 按下图片
     public var leftButtonHigImage: UIImage?
+    ///左侧按钮 圆角
     public var leftButtonCornerRadius: CGFloat = 4
+    ///左侧点击回调
     fileprivate var onLeftButtonClick: (() -> Void)?
-    
+    ///右侧按钮背景色
     public var rightButtonBGColor: UIColor?
+    ///右侧按钮标题
     public var rightButtonTitle: String?
+    ///右侧按钮字体
     public var rightButtonTitleFont: UIFont?
+    ///右侧按钮标题 默认颜色
     public var rightButtonTitleNorColor: UIColor?
+    ///右侧按钮标题 按下颜色
     public var rightButtonTitleHigColor: UIColor?
+    ///右侧按钮 默认图片
     public var rightButtonNorImage: UIImage?
+    ///右侧按钮 按下图片
     public var rightButtonHigImage: UIImage?
+    ///右侧按钮 圆角
     public var rightButtonCornerRadius: CGFloat = 4
+    ///右侧点击回调
     fileprivate var onRightButtonClick: (() -> Void)?
     
     /// 左侧按钮点击

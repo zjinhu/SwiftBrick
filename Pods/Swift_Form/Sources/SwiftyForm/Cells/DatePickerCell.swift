@@ -15,7 +15,7 @@ public class DatePickerRow: DatePickerRowFormer<DatePickerCell> {
 open class DatePickerCell: BaseCell, DatePickerFormableRow {
 
     public private(set) weak var datePicker: UIDatePicker!
-    
+    ///获取UIDatePicker(可修改属性)
     public func formDatePicker() -> UIDatePicker {
         return datePicker
     }

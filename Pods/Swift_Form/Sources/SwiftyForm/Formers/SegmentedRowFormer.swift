@@ -18,9 +18,11 @@ public protocol SegmentedFormableRow: FormableRow {
 /// SegmentedForm
 open class SegmentedRowFormer<T: UITableViewCell>: BaseRowFormer<T>, Formable where T: SegmentedFormableRow {
     
-
+    ///segment标题数组
     public var segmentTitles = [String]()
+    ///segment默认选中
     public var selectedIndex: Int = 0
+    ///segment切换回调
     public var onSegmentSelected: ((Int, String) -> Void)?
     
     /// SegmentedForm 选项卡变化回调

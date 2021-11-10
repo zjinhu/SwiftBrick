@@ -22,15 +22,15 @@ open class UserCell: BaseCell, UserFormableRow {
     public private(set) weak var userNameLabel: UILabel!
     public private(set) weak var userInfoLabel: UILabel!
     public private(set) weak var avatarView: UIImageView!
-    
+    ///简介信息(可修改属性)
     public func formUserInfoLabel() -> UILabel? {
         return userInfoLabel
     }
-    
+    ///用户名(可修改属性)
     public func formUserNameLabel() -> UILabel? {
         return userNameLabel
     }
-    
+    ///头像(可修改属性)
     public func formAvatarView() -> UIImageView? {
         return avatarView
     }
@@ -87,15 +87,15 @@ open class User2Cell: BaseCell, UserFormableRow {
     public private(set) weak var userNameLabel: UILabel!
     public private(set) weak var userInfoLabel: UILabel!
     public private(set) weak var avatarView: UIImageView!
-    
+    ///简介信息(可修改属性)
     public func formUserInfoLabel() -> UILabel? {
         return userInfoLabel
     }
-    
+    ///用户名(可修改属性)
     public func formUserNameLabel() -> UILabel? {
         return userNameLabel
     }
-    
+    ///头像(可修改属性)
     public func formAvatarView() -> UIImageView? {
         return avatarView
     }

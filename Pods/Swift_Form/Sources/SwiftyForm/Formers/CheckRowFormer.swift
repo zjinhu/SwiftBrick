@@ -18,10 +18,13 @@ public protocol CheckFormableRow: FormableRow {
 /// CheckFormer
 open class CheckRowFormer<T: UITableViewCell>: BaseRowFormer<T>, Formable where T: CheckFormableRow {
     
-
+    ///是否选中
     public var checked = false
+    ///自定义选中样式
     public var customCheckView: UIView?
+    ///默认状态下选中标记颜色
     public var checkColor: UIColor?
+    ///点击选中回调
     public var onCheckChanged: ((Bool) -> Void)?
     
     /// CheckForm状态变化

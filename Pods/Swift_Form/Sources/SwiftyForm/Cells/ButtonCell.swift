@@ -16,11 +16,11 @@ open class ButtonCell: BaseCell, ButtonFormableRow {
     
     public private(set) weak var leftButton: UIButton!
     public private(set) weak var rightButton: UIButton!
-    
+    ///获取左侧按钮(可修改属性)
     public func formLeftButton() -> UIButton {
         return leftButton
     }
-    
+    ///获取右侧按钮(可修改属性)
     public func formRightButton() -> UIButton {
         return rightButton
     }

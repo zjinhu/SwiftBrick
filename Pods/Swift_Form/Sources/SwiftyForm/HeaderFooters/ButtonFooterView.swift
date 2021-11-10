@@ -13,6 +13,7 @@ public class ButtonFooter: ButtonHeaderFooterFormer<ButtonFooterView> {
 }
 
 open class ButtonFooterView: BaseHeaderFooterView,ButtonFormableView{
+    ///获取按钮(可修改属性)
     public func formButton() -> UIButton {
         return button
     }

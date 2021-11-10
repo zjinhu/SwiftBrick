@@ -23,20 +23,35 @@ open class TextViewRowFormer<T: UITableViewCell>: BaseRowFormer<T>, Formable whe
     override open var canBecomeEditing: Bool {
         return enabled
     }
-    public var subTitle: String?
-    public var subTitleDisabledColor: UIColor? = .lightGray
-    public var subTitleColor: UIColor?
+    
+    public weak var placeholderLabel: UILabel?
+    ///输入框内容
     public var text: String?
-    public var placeholder: String?
-    public var attributedPlaceholder: NSAttributedString?
+    /// 输入框内容 不可用时颜色
     public var textDisabledColor: UIColor? = .lightGray
     public var titleEditingColor: UIColor?
-    public var onTextChanged: ((String) -> Void)?
-    public var onLimitAlert: ((Int) -> Void)?
+    /// 输入框内容 颜色
     public var textColor: UIColor?
-    public var attributedString: NSAttributedString?
-    public weak var placeholderLabel: UILabel?
+
+    ///输入框占位内容
+    public var placeholder: String?
+    ///输入框内容富文本
+    public var attributedPlaceholder: NSAttributedString?
+    /// 右侧副标题/说明 内容
+    public var subTitle: String?
+    /// 右侧副标题/说明 不可用时颜色
+    public var subTitleDisabledColor: UIColor? = .lightGray
+    /// 右侧副标题/说明 颜色
+    public var subTitleColor: UIColor?
+    ///输入回调
+    public var onTextChanged: ((String) -> Void)?
+    ///输入限制文本数量
     public var textLimit: Int = 0
+    ///输入达到限制时回调
+    public var onLimitAlert: ((Int) -> Void)?
+
+    
+    
     
     fileprivate final lazy var observer: Observer<T> = Observer<T>(textViewRowFormer: self)
     
@@ -146,10 +161,10 @@ open class TextViewRowFormer<T: UITableViewCell>: BaseRowFormer<T>, Formable whe
                 .clear
         } else {
             if text?.isEmpty ?? true {
-                _ = attributedString.map { placeholderLabel?.attributedText = $0 }
-                attributedString = nil
+                _ = attributedPlaceholder.map { placeholderLabel?.attributedText = $0 }
+                attributedPlaceholder = nil
             } else {
-                if attributedString == nil { attributedString = placeholderLabel?.attributedText }
+                if attributedPlaceholder == nil { attributedPlaceholder = placeholderLabel?.attributedText }
                 placeholderLabel?.attributedText = nil
             }
         }

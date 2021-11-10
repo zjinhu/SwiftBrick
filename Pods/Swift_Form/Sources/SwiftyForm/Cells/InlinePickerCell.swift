@@ -17,15 +17,15 @@ open class InlinePickerCell: BaseCell, InlinePickerFormableRow {
     public private(set) weak var titleLabel: UILabel!
     public private(set) weak var displayLabel: UILabel!
     public private(set) weak var titleImageView: UIImageView!
-    
+    /// 标题左侧图标(可修改属性)
     public func formTitleImageView() -> UIImageView? {
         return titleImageView
     }
-    
+    /// 标题Label(可修改属性)
     public func formTitleLabel() -> UILabel? {
         return titleLabel
     }
-    
+    /// 右侧副标题/说明(可修改属性)
     public func formDisplayLabel() -> UILabel? {
         return displayLabel
     }

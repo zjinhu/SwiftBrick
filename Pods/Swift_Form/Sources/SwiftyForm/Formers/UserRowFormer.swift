@@ -18,16 +18,21 @@ public protocol UserFormableRow: FormableRow {
 
 /// AvatarForm
 open class UserRowFormer<T: UITableViewCell> : BaseRowFormer<T>, Formable where T: UserFormableRow {
-
+    ///头像
     public var avatarImage: UIImage?
+    ///头像圆角
     public var avatarRadius: CGFloat = 40
-    
+    ///用户名
     public var userName: String?
+    ///用户名 不可用时颜色
     public var userNameDisabledColor: UIColor? = .lightGray
+    ///用户名 颜色
     public var userNameColor: UIColor?
-    
+    ///用户信息简介
     public var userInfo: String?
+    ///用户信息简介 不可用时颜色
     public var userInfoDisabledColor: UIColor? = .lightGray
+    ///用户信息简介 颜色
     public var userInfoColor: UIColor?
     
     /// AvatarForm初始化

@@ -16,11 +16,11 @@ open class CheckCell: BaseCell, CheckFormableRow {
 
     public private(set) weak var titleImageView: UIImageView!
     public private(set) weak var titleLabel: UILabel!
-
+    /// 标题左侧图标(可修改属性)
     public func formTitleImageView() -> UIImageView? {
         return titleImageView
     }
-    
+    /// 标题Label(可修改属性)
     public func formTitleLabel() -> UILabel? {
         return titleLabel
     }

@@ -15,7 +15,7 @@ public class PickerRow: PickerRowFormer<PickerCell, Any> {
 open class PickerCell: BaseCell, PickerFormableRow {
 
     public private(set) weak var pickerView: UIPickerView!
-    
+    ///获取UIPickerView(可修改属性)
     public func formPickerView() -> UIPickerView {
         return pickerView
     }
