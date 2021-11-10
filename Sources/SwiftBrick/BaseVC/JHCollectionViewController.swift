@@ -70,13 +70,12 @@ open class JHCollectionViewController: JHViewController ,UICollectionViewDelegat
         
         view.addSubview(collectionView!)
         collectionView?.snp.makeConstraints{ (make) in
-            make.top.equalTo(view.safeAreaInsets.top)
-            make.left.equalTo(view.safeAreaInsets.left)
-            make.right.equalTo(view.safeAreaInsets.right)
-            make.bottom.equalTo(view.safeAreaInsets.bottom)
+            make.top.equalTo(view.snp.top)
+            make.left.equalTo(view.snp.left)
+            make.right.equalTo(view.snp.right)
+            make.bottom.equalTo(view.snp.bottom)
         }
-        
-        extendedLayoutIncludesOpaqueBars = true
+
         collectionView?.contentInsetAdjustmentBehavior = .automatic
         
         // Do any additional setup after loading the view.

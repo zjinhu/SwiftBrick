@@ -8,7 +8,7 @@
 
 import UIKit
 import SnapKit
-import Swift_Form
+import SwiftyForm
 class ViewController: JHTableViewController {
 
     lazy var former = Former(tableView: self.tableView!)
@@ -18,8 +18,8 @@ class ViewController: JHTableViewController {
         super.viewDidLoad()
         self.title = "SwiftBrick示例"
 
-        navigationController?.navigationBar.setBackgroundColor(.baseTeal)
-        navigationController?.navigationBar.setLineHidden(hidden: true)
+//        navigationController?.navigationBar.setBackgroundColor(.baseTeal)
+//        navigationController?.navigationBar.setLineHidden(hidden: true)
         
         let a = BottomHomeHeight
         let b = StatusBarHeight()

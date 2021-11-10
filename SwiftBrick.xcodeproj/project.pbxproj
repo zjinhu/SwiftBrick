@@ -3,13 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		81074F442575056A00C60057 /* SwiftBrick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81074F432575056A00C60057 /* SwiftBrick.swift */; };
 		811372D2256529D200D07554 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811372D1256529D200D07554 /* AppState.swift */; };
 		8148D47C2499EC4000C0B4BA /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148D47B2499EC4000C0B4BA /* TestViewController.swift */; };
+		815E1C9A273BC938009E81CF /* SwiftyForm in Frameworks */ = {isa = PBXBuildFile; productRef = 815E1C99273BC938009E81CF /* SwiftyForm */; };
 		818040F8253165CB002FFFF6 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040CF253165CB002FFFF6 /* Loader.swift */; };
 		818040F9253165CB002FFFF6 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040D0253165CB002FFFF6 /* Define.swift */; };
 		818040FA253165CB002FFFF6 /* JHWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040D2253165CB002FFFF6 /* JHWebViewController.swift */; };
@@ -67,11 +68,9 @@
 		911150382383DABF00AE47DF /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911150372383DABF00AE47DF /* CollectionViewController.swift */; };
 		916226112385247F0050F228 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916226102385247F0050F228 /* WebViewController.swift */; };
 		9162261A2385534D0050F228 /* ExViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916226192385534D0050F228 /* ExViewController.swift */; };
-		F9A51B6F3DF1CF4CF6DB8395 /* Pods_SwiftBrick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9342C3A00A9D0D1AC583F1C /* Pods_SwiftBrick.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		77965A09D8F67F588257CBE9 /* Pods-SwiftBrick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBrick.debug.xcconfig"; path = "Target Support Files/Pods-SwiftBrick/Pods-SwiftBrick.debug.xcconfig"; sourceTree = "<group>"; };
 		81074F432575056A00C60057 /* SwiftBrick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBrick.swift; sourceTree = "<group>"; };
 		811372D1256529D200D07554 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		8148D47B2499EC4000C0B4BA /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
@@ -122,7 +121,6 @@
 		81DA092325677D7A009A5215 /* UserDefaultsEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsEx.swift; sourceTree = "<group>"; };
 		81E008FE260CA25B00E50E7B /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		81F74AEB25F86F76007CDB69 /* Then.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
-		82CE79D1DBAE0B9E369C40C8 /* Pods-SwiftBrick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBrick.release.xcconfig"; path = "Target Support Files/Pods-SwiftBrick/Pods-SwiftBrick.release.xcconfig"; sourceTree = "<group>"; };
 		9111500423838CC200AE47DF /* SwiftBrick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBrick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9111500723838CC200AE47DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9111500923838CC200AE47DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,7 +133,6 @@
 		911150372383DABF00AE47DF /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		916226102385247F0050F228 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		916226192385534D0050F228 /* ExViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExViewController.swift; sourceTree = "<group>"; };
-		A9342C3A00A9D0D1AC583F1C /* Pods_SwiftBrick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftBrick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,21 +140,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9A51B6F3DF1CF4CF6DB8395 /* Pods_SwiftBrick.framework in Frameworks */,
+				815E1C9A273BC938009E81CF /* SwiftyForm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		22CD7573DD4619BC58B371D9 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				A9342C3A00A9D0D1AC583F1C /* Pods_SwiftBrick.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		818040CC253165CB002FFFF6 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,8 +264,6 @@
 			children = (
 				9111500623838CC200AE47DF /* SwiftBrick */,
 				9111500523838CC200AE47DF /* Products */,
-				C74C00F04E10698BB2D79B49 /* Pods */,
-				22CD7573DD4619BC58B371D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -308,15 +295,6 @@
 			path = SwiftBrick;
 			sourceTree = "<group>";
 		};
-		C74C00F04E10698BB2D79B49 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				77965A09D8F67F588257CBE9 /* Pods-SwiftBrick.debug.xcconfig */,
-				82CE79D1DBAE0B9E369C40C8 /* Pods-SwiftBrick.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -324,17 +302,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9111501823838CC300AE47DF /* Build configuration list for PBXNativeTarget "SwiftBrick" */;
 			buildPhases = (
-				9119ED56F6FF010F60A95E90 /* [CP] Check Pods Manifest.lock */,
 				9111500023838CC200AE47DF /* Sources */,
 				9111500123838CC200AE47DF /* Frameworks */,
 				9111500223838CC200AE47DF /* Resources */,
-				9C27B6B35044A925F0540A29 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SwiftBrick;
+			packageProductDependencies = (
+				815E1C99273BC938009E81CF /* SwiftyForm */,
+			);
 			productName = SwiftBrick;
 			productReference = 9111500423838CC200AE47DF /* SwiftBrick.app */;
 			productType = "com.apple.product-type.application";
@@ -364,6 +343,9 @@
 				Base,
 			);
 			mainGroup = 91114FFB23838CC200AE47DF;
+			packageReferences = (
+				815E1C98273BC938009E81CF /* XCRemoteSwiftPackageReference "SwiftyForm" */,
+			);
 			productRefGroup = 9111500523838CC200AE47DF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -386,48 +368,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		9119ED56F6FF010F60A95E90 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SwiftBrick-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9C27B6B35044A925F0540A29 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SwiftBrick/Pods-SwiftBrick-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SwiftBrick/Pods-SwiftBrick-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftBrick/Pods-SwiftBrick-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9111500023838CC200AE47DF /* Sources */ = {
@@ -635,7 +575,6 @@
 		};
 		9111501923838CC300AE47DF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 77965A09D8F67F588257CBE9 /* Pods-SwiftBrick.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -657,7 +596,6 @@
 		};
 		9111501A23838CC300AE47DF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 82CE79D1DBAE0B9E369C40C8 /* Pods-SwiftBrick.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -698,6 +636,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		815E1C98273BC938009E81CF /* XCRemoteSwiftPackageReference "SwiftyForm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jackiehu/SwiftyForm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		815E1C99273BC938009E81CF /* SwiftyForm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 815E1C98273BC938009E81CF /* XCRemoteSwiftPackageReference "SwiftyForm" */;
+			productName = SwiftyForm;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 91114FFC23838CC200AE47DF /* Project object */;
 }

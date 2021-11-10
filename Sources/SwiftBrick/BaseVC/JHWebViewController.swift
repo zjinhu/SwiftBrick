@@ -33,8 +33,11 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         webView.navigationDelegate = self
         webView.uiDelegate = self
         webView.scrollView.delegate = self
-        webView.scrollView.contentInsetAdjustmentBehavior = .never
         webView.allowsBackForwardNavigationGestures = true
+        webView.scrollView.contentInsetAdjustmentBehavior = .never
+        if #available(iOS 13.0, *){
+            webView.scrollView.automaticallyAdjustsScrollIndicatorInsets = false
+        }
         webView.evaluateJavaScript("navigator.userAgent", completionHandler: { [weak self] (obj: Any?, error: Error?) in
             guard let `self` = self else{return}
             guard let ua = obj as? String else { return }
@@ -53,7 +56,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
     }()
     
     lazy var loadingProgressView: UIProgressView = {
-        let progressView = UIProgressView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: 4))
+        let progressView = UIProgressView()
         progressView.trackTintColor = .clear
         progressView.tintColor = .red
         return progressView
@@ -112,6 +115,16 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
     
     /// 设置导航栏标题
     @objc public var navTitle: String?
+    
+    @objc public var loadingProgressColor: String?{
+        didSet{
+            guard let color = loadingProgressColor else {
+                return
+            }
+            loadingProgressView.tintColor = UIColor(hexString: color)
+        }
+    }
+    
     /// 访问地址
     @objc public var urlString: String?
     /// 添加userAgent标记,会拼接;
@@ -155,8 +168,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
     // MARK: - 布局
     override open func viewDidLoad() {
         super.viewDidLoad()
-        edgesForExtendedLayout = [.left,.right,.bottom]
-        
+
         hideDefaultBackBarButton()
         
         addLeftBarButton(backButton, closeButton)
@@ -167,22 +179,24 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         
         view.addSubview(webView)
         webView.snp.makeConstraints { (make) in
-            make.top.equalTo(view.safeAreaInsets.top)
-            make.left.equalTo(view.safeAreaInsets.left)
-            make.right.equalTo(view.safeAreaInsets.right)
-            make.bottom.equalTo(view.safeAreaInsets.bottom)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.left.equalTo(view.snp.left)
+            make.right.equalTo(view.snp.right)
+            make.bottom.equalTo(view.snp.bottom)
         }
-        
+
         view.addSubview(loadingProgressView)
+        loadingProgressView.snp.makeConstraints { (make) in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.left.equalTo(view.snp.left)
+            make.right.equalTo(view.snp.right)
+            make.height.equalTo(4)
+        }
         
         webView.configuration.userContentController.add(WeakScriptMessageDelegate(delegate: self), name: "JumpViewController")
         
         loadRequest()
-        //        self.webView?.evaluateJavaScript("navigator.userAgent") {[weak self] (result, error) in
-        //         if let agent = result as? String {
-        //            self?.webView?.customUserAgent = agent + " customAgent"
-        //         }
-        //        // 为estimatedProgress添加KVO
+
         webView.addObserver(self, forKeyPath: "estimatedProgress", options: [.old, .new], context: nil)
     }
     

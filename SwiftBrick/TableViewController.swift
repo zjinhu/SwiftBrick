@@ -24,7 +24,6 @@ class TableViewController: JHTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         ///是否需要展示导航栏，方便实用,用于解决有无导航栏页面滑动切换导航栏显示问题
         prefersNavigationBarHidden = true
 

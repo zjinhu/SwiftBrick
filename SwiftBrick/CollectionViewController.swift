@@ -16,7 +16,7 @@ class CollectionViewController: JHCollectionViewController {
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.headerReferenceSize = CGSize.zero
         flowLayout.footerReferenceSize = CGSize.zero
-        flowLayout.scrollDirection = UICollectionView.ScrollDirection.horizontal
+        flowLayout.scrollDirection = UICollectionView.ScrollDirection.vertical
         return flowLayout
     }
     
@@ -33,7 +33,7 @@ class CollectionViewController: JHCollectionViewController {
             print("touch")
         }
 
-        addRightBarButton(text: "信号栏",
+        addRightBarButton(text: "Button",
                           normalColor: .darkGray,
                           highlightColor: .lightGray,
                           fixSpace: 0 ) {_ in 

@@ -12,8 +12,9 @@ class WebViewController: JHWebViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         customUserAgent = "hahah"
-
+        loadingProgressColor = "#567800"
         request = URLRequest.init(url: URL.init(string: "https://support.qq.com/product/190629")!)
         request?.httpMethod = "POST"
         request?.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")

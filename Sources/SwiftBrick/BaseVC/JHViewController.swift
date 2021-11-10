@@ -15,7 +15,6 @@ open class JHViewController: UIViewController, JHBaseVC {
         super.viewDidLoad()
         
         view.backgroundColor = L.color("bgColor")
-        edgesForExtendedLayout = .all
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
         
