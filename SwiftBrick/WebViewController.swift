@@ -15,11 +15,11 @@ class WebViewController: JHWebViewController {
         
         customUserAgent = "hahah"
         loadingProgressColor = "#567800"
-        request = URLRequest.init(url: URL.init(string: "https://support.qq.com/product/190629")!)
-        request?.httpMethod = "POST"
-        request?.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        let body = "nickname=123&openid=234"
-        request?.httpBody = body.data(using: .utf8)
+        request = URLRequest.init(url: URL.init(string: "https://www.baidu.com")!)
+//        request?.httpMethod = "POST"
+//        request?.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+//        let body = "nickname=123&openid=234"
+//        request?.httpBody = body.data(using: .utf8)
         loadRequest()
 
     }
