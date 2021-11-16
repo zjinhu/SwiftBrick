@@ -12,60 +12,53 @@ import Foundation
 public extension UIColor {
     
     ///根据RGB生成颜色
-    convenience init(red: Int, green: Int, blue: Int, transparency: CGFloat = 1) {
-        var trans = transparency
+    convenience init(r: Int, g: Int, b: Int, a: CGFloat = 1) {
+        var trans = a
         if trans < 0 { trans = 0 }
         if trans > 1 { trans = 1 }
         
-        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: trans)
+        self.init(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: trans)
     }
     
     ///根据16进制生成颜色
-    convenience init(hex: Int, transparency: CGFloat = 1) {
-        var trans = transparency
-        if trans < 0 { trans = 0 }
-        if trans > 1 { trans = 1 }
-        
+    convenience init(hex: Int, alpha: CGFloat = 1) {
         let red = (hex >> 16) & 0xff
         let green = (hex >> 8) & 0xff
         let blue = hex & 0xff
-        self.init(red: red, green: green, blue: blue, transparency: trans)
+        self.init(r: red, g: green, b: blue, a: alpha)
     }
     
     ///根据16进制字符串生成颜色.支持 0x 或 # 开头字符串
-    convenience init(hexString: String, transparency: CGFloat = 1) {
+    convenience init(_ hex: String) {
         var string = ""
-        if hexString.lowercased().hasPrefix("0x") {
-            string =  hexString.replacingOccurrences(of: "0x", with: "")
-        } else if hexString.hasPrefix("#") {
-            string = hexString.replacingOccurrences(of: "#", with: "")
+        if hex.lowercased().hasPrefix("0x") {
+            string =  hex.replacingOccurrences(of: "0x", with: "")
+        } else if hex.hasPrefix("#") {
+            string = hex.replacingOccurrences(of: "#", with: "")
         } else {
-            string = hexString
+            string = hex
+        }
+        var int: UInt64 = 0
+        
+        Scanner(string: string).scanHexInt64(&int)
+        let a, r, g, b: UInt64
+        
+        switch string.count {
+        case 3: // RGB (12-bit)
+            (a, r, g, b) = (255, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
+        case 6: // RGB (24-bit)
+            (a, r, g, b) = (255, int >> 16, int >> 8 & 0xFF, int & 0xFF)
+        case 8: // ARGB (32-bit)
+            (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
+        default:
+            (a, r, g, b) = (1, 1, 1, 0)
         }
         
-        if string.count == 3 { // convert hex to 6 digit format if in short format
-            var str = ""
-            string.forEach { str.append(String(repeating: String($0), count: 2)) }
-            string = str
-        }
-        
-        guard let hexValue = Int(string, radix: 16) else {
-            self.init(white: 1.0, alpha: 0.0)
-            return
-        }
-        
-        var trans = transparency
-        if trans < 0 { trans = 0 }
-        if trans > 1 { trans = 1 }
-        
-        let red = (hexValue >> 16) & 0xff
-        let green = (hexValue >> 8) & 0xff
-        let blue = hexValue & 0xff
-        self.init(red: red, green: green, blue: blue, transparency: trans)
+        self.init(r: Int(r), g: Int(g), b: Int(b), a: CGFloat(a))
     }
     
     ///简化RGB颜色写法
-    class func RGBA(_ r: UInt, g: UInt, b: UInt, a: CGFloat) -> UIColor {
+    class func RGBA(r: Int, g: Int, b: Int, a: CGFloat) -> UIColor {
         let redFloat = CGFloat(r) / 255.0
         let green = CGFloat(g) / 255.0
         let blue = CGFloat(b) / 255.0
@@ -77,11 +70,11 @@ public extension UIColor {
         let red = Int.random(in: 0...255)
         let green = Int.random(in: 0...255)
         let blue = Int.random(in: 0...255)
-        return UIColor(red: red, green: green, blue: blue)
+        return UIColor(r: red, g: green, b: blue)
     }
     
     ///最小饱和度值
-    func color(minSaturation: CGFloat) -> UIColor {
+    func color(_ minSaturation: CGFloat) -> UIColor {
       var (hue, saturation, brightness, alpha): (CGFloat, CGFloat, CGFloat, CGFloat) = (0.0, 0.0, 0.0, 0.0)
       getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
       

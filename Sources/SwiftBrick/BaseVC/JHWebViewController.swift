@@ -121,7 +121,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
             guard let color = loadingProgressColor else {
                 return
             }
-            loadingProgressView.tintColor = UIColor(hexString: color)
+            loadingProgressView.tintColor = UIColor(color)
         }
     }
     

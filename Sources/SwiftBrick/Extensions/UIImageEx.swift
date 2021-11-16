@@ -203,7 +203,7 @@ extension UIImage {
         for imageColor in imageColors {
             guard let imageColor = imageColor as? UIColor else { continue }
             
-            let color = imageColor.color(minSaturation: 0.15)
+            let color = imageColor.color(0.15)
             
             if color.isDark == !isDarkBackgound {
                 let colorCount = imageColors.count(for: color)

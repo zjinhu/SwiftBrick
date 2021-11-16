@@ -18,8 +18,8 @@ class ViewController: JHTableViewController {
         super.viewDidLoad()
         self.title = "SwiftBrick示例"
 
-//        navigationController?.navigationBar.setBackgroundColor(.baseTeal)
-//        navigationController?.navigationBar.setLineHidden(hidden: true)
+        navigationController?.navigationBar.setBackgroundColor(.init("567800"))
+        navigationController?.navigationBar.setLineHidden(hidden: true)
         
         let a = BottomHomeHeight
         let b = StatusBarHeight()
