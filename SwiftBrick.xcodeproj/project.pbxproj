@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		81071FC4274F8A69005DB2AB /* SButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81071FC3274F8A69005DB2AB /* SButton.swift */; };
 		81074F442575056A00C60057 /* SwiftBrick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81074F432575056A00C60057 /* SwiftBrick.swift */; };
 		811372D2256529D200D07554 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811372D1256529D200D07554 /* AppState.swift */; };
 		8148D47C2499EC4000C0B4BA /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148D47B2499EC4000C0B4BA /* TestViewController.swift */; };
@@ -71,6 +72,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		81071FC3274F8A69005DB2AB /* SButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SButton.swift; sourceTree = "<group>"; };
 		81074F432575056A00C60057 /* SwiftBrick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBrick.swift; sourceTree = "<group>"; };
 		811372D1256529D200D07554 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		8148D47B2499EC4000C0B4BA /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				818040E3253165CB002FFFF6 /* UIImageViewSnapEx.swift */,
 				818044A02531BDCA002FFFF6 /* UIStackViewSnapEx.swift */,
 				81A919A32600C33800B9964E /* InsetLabel.swift */,
+				81071FC3274F8A69005DB2AB /* SButton.swift */,
 			);
 			path = ViewFactory;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				8180410A253165CB002FFFF6 /* JHTableViewCell.swift in Sources */,
 				81804109253165CB002FFFF6 /* UIImageViewSnapEx.swift in Sources */,
 				81E008FF260CA25B00E50E7B /* Version.swift in Sources */,
+				81071FC4274F8A69005DB2AB /* SButton.swift in Sources */,
 				81804118253165CB002FFFF6 /* UITableViewCellEx.swift in Sources */,
 				81B362542733BE1E00A80F5A /* DictionaryEx.swift in Sources */,
 				81804100253165CB002FFFF6 /* UILineView.swift in Sources */,
