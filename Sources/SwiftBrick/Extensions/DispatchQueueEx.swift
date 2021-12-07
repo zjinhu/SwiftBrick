@@ -7,8 +7,112 @@
 //
 
 import Foundation
-//#if canImport(Dispatch)
 import Dispatch
+
+public enum Queue {
+    case main
+    case background///最低优先级，等同于 DISPATCH_QUEUE_PRIORITY_BACKGROUND. 用户不可见，比如：在后台存储大量数据
+    case userInteractive///用户交互相关，为了好的用户体验，任务需要立马执行。使用该优先级用于 UI 更新，事件处理和小工作量任务，在主线程执行
+    case userInitiated///优先级等同于 DISPATCH_QUEUE_PRIORITY_HIGH,需要立刻的结果
+    case utility///优先级等同于 DISPATCH_QUEUE_PRIORITY_LOW，可以执行很长时间，再通知用户结果。比如：下载一个大文件，网络，计算
+    case `default`///默认优先级,优先级等同于 DISPATCH_QUEUE_PRIORITY_DEFAULT，建议大多数情况下使用默认优先级
+    case custom(queue: DispatchQueue)
+    
+    public var queue : DispatchQueue {
+        switch self {
+        case .main:
+            return DispatchQueue.main
+        case .background:
+            return DispatchQueue.global(qos: .background)
+        case .userInteractive:
+            return DispatchQueue.global(qos: .userInteractive)
+        case .userInitiated:
+            return DispatchQueue.global(qos: .userInitiated)
+        case .utility:
+            return DispatchQueue.global(qos: .utility)
+        case .default:
+            return DispatchQueue.global(qos: .default)
+        case .custom(let queue):
+            return queue
+        }
+    }
+}
+
+public class Task{
+    
+    public let queue: Queue
+    
+    public init(queue: Queue) {
+        self.queue = queue
+    }
+    ///立即执行
+    public final func run(_ closure: @escaping () -> Void){
+        queue.queue.async{ _ = closure()}
+    }
+    ///延迟执行
+    public final func after(_ seconds: Double, closure: @escaping () -> Void){
+        queue.queue.async{
+            Task.waitBlock(seconds)()
+            _ = closure()
+        }
+    }
+
+}
+extension Task{
+    ///主进程执行
+    @discardableResult
+    public static func main() -> Task{
+        return Task(queue: Queue.main)
+    }
+    
+    ///最低优先级，等同于 DISPATCH_QUEUE_PRIORITY_BACKGROUND. 用户不可见，比如：在后台存储大量数据
+    @discardableResult
+    public static func background() -> Task{
+        return Task(queue: Queue.background)
+    }
+    
+    ///用户交互相关，为了好的用户体验，任务需要立马执行。使用该优先级用于 UI 更新，事件处理和小工作量任务，在主线程执行
+    @discardableResult
+    public static func userInteractive() -> Task{
+        return Task(queue: Queue.userInteractive)
+    }
+    
+    //优先级等同于 DISPATCH_QUEUE_PRIORITY_HIGH,需要立刻的结果
+    @discardableResult
+    public static func userInitiated() -> Task{
+        return Task(queue: Queue.userInitiated)
+    }
+    
+    ///优先级等同于 DISPATCH_QUEUE_PRIORITY_LOW，可以执行很长时间，再通知用户结果。比如：下载一个大文件，网络，计算
+    @discardableResult
+    public static func utility() -> Task{
+        return Task(queue: Queue.utility)
+    }
+    
+    ///默认优先级,优先级等同于 DISPATCH_QUEUE_PRIORITY_DEFAULT，建议大多数情况下使用默认优先级
+    @discardableResult
+    public static func global() -> Task{
+        return Task(queue: Queue.default)
+    }
+    
+    ///自定义进程
+    @discardableResult
+    public static func custom(_ queue: DispatchQueue) -> Task{
+        return Task(queue: Queue.custom(queue: queue))
+    }
+    
+    
+    fileprivate static func waitBlock(_ seconds: Double) -> () -> Void {
+        return {
+            let nanoSeconds = Int64(seconds * Double(NSEC_PER_SEC))
+            let time = DispatchTime.now() + Double(nanoSeconds) / Double(NSEC_PER_SEC)
+            
+            let sem = DispatchSemaphore(value: 0)
+            _ = sem.wait(timeout: time)
+        }
+    }
+}
+
 // MARK: ===================================扩展: DispatchQueue延迟方法=========================================
 public extension DispatchQueue {
     

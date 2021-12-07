@@ -31,6 +31,21 @@ class ViewController: JHTableViewController {
             print("2")
         }
         
+        print("11111111\(Thread.current)")
+        Task.global().after(5) {
+            print("\(Thread.current) 耗时任务1")
+            print("2222222222")
+            Task.main().after(5){
+                print("\(Thread.current) 耗时任务2")
+                print("333333333333")
+            }
+        }
+        Task.background().run {
+            print("\(Thread.current) 耗时任务3")
+            print("4444444444444444")
+        }
+
+        
         print("\(AppState.state)")
         
         print("username修改前\(String(describing: UserDefaultsConfig.username))")
