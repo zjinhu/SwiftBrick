@@ -76,25 +76,6 @@ class TestViewController: UIViewController {
         }
         
         
-        let testButton = SButton()
-        testButton.titleForNormal = "背景色Normal"
-        testButton.titleForDisabled = "背景色Disabled"
-        testButton.titleForSelected = "背景色Selected"
-        testButton.titleForHighlighted = "背景色Highlighted"
-        testButton.layer.cornerRadius = 5
-        testButton.backgroundColorForNormal = .orange
-        testButton.backgroundColorForDisabled = .cyan
-        testButton.backgroundColorForSelected = .purple
-        testButton.backgroundColorForHighlighted = .red
-        testButton.isSelected = true
-        view.addSubview(testButton)
-        testButton.snp.makeConstraints { (make) in
-            make.left.equalToSuperview()
-            make.top.equalToSuperview().offset(650)
-            make.width.equalTo(200)
-            make.height.equalTo(100)
-        }
-        
         let test1Button = UIButton()
         test1Button.titleForNormal = "背景色Normal"
         test1Button.titleForDisabled = "背景色Disabled"
