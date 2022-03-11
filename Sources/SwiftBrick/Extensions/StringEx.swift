@@ -24,5 +24,21 @@ extension String {
 //        CC_MD5(utf8, CC_LONG(utf8!.count - 1), &digest)
 //        return digest.reduce("") { $0 + String(format:"%02x", $1) }
 //    }
-
+    
+    /// Json字符串转Dic
+    /// - Returns: 字典
+    func toDictionary() -> [String : Any] {
+        var result = [String : Any]()
+        guard !self.isEmpty else { return result }
+        guard let dataSelf = self.data(using: .utf8) else {
+            return result
+        }
+        if let dic = try? JSONSerialization.jsonObject(with: dataSelf,
+                           options: .mutableContainers) as? [String : Any] {
+            result = dic
+        }
+        return result
+    
+    }
+    
 }
