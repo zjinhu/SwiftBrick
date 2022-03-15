@@ -16,7 +16,7 @@ open class JHTableViewHeaderFooterView: UITableViewHeaderFooterView, Reusable{
         }
     }
     
-    public override init(reuseIdentifier: String? = String(describing: self)) {
+    public override init(reuseIdentifier: String? = String(describing: JHTableViewHeaderFooterView.self)) {
         super.init(reuseIdentifier: reuseIdentifier)
         backgroundView = UIView(frame: bounds)
         backgroundView?.backgroundColor = .clear
