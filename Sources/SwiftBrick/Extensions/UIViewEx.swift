@@ -85,7 +85,7 @@ public extension UIView{
 }
 
 public extension UIView {
-    //返回该view所在VC
+    //返回该view所在VC,方便埋点查找
     func firstViewController() -> UIViewController? {
         for view in sequence(first: self.superview, next: { $0?.superview }) {
             if let responder = view?.next {
