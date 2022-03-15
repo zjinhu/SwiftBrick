@@ -55,10 +55,10 @@ open class JHTableViewController: JHViewController ,UITableViewDelegate,UITableV
             
         }
         
-//        if #available(iOS 15.0, *) {
-//            tableView?.sectionHeaderTopPadding = 0
-//            tableView?.isPrefetchingEnabled = false
-//        }
+        if #available(iOS 15.0, *) {
+            tableView?.sectionHeaderTopPadding = 0
+            tableView?.isPrefetchingEnabled = false
+        }
         
         tableView?.backgroundColor = .clear
         tableView?.delegate = self
