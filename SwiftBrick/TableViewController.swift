@@ -83,7 +83,6 @@ class TableViewController: JHTableViewController {
         }
     }
 
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.y
         if offset < 100 {
