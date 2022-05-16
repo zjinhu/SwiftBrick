@@ -61,8 +61,7 @@ public extension UIButton{
             titleEdgeInsets = UIEdgeInsets(top: 0, left: 0.5 * space, bottom: 0, right: -0.5 * space)
             contentEdgeInsets = UIEdgeInsets(top: 0, left: 0.5 * space, bottom: 0, right: 0.5 * space)
         }
-        
-        setNeedsDisplay()
+
     }
     
     /// UIButton 图文布局 外观大小固定
