@@ -11,39 +11,16 @@ import SnapKit
 // MARK: ===================================VC基类:UICollectionViewController=========================================
 open class JHCollectionViewController: JHViewController ,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
 
-    // MARK: - 参数变量
-    public enum ScrollDirectionType {
-        case ScrollVertical
-        case ScrollHorizontal
-    }
-    
     public var collectionView: UICollectionView?
     public var mainDatas: Array<Any> = []
-    public var scrollDirectionType: ScrollDirectionType = .ScrollVertical
-    public var flowLayout: UICollectionViewFlowLayout?
-    
-   // MARK: - 初始化
-    public convenience init(scrollDirectionType: ScrollDirectionType = .ScrollVertical) {
-        self.init()
-        
-        flowLayout = setupFlowLayout()
-        switch scrollDirectionType {
-        case .ScrollHorizontal:
-            flowLayout?.scrollDirection = UICollectionView.ScrollDirection.horizontal
-            
-        case .ScrollVertical:
-            flowLayout?.scrollDirection = UICollectionView.ScrollDirection.vertical
-         
-        }
-    }
+    public var flowLayout: UICollectionViewLayout?
     
     public convenience init(flowLayout layout: UICollectionViewFlowLayout) {
          self.init()
-        
          flowLayout = layout
      }
     
-    open func setupFlowLayout() -> UICollectionViewFlowLayout {
+    open func setupFlowLayout() -> UICollectionViewLayout {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0

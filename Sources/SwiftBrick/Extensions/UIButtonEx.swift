@@ -23,32 +23,22 @@ public extension UIButton{
     ///   - space: 图文间距
     func layoutButton(_ postion: ImagePosition, space: CGFloat) {
         
-        guard let titleL = titleLabel, let imageV = imageView else {
-            return
-        }
-        
-        setTitle(currentTitle, for: .normal)
-        setImage(currentImage, for: .normal)
-        
-        let imageWidth = imageV.frame.size.width
-        let imageHeight = imageV.frame.size.height
-        
         guard
-        let labelWidth = titleL.text?.size(withAttributes: [NSAttributedString.Key.font: titleL.font as UIFont]).width,
-        let labelHeight = titleL.text?.size(withAttributes: [NSAttributedString.Key.font: titleL.font as UIFont]).height
-        else {
-            return
-        }
+            let imageSize = imageView?.image?.size,
+            let text = titleLabel?.text,
+            let font = titleLabel?.font else { return }
         
-        let imageOffsetX = (imageWidth + labelWidth) / 2 - imageWidth / 2//image中心移动的x距离
-        let imageOffsetY = imageHeight / 2 + space / 2//image中心移动的y距离
-        let labelOffsetX = (imageWidth + labelWidth / 2) - (imageWidth + labelWidth) / 2//label中心移动的x距离
-        let labelOffsetY = labelHeight / 2 + space / 2//label中心移动的y距离
+        let titleSize = text.size(withAttributes: [.font: font])
         
-        let tempWidth = max(labelWidth, imageWidth)
-        let changedWidth = labelWidth + imageWidth - tempWidth
-        let tempHeight = max(labelHeight, imageHeight);
-        let changedHeight = labelHeight + imageHeight + space - tempHeight
+        let imageOffsetX = (imageSize.width + titleSize.width) / 2 - imageSize.width / 2//image中心移动的x距离
+        let imageOffsetY = imageSize.height / 2 + space / 2//image中心移动的y距离
+        let labelOffsetX = (imageSize.width + titleSize.width / 2) - (imageSize.width + titleSize.width) / 2//label中心移动的x距离
+        let labelOffsetY = titleSize.height / 2 + space / 2//label中心移动的y距离
+        
+        let tempWidth = max(titleSize.width, imageSize.width)
+        let changedWidth = titleSize.width + imageSize.width - tempWidth
+        let tempHeight = max(titleSize.height, imageSize.height);
+        let changedHeight = titleSize.height + imageSize.height + space - tempHeight
 
         switch postion {
         case .imagePositionTop:
@@ -62,8 +52,8 @@ public extension UIButton{
             contentEdgeInsets = UIEdgeInsets(top: changedHeight-imageOffsetY, left: -0.5 * changedWidth, bottom: imageOffsetY, right: -0.5 * changedWidth)
             
         case .imagePositionRight:
-            imageEdgeInsets = UIEdgeInsets(top: 0, left: labelWidth + 0.5 * space, bottom: 0, right: -(labelWidth + 0.5 * space))
-            titleEdgeInsets = UIEdgeInsets(top: 0, left: -(imageWidth + 0.5 * space), bottom: 0, right: imageWidth + space * 0.5)
+            imageEdgeInsets = UIEdgeInsets(top: 0, left: titleSize.width + 0.5 * space, bottom: 0, right: -(titleSize.width + 0.5 * space))
+            titleEdgeInsets = UIEdgeInsets(top: 0, left: -(imageSize.width + 0.5 * space), bottom: 0, right: imageSize.width + space * 0.5)
             contentEdgeInsets = UIEdgeInsets(top: 0, left: 0.5 * space, bottom: 0, right: 0.5*space)
             
         default:
@@ -71,6 +61,7 @@ public extension UIButton{
             titleEdgeInsets = UIEdgeInsets(top: 0, left: 0.5 * space, bottom: 0, right: -0.5 * space)
             contentEdgeInsets = UIEdgeInsets(top: 0, left: 0.5 * space, bottom: 0, right: 0.5 * space)
         }
+
     }
     
     /// UIButton 图文布局 外观大小固定
@@ -78,14 +69,15 @@ public extension UIButton{
     ///   - postion: 布局样式
     ///   - margin: 图文距离左右两边
     func layoutButton(_ postion: ImagePosition, margin: CGFloat) {
-        
+
         guard
-        let imageWidth = imageView?.image?.size.width,
-            let labelWidth = titleLabel?.text?.size(withAttributes: [NSAttributedString.Key.font: titleLabel?.font ?? UIFont.systemFont(ofSize: 13)]).width
-        else {
-            return
-        }
-        let space = bounds.size.width - imageWidth - labelWidth - 2 * margin
+            let imageSize = imageView?.image?.size,
+            let text = titleLabel?.text,
+            let font = titleLabel?.font else { return }
+        
+        let titleSize = text.size(withAttributes: [.font: font])
+        
+        let space = bounds.size.width - imageSize.width - titleSize.width - 2 * margin
         layoutButton(postion, space: space)
     }
 }
@@ -288,6 +280,7 @@ public extension UIButton {
 }
 
 public extension UIButton {
+    
     private func image(withColor color: UIColor) -> UIImage? {
         let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
         UIGraphicsBeginImageContext(rect.size)

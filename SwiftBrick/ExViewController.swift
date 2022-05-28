@@ -125,7 +125,7 @@ class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSou
             self.demoButton(supView: cell.contentView)
             
         default:
-            print("")
+            break
         }
         
         return cell
