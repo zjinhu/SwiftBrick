@@ -50,7 +50,7 @@ public extension UIView{
             return
         }
         
-        removeGradientLayer()
+        removeGradients()
         
         if colors.count < 2 {
             backgroundColor = colors.first
@@ -72,8 +72,23 @@ public extension UIView{
         }
     }
     
+    func addGradient(_ gradient: CAGradientLayer,
+                     size: CGSize? = nil){
+        
+        removeGradients()
+        
+        gradient.drawsAsynchronously = true
+        layer.insertSublayer(gradient, at: 0)
+        if let s = size{
+            gradient.frame = .init(x: 0, y: 0, width: s.width, height: s.height)
+        }else{
+            gradient.frame = self.bounds
+        }
+        
+    }
+    
     /// 移除渐变色背景
-    func removeGradientLayer() {
+    func removeGradients() {
         if let sl = self.layer.sublayers {
             for layer in sl {
                 if layer.isKind(of: CAGradientLayer.self) {

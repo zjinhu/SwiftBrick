@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60508A3727E09FE100164639 /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60508A3627E09FE100164639 /* BorderView.swift */; };
 		81074F442575056A00C60057 /* SwiftBrick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81074F432575056A00C60057 /* SwiftBrick.swift */; };
 		811372D2256529D200D07554 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811372D1256529D200D07554 /* AppState.swift */; };
 		8148D47C2499EC4000C0B4BA /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148D47B2499EC4000C0B4BA /* TestViewController.swift */; };
@@ -72,6 +73,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		60508A3627E09FE100164639 /* BorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderView.swift; sourceTree = "<group>"; };
 		81074F432575056A00C60057 /* SwiftBrick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBrick.swift; sourceTree = "<group>"; };
 		811372D1256529D200D07554 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		8148D47B2499EC4000C0B4BA /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 				916226102385247F0050F228 /* WebViewController.swift */,
 				916226192385534D0050F228 /* ExViewController.swift */,
 				8148D47B2499EC4000C0B4BA /* TestViewController.swift */,
+				60508A3627E09FE100164639 /* BorderView.swift */,
 				9111500D23838CC200AE47DF /* Main.storyboard */,
 				9111501023838CC300AE47DF /* Assets.xcassets */,
 				9111501223838CC300AE47DF /* LaunchScreen.storyboard */,
@@ -377,6 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60508A3727E09FE100164639 /* BorderView.swift in Sources */,
 				9111500C23838CC200AE47DF /* ViewController.swift in Sources */,
 				81804116253165CB002FFFF6 /* UIImageEx.swift in Sources */,
 				9111503023838E1A00AE47DF /* TableViewController.swift in Sources */,

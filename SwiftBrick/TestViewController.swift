@@ -99,6 +99,12 @@ class TestViewController: UIViewController {
             print("\(sender.isSelected)")
         }
         
+        
+        let bView = RectTextView(frame: .init(x: 40, y: 650, width: 100, height: 100))
+        view.addSubview(bView)
+
+
+        
     }
  
 }
