@@ -13,7 +13,7 @@ public class InsetLabel: UILabel {
     var textInsets = UIEdgeInsets.zero
     
     //2. 返回 label 重新计算过 text 的 rectangle
-    override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
+    public override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
         guard text != nil else {
             return super.textRect(forBounds: bounds, limitedToNumberOfLines: numberOfLines)
         }
@@ -28,7 +28,7 @@ public class InsetLabel: UILabel {
     }
     
     //3. 绘制文本时，对当前 rectangle 添加间距
-    override func drawText(in rect: CGRect) {
+    public override func drawText(in rect: CGRect) {
         super.drawText(in: rect.inset(by: textInsets))
     }
 }
