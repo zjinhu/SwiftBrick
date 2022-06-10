@@ -143,11 +143,11 @@ public extension UITextView {
                            holder: String = "",
                            holderColor: UIColor = .black,
                            font: UIFont = UIFont.systemFont(ofSize: 14),
-                           text: String = "",
+                           text: String? = nil,
                            textColor: UIColor = .black,
                            textAlignment: NSTextAlignment = .left,
                            delegate: UITextViewDelegate? = nil,
-                           snapKitMaker: ((ConstraintMaker) -> Void)? = nil) -> UITextView {
+                           snapKitMaker: ((_ make: ConstraintMaker) -> Void)? = nil) -> UITextView {
         
         let textView = UITextView()
         textView.holderFont = holderFont

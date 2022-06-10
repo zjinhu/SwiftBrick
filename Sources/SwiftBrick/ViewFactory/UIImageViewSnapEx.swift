@@ -25,7 +25,7 @@ public extension UIImageView {
                             image: UIImage? = nil,
                             contentMode: UIView.ContentMode  = .scaleAspectFill,
                             snpTapGesture: tapGestureClosure? = nil,
-                            snapKitMaker: ((ConstraintMaker) -> Void)? = nil) -> UIImageView {
+                            snapKitMaker: ((_ make: ConstraintMaker) -> Void)? = nil) -> UIImageView {
         
         let imageView = UIImageView()
         imageView.backgroundColor = backColor

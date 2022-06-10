@@ -25,7 +25,7 @@ public extension UITableView {
                             style: UITableView.Style = .plain,
                             delegate: UITableViewDelegate? = nil,
                             dataSource: UITableViewDataSource? = nil,
-                            snapKitMaker: ((ConstraintMaker) -> Void)? = nil) -> UITableView {
+                            snapKitMaker: ((_ make: ConstraintMaker) -> Void)? = nil) -> UITableView {
         
         let tableView = UITableView(frame: .zero, style: style)
         if delegate != nil {

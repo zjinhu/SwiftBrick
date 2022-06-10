@@ -26,10 +26,10 @@ public extension UILabel {
                         backColor: UIColor? = .clear,
                         font: UIFont = UIFont.systemFont(ofSize: 14),
                         lines: Int = 0,
-                        text: String = "",
+                        text: String? = nil,
                         textColor: UIColor = .black,
                         textAlignment: NSTextAlignment = .left,
-                        snapKitMaker: ((ConstraintMaker) -> Void)? = nil) -> UILabel {
+                        snapKitMaker: ((_ make: ConstraintMaker) -> Void)? = nil) -> UILabel {
         
         let label = UILabel()
         label.text = text

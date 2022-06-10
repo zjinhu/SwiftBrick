@@ -28,14 +28,14 @@ public extension UITextField {
     class func snpTextField(supView: UIView? = nil,
                             backColor: UIColor? = .clear,
                             holderFont: UIFont = UIFont.systemFont(ofSize: 14),
-                            holder: String = "",
+                            holder: String? = nil,
                             holderColor: UIColor = .black,
                             font: UIFont = UIFont.systemFont(ofSize: 14),
-                            text: String = "",
+                            text: String? = nil,
                             textColor: UIColor = .black,
                             textAlignment: NSTextAlignment = .left,
                             delegate: UITextFieldDelegate? = nil,
-                            snapKitMaker: ((ConstraintMaker) -> Void)? = nil) -> UITextField {
+                            snapKitMaker: ((_ make: ConstraintMaker) -> Void)? = nil) -> UITextField {
         
         let field = UITextField()
         
@@ -48,7 +48,10 @@ public extension UITextField {
           field.delegate = delegate
         }
         
-        field.attributedPlaceholder = NSAttributedString(string: holder, attributes: [NSAttributedString.Key.font: holderFont,NSAttributedString.Key.foregroundColor:holderColor])
+        if let holder = holder{
+            field.attributedPlaceholder = NSAttributedString(string: holder, attributes: [NSAttributedString.Key.font: holderFont,NSAttributedString.Key.foregroundColor:holderColor])
+        }
+
         
         field.text = text
         field.font = font

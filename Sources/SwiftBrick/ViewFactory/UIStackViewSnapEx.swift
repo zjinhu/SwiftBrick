@@ -32,7 +32,7 @@ public extension UIStackView {
                             alignment: UIStackView.Alignment = .fill,
                             distribution: UIStackView.Distribution = .fill,
                             autoLayout: Bool = false,
-                            snapKitMaker: ((ConstraintMaker) -> Void)? = nil) -> UIView {
+                            snapKitMaker: ((_ make: ConstraintMaker) -> Void)? = nil) -> UIView {
         
         let view = UIStackView(axis: axis, spacing: spacing, alignment: alignment, distribution: distribution, autoLayout: autoLayout)
         view.addBackground(color: backColor, cornerRadius: cornerRadius)

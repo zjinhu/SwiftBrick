@@ -36,7 +36,7 @@ public extension UIView {
     class func snpView(supView: UIView? = nil,
                        backColor: UIColor? = .clear,
                        tapGesture: tapGestureClosure? = nil,
-                       snapKitMaker: ((ConstraintMaker) -> Void)? = nil) -> UIView {
+                       snapKitMaker: ((_ make: ConstraintMaker) -> Void)? = nil) -> UIView {
         
         let view = UIView()
         view.backgroundColor = backColor
@@ -84,7 +84,7 @@ public extension UIView {
 //    }
 //
 //    @discardableResult
-//    public func layout(snapKitMaker: (ConstraintMaker) -> Void) -> T {
+//    public func layout(snapKitMaker: (_ make: ConstraintMaker) -> Void) -> T {
 //        makerValue.snp.makeConstraints { (make) in
 //            snapKitMaker(make)
 //        }

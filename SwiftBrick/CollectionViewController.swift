@@ -10,16 +10,6 @@ import UIKit
 
 class CollectionViewController: JHCollectionViewController {
 
-    override func setupFlowLayout() -> UICollectionViewFlowLayout{
-        let flowLayout = UICollectionViewFlowLayout.init()
-        flowLayout.minimumLineSpacing = 0
-        flowLayout.minimumInteritemSpacing = 0
-        flowLayout.headerReferenceSize = CGSize.zero
-        flowLayout.footerReferenceSize = CGSize.zero
-        flowLayout.scrollDirection = UICollectionView.ScrollDirection.vertical
-        return flowLayout
-    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,28 +35,45 @@ class CollectionViewController: JHCollectionViewController {
         
         if #available(iOS 13.0, *) {
             collectionView?.collectionViewLayout = UICollectionViewCompositionalLayout(sectionProvider: { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
-                let isPhone = layoutEnvironment.traitCollection.userInterfaceIdiom == UIUserInterfaceIdiom.phone
+
                 let size = NSCollectionLayoutSize(
-                    widthDimension: NSCollectionLayoutDimension.fractionalWidth(1),
-                    heightDimension: NSCollectionLayoutDimension.absolute(isPhone ? 280 : 250)
+                    widthDimension: .fractionalWidth(1),
+                    heightDimension: .estimated(100)
                 )
-                let itemCount = isPhone ? 1 : 3
+ 
                 let item = NSCollectionLayoutItem(layoutSize: size)
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: size, subitem: item, count: itemCount)
+                
+//                let groupSize = NSCollectionLayoutSize(
+//                    widthDimension: .fractionalWidth(1),
+//                    heightDimension: .absolute(100)
+//                )
+                
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: size, subitem: item, count: 1)
                 let section = NSCollectionLayoutSection(group: group)
                 section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
                 section.interGroupSpacing = 10
                 // Supplementary header view setup
-                let headerFooterSize = NSCollectionLayoutSize(
+                let headerSize = NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1.0),
                     heightDimension: .estimated(20)
                 )
                 let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
-                    layoutSize: headerFooterSize,
+                    layoutSize: headerSize,
                     elementKind: UICollectionView.elementKindSectionHeader,
                     alignment: .top
                 )
-                section.boundarySupplementaryItems = [sectionHeader]
+                
+                let footerSize = NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1.0),
+                    heightDimension: .estimated(20)
+                )
+                let sectionFooter = NSCollectionLayoutBoundarySupplementaryItem(
+                    layoutSize: footerSize,
+                    elementKind: UICollectionView.elementKindSectionFooter,
+                    alignment: .bottom
+                )
+                
+                section.boundarySupplementaryItems = [sectionHeader,sectionFooter]
                 return section
             })
         } else {
@@ -74,10 +81,6 @@ class CollectionViewController: JHCollectionViewController {
         }
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: 150, height: 100)
-    }
-    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
@@ -90,6 +93,30 @@ class CollectionViewController: JHCollectionViewController {
             return footer
         }
     }
+
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(JHCollectionViewCell.self, indexPath: indexPath)
+        cell.backgroundColor = .random
+        return cell
+    }
+
+    
+    
+    ///ios13以下
+    
+    override func setupFlowLayout() -> UICollectionViewFlowLayout{
+        let flowLayout = UICollectionViewFlowLayout.init()
+        flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.headerReferenceSize = CGSize.zero
+        flowLayout.footerReferenceSize = CGSize.zero
+        flowLayout.scrollDirection = UICollectionView.ScrollDirection.vertical
+        return flowLayout
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize.init(width: 150, height: 100)
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize.init(width: ScreenWidth, height: 20)
@@ -99,10 +126,4 @@ class CollectionViewController: JHCollectionViewController {
         return CGSize.init(width: ScreenWidth, height: 60)
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(JHCollectionViewCell.self, indexPath: indexPath)
-        cell.backgroundColor = .random
-        return cell
-    }
-
 }
