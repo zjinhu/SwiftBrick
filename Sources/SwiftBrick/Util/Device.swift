@@ -52,6 +52,20 @@ public func Later_iOS14() -> Bool {
     return true
 }
 
+public func Later_iOS15() -> Bool {
+    guard #available(iOS 15.0, *) else {
+        return false
+    }
+    return true
+}
+
+public func Later_iOS16() -> Bool {
+    guard #available(iOS 16.0, *) else {
+        return false
+    }
+    return true
+}
+
 
 public enum Device {
     /// iPhone 5, 5s, 5c, SE, iPod Touch 5-6th.
