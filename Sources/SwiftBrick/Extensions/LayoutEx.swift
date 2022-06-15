@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+///方便自适应布局进行等比例宽高 等同于 FitWidth FitHight
 public extension CGFloat {
     /// 比例缩放 width
     ///
@@ -24,7 +24,7 @@ public extension CGFloat {
         return ScreenHeight / 667 * self
     }
 }
-
+///方便自适应布局进行等比例宽高 等同于 FitWidth FitHight
 public extension Int {
     /// 比例缩放 width
     ///
