@@ -8,7 +8,7 @@
 
 import UIKit
 import SnapKit
-import SwiftyForm
+import Swift_Form
 //import Combine
 class ViewController: JHTableViewController {
 

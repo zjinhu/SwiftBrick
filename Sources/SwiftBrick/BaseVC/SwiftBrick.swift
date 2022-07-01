@@ -91,7 +91,8 @@ public extension JHBaseVC where Self: UIViewController {
                           highLightImage: UIImage?,
                           touchUp: ButtonClosure?){
         
-        configLeftBarButton(normalImage: normalImage,
+        configLeftBarButton(text:"      ",
+                            normalImage: normalImage,
                             highLightImage: highLightImage)
         
         let btnItem = UIBarButtonItem(customView: leftBarButton)
