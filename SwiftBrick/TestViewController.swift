@@ -43,7 +43,10 @@ class TestViewController: UIViewController {
         })
         ive.clipsToBounds = true
         ive.layer.setCorners(15, corners: .bothTop)
-
+        
+        if #available(iOS 13.0, *) {
+            ive.image = UIImage.symbol("house", size: 25, color: .textTitleColor)
+        }
 
         
         let line = UILineView()

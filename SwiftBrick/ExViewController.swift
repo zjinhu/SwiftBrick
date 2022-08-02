@@ -81,6 +81,7 @@ class ExViewController: JHViewController ,UITableViewDelegate,UITableViewDataSou
             make.height.equalTo(40)
         }.contentMode = .scaleAspectFit
 
+
     }
     // MARK:-示例快速创建按钮
     func demoButton(supView: UIView){

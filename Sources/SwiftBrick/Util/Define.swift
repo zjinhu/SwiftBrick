@@ -97,12 +97,14 @@ public func SystemFont(_ size: CGFloat, weight: UIFont.Weight) -> UIFont {
 }
 
 public enum Weight {
+    case ultralight
+    case thin
+    case light
+    case regular
     case medium
     case semibold
-    case light
-    case ultralight
-    case regular
-    case thin
+    case bold
+    case heavy
 }
 /// pingfang-sc 字体
 public func Font(_ size: CGFloat) -> UIFont {
@@ -120,18 +122,22 @@ public func FontBold(_ size: CGFloat) -> UIFont {
 public func FontWeight(_ size: CGFloat, weight: Weight) -> UIFont {
     var name = ""
     switch weight {
+    case .ultralight:
+        name = "PingFangSC-Ultralight"
+    case .thin:
+        name = "PingFangSC-Thin"
+    case .light:
+        name = "PingFangSC-Light"
+    case .regular:
+        name = "PingFangSC-Regular"
     case .medium:
         name = "PingFangSC-Medium"
     case .semibold:
         name = "PingFangSC-Semibold"
-    case .light:
-        name = "PingFangSC-Light"
-    case .ultralight:
-        name = "PingFangSC-Ultralight"
-    case .regular:
-        name = "PingFangSC-Regular"
-    case .thin:
-        name = "PingFangSC-Thin"
+    case .bold:
+        name = "PingFangSC-Bold"
+    case .heavy:
+        name = "PingFangSC-Heavy"
     }
     return UIFont(name: name, size: size) ?? UIFont.systemFont(ofSize: size)
 }

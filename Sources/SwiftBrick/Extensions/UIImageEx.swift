@@ -271,4 +271,12 @@ extension UIImage {
             }
         }
     }
+    
+    @available(iOS 13.0, *)
+    public static func symbol(_ systemName:String, size: CGFloat = 12, color: UIColor = .white) -> UIImage?{
+        let config = UIImage.SymbolConfiguration(pointSize: size)
+        return UIImage(systemName: systemName, withConfiguration: config)?.withTintColor(color, renderingMode: .alwaysOriginal)
+    }
+
 }
+
