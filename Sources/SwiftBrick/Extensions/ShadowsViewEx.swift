@@ -270,7 +270,7 @@ extension UIView {
             content.frame = bounds
             content.backgroundColor = backgroundColor?.cgColor
             
-            roundCorners(layer:content, corners: corners, radius: Params.cornerRadius[tmpAddress]!)
+            roundCorners(layer:content, corners: corners, radius: cornerRadius)
             content.masksToBounds = true
             shadowLayerLight.addSublayer(content)
         }
@@ -295,11 +295,15 @@ extension UIView {
     open func delete() {
         layer.sublayers?.forEach({ item in
             if item.name == "shadowDark" {
-                backgroundColor = UIColor(cgColor: item.sublayers![0].backgroundColor!)
+                if let backColor = item.sublayers?.first?.backgroundColor{
+                    backgroundColor = UIColor(cgColor: backColor)
+                }
                 item.removeFromSuperlayer()
             }
             if item.name == "shadowLight" {
-                backgroundColor = UIColor(cgColor: item.sublayers![0].backgroundColor!)
+                if let backColor = item.sublayers?.first?.backgroundColor{
+                    backgroundColor = UIColor(cgColor: backColor)
+                }
                 item.removeFromSuperlayer()
             }
         })
@@ -504,7 +508,11 @@ extension UIButton {
         }
         
         if(Params.active[tmpAddress] == true){
-            Params.reverse[tmpAddress] = (Params.reverse[tmpAddress] != nil) ? !Params.reverse[tmpAddress]! : true
+            if let reverse = Params.reverse[tmpAddress]{
+                Params.reverse[tmpAddress] = !reverse
+            }else{
+                Params.reverse[tmpAddress] = false
+            }
             setupShadows()
         }
         
@@ -566,7 +574,11 @@ extension UIButton {
  
         if(Params.active[tmpAddress] == true){
             if(!isToggle){
-                Params.reverse[tmpAddress] = (Params.reverse[tmpAddress] != nil) ? !Params.reverse[tmpAddress]! : false
+                if let reverse = Params.reverse[tmpAddress]{
+                    Params.reverse[tmpAddress] = !reverse
+                }else{
+                    Params.reverse[tmpAddress] = false
+                }
                 setupShadows()
             }
         }
@@ -587,7 +599,11 @@ extension UIButton {
         
         if(Params.active[tmpAddress] == true){
             if(!isToggle){
-                Params.reverse[tmpAddress] = (Params.reverse[tmpAddress] != nil) ? !Params.reverse[tmpAddress]! : false
+                if let reverse = Params.reverse[tmpAddress]{
+                    Params.reverse[tmpAddress] = !reverse
+                }else{
+                    Params.reverse[tmpAddress] = false
+                }
                 setupShadows()
             }
         }
