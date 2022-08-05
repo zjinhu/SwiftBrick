@@ -148,7 +148,7 @@ UILabel.snpLabel(text: “我是Label”, textColor: .red, supView: self.view, s
 * UINavigationController        —对Nav做扩展，给VC添加属性，方便设置隐藏导航栏。
 
   解决多级页面导航栏隐藏显示过程中的动画问题，
-  仅需要在VC的viewDidLoad中设置 `self.prefersNavigationBarHidden = true/false`来控制当前页面的导航栏是否隐藏（添加SwizzleNavBar.swizzle进行方法交换）详细请参考DEMO
+  仅需要在VC的viewDidLoad中设置 `self.prefersNavigationBarHidden = true/false`来控制当前页面的导航栏是否隐藏（添加SwizzleNavBar.inits进行方法交换）详细请参考DEMO
 
 * StatusBaEx         --添加状态栏控制工具，添加UIViewController专属参数控制状态栏样式以及显示隐藏，不局限于VC，可在任意位置控制，只要递归到最上层VC即可（参考：https://github.com/jackiehu/SwiftMediator）
 
