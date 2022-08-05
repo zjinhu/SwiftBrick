@@ -269,7 +269,6 @@ extension UIView {
             let content:CAShapeLayer = CAShapeLayer()
             content.frame = bounds
             content.backgroundColor = backgroundColor?.cgColor
-            
             roundCorners(layer:content, corners: corners, radius: cornerRadius)
             content.masksToBounds = true
             shadowLayerLight.addSublayer(content)
@@ -312,7 +311,7 @@ extension UIView {
     func roundCorners(layer: CALayer, corners: UIRectCorner, radius: CGFloat) {
         let path = UIBezierPath(roundedRect: layer.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
         let mask = CAShapeLayer()
-        mask.backgroundColor = UIColor.red.cgColor
+//        mask.backgroundColor = backgroundColor?.cgColor
         mask.path = path.cgPath
         layer.mask = mask
     }
@@ -511,7 +510,7 @@ extension UIButton {
             if let reverse = Params.reverse[tmpAddress]{
                 Params.reverse[tmpAddress] = !reverse
             }else{
-                Params.reverse[tmpAddress] = false
+                Params.reverse[tmpAddress] = true
             }
             setupShadows()
         }
@@ -577,7 +576,7 @@ extension UIButton {
                 if let reverse = Params.reverse[tmpAddress]{
                     Params.reverse[tmpAddress] = !reverse
                 }else{
-                    Params.reverse[tmpAddress] = false
+                    Params.reverse[tmpAddress] = true
                 }
                 setupShadows()
             }
@@ -602,7 +601,7 @@ extension UIButton {
                 if let reverse = Params.reverse[tmpAddress]{
                     Params.reverse[tmpAddress] = !reverse
                 }else{
-                    Params.reverse[tmpAddress] = false
+                    Params.reverse[tmpAddress] = true
                 }
                 setupShadows()
             }
