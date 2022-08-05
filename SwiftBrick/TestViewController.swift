@@ -25,10 +25,11 @@ class TestViewController: UIViewController {
         bb.active = true
         bb.shadowDarkOffsetX = -6
         bb.shadowDarkOffsetY = 6
-        bb.shadowLightOffsetX = 6
-        bb.shadowLightOffsetY = -6
+        bb.shadowLightOffsetX = 1
+        bb.shadowLightOffsetY = -1
         bb.darkShadowColor = .black
         bb.lightShadowColor = .white
+
         bb.cornerRadius = 100
         bb.normalColor = .orange
         view.addSubview(bb)
