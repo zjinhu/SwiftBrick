@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		60508A3727E09FE100164639 /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60508A3627E09FE100164639 /* BorderView.swift */; };
 		60B078C82856F64500F25F99 /* LayoutEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B078C72856F64500F25F99 /* LayoutEx.swift */; };
 		81074F442575056A00C60057 /* SwiftBrick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81074F432575056A00C60057 /* SwiftBrick.swift */; };
 		811372D2256529D200D07554 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811372D1256529D200D07554 /* AppState.swift */; };
@@ -21,7 +20,7 @@
 		818040FE253165CB002FFFF6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 818040D7253165CB002FFFF6 /* Images.xcassets */; };
 		818040FF253165CB002FFFF6 /* UITableViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040D9253165CB002FFFF6 /* UITableViewSnapEx.swift */; };
 		81804100253165CB002FFFF6 /* UILineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040DA253165CB002FFFF6 /* UILineView.swift */; };
-		81804101253165CB002FFFF6 /* ShadowsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040DB253165CB002FFFF6 /* ShadowsButton.swift */; };
+		81804101253165CB002FFFF6 /* ShadowsViewEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040DB253165CB002FFFF6 /* ShadowsViewEx.swift */; };
 		81804102253165CB002FFFF6 /* UILabelSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040DC253165CB002FFFF6 /* UILabelSnapEx.swift */; };
 		81804103253165CB002FFFF6 /* ArrayViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040DD253165CB002FFFF6 /* ArrayViewSnapEx.swift */; };
 		81804104253165CB002FFFF6 /* UITextFieldSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040DE253165CB002FFFF6 /* UITextFieldSnapEx.swift */; };
@@ -75,7 +74,6 @@
 
 /* Begin PBXFileReference section */
 		3A28AE8B8C30828D14321967 /* Pods_SwiftBrick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftBrick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		60508A3627E09FE100164639 /* BorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderView.swift; sourceTree = "<group>"; };
 		60B078C72856F64500F25F99 /* LayoutEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutEx.swift; sourceTree = "<group>"; };
 		81074F432575056A00C60057 /* SwiftBrick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBrick.swift; sourceTree = "<group>"; };
 		811372D1256529D200D07554 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -89,7 +87,7 @@
 		818040D7253165CB002FFFF6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		818040D9253165CB002FFFF6 /* UITableViewSnapEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewSnapEx.swift; sourceTree = "<group>"; };
 		818040DA253165CB002FFFF6 /* UILineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILineView.swift; sourceTree = "<group>"; };
-		818040DB253165CB002FFFF6 /* ShadowsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowsButton.swift; sourceTree = "<group>"; };
+		818040DB253165CB002FFFF6 /* ShadowsViewEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowsViewEx.swift; sourceTree = "<group>"; };
 		818040DC253165CB002FFFF6 /* UILabelSnapEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelSnapEx.swift; sourceTree = "<group>"; };
 		818040DD253165CB002FFFF6 /* ArrayViewSnapEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayViewSnapEx.swift; sourceTree = "<group>"; };
 		818040DE253165CB002FFFF6 /* UITextFieldSnapEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldSnapEx.swift; sourceTree = "<group>"; };
@@ -162,7 +160,6 @@
 				AE80044E06FE59A7F5BFA171 /* Pods-SwiftBrick.debug.xcconfig */,
 				FE869EF4D98BBCE9CB9C65D8 /* Pods-SwiftBrick.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -227,7 +224,6 @@
 			children = (
 				818040D9253165CB002FFFF6 /* UITableViewSnapEx.swift */,
 				818040DA253165CB002FFFF6 /* UILineView.swift */,
-				818040DB253165CB002FFFF6 /* ShadowsButton.swift */,
 				818040DC253165CB002FFFF6 /* UILabelSnapEx.swift */,
 				818040DD253165CB002FFFF6 /* ArrayViewSnapEx.swift */,
 				818040DE253165CB002FFFF6 /* UITextFieldSnapEx.swift */,
@@ -257,6 +253,7 @@
 		818040EA253165CB002FFFF6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				818040DB253165CB002FFFF6 /* ShadowsViewEx.swift */,
 				818040EB253165CB002FFFF6 /* UINavigationBarEx.swift */,
 				81F067442750E42200E7A4F5 /* NSObjectEx.swift */,
 				818040EC253165CB002FFFF6 /* UIGestureRecognizerEx.swift */,
@@ -310,7 +307,6 @@
 				916226102385247F0050F228 /* WebViewController.swift */,
 				916226192385534D0050F228 /* ExViewController.swift */,
 				8148D47B2499EC4000C0B4BA /* TestViewController.swift */,
-				60508A3627E09FE100164639 /* BorderView.swift */,
 				9111500D23838CC200AE47DF /* Main.storyboard */,
 				9111501023838CC300AE47DF /* Assets.xcassets */,
 				9111501223838CC300AE47DF /* LaunchScreen.storyboard */,
@@ -444,7 +440,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60508A3727E09FE100164639 /* BorderView.swift in Sources */,
 				9111500C23838CC200AE47DF /* ViewController.swift in Sources */,
 				81804116253165CB002FFFF6 /* UIImageEx.swift in Sources */,
 				9111503023838E1A00AE47DF /* TableViewController.swift in Sources */,
@@ -485,7 +480,7 @@
 				818040FA253165CB002FFFF6 /* JHWebViewController.swift in Sources */,
 				81DA0919256775A1009A5215 /* NotificationCenterEx.swift in Sources */,
 				818040F8253165CB002FFFF6 /* Loader.swift in Sources */,
-				81804101253165CB002FFFF6 /* ShadowsButton.swift in Sources */,
+				81804101253165CB002FFFF6 /* ShadowsViewEx.swift in Sources */,
 				81804106253165CB002FFFF6 /* UIViewSnapEx.swift in Sources */,
 				818040FD253165CB002FFFF6 /* JHTableViewController.swift in Sources */,
 				916226112385247F0050F228 /* WebViewController.swift in Sources */,
