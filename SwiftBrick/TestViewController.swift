@@ -19,6 +19,24 @@ class TestViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .gray
         
+        let vv = UIView()
+        vv.active = true
+        vv.shadowDarkOffsetX = -6
+        vv.shadowDarkOffsetY = 6
+        vv.shadowLightOffsetX = 1
+        vv.shadowLightOffsetY = -1
+        vv.darkShadowColor = .black
+        vv.lightShadowColor = .white
+        vv.backgroundColor = .white
+        vv.cornerRadius = 100
+        view.addSubview(vv)
+        vv.snp.makeConstraints { (make) in
+            make.left.equalToSuperview().offset(20)
+            make.top.equalToSuperview().offset(100)
+            make.width.equalTo(200)
+            make.height.equalTo(200)
+        }
+
         let bb = UIButton()
         bb.setTitle("123", for: .normal)
 //        bb.isToggle = true
@@ -29,17 +47,15 @@ class TestViewController: UIViewController {
         bb.shadowLightOffsetY = -1
         bb.darkShadowColor = .black
         bb.lightShadowColor = .white
-
         bb.cornerRadius = 100
         bb.normalColor = .orange
         view.addSubview(bb)
         bb.snp.makeConstraints { (make) in
-            make.centerX.equalToSuperview()
+            make.right.equalToSuperview().offset(-20)
             make.top.equalToSuperview().offset(100)
             make.width.equalTo(200)
             make.height.equalTo(200)
         }
-
         
         let ive = UIImageView.snpImageView(supView: view, backColor: L.color("baseYellow"), contentMode: .scaleAspectFill, snapKitMaker:  { (make) in
             make.centerX.equalToSuperview()

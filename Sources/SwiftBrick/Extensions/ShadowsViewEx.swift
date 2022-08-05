@@ -3,14 +3,14 @@ import UIKit
 
 extension UIView {
     
-    public static let classInit: Void = {
+    public static let swizzle: Void = {
         let originalSelector = #selector(layoutSubviews)
         let swizzledSelector = #selector(swizzled_layoutSubviews)
         swizzling(UIView.self, originalSelector: originalSelector, swizzledSelector: swizzledSelector)
     }()
     
     @objc func swizzled_layoutSubviews() {
-        swizzled_layoutSubviews();
+        swizzled_layoutSubviews()
         
         let tmpAddress = String(format: "%p", unsafeBitCast(self, to: Int.self))
         if(Params.active[tmpAddress] == true) {
@@ -203,7 +203,8 @@ extension UIView {
         
         var hasDark = false
         var hasLight = false
-        for item in self.layer.sublayers! {
+        
+        layer.sublayers?.forEach({ item in
             if item.name == "shadowDark" {
                 shadowLayerDark = item as! CAShapeLayer
                 hasDark = true
@@ -212,8 +213,8 @@ extension UIView {
                 shadowLayerLight = item as! CAShapeLayer
                 hasLight = true
             }
-        }
-
+        })
+        
         var corners:UIRectCorner = UIRectCorner()
         
         if let cornersLeft = Params.cornersLeft[tmpAddress], cornersLeft == true{
@@ -288,22 +289,20 @@ extension UIView {
             shadowLayerLight.shadowColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.7).cgColor
         }
         
-        self.backgroundColor = UIColor.clear
+        backgroundColor = UIColor.clear
     }
     
     open func delete() {
-        if(self.layer.sublayers != nil){
-            for item in self.layer.sublayers! {
-                if item.name == "shadowDark" {
-                    self.backgroundColor = UIColor(cgColor: item.sublayers![0].backgroundColor!);
-                    item.removeFromSuperlayer();
-                }
-                if item.name == "shadowLight" {
-                    self.backgroundColor = UIColor(cgColor: item.sublayers![0].backgroundColor!);
-                    item.removeFromSuperlayer();
-                }
+        layer.sublayers?.forEach({ item in
+            if item.name == "shadowDark" {
+                backgroundColor = UIColor(cgColor: item.sublayers![0].backgroundColor!)
+                item.removeFromSuperlayer()
             }
-        }
+            if item.name == "shadowLight" {
+                backgroundColor = UIColor(cgColor: item.sublayers![0].backgroundColor!)
+                item.removeFromSuperlayer()
+            }
+        })
     }
     
     func roundCorners(layer: CALayer, corners: UIRectCorner, radius: CGFloat) {
@@ -321,7 +320,7 @@ extension UIButton {
     
     struct ButtonParams {
         ///触感反馈
-        static var hapticLevel = [String:Int]()        //0: disabled; 1: light; 2: medium; 3: heavy light; 4: soft; 5: rigid (4 - 5 only iOS 13)
+        static var hapticLevel = [String:Int]()        //0: disabled 1: light 2: medium 3: heavy light 4: soft 5: rigid (4 - 5 only iOS 13)
         ///是否可选中
         static var isToggle = [String:Bool]()
         ///非选中模式背景色
@@ -389,7 +388,7 @@ extension UIButton {
         if(Params.active[tmpAddress] == true){
             setupShadows()
         }
-        self.backgroundColor = UIColor.clear
+        backgroundColor = UIColor.clear
     }
     
     open func setupShadows() {
@@ -397,7 +396,8 @@ extension UIButton {
         var shadowLayerLight: CAShapeLayer = CAShapeLayer()
         var hasDark = false
         var hasLight = false
-        for item in self.layer.sublayers! {
+
+        layer.sublayers?.forEach({ item in
             if item.name == "shadowDark" {
                 shadowLayerDark = item as! CAShapeLayer
                 hasDark = true
@@ -406,7 +406,7 @@ extension UIButton {
                 shadowLayerLight = item as! CAShapeLayer
                 hasLight = true
             }
-        }
+        })
         
         let tmpAddress = String(format: "%p", unsafeBitCast(self, to: Int.self))
         

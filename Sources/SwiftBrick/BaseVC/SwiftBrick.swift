@@ -21,8 +21,10 @@ public struct SwiftBrick{
     public static var navBarRightFixSpace: CGFloat = 0
     
     ///当导航栏从隐藏的页面滑动到有导航栏的页面或者从有到无的页面滑动,使过度更加平滑,vc需要隐藏导航栏设置下prefersNavigationBarHidden = true
-    public static func navBarSmooth() {
+    //MARK: ‼️APP初始化时需要交换一下方法‼️重要①‼️
+    public static func inits() {
         SwizzleNavBar.swizzle
+        UIView.swizzle
     }
 }
 

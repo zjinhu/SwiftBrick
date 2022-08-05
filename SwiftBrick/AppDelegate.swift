@@ -15,8 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         /////需要在APP启动之前调用此交换方法用于处理导航栏切换协调
-        SwiftBrick.navBarSmooth()
-        
+        SwiftBrick.inits() 
         return true
     }
 
