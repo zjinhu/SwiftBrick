@@ -17,41 +17,14 @@ class TestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .gray
         
-        let vv = UIView()
-        vv.active = true
-        vv.shadowDarkOffsetX = -6
-        vv.shadowDarkOffsetY = 6
-        vv.shadowLightOffsetX = 1
-        vv.shadowLightOffsetY = -1
-        vv.darkShadowColor = .black
-        vv.lightShadowColor = .white
-        vv.backgroundColor = .white
+        let vv = NeuButton()
+        vv.shadowOffset = .init(width: -5, height: 5)
+        vv.backColor = UIColor.red
         vv.cornerRadius = 100
         view.addSubview(vv)
         vv.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(20)
-            make.top.equalToSuperview().offset(100)
-            make.width.equalTo(200)
-            make.height.equalTo(200)
-        }
-
-        let bb = UIButton()
-        bb.setTitle("123", for: .normal)
-//        bb.isToggle = true
-        bb.active = true
-        bb.shadowDarkOffsetX = -6
-        bb.shadowDarkOffsetY = 6
-        bb.shadowLightOffsetX = 1
-        bb.shadowLightOffsetY = -1
-        bb.darkShadowColor = .black
-        bb.lightShadowColor = .white
-        bb.cornerRadius = 100
-        bb.normalColor = .orange
-        view.addSubview(bb)
-        bb.snp.makeConstraints { (make) in
-            make.right.equalToSuperview().offset(-20)
             make.top.equalToSuperview().offset(100)
             make.width.equalTo(200)
             make.height.equalTo(200)

@@ -20,7 +20,6 @@
 		818040FE253165CB002FFFF6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 818040D7253165CB002FFFF6 /* Images.xcassets */; };
 		818040FF253165CB002FFFF6 /* UITableViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040D9253165CB002FFFF6 /* UITableViewSnapEx.swift */; };
 		81804100253165CB002FFFF6 /* UILineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040DA253165CB002FFFF6 /* UILineView.swift */; };
-		81804101253165CB002FFFF6 /* ShadowsViewEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040DB253165CB002FFFF6 /* ShadowsViewEx.swift */; };
 		81804102253165CB002FFFF6 /* UILabelSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040DC253165CB002FFFF6 /* UILabelSnapEx.swift */; };
 		81804103253165CB002FFFF6 /* ArrayViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040DD253165CB002FFFF6 /* ArrayViewSnapEx.swift */; };
 		81804104253165CB002FFFF6 /* UITextFieldSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040DE253165CB002FFFF6 /* UITextFieldSnapEx.swift */; };
@@ -59,6 +58,7 @@
 		81E008FF260CA25B00E50E7B /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E008FE260CA25B00E50E7B /* Version.swift */; };
 		81F067452750E42200E7A4F5 /* NSObjectEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F067442750E42200E7A4F5 /* NSObjectEx.swift */; };
 		81F74AEC25F86F76007CDB69 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F74AEB25F86F76007CDB69 /* Then.swift */; };
+		85EC9FF628A0EFD900600731 /* Neumorphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC9FF528A0EFD800600731 /* Neumorphic.swift */; };
 		89D0DAADE80FB52615C16BFE /* Pods_SwiftBrick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A28AE8B8C30828D14321967 /* Pods_SwiftBrick.framework */; };
 		9111500823838CC200AE47DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111500723838CC200AE47DF /* AppDelegate.swift */; };
 		9111500A23838CC200AE47DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111500923838CC200AE47DF /* SceneDelegate.swift */; };
@@ -87,7 +87,6 @@
 		818040D7253165CB002FFFF6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		818040D9253165CB002FFFF6 /* UITableViewSnapEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewSnapEx.swift; sourceTree = "<group>"; };
 		818040DA253165CB002FFFF6 /* UILineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILineView.swift; sourceTree = "<group>"; };
-		818040DB253165CB002FFFF6 /* ShadowsViewEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowsViewEx.swift; sourceTree = "<group>"; };
 		818040DC253165CB002FFFF6 /* UILabelSnapEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelSnapEx.swift; sourceTree = "<group>"; };
 		818040DD253165CB002FFFF6 /* ArrayViewSnapEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayViewSnapEx.swift; sourceTree = "<group>"; };
 		818040DE253165CB002FFFF6 /* UITextFieldSnapEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldSnapEx.swift; sourceTree = "<group>"; };
@@ -126,6 +125,7 @@
 		81E008FE260CA25B00E50E7B /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		81F067442750E42200E7A4F5 /* NSObjectEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectEx.swift; sourceTree = "<group>"; };
 		81F74AEB25F86F76007CDB69 /* Then.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
+		85EC9FF528A0EFD800600731 /* Neumorphic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neumorphic.swift; sourceTree = "<group>"; };
 		9111500423838CC200AE47DF /* SwiftBrick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBrick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9111500723838CC200AE47DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9111500923838CC200AE47DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -234,6 +234,7 @@
 				818040E3253165CB002FFFF6 /* UIImageViewSnapEx.swift */,
 				818044A02531BDCA002FFFF6 /* UIStackViewSnapEx.swift */,
 				81A919A32600C33800B9964E /* InsetLabel.swift */,
+				85EC9FF528A0EFD800600731 /* Neumorphic.swift */,
 			);
 			path = ViewFactory;
 			sourceTree = "<group>";
@@ -253,7 +254,6 @@
 		818040EA253165CB002FFFF6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				818040DB253165CB002FFFF6 /* ShadowsViewEx.swift */,
 				818040EB253165CB002FFFF6 /* UINavigationBarEx.swift */,
 				81F067442750E42200E7A4F5 /* NSObjectEx.swift */,
 				818040EC253165CB002FFFF6 /* UIGestureRecognizerEx.swift */,
@@ -471,6 +471,7 @@
 				9111500823838CC200AE47DF /* AppDelegate.swift in Sources */,
 				818040FF253165CB002FFFF6 /* UITableViewSnapEx.swift in Sources */,
 				9111500A23838CC200AE47DF /* SceneDelegate.swift in Sources */,
+				85EC9FF628A0EFD900600731 /* Neumorphic.swift in Sources */,
 				81DA090B25676AB9009A5215 /* UserDefault.swift in Sources */,
 				60B078C82856F64500F25F99 /* LayoutEx.swift in Sources */,
 				818040F9253165CB002FFFF6 /* Define.swift in Sources */,
@@ -480,7 +481,6 @@
 				818040FA253165CB002FFFF6 /* JHWebViewController.swift in Sources */,
 				81DA0919256775A1009A5215 /* NotificationCenterEx.swift in Sources */,
 				818040F8253165CB002FFFF6 /* Loader.swift in Sources */,
-				81804101253165CB002FFFF6 /* ShadowsViewEx.swift in Sources */,
 				81804106253165CB002FFFF6 /* UIViewSnapEx.swift in Sources */,
 				818040FD253165CB002FFFF6 /* JHTableViewController.swift in Sources */,
 				916226112385247F0050F228 /* WebViewController.swift in Sources */,

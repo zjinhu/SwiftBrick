@@ -24,7 +24,6 @@ public struct SwiftBrick{
     //MARK: ‼️APP初始化时需要交换一下方法‼️重要①‼️
     public static func inits() {
         SwizzleNavBar.swizzle
-        UIView.swizzle
     }
 }
 
