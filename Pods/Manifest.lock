@@ -1,0 +1,20 @@
+PODS:
+  - SnapKit (5.6.0)
+  - Swift_Form (1.1.0):
+    - SnapKit
+
+DEPENDENCIES:
+  - Swift_Form
+
+SPEC REPOS:
+  trunk:
+    - SnapKit
+    - Swift_Form
+
+SPEC CHECKSUMS:
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  Swift_Form: 2d4a3318f33540707a1173ee857233cd39acd961
+
+PODFILE CHECKSUM: cabc4d747f8d2ac2ad0386f34cd549480747a84a
+
+COCOAPODS: 1.11.3

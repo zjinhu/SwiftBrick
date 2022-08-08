@@ -3,14 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		60508A3727E09FE100164639 /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60508A3627E09FE100164639 /* BorderView.swift */; };
 		60B078C82856F64500F25F99 /* LayoutEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B078C72856F64500F25F99 /* LayoutEx.swift */; };
-		60B078CC2857060800F25F99 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 60B078CB2857060800F25F99 /* SnapKit */; };
-		60B078CF2857062B00F25F99 /* SwiftyForm in Frameworks */ = {isa = PBXBuildFile; productRef = 60B078CE2857062B00F25F99 /* SwiftyForm */; };
 		81074F442575056A00C60057 /* SwiftBrick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81074F432575056A00C60057 /* SwiftBrick.swift */; };
 		811372D2256529D200D07554 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811372D1256529D200D07554 /* AppState.swift */; };
 		8148D47C2499EC4000C0B4BA /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148D47B2499EC4000C0B4BA /* TestViewController.swift */; };
@@ -23,7 +20,6 @@
 		818040FE253165CB002FFFF6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 818040D7253165CB002FFFF6 /* Images.xcassets */; };
 		818040FF253165CB002FFFF6 /* UITableViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040D9253165CB002FFFF6 /* UITableViewSnapEx.swift */; };
 		81804100253165CB002FFFF6 /* UILineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040DA253165CB002FFFF6 /* UILineView.swift */; };
-		81804101253165CB002FFFF6 /* ShadowsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040DB253165CB002FFFF6 /* ShadowsButton.swift */; };
 		81804102253165CB002FFFF6 /* UILabelSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040DC253165CB002FFFF6 /* UILabelSnapEx.swift */; };
 		81804103253165CB002FFFF6 /* ArrayViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040DD253165CB002FFFF6 /* ArrayViewSnapEx.swift */; };
 		81804104253165CB002FFFF6 /* UITextFieldSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818040DE253165CB002FFFF6 /* UITextFieldSnapEx.swift */; };
@@ -62,6 +58,8 @@
 		81E008FF260CA25B00E50E7B /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E008FE260CA25B00E50E7B /* Version.swift */; };
 		81F067452750E42200E7A4F5 /* NSObjectEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F067442750E42200E7A4F5 /* NSObjectEx.swift */; };
 		81F74AEC25F86F76007CDB69 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F74AEB25F86F76007CDB69 /* Then.swift */; };
+		85EC9FF628A0EFD900600731 /* Neumorphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC9FF528A0EFD800600731 /* Neumorphic.swift */; };
+		89D0DAADE80FB52615C16BFE /* Pods_SwiftBrick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A28AE8B8C30828D14321967 /* Pods_SwiftBrick.framework */; };
 		9111500823838CC200AE47DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111500723838CC200AE47DF /* AppDelegate.swift */; };
 		9111500A23838CC200AE47DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111500923838CC200AE47DF /* SceneDelegate.swift */; };
 		9111500C23838CC200AE47DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111500B23838CC200AE47DF /* ViewController.swift */; };
@@ -75,7 +73,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		60508A3627E09FE100164639 /* BorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderView.swift; sourceTree = "<group>"; };
+		3A28AE8B8C30828D14321967 /* Pods_SwiftBrick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftBrick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		60B078C72856F64500F25F99 /* LayoutEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutEx.swift; sourceTree = "<group>"; };
 		81074F432575056A00C60057 /* SwiftBrick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBrick.swift; sourceTree = "<group>"; };
 		811372D1256529D200D07554 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -89,7 +87,6 @@
 		818040D7253165CB002FFFF6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		818040D9253165CB002FFFF6 /* UITableViewSnapEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewSnapEx.swift; sourceTree = "<group>"; };
 		818040DA253165CB002FFFF6 /* UILineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILineView.swift; sourceTree = "<group>"; };
-		818040DB253165CB002FFFF6 /* ShadowsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowsButton.swift; sourceTree = "<group>"; };
 		818040DC253165CB002FFFF6 /* UILabelSnapEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelSnapEx.swift; sourceTree = "<group>"; };
 		818040DD253165CB002FFFF6 /* ArrayViewSnapEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayViewSnapEx.swift; sourceTree = "<group>"; };
 		818040DE253165CB002FFFF6 /* UITextFieldSnapEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldSnapEx.swift; sourceTree = "<group>"; };
@@ -128,6 +125,7 @@
 		81E008FE260CA25B00E50E7B /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		81F067442750E42200E7A4F5 /* NSObjectEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectEx.swift; sourceTree = "<group>"; };
 		81F74AEB25F86F76007CDB69 /* Then.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
+		85EC9FF528A0EFD800600731 /* Neumorphic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neumorphic.swift; sourceTree = "<group>"; };
 		9111500423838CC200AE47DF /* SwiftBrick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBrick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9111500723838CC200AE47DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9111500923838CC200AE47DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +138,8 @@
 		911150372383DABF00AE47DF /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		916226102385247F0050F228 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		916226192385534D0050F228 /* ExViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExViewController.swift; sourceTree = "<group>"; };
+		AE80044E06FE59A7F5BFA171 /* Pods-SwiftBrick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBrick.debug.xcconfig"; path = "Target Support Files/Pods-SwiftBrick/Pods-SwiftBrick.debug.xcconfig"; sourceTree = "<group>"; };
+		FE869EF4D98BBCE9CB9C65D8 /* Pods-SwiftBrick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBrick.release.xcconfig"; path = "Target Support Files/Pods-SwiftBrick/Pods-SwiftBrick.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,14 +147,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60B078CF2857062B00F25F99 /* SwiftyForm in Frameworks */,
-				60B078CC2857060800F25F99 /* SnapKit in Frameworks */,
+				89D0DAADE80FB52615C16BFE /* Pods_SwiftBrick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		606ADB145E66F704AF8295C5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AE80044E06FE59A7F5BFA171 /* Pods-SwiftBrick.debug.xcconfig */,
+				FE869EF4D98BBCE9CB9C65D8 /* Pods-SwiftBrick.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		818040CC253165CB002FFFF6 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,7 +224,6 @@
 			children = (
 				818040D9253165CB002FFFF6 /* UITableViewSnapEx.swift */,
 				818040DA253165CB002FFFF6 /* UILineView.swift */,
-				818040DB253165CB002FFFF6 /* ShadowsButton.swift */,
 				818040DC253165CB002FFFF6 /* UILabelSnapEx.swift */,
 				818040DD253165CB002FFFF6 /* ArrayViewSnapEx.swift */,
 				818040DE253165CB002FFFF6 /* UITextFieldSnapEx.swift */,
@@ -227,6 +234,7 @@
 				818040E3253165CB002FFFF6 /* UIImageViewSnapEx.swift */,
 				818044A02531BDCA002FFFF6 /* UIStackViewSnapEx.swift */,
 				81A919A32600C33800B9964E /* InsetLabel.swift */,
+				85EC9FF528A0EFD800600731 /* Neumorphic.swift */,
 			);
 			path = ViewFactory;
 			sourceTree = "<group>";
@@ -274,6 +282,8 @@
 			children = (
 				9111500623838CC200AE47DF /* SwiftBrick */,
 				9111500523838CC200AE47DF /* Products */,
+				606ADB145E66F704AF8295C5 /* Pods */,
+				D2434572263AF12132AB2EB4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -297,13 +307,20 @@
 				916226102385247F0050F228 /* WebViewController.swift */,
 				916226192385534D0050F228 /* ExViewController.swift */,
 				8148D47B2499EC4000C0B4BA /* TestViewController.swift */,
-				60508A3627E09FE100164639 /* BorderView.swift */,
 				9111500D23838CC200AE47DF /* Main.storyboard */,
 				9111501023838CC300AE47DF /* Assets.xcassets */,
 				9111501223838CC300AE47DF /* LaunchScreen.storyboard */,
 				9111501523838CC300AE47DF /* Info.plist */,
 			);
 			path = SwiftBrick;
+			sourceTree = "<group>";
+		};
+		D2434572263AF12132AB2EB4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3A28AE8B8C30828D14321967 /* Pods_SwiftBrick.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,19 +330,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9111501823838CC300AE47DF /* Build configuration list for PBXNativeTarget "SwiftBrick" */;
 			buildPhases = (
+				1020A63704E906EF1AD0E401 /* [CP] Check Pods Manifest.lock */,
 				9111500023838CC200AE47DF /* Sources */,
 				9111500123838CC200AE47DF /* Frameworks */,
 				9111500223838CC200AE47DF /* Resources */,
+				671AE3B42318C54288EF12FF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SwiftBrick;
-			packageProductDependencies = (
-				60B078CB2857060800F25F99 /* SnapKit */,
-				60B078CE2857062B00F25F99 /* SwiftyForm */,
-			);
 			productName = SwiftBrick;
 			productReference = 9111500423838CC200AE47DF /* SwiftBrick.app */;
 			productType = "com.apple.product-type.application";
@@ -355,10 +370,6 @@
 				Base,
 			);
 			mainGroup = 91114FFB23838CC200AE47DF;
-			packageReferences = (
-				60B078CA2857060800F25F99 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				60B078CD2857062B00F25F99 /* XCRemoteSwiftPackageReference "SwiftyForm" */,
-			);
 			productRefGroup = 9111500523838CC200AE47DF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -382,12 +393,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1020A63704E906EF1AD0E401 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftBrick-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		671AE3B42318C54288EF12FF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftBrick/Pods-SwiftBrick-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftBrick/Pods-SwiftBrick-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftBrick/Pods-SwiftBrick-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9111500023838CC200AE47DF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60508A3727E09FE100164639 /* BorderView.swift in Sources */,
 				9111500C23838CC200AE47DF /* ViewController.swift in Sources */,
 				81804116253165CB002FFFF6 /* UIImageEx.swift in Sources */,
 				9111503023838E1A00AE47DF /* TableViewController.swift in Sources */,
@@ -419,6 +471,7 @@
 				9111500823838CC200AE47DF /* AppDelegate.swift in Sources */,
 				818040FF253165CB002FFFF6 /* UITableViewSnapEx.swift in Sources */,
 				9111500A23838CC200AE47DF /* SceneDelegate.swift in Sources */,
+				85EC9FF628A0EFD900600731 /* Neumorphic.swift in Sources */,
 				81DA090B25676AB9009A5215 /* UserDefault.swift in Sources */,
 				60B078C82856F64500F25F99 /* LayoutEx.swift in Sources */,
 				818040F9253165CB002FFFF6 /* Define.swift in Sources */,
@@ -428,7 +481,6 @@
 				818040FA253165CB002FFFF6 /* JHWebViewController.swift in Sources */,
 				81DA0919256775A1009A5215 /* NotificationCenterEx.swift in Sources */,
 				818040F8253165CB002FFFF6 /* Loader.swift in Sources */,
-				81804101253165CB002FFFF6 /* ShadowsButton.swift in Sources */,
 				81804106253165CB002FFFF6 /* UIViewSnapEx.swift in Sources */,
 				818040FD253165CB002FFFF6 /* JHTableViewController.swift in Sources */,
 				916226112385247F0050F228 /* WebViewController.swift in Sources */,
@@ -591,6 +643,7 @@
 		};
 		9111501923838CC300AE47DF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE80044E06FE59A7F5BFA171 /* Pods-SwiftBrick.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -612,6 +665,7 @@
 		};
 		9111501A23838CC300AE47DF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE869EF4D98BBCE9CB9C65D8 /* Pods-SwiftBrick.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -652,38 +706,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		60B078CA2857060800F25F99 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-		60B078CD2857062B00F25F99 /* XCRemoteSwiftPackageReference "SwiftyForm" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/jackiehu/SwiftyForm";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		60B078CB2857060800F25F99 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 60B078CA2857060800F25F99 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-		60B078CE2857062B00F25F99 /* SwiftyForm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 60B078CD2857062B00F25F99 /* XCRemoteSwiftPackageReference "SwiftyForm" */;
-			productName = SwiftyForm;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 91114FFC23838CC200AE47DF /* Project object */;
 }

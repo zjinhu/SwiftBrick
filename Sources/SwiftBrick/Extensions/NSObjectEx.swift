@@ -10,7 +10,7 @@ import Foundation
 
 public extension NSObject {
 
-    static func swizzlingForClass(_ forClass: AnyClass, originalSelector: Selector, swizzledSelector: Selector) {
+    static func swizzling(_ forClass: AnyClass, originalSelector: Selector, swizzledSelector: Selector) {
         guard let originalMethod = class_getInstanceMethod(forClass, originalSelector),
               let swizzledMethod = class_getInstanceMethod(forClass, swizzledSelector) else {
             return

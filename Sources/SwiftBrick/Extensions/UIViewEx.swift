@@ -112,3 +112,13 @@ public extension UIView {
         return nil
     }
 }
+
+public extension UIView {
+    ///初始化View闭包--方便快速
+    static func inits<T: UIView>(_ builder: ((T) -> Void)? = nil) -> T {
+        let view = T()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        builder?(view)
+        return view
+    }
+}

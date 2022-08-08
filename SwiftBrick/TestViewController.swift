@@ -17,33 +17,31 @@ class TestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         
-        let bb = ShadowsButton()
-        bb.setTitle("123", for: .normal)
-        bb.shadowActive = true
-        bb.shadowNormalOffsetX = 6
-        bb.shadowNormalOffsetY = 6
-        bb.cornerRadius = 25
-        bb.backColor = .orange
-        view.addSubview(bb)
-        bb.snp.makeConstraints { (make) in
-            make.centerX.equalToSuperview()
+        let vv = NeuButton()
+        vv.shadowOffset = .init(width: -5, height: 5)
+        vv.backColor = UIColor.red
+        vv.cornerRadius = 100
+        view.addSubview(vv)
+        vv.snp.makeConstraints { (make) in
+            make.left.equalToSuperview().offset(20)
             make.top.equalToSuperview().offset(100)
-            make.width.equalTo(50)
-            make.height.equalTo(50)
+            make.width.equalTo(200)
+            make.height.equalTo(200)
         }
-
         
         let ive = UIImageView.snpImageView(supView: view, backColor: L.color("baseYellow"), contentMode: .scaleAspectFill, snapKitMaker:  { (make) in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(160)
+            make.top.equalToSuperview().offset(310)
             make.width.equalTo(150)
             make.height.equalTo(150)
         })
         ive.clipsToBounds = true
         ive.layer.setCorners(15, corners: .bothTop)
-
+        
+        if #available(iOS 13.0, *) {
+            ive.image = UIImage.symbol("house", size: 25, color: .textTitleColor)
+        }
 
         
         let line = UILineView()
@@ -62,14 +60,14 @@ class TestViewController: UIViewController {
         let lineView = UILineView(horizontal: true, width: 1, color: .orange)
         view.addSubview(lineView)
         lineView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(300)
+            make.top.equalToSuperview().offset(470)
             make.left.right.equalToSuperview()
             make.height.equalTo(50)
         }
         
         view.addSubview(then)
         then.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(350)
+            make.top.equalToSuperview().offset(520)
             make.center.equalToSuperview()
             make.width.equalTo(150)
             make.height.equalTo(150)
@@ -86,25 +84,19 @@ class TestViewController: UIViewController {
         test1Button.titleColorForDisabled = .yellow
         test1Button.titleColorForHighlighted = .purple
         test1Button.layer.cornerRadius = 5
-        test1Button.backgroundColor = .gray
+        test1Button.backgroundColor = .white
         test1Button.isSelected = true
         view.addSubview(test1Button)
         test1Button.snp.makeConstraints { (make) in
             make.right.equalToSuperview()
-            make.top.equalToSuperview().offset(650)
+            make.top.equalTo(then.snp.bottom).offset(10)
             make.width.equalTo(200)
             make.height.equalTo(100)
         }
         test1Button.addTouchUpInSideBtnAction { sender in
             print("\(sender.isSelected)")
         }
-        
-        
-        let bView = RectTextView(frame: .init(x: 40, y: 650, width: 100, height: 100))
-        view.addSubview(bView)
 
-
-        
     }
  
 }
