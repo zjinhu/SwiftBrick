@@ -17,8 +17,26 @@ class TestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .white
         let vv = NeuButton()
+        if #available(iOS 13.0, *) {
+            let playIcon = UIImage(systemName: "play.fill")
+            let playImageView = UIImageView(image: playIcon)
+            playImageView.translatesAutoresizingMaskIntoConstraints = false
+            playImageView.tintColor = .white
+
+            let stopIcon = UIImage(systemName: "stop.fill")
+            let stopImageView = UIImageView(image: stopIcon)
+            stopImageView.translatesAutoresizingMaskIntoConstraints = false
+            stopImageView.tintColor = .white
+            vv.setContentView(playImageView,
+                              selectedView: stopImageView) { make in
+                make.width.height.equalTo(60)
+                make.center.equalToSuperview()
+            }
+        } else {
+            // Fallback on earlier versions
+        }     
         vv.shadowOffset = .init(width: -5, height: 5)
         vv.backColor = UIColor.red
         vv.cornerRadius = 100
