@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TestViewController: UIViewController {
+class TestViewController: JHViewController {
 
     let then = UIView().then { (v) in
         v.backgroundColor = .red
@@ -17,6 +17,17 @@ class TestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addRightBarButton(text: "Button",
+                          normalColor: .darkGray,
+                          highlightColor: .lightGray,
+                          fixSpace: 0 ) {_ in
+        
+        }
+        
+        print("\(rightBarButton)") 
+        
+
+        
         view.backgroundColor = .white
         let vv = NeuButton()
         if #available(iOS 13.0, *) {
