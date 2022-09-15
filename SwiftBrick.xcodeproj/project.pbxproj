@@ -53,7 +53,6 @@
 		81DA090B25676AB9009A5215 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DA090A25676AB9009A5215 /* UserDefault.swift */; };
 		81DA090E25677185009A5215 /* DispatchQueueEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DA090D25677185009A5215 /* DispatchQueueEx.swift */; };
 		81DA091125677275009A5215 /* TapBuzz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DA091025677275009A5215 /* TapBuzz.swift */; };
-		81DA0919256775A1009A5215 /* NotificationCenterEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DA0918256775A1009A5215 /* NotificationCenterEx.swift */; };
 		81DA092425677D7A009A5215 /* UserDefaultsEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DA092325677D7A009A5215 /* UserDefaultsEx.swift */; };
 		81E008FF260CA25B00E50E7B /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E008FE260CA25B00E50E7B /* Version.swift */; };
 		81F067452750E42200E7A4F5 /* NSObjectEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F067442750E42200E7A4F5 /* NSObjectEx.swift */; };
@@ -120,7 +119,6 @@
 		81DA090A25676AB9009A5215 /* UserDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		81DA090D25677185009A5215 /* DispatchQueueEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueEx.swift; sourceTree = "<group>"; };
 		81DA091025677275009A5215 /* TapBuzz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBuzz.swift; sourceTree = "<group>"; };
-		81DA0918256775A1009A5215 /* NotificationCenterEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterEx.swift; sourceTree = "<group>"; };
 		81DA092325677D7A009A5215 /* UserDefaultsEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsEx.swift; sourceTree = "<group>"; };
 		81E008FE260CA25B00E50E7B /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		81F067442750E42200E7A4F5 /* NSObjectEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectEx.swift; sourceTree = "<group>"; };
@@ -268,7 +266,6 @@
 				818040F5253165CB002FFFF6 /* StringEx.swift */,
 				818040F7253165CB002FFFF6 /* UIButtonEx.swift */,
 				81DA090D25677185009A5215 /* DispatchQueueEx.swift */,
-				81DA0918256775A1009A5215 /* NotificationCenterEx.swift */,
 				81DA092325677D7A009A5215 /* UserDefaultsEx.swift */,
 				81B362512733BCBA00A80F5A /* ArrayEx.swift */,
 				81B362532733BE1E00A80F5A /* DictionaryEx.swift */,
@@ -479,7 +476,6 @@
 				81804104253165CB002FFFF6 /* UITextFieldSnapEx.swift in Sources */,
 				8180410E253165CB002FFFF6 /* JHTableViewHeaderFooterView.swift in Sources */,
 				818040FA253165CB002FFFF6 /* JHWebViewController.swift in Sources */,
-				81DA0919256775A1009A5215 /* NotificationCenterEx.swift in Sources */,
 				818040F8253165CB002FFFF6 /* Loader.swift in Sources */,
 				81804106253165CB002FFFF6 /* UIViewSnapEx.swift in Sources */,
 				818040FD253165CB002FFFF6 /* JHTableViewController.swift in Sources */,
@@ -648,7 +644,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TBQ5ET6KZ4;
+				DEVELOPMENT_TEAM = HH34JHH4ZR;
 				INFOPLIST_FILE = SwiftBrick/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -670,7 +666,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TBQ5ET6KZ4;
+				DEVELOPMENT_TEAM = HH34JHH4ZR;
 				INFOPLIST_FILE = SwiftBrick/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
