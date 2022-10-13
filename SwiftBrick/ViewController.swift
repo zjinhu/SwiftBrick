@@ -18,10 +18,10 @@ class ViewController: JHTableViewController {
  
         super.viewDidLoad()
         self.title = "SwiftBrick示例"
-
         navigationController?.navigationBar.setBackgroundColor(.init("567800"))
         navigationController?.navigationBar.setLineHidden(hidden: true)
-        
+ 
+
         let a = BottomHomeHeight
         let b = StatusBarHeight()
         SLog("\(b)--\(a)")
@@ -32,19 +32,19 @@ class ViewController: JHTableViewController {
             print("2")
         }
 //        
-        print("11111111\(Thread.current)")
-        Dispatch.global().after(5) {
-            print("\(Thread.current) 耗时任务1")
-            print("2222222222")
-            Dispatch.main().after(5){
-                print("\(Thread.current) 耗时任务2")
-                print("333333333333")
-            }
-        }
-        Dispatch.background().run {
-            print("\(Thread.current) 耗时任务3")
-            print("4444444444444444")
-        }
+//        print("11111111\(Thread.current)")
+//        Dispatch.global().after(5) {
+//            print("\(Thread.current) 耗时任务1")
+//            print("2222222222")
+//            Dispatch.main().after(5){
+//                print("\(Thread.current) 耗时任务2")
+//                print("333333333333")
+//            }
+//        }
+//        Dispatch.background().run {
+//            print("\(Thread.current) 耗时任务3")
+//            print("4444444444444444")
+//        }
 
         
         print("\(AppState.state)")

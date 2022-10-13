@@ -17,10 +17,10 @@ open class JHViewController: UIViewController, JHBaseVC {
         view.backgroundColor = L.color("bgColor")
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
-        
-        if let viewControllers: [UIViewController] = navigationController?.viewControllers , viewControllers.count > 1{
-            addDefaultBackBarButton()
-        }
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(goBack))
+//        if let viewControllers: [UIViewController] = navigationController?.viewControllers , viewControllers.count > 1{
+//            addDefaultBackBarButton()
+//        }
     }
     
     // MARK: - Navigation 关闭手势返回

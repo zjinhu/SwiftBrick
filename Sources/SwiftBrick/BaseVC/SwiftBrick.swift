@@ -83,8 +83,7 @@ public protocol JHBaseVC{
 
 public extension JHBaseVC where Self: UIViewController {
     
-    func hideDefaultBackBarButton(){
-        leftBarButton.isHidden = true
+    func hideDefaultBackBarButton(){ 
         navigationItem.hidesBackButton = true
     }
     
