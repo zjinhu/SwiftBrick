@@ -22,9 +22,9 @@ public let FitWidth = ScreenWidth / 375
 /// 当前屏幕状态 高度按照4.7寸 667 屏幕比例 例如 30*FitHeight即可
 public let FitHeight = ScreenHeight / 667
 /// 当前屏幕比例
-public let Scare = UIScreen.main.scale
+public let Scale = UIScreen.main.scale
 /// 画线宽度 不同分辨率都是一像素
-public let LineHeight = CGFloat(Scare >= 1 ? 1/Scare: 1)
+public let LineHeight = CGFloat(Scale >= 1 ? 1/Scale: 1)
 
 /// 信号栏高度
 /// - Returns: 高度

@@ -275,8 +275,13 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
     }
     
     open func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-        let cred = URLCredential(trust: challenge.protectionSpace.serverTrust!)
-        completionHandler(.useCredential, cred)
+ 
+        if let serverTrust = challenge.protectionSpace.serverTrust {
+            let credential = URLCredential(trust: serverTrust)
+            completionHandler(.useCredential, credential)
+        }else{
+             completionHandler(.useCredential, nil)
+        }
     }
     // MARK: - WKUIDelegate
     

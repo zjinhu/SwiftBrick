@@ -299,3 +299,10 @@ public extension UIButton {
         self.setBackgroundImage(image(withColor: color), for: state)
     }
 }
+
+@available(iOS 14.0, *)
+public extension UIControl {
+    func addAction(for event: UIControl.Event, handler: @escaping UIActionHandler) {
+            addAction(UIAction(handler:handler), for:event)
+    }
+}

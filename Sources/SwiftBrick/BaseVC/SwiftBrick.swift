@@ -260,3 +260,21 @@ public extension UIViewController {
         }
     }
 }
+//public typealias AssociatedKeysHolder<T> = [Int: T]
+//
+//public extension UIViewController {
+//
+//    private static var leftButtonKey = AssociatedKeysHolder<UIButton>()
+//    private static var rightButtonKey = AssociatedKeysHolder<UIButton>()
+//
+//    var leftBarButton: UIButton {
+//        get {
+//            let button = UIButton(type: .custom)
+//            button.imageView?.contentMode = .center
+//            button.frame = CGRect(x: 0, y: 0, width: 0, height: NavBarHeight())
+//            return UIViewController.leftButtonKey[hash] ?? button
+//        }
+//        set {
+//            UIViewController.leftButtonKey[hash] = newValue
+//        }
+//    }
