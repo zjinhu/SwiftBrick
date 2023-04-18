@@ -15,7 +15,6 @@ open class JHTableViewController: JHViewController ,UITableViewDelegate,UITableV
     public enum TableViewStyleType {
         case stylePlain
         case styleGrouped
-        @available(iOS 13.0, *)
         case styleInsetGrouped
     }
     
@@ -41,12 +40,8 @@ open class JHTableViewController: JHViewController ,UITableViewDelegate,UITableV
         
         switch tableViewStyleType {
         case .styleInsetGrouped:
-            if #available(iOS 13.0, *) {
-                tableView = UITableView(frame: .zero, style: .insetGrouped)
-            }else{
-                tableView = UITableView(frame: .zero, style: .grouped)
-            }
-            
+            tableView = UITableView(frame: .zero, style: .insetGrouped)
+
         case .styleGrouped:
             tableView = UITableView(frame: .zero, style: .grouped)
             

@@ -24,20 +24,6 @@ public let IsIPAD: Bool = (UIDevice.current.userInterfaceIdiom == .pad) ? true: 
 // MARK:- 系统版本
 public let SystemVersion: String = UIDevice.current.systemVersion
 
-public func Later_iOS11() -> Bool {
-    guard #available(iOS 11.0, *) else {
-        return false
-    }
-    return true
-}
-
-public func Later_iOS12() -> Bool {
-    guard #available(iOS 12.0, *) else {
-        return false
-    }
-    return true
-}
-
 public func Later_iOS13() -> Bool {
     guard #available(iOS 13.0, *) else {
         return false
@@ -70,7 +56,7 @@ public func Later_iOS16() -> Bool {
 public enum Device {
     /// iPhone 5, 5s, 5c, SE, iPod Touch 5-6th.
     case screen4Inch
-    /// iPhone 6, 6s, 7, 8, SE2
+    /// iPhone 6, 6s, 7, 8, SE2,3
     case screen4_7Inch
     /// iPhone 12,13Mini
     case screen5_4Inch
@@ -78,11 +64,11 @@ public enum Device {
     case screen5_5Inch
     /// iPhone X, Xs, 11Pro
     case screen5_8Inch
-    /// iPhone XR, 11 , 12,13 , 12,13Pro
+    /// iPhone XR, 11 , 12,13,14 , 12,13,14Pro
     case screen6_1Inch
     /// iPhone Xs Max, 11 Pro Max
     case screen6_5Inch
-    /// iPhone 12,13 Pro MAX
+    /// iPhone 12,13,14 Pro MAX plus
     case screen6_7Inch
     case unknown
     

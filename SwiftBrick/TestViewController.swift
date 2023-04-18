@@ -30,7 +30,7 @@ class TestViewController: JHViewController {
         
         view.backgroundColor = .white
         let vv = NeuButton()
-        if #available(iOS 13.0, *) {
+ 
             let playIcon = UIImage(systemName: "play.fill")
             let playImageView = UIImageView(image: playIcon)
             playImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -45,9 +45,7 @@ class TestViewController: JHViewController {
                 make.width.height.equalTo(60)
                 make.center.equalToSuperview()
             }
-        } else {
-            // Fallback on earlier versions
-        }     
+  
         vv.shadowOffset = .init(width: -5, height: 5)
         vv.backColor = UIColor.red
         vv.cornerRadius = 100
@@ -67,12 +65,9 @@ class TestViewController: JHViewController {
         })
         ive.clipsToBounds = true
         ive.layer.setCorners(15, corners: .bothTop)
-        
-        if #available(iOS 13.0, *) {
+ 
             ive.image = UIImage.symbol("house", size: 25, color: .textTitleColor)
-        }
-
-        
+ 
         let line = UILineView()
         line.lineColor = .red
         line.isDash = true

@@ -21,6 +21,16 @@ extension Bundle {
         return Bundle(for: _BundleClass.self)
         #endif
     }
+    
+    func localizedString(forKey key: String) -> String {
+        self.localizedString(forKey: key, value: nil, table: nil)
+    }
+}
+
+extension String {
+    var localizedString: String {
+        Bundle.current.localizedString(forKey: self)
+    }
 }
 
 public struct L{
@@ -30,15 +40,7 @@ public struct L{
         let bundle = Bundle(path: path ?? "")
         return bundle ?? Bundle.current
     }()
-    
-    public static func image(_ named: String) -> UIImage {
-        guard let image = UIImage(named: named, in: bundle, compatibleWith: nil) else {
-            let image = UIImage(named: named)
-            return image ?? UIImage()
-        }
-        return image
-    }
-    
+ 
     public static func color(_ named: String) -> UIColor {
         guard let color = UIColor(named: named, in: bundle, compatibleWith: nil) else {
             return UIColor(named: named) ?? UIColor.clear

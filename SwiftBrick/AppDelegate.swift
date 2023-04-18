@@ -16,17 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         /////需要在APP启动之前调用此交换方法用于处理导航栏切换协调
         SwiftBrick.inits()
-        
-        if #available(iOS 13.0, *) {
-            let navAppearance = UINavigationBarAppearance()
-            navAppearance.shadowColor = .clear
-            UINavigationBar.appearance().standardAppearance = navAppearance
-            UINavigationBar.appearance().scrollEdgeAppearance = navAppearance
-            UINavigationBar.appearance().tintColor = .black
-        } else {
-            // Fallback on earlier versions
-        }
-
+ 
+        let navAppearance = UINavigationBarAppearance()
+        navAppearance.shadowColor = .clear
+        UINavigationBar.appearance().standardAppearance = navAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navAppearance
+        UINavigationBar.appearance().tintColor = .black
         
         if #available(iOS 15.0, *) {
             UITableView.appearance().sectionHeaderTopPadding = 0

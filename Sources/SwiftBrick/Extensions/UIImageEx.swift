@@ -22,7 +22,26 @@ extension Data {
 }
 
 extension UIImage {
+    public static let icon_back = UIImage.symbol("chevron.backward", color: .textTitleColor)
+    public static let icon_close = UIImage.symbol("xmark", color: .textTitleColor)
+}
+
+extension UIImage {
     
+    public static func symbol(_ systemName:String, size: CGFloat = 24, color: UIColor = .white) -> UIImage?{
+        let config = UIImage.SymbolConfiguration(pointSize: size)
+        return UIImage(systemName: systemName, withConfiguration: config)?.withTintColor(color, renderingMode: .alwaysOriginal)
+    }
+  
+    public static func symbol(_ systemName: String, size: CGFloat = 24) -> UIImage?{
+        let config = UIImage.SymbolConfiguration(pointSize: size)
+        return UIImage(systemName: systemName, withConfiguration: config)
+    }
+}
+
+
+extension UIImage {
+ 
     /// 生成占位图
     /// - Parameters:
     ///   - image: 小图
@@ -271,12 +290,5 @@ extension UIImage {
             }
         }
     }
-    
-    @available(iOS 13.0, *)
-    public static func symbol(_ systemName:String, size: CGFloat = 12, color: UIColor = .white) -> UIImage?{
-        let config = UIImage.SymbolConfiguration(pointSize: size)
-        return UIImage(systemName: systemName, withConfiguration: config)?.withTintColor(color, renderingMode: .alwaysOriginal)
-    }
 
 }
-

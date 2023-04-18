@@ -47,8 +47,8 @@ open class JHViewController: UIViewController, JHBaseVC {
 
     /// 设置导航默认返回按钮
     public func addDefaultBackBarButton() {
-        addLeftBarButton(normalImage: SwiftBrick.navBarNorBackImage ?? L.image("nav_ic_back"),
-                         highLightImage: SwiftBrick.navBarHigBackImage ?? L.image("nav_ic_back")) { [weak self] _ in
+        addLeftBarButton(normalImage: SwiftBrick.navBarNorBackImage ?? .icon_back,
+                         highLightImage: SwiftBrick.navBarHigBackImage ?? .icon_back) { [weak self] _ in
             guard let `self` = self else{return}
             self.goBack()
         }

@@ -14,14 +14,14 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
 
     lazy var backButton: UIButton = {
         let btn = UIButton()
-        btn.setImage(L.image("nav_ic_back"), for: .normal)
+        btn.setImage(.icon_back, for: .normal)
         btn.addTarget(self, action: #selector(goBack), for: .touchUpInside)
         return btn
     }()
     
     lazy var closeButton: UIButton = {
         let btn = UIButton()
-        btn.setImage(L.image("nav_ic_close"), for: .normal)
+        btn.setImage(.icon_close, for: .normal)
         btn.addTarget(self, action: #selector(closeVC), for: .touchUpInside)
         btn.isHidden = true
         return btn
@@ -35,9 +35,8 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         webView.scrollView.delegate = self
         webView.allowsBackForwardNavigationGestures = true
         webView.scrollView.contentInsetAdjustmentBehavior = .never
-        if #available(iOS 13.0, *){
-            webView.scrollView.automaticallyAdjustsScrollIndicatorInsets = false
-        }
+        webView.scrollView.automaticallyAdjustsScrollIndicatorInsets = false
+ 
         webView.evaluateJavaScript("navigator.userAgent", completionHandler: { [weak self] (obj: Any?, error: Error?) in
             guard let `self` = self else{return}
             guard let ua = obj as? String else { return }
@@ -70,10 +69,8 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         let processPool = WKProcessPool()
         
         let config = WKWebViewConfiguration()
-        if #available(iOS 13.0, *){
-            config.defaultWebpagePreferences.preferredContentMode = .mobile
-        }
-        
+        config.defaultWebpagePreferences.preferredContentMode = .mobile
+ 
         if #available(iOS 14.0, *){
             config.defaultWebpagePreferences.allowsContentJavaScript = true
         }else{
@@ -258,12 +255,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         webView.evaluateJavaScript("navigator.userAgent") { (result, error) in
             debugPrint("\(String(describing: result))")
         }
-
-        if Later_iOS12(), Version() < Version(12, 2, 0), first{
-            webView.reload()
-            first = false
-        }
-        
+ 
         if webView.canGoBack {
             closeButton.isHidden = false
         }

@@ -9,78 +9,76 @@
 import UIKit
 
 class CollectionViewController: JHCollectionViewController {
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         prefersNavigationBarHidden = false
-
+        
         mainDatas = [["","","","","","","",""],["","","","","","",""],["","","","","","","","","","",""],["","","","","","","","","",""]]
-
-        addRightBarButton(normalImage: UIImage.init(named: "nav_ic_back"),
-                          highLightImage: UIImage.init(named: "nav_ic_back"),
+        
+        addRightBarButton(normalImage: .icon_back,
+                          highLightImage: .icon_back,
                           fixSpace: 0) {_ in 
             print("touch")
         }
-
+        
         addRightBarButton(text: "Button",
                           normalColor: .darkGray,
                           highlightColor: .lightGray,
                           fixSpace: 0 ) {_ in 
-        
+            
         }
         
         collectionView?.registerHeaderFooterView(JHCollectionReusableView.self, kindType: .sectionHeader)
         collectionView?.registerHeaderFooterView(JHCollectionReusableView.self, kindType: .sectionFooter)
         
-        if #available(iOS 13.0, *) {
-            collectionView?.collectionViewLayout = UICollectionViewCompositionalLayout(sectionProvider: { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
-
-                let size = NSCollectionLayoutSize(
-                    widthDimension: .fractionalWidth(1),
-                    heightDimension: .estimated(100)
-                )
- 
-                let item = NSCollectionLayoutItem(layoutSize: size)
-                
-//                let groupSize = NSCollectionLayoutSize(
-//                    widthDimension: .fractionalWidth(1),
-//                    heightDimension: .absolute(100)
-//                )
-                
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: size, subitem: item, count: 1)
-                let section = NSCollectionLayoutSection(group: group)
-                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
-                section.interGroupSpacing = 10
-                // Supplementary header view setup
-                let headerSize = NSCollectionLayoutSize(
-                    widthDimension: .fractionalWidth(1.0),
-                    heightDimension: .estimated(20)
-                )
-                let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
-                    layoutSize: headerSize,
-                    elementKind: UICollectionView.elementKindSectionHeader,
-                    alignment: .top
-                )
-                
-                let footerSize = NSCollectionLayoutSize(
-                    widthDimension: .fractionalWidth(1.0),
-                    heightDimension: .estimated(20)
-                )
-                let sectionFooter = NSCollectionLayoutBoundarySupplementaryItem(
-                    layoutSize: footerSize,
-                    elementKind: UICollectionView.elementKindSectionFooter,
-                    alignment: .bottom
-                )
-                
-                section.boundarySupplementaryItems = [sectionHeader,sectionFooter]
-                return section
-            })
-        } else {
-            // Fallback on earlier versions
-        }
+        
+        collectionView?.collectionViewLayout = UICollectionViewCompositionalLayout(sectionProvider: { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
+            
+            let size = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1),
+                heightDimension: .estimated(100)
+            )
+            
+            let item = NSCollectionLayoutItem(layoutSize: size)
+            
+            //                let groupSize = NSCollectionLayoutSize(
+            //                    widthDimension: .fractionalWidth(1),
+            //                    heightDimension: .absolute(100)
+            //                )
+            
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: size, subitem: item, count: 1)
+            let section = NSCollectionLayoutSection(group: group)
+            section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+            section.interGroupSpacing = 10
+            // Supplementary header view setup
+            let headerSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .estimated(20)
+            )
+            let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: headerSize,
+                elementKind: UICollectionView.elementKindSectionHeader,
+                alignment: .top
+            )
+            
+            let footerSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .estimated(20)
+            )
+            let sectionFooter = NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: footerSize,
+                elementKind: UICollectionView.elementKindSectionFooter,
+                alignment: .bottom
+            )
+            
+            section.boundarySupplementaryItems = [sectionHeader,sectionFooter]
+            return section
+        })
+        
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
@@ -93,13 +91,13 @@ class CollectionViewController: JHCollectionViewController {
             return footer
         }
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(JHCollectionViewCell.self, indexPath: indexPath)
         cell.backgroundColor = .random
         return cell
     }
-
+    
     
     
     ///ios13以下

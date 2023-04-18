@@ -29,20 +29,12 @@ public let LineHeight = CGFloat(Scale >= 1 ? 1/Scale: 1)
 /// 信号栏高度
 /// - Returns: 高度
 public func StatusBarHeight() ->CGFloat {
-    if #available(iOS 13.0, *){
-        return getWindow()?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
-    }else{
-        return UIApplication.shared.statusBarFrame.height
-    }
+    return getWindow()?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
 }
 ///获取当前设备window用于判断尺寸
 public func getWindow() -> UIWindow?{
-    if #available(iOS 13.0, *){
-        let winScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-        return winScene?.windows.first
-    }else{
-        return UIApplication.shared.keyWindow
-    }
+    let winScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+    return winScene?.windows.first
 }
 
 /// 导航栏高度 实时获取,可获取不同分辨率手机横竖屏切换后的实时高度变化
