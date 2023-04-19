@@ -46,6 +46,7 @@ end
 
 s.subspec 'ViewFactory' do |ss|
     ss.dependency 'SwiftBrick/Util'
+    ss.dependency 'SwiftBrick/Extensions'
     ss.source_files = 'Sources/SwiftBrick/ViewFactory/**/*'
 end
 

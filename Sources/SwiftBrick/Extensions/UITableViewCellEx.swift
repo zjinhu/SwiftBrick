@@ -123,12 +123,18 @@ public extension UITableViewCell {
             lineView?.tag = TopLineTag
             addSubview(lineView!)
             bringSubviewToFront(lineView!)
-            lineView?.snp.makeConstraints({ (make) in
-                make.top.equalToSuperview()
-                make.left.equalToSuperview().offset(leftMarign)
-                make.right.equalToSuperview().offset(-rightMarign)
-                make.height.equalTo(lineHeight)
-            })
+ 
+            if let lineView = lineView{
+                addSubview(lineView)
+                bringSubviewToFront(lineView)
+                let constraints = [
+                    lineView.topAnchor.constraint(equalTo: topAnchor),
+                    lineView.leftAnchor.constraint(equalTo: leftAnchor, constant: leftMarign),
+                    lineView.heightAnchor.constraint(equalToConstant: lineHeight),
+                    lineView.rightAnchor.constraint(equalTo: rightAnchor, constant: -rightMarign)
+                ]
+                NSLayoutConstraint.activate(constraints)
+            }
         }
         
         if indexPath.row == 0 {
@@ -158,14 +164,19 @@ public extension UITableViewCell {
             lineView = UIView()
             lineView?.backgroundColor = color
             lineView?.tag = BottomLineTag
-            addSubview(lineView!)
-            bringSubviewToFront(lineView!)
-            lineView?.snp.makeConstraints({ (make) in
-                make.bottom.equalToSuperview()
-                make.right.equalToSuperview().offset(-rightMarign)
-                make.left.equalToSuperview().offset(leftMarign)
-                make.height.equalTo(lineHeight)
-            })
+ 
+            if let lineView = lineView{
+                addSubview(lineView)
+                bringSubviewToFront(lineView)
+                let constraints = [
+                    lineView.bottomAnchor.constraint(equalTo: bottomAnchor),
+                    lineView.leftAnchor.constraint(equalTo: leftAnchor, constant: leftMarign),
+                    lineView.heightAnchor.constraint(equalToConstant: lineHeight),
+                    lineView.rightAnchor.constraint(equalTo: rightAnchor, constant: -rightMarign)
+                ]
+                NSLayoutConstraint.activate(constraints)
+            }
+
         }
 
     }
