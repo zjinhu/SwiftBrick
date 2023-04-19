@@ -15,6 +15,7 @@ class TestViewController: JHViewController {
         v.layer.cornerRadius = 20
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addRightBarButton(text: "Button",
