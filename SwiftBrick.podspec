@@ -17,7 +17,7 @@ s.ios.deployment_target = "13.0"
 s.swift_versions     = ['5.5','5.4','5.3','5.2','5.1','5.0']
 s.requires_arc = true
 
-s.frameworks   = "UIKit", "Foundation", "WebKit", "CommonCrypto", "Dispatch" #支持的框架
+s.frameworks   = "UIKit", "Foundation", "WebKit" #支持的框架
 
 s.resource_bundles = {
     'SwiftBrick' => ['Sources/SwiftBrick/Resources/*.xcassets']
