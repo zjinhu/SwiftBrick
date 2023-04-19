@@ -9,43 +9,39 @@
 import Foundation
 import UIKit
 /// 判断是否iphoneX 带刘海
-public func IsBangs_iPhone() -> Bool {
-    return BottomHomeHeight > 0
-}
-
-public var isX: Bool {
-    return BottomHomeHeight > 0
+public var isiPhoneX: Bool {
+    return bottomHomeHeight > 0
 }
 
 ///判断是否iPad
-public let IsIPAD: Bool = (UIDevice.current.userInterfaceIdiom == .pad) ? true: false
+public let isiPad: Bool = (UIDevice.current.userInterfaceIdiom == .pad) ? true: false
 
 
 // MARK:- 系统版本
-public let SystemVersion: String = UIDevice.current.systemVersion
+public let systemVersion: String = UIDevice.current.systemVersion
 
-public func Later_iOS13() -> Bool {
+public func later_iOS13() -> Bool {
     guard #available(iOS 13.0, *) else {
         return false
     }
     return true
 }
 
-public func Later_iOS14() -> Bool {
+public func later_iOS14() -> Bool {
     guard #available(iOS 14.0, *) else {
         return false
     }
     return true
 }
 
-public func Later_iOS15() -> Bool {
+public func later_iOS15() -> Bool {
     guard #available(iOS 15.0, *) else {
         return false
     }
     return true
 }
 
-public func Later_iOS16() -> Bool {
+public func later_iOS16() -> Bool {
     guard #available(iOS 16.0, *) else {
         return false
     }

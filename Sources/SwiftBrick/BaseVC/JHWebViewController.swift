@@ -8,7 +8,6 @@
 
 import UIKit
 import WebKit
-import SnapKit
 // MARK: ===================================VC基类:UIWebViewController=========================================
 open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDelegate,WKScriptMessageHandler,UIScrollViewDelegate{
 
@@ -36,7 +35,8 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         webView.allowsBackForwardNavigationGestures = true
         webView.scrollView.contentInsetAdjustmentBehavior = .never
         webView.scrollView.automaticallyAdjustsScrollIndicatorInsets = false
- 
+        webView.translatesAutoresizingMaskIntoConstraints = false
+
         webView.evaluateJavaScript("navigator.userAgent", completionHandler: { [weak self] (obj: Any?, error: Error?) in
             guard let `self` = self else{return}
             guard let ua = obj as? String else { return }
@@ -47,10 +47,11 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
     }()
     
     public lazy var reloadButton: UIButton  = {
-        let reloadButton = UIButton(type: .custom)
+         let reloadButton = UIButton(type: .custom)
         reloadButton.frame = view.bounds
         reloadButton.setTitle("加载失败,请点击重试", for: .normal)
         reloadButton.addTarget(self, action: #selector(reloadWebView), for: .touchUpInside)
+        reloadButton.translatesAutoresizingMaskIntoConstraints = false
         return reloadButton
     }()
     
@@ -58,6 +59,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         let progressView = UIProgressView()
         progressView.trackTintColor = .clear
         progressView.tintColor = .red
+        progressView.translatesAutoresizingMaskIntoConstraints = false
         return progressView
     }()
     
@@ -173,23 +175,21 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
         title = navTitle
         
         view.addSubview(reloadButton)
-        
         view.addSubview(webView)
-        webView.snp.makeConstraints { (make) in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            make.left.equalTo(view.snp.left)
-            make.right.equalTo(view.snp.right)
-            make.bottom.equalTo(view.snp.bottom)
-        }
-
         view.addSubview(loadingProgressView)
-        loadingProgressView.snp.makeConstraints { (make) in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            make.left.equalTo(view.snp.left)
-            make.right.equalTo(view.snp.right)
-            make.height.equalTo(4)
-        }
         
+        NSLayoutConstraint.activate([
+            webView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            webView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            webView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            webView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            
+            loadingProgressView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            loadingProgressView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            loadingProgressView.heightAnchor.constraint(equalToConstant: 4),
+            loadingProgressView.rightAnchor.constraint(equalTo: view.rightAnchor),
+        ])
+ 
         webView.configuration.userContentController.add(WeakScriptMessageDelegate(delegate: self), name: "JumpViewController")
         
         loadRequest()

@@ -10,22 +10,6 @@ import UIKit
 import SnapKit
 // MARK: ===================================工厂类:UIView SnapKit=========================================
 public extension UIView {
-    
-    struct AssociatedKeys {
-        static var tapGestureKey: String = "TapGestureKey"
-    }
-    
-    typealias tapGestureClosure = (_ view: UIView) -> Void
-    
-    @objc internal var snpTapGesture: tapGestureClosure? {
-        get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.tapGestureKey) as? tapGestureClosure
-        }
-        set {
-            objc_setAssociatedObject(self, &AssociatedKeys.tapGestureKey, newValue, .OBJC_ASSOCIATION_COPY)
-        }
-    }
-    
     /// 快速初始化UIView 包含默认参数,初始化过程可以删除部分默认参数简化方法
     /// - Parameters:
     ///   - supView: 被添加的位置 有默认参数
@@ -52,27 +36,12 @@ public extension UIView {
         guard let ges = tapGesture else {
             return view
         }
-        view.snpAddTapGestureWithCallback(tapGesture: ges)
+        view.addTapGestureWithCallback(tapGesture: ges)
 
         
         return view
     }
-    
-    @objc func snpAddTapGestureWithCallback(tapGesture closure: tapGestureClosure?){
-        snpTapGesture = closure
-        isUserInteractionEnabled = true
-        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
-        addGestureRecognizer(tap)
-    }
-    
-    
-    @objc func handleTapGesture() {
-        if let closure = snpTapGesture{
-            closure(self)
-        }
-        
-    }
-    
+ 
 }
 
 // MARK: - 命名空间方案,废弃,没减少一行代码

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SnapKit
 // MARK: ===================================VC基类:UITableViewController=========================================
 open class JHTableViewController: JHViewController ,UITableViewDelegate,UITableViewDataSource{
 
@@ -67,20 +66,22 @@ open class JHTableViewController: JHViewController ,UITableViewDelegate,UITableV
         tableView?.rowHeight = UITableView.automaticDimension
         tableView?.estimatedSectionHeaderHeight = CGFloat.leastNormalMagnitude
         tableView?.estimatedSectionFooterHeight = CGFloat.leastNormalMagnitude
+        tableView?.translatesAutoresizingMaskIntoConstraints = false
             //头角需要自适应高度的话请设置
         //    tableView.estimatedSectionHeaderHeight = 200;
         //    tableView.sectionHeaderHeight = UITableViewAutomaticDimension;
         //    tableView.estimatedSectionFooterHeight = 200;
         //    tableView.sectionFooterHeight = UITableViewAutomaticDimension;
         tableView?.delaysContentTouches = true
-        // Do any additional setup after loading the view.
-        view.addSubview(tableView!)
-
-        tableView?.snp.makeConstraints{ (make) in
-            make.top.equalTo(view.snp.top)
-            make.left.equalTo(view.snp.left)
-            make.right.equalTo(view.snp.right)
-            make.bottom.equalTo(view.snp.bottom)
+ 
+        if let tableView = tableView{
+            view.addSubview(tableView)
+            NSLayoutConstraint.activate([
+                tableView.topAnchor.constraint(equalTo: view.topAnchor),
+                tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+                tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            ])
         }
         
         tableView?.contentInsetAdjustmentBehavior = .automatic

@@ -22,11 +22,11 @@ class ViewController: JHTableViewController {
         navigationController?.navigationBar.setLineHidden(hidden: true)
  
 
-        let a = BottomHomeHeight
-        let b = StatusBarHeight()
-        SLog("\(b)--\(a)")
+        let a = bottomHomeHeight
+        let b = statusBarHeight()
+        sLog("\(b)--\(a)")
         
-        if IsIPAD{
+        if isiPad{
             print("1")
         }else{
             print("2")

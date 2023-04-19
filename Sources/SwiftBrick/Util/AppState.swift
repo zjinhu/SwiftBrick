@@ -9,9 +9,9 @@
 import Foundation
 // MARK: ===================================工具类:APP当前状态=========================================
 public enum AppStateMode {
-    case Debug
-    case TestFlight
-    case AppStore
+    case debug
+    case testFlight
+    case appStore
 }
 
 public struct AppState {
@@ -28,11 +28,11 @@ public struct AppState {
     
     public static var state: AppStateMode {
         if isDebug {
-            return .Debug
+            return .debug
         } else if isTestFlight {
-            return .TestFlight
+            return .testFlight
         } else {
-            return .AppStore
+            return .appStore
         }
     }
 }

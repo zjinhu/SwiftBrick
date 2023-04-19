@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import SnapKit
-// MARK: ===================================工厂类:UITextView SnapKit=========================================
+
 fileprivate var kTextViewPlaceholderLabel: Int = 0x2019_00
 fileprivate var kTextViewPlaceholder     : Int = 0x2019_01
 fileprivate var kTextViewPlaceholderColor: Int = 0x2019_02
@@ -69,6 +68,9 @@ public extension UITextView {
             _holderLabel.font = font ?? UIFont.systemFont(ofSize: 12)
             _holderLabel.textColor = .darkText
             _holderLabel.textAlignment = .left
+            
+            _holderLabel.translatesAutoresizingMaskIntoConstraints = false
+
             if let label = objc_getAssociatedObject(self, &kTextViewPlaceholderLabel) as? UILabel {
                 _holderLabel = label
             } else {
@@ -107,11 +109,17 @@ public extension UITextView {
         holderNeedAddToSuperView = false
         
         NotificationCenter.default.addObserver(self, selector: #selector(jh_textChange(noti:)), name: UITextView.textDidChangeNotification, object: nil)
-        
+
         addSubview(label)
-        label.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 7, left: 2, bottom: 0, right: 0))
-        }
+
+        let constraints = [
+            label.topAnchor.constraint(equalTo: topAnchor, constant: 7),
+            label.leftAnchor.constraint(equalTo: leftAnchor, constant: 2),
+            label.bottomAnchor.constraint(equalTo: bottomAnchor),
+            label.rightAnchor.constraint(equalTo: rightAnchor)
+        ]
+        NSLayoutConstraint.activate(constraints)
+
     }
     
     /// 编辑事件
@@ -120,61 +128,6 @@ public extension UITextView {
         print("text:\(String(describing: text))\nisEmpty:\(isEmpty)")
         holderLabel.text = isEmpty ? placeholder: ""
         holderLabel.isHidden = !isEmpty
-    }
-    
-    
-    /// 快速初始化UITextView 包含默认参数,初始化过程可以删除部分默认参数简化方法
-    /// - Parameters:
-    ///   - holderFont: 占位字体  有默认参数
-    ///   - holder: 占位文字  有默认参数
-    ///   - holderColor: 占位文字颜色  有默认参数
-    ///   - font: 正文字体  有默认参数
-    ///   - text: 正文  有默认参数
-    ///   - textColor: 正文字体颜色  有默认参数
-    ///   - textAlignment: textAlignment  有默认参数
-    ///   - supView: 被添加的位置 有默认参数
-    ///   - snapKitMaker: SnapKit 有默认参数
-    ///   - delegate: 代理
-    ///   - backColor: 背景色
-    @discardableResult
-    class func snpTextView(supView: UIView? = nil,
-                           backColor: UIColor? = .clear,
-                           holderFont: UIFont = UIFont.systemFont(ofSize: 14),
-                           holder: String = "",
-                           holderColor: UIColor = .black,
-                           font: UIFont = UIFont.systemFont(ofSize: 14),
-                           text: String? = nil,
-                           textColor: UIColor = .black,
-                           textAlignment: NSTextAlignment = .left,
-                           delegate: UITextViewDelegate? = nil,
-                           snapKitMaker: ((_ make: ConstraintMaker) -> Void)? = nil) -> UITextView {
-        
-        let textView = UITextView()
-        textView.holderFont = holderFont
-        textView.holderColor = holderColor
-        textView.placeholder = holder
-        
-        textView.text = text
-        textView.textColor = textColor
-        textView.font = font
-        
-        textView.textAlignment = textAlignment
-        
-        if delegate != nil {
-          textView.delegate = delegate
-        }
-        
-        textView.backgroundColor = backColor
-        
-        guard let sv = supView, let maker = snapKitMaker else {
-            return textView
-        }
-        sv.addSubview(textView)
-        textView.snp.makeConstraints { (make) in
-            maker(make)
-        }
-        
-        return textView
     }
     
 }

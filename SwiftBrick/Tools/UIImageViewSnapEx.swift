@@ -44,7 +44,7 @@ public extension UIImageView {
         guard let ges = snpTapGesture else {
             return imageView
         }
-        imageView.snpAddTapGestureWithCallback(tapGesture: ges)
+        imageView.addTapGestureWithCallback(tapGesture: ges)
         
         
         return imageView

@@ -18,8 +18,6 @@ s.swift_versions     = ['5.5','5.4','5.3','5.2','5.1','5.0']
 s.requires_arc = true
 
 s.frameworks   = "UIKit", "Foundation" #支持的框架
-s.dependency 'SnapKit'
-
 
 s.resource_bundles = {
     'SwiftBrick' => ['Sources/SwiftBrick/Resources/*.xcassets']
@@ -48,7 +46,6 @@ end
 
 s.subspec 'ViewFactory' do |ss|
     ss.dependency 'SwiftBrick/Util'
-    ss.dependency 'SwiftBrick/Extensions'
     ss.source_files = 'Sources/SwiftBrick/ViewFactory/**/*'
 end
 

@@ -171,7 +171,7 @@ public extension JHBaseVC where Self: UIViewController {
                              highlightColor: UIColor? = nil,
                              normalImage: UIImage? = nil,
                              highLightImage: UIImage? = nil){
-        leftBarButton.titleLabel?.font = font ?? Font14
+        leftBarButton.titleLabel?.font = font ?? systemFont(14)
         leftBarButton.setTitle(text, for: .normal)
         leftBarButton.setTitle(text, for: .highlighted)
         leftBarButton.setTitleColor(normalColor, for: .normal)
@@ -192,7 +192,7 @@ public extension JHBaseVC where Self: UIViewController {
                               selectedImage: UIImage? = nil,
                               disableImage: UIImage? = nil){
         
-        rightBarButton.titleLabel?.font = font ?? Font14
+        rightBarButton.titleLabel?.font = font ?? systemFont(14)
         rightBarButton.setTitle(text, for: .normal)
         rightBarButton.setTitle(text, for: .highlighted)
         rightBarButton.setTitle(text, for: .selected)
@@ -230,7 +230,7 @@ public extension UIViewController {
         get {
             var button = UIButton(type: .custom)
             button.imageView?.contentMode = .center
-            button.frame = CGRect(x: 0, y: 0, width: 0, height: NavBarHeight())
+            button.frame = CGRect(x: 0, y: 0, width: 0, height: navBarHeight())
             if let b = objc_getAssociatedObject(self, &AssociatedKeys.leftButtonKey) as? UIButton {
                 button = b
             } else {
@@ -247,7 +247,7 @@ public extension UIViewController {
         get {
             var button = UIButton(type: .custom)
             button.imageView?.contentMode = .center
-            button.frame = CGRect(x: 0, y: 0, width: 0, height: NavBarHeight())
+            button.frame = CGRect(x: 0, y: 0, width: 0, height: navBarHeight())
             if let b = objc_getAssociatedObject(self, &AssociatedKeys.rightButtonKey) as? UIButton {
                 button = b
             } else {
