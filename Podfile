@@ -7,4 +7,5 @@ target 'SwiftBrick' do
 
   # Pods for SwiftBrick
 pod 'Swift_Form'
+pod 'SnapKit'
 end
