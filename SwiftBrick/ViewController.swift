@@ -21,7 +21,6 @@ class ViewController: JHTableViewController {
         navigationController?.navigationBar.setBackgroundColor(.init("567800"))
         navigationController?.navigationBar.setLineHidden(hidden: true)
  
-
         let a = bottomHomeHeight
         let b = statusBarHeight()
         sLog("\(b)--\(a)")
