@@ -23,6 +23,10 @@ s.resource_bundles = {
     'SwiftBrick' => ['Sources/SwiftBrick/Resources/*.xcassets']
 }
 
+s.subspec 'SwiftUI' do |ss|
+    ss.source_files = 'Sources/SwiftBrick/SwiftUI/**/*'
+end
+
 s.subspec 'Util' do |ss|
     ss.source_files = 'Sources/SwiftBrick/Util/**/*'
 end

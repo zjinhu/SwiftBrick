@@ -27,12 +27,6 @@ extension Bundle {
     }
 }
 
-extension String {
-    var localizedString: String {
-        Bundle.current.localizedString(forKey: self)
-    }
-}
-
 public struct L{
     
     static var bundle: Bundle = {

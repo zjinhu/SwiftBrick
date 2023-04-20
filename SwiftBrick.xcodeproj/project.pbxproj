@@ -45,6 +45,11 @@
 		8183590D29EFC809001FE2A6 /* UILabelSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8183590C29EFC809001FE2A6 /* UILabelSnapEx.swift */; };
 		8183590F29EFC80F001FE2A6 /* UIImageViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8183590E29EFC80F001FE2A6 /* UIImageViewSnapEx.swift */; };
 		8183591129EFC847001FE2A6 /* Neumorphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8183591029EFC847001FE2A6 /* Neumorphic.swift */; };
+		8183596D29F1361B001FE2A6 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8183596C29F1361B001FE2A6 /* WebView.swift */; };
+		8183596F29F1365B001FE2A6 /* ColorEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8183596E29F1365B001FE2A6 /* ColorEx.swift */; };
+		8183597129F1368A001FE2A6 /* ViewEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8183597029F1368A001FE2A6 /* ViewEx.swift */; };
+		8183597329F1378B001FE2A6 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8183597229F1378B001FE2A6 /* Application.swift */; };
+		8183597529F138F4001FE2A6 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8183597429F138F4001FE2A6 /* Font.swift */; };
 		81A919A42600C33800B9964E /* InsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A919A32600C33800B9964E /* InsetLabel.swift */; };
 		81B362502733B8BD00A80F5A /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B3624F2733B8BD00A80F5A /* Device.swift */; };
 		81B362522733BCBA00A80F5A /* ArrayEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B362512733BCBA00A80F5A /* ArrayEx.swift */; };
@@ -109,6 +114,11 @@
 		8183590C29EFC809001FE2A6 /* UILabelSnapEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelSnapEx.swift; sourceTree = "<group>"; };
 		8183590E29EFC80F001FE2A6 /* UIImageViewSnapEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewSnapEx.swift; sourceTree = "<group>"; };
 		8183591029EFC847001FE2A6 /* Neumorphic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Neumorphic.swift; sourceTree = "<group>"; };
+		8183596C29F1361B001FE2A6 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		8183596E29F1365B001FE2A6 /* ColorEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorEx.swift; sourceTree = "<group>"; };
+		8183597029F1368A001FE2A6 /* ViewEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEx.swift; sourceTree = "<group>"; };
+		8183597229F1378B001FE2A6 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		8183597429F138F4001FE2A6 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		81A919A32600C33800B9964E /* InsetLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetLabel.swift; sourceTree = "<group>"; };
 		81B3624F2733B8BD00A80F5A /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		81B362512733BCBA00A80F5A /* ArrayEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayEx.swift; sourceTree = "<group>"; };
@@ -168,6 +178,7 @@
 		818040CD253165CB002FFFF6 /* SwiftBrick */ = {
 			isa = PBXGroup;
 			children = (
+				8183596B29F13601001FE2A6 /* SwiftUI */,
 				818040CE253165CB002FFFF6 /* Util */,
 				818040D1253165CB002FFFF6 /* BaseVC */,
 				818040D6253165CB002FFFF6 /* Resources */,
@@ -184,8 +195,9 @@
 				818040CF253165CB002FFFF6 /* Loader.swift */,
 				81E008FE260CA25B00E50E7B /* Version.swift */,
 				818040D0253165CB002FFFF6 /* Define.swift */,
+				8183597229F1378B001FE2A6 /* Application.swift */,
+				8183597429F138F4001FE2A6 /* Font.swift */,
 				811372D1256529D200D07554 /* AppState.swift */,
-				81DA090A25676AB9009A5215 /* UserDefault.swift */,
 				81DA091025677275009A5215 /* TapBuzz.swift */,
 				81F74AEB25F86F76007CDB69 /* Then.swift */,
 				81B3624F2733B8BD00A80F5A /* Device.swift */,
@@ -253,6 +265,7 @@
 				818040F5253165CB002FFFF6 /* StringEx.swift */,
 				818040F7253165CB002FFFF6 /* UIButtonEx.swift */,
 				81DA090D25677185009A5215 /* DispatchQueueEx.swift */,
+				81DA090A25676AB9009A5215 /* UserDefault.swift */,
 				81DA092325677D7A009A5215 /* UserDefaultsEx.swift */,
 				81B362512733BCBA00A80F5A /* ArrayEx.swift */,
 				81B362532733BE1E00A80F5A /* DictionaryEx.swift */,
@@ -273,6 +286,16 @@
 				8183590729EFC7D0001FE2A6 /* UITableViewSnapEx.swift */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		8183596B29F13601001FE2A6 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				8183596C29F1361B001FE2A6 /* WebView.swift */,
+				8183596E29F1365B001FE2A6 /* ColorEx.swift */,
+				8183597029F1368A001FE2A6 /* ViewEx.swift */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 		91114FFB23838CC200AE47DF = {
@@ -460,6 +483,7 @@
 				8180410C253165CB002FFFF6 /* JHCollectionReusableView.swift in Sources */,
 				8148D47C2499EC4000C0B4BA /* TestViewController.swift in Sources */,
 				81804117253165CB002FFFF6 /* UITabBarEx.swift in Sources */,
+				8183597129F1368A001FE2A6 /* ViewEx.swift in Sources */,
 				911150382383DABF00AE47DF /* CollectionViewController.swift in Sources */,
 				81F74AEC25F86F76007CDB69 /* Then.swift in Sources */,
 				818044A12531BDCA002FFFF6 /* UIStackViewEx.swift in Sources */,
@@ -468,7 +492,9 @@
 				8183591129EFC847001FE2A6 /* Neumorphic.swift in Sources */,
 				81804113253165CB002FFFF6 /* UIViewEx.swift in Sources */,
 				81DA092425677D7A009A5215 /* UserDefaultsEx.swift in Sources */,
+				8183596F29F1365B001FE2A6 /* ColorEx.swift in Sources */,
 				9111500823838CC200AE47DF /* AppDelegate.swift in Sources */,
+				8183597529F138F4001FE2A6 /* Font.swift in Sources */,
 				9111500A23838CC200AE47DF /* SceneDelegate.swift in Sources */,
 				81DA090B25676AB9009A5215 /* UserDefault.swift in Sources */,
 				60B078C82856F64500F25F99 /* LayoutEx.swift in Sources */,
@@ -480,6 +506,7 @@
 				818040F8253165CB002FFFF6 /* Loader.swift in Sources */,
 				818040FD253165CB002FFFF6 /* JHTableViewController.swift in Sources */,
 				916226112385247F0050F228 /* WebViewController.swift in Sources */,
+				8183596D29F1361B001FE2A6 /* WebView.swift in Sources */,
 				818040FB253165CB002FFFF6 /* JHViewController.swift in Sources */,
 				81804112253165CB002FFFF6 /* StatusBaEx.swift in Sources */,
 				8180410A253165CB002FFFF6 /* JHTableViewCell.swift in Sources */,
@@ -494,6 +521,7 @@
 				81804119253165CB002FFFF6 /* StringEx.swift in Sources */,
 				81804114253165CB002FFFF6 /* UIColorEx.swift in Sources */,
 				81804103253165CB002FFFF6 /* ArrayViewSnapEx.swift in Sources */,
+				8183597329F1378B001FE2A6 /* Application.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
