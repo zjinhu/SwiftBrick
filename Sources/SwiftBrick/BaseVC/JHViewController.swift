@@ -40,7 +40,7 @@ open class JHViewController: UIViewController, JHBaseVC {
             }
         }
         
-        if (presentingViewController != nil) {
+        if let _ = presentingViewController{
             dismiss(animated: true, completion: nil)
         }
     }

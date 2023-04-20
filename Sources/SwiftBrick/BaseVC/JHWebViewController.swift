@@ -381,7 +381,7 @@ open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDeleg
                 return
             }
         }
-        if (presentingViewController != nil) {
+        if let _ = presentingViewController{
             dismiss(animated: true, completion: nil)
         }
     }
