@@ -8,15 +8,15 @@
 
 import SwiftUI
 
-struct WebView: UIViewControllerRepresentable {
-    let urlString: String
+public struct WebView: UIViewControllerRepresentable {
+    public let urlString: String
 
-    func makeUIViewController(context: Context) -> JHWebViewController {
+    public func makeUIViewController(context: Context) -> JHWebViewController {
         let webviewController = JHWebViewController()
         return webviewController
     }
 
-    func updateUIViewController(_ webviewController: JHWebViewController, context: Context){
+    public func updateUIViewController(_ webviewController: JHWebViewController, context: Context){
         guard let url = URL(string: urlString) else {
             return
         }

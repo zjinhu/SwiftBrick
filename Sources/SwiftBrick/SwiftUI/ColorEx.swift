@@ -8,9 +8,9 @@
 
 import SwiftUI
 
-extension Color {
+public extension Color {
  
-    init(_ hex: String) {
+    init(hex: String) {
         var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)
         hexSanitized = hexSanitized.replacingOccurrences(of: "#", with: "")
         
