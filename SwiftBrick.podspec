@@ -24,6 +24,7 @@ s.resource_bundles = {
 }
 
 s.subspec 'SwiftUI' do |ss|
+ss.dependency 'SwiftBrick/BaseVC'
     ss.source_files = 'Sources/SwiftBrick/SwiftUI/**/*'
 end
 
