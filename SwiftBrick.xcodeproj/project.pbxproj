@@ -61,6 +61,7 @@
 		81DA092425677D7A009A5215 /* UserDefaultsEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DA092325677D7A009A5215 /* UserDefaultsEx.swift */; };
 		81E008FF260CA25B00E50E7B /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E008FE260CA25B00E50E7B /* Version.swift */; };
 		81F067452750E42200E7A4F5 /* NSObjectEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F067442750E42200E7A4F5 /* NSObjectEx.swift */; };
+		81F2AC1629F53B2400942B33 /* AppStorageEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F2AC1529F53B2400942B33 /* AppStorageEx.swift */; };
 		81F74AEC25F86F76007CDB69 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F74AEB25F86F76007CDB69 /* Then.swift */; };
 		89D0DAADE80FB52615C16BFE /* Pods_SwiftBrick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A28AE8B8C30828D14321967 /* Pods_SwiftBrick.framework */; };
 		9111500823838CC200AE47DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111500723838CC200AE47DF /* AppDelegate.swift */; };
@@ -131,6 +132,7 @@
 		81DA092325677D7A009A5215 /* UserDefaultsEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsEx.swift; sourceTree = "<group>"; };
 		81E008FE260CA25B00E50E7B /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		81F067442750E42200E7A4F5 /* NSObjectEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectEx.swift; sourceTree = "<group>"; };
+		81F2AC1529F53B2400942B33 /* AppStorageEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageEx.swift; sourceTree = "<group>"; };
 		81F74AEB25F86F76007CDB69 /* Then.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
 		9111500423838CC200AE47DF /* SwiftBrick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBrick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9111500723838CC200AE47DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				8183596E29F1365B001FE2A6 /* ColorEx.swift */,
 				8183597029F1368A001FE2A6 /* ViewEx.swift */,
 				60D5880529F16B600072B47C /* Haptic.swift */,
+				81F2AC1529F53B2400942B33 /* AppStorageEx.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				8180410F253165CB002FFFF6 /* UINavigationBarEx.swift in Sources */,
 				811372D2256529D200D07554 /* AppState.swift in Sources */,
 				81DA090E25677185009A5215 /* DispatchQueueEx.swift in Sources */,
+				81F2AC1629F53B2400942B33 /* AppStorageEx.swift in Sources */,
 				818040FC253165CB002FFFF6 /* JHCollectionViewController.swift in Sources */,
 				81804108253165CB002FFFF6 /* UITextViewEx.swift in Sources */,
 				9162261A2385534D0050F228 /* ExViewController.swift in Sources */,
