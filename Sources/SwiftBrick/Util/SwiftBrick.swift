@@ -19,10 +19,5 @@ public struct SwiftBrick{
     public static var navBarLeftFixSpace: CGFloat = 0
     ///导航栏右按钮修正距离,默认按钮距离边缘为20:左移为+,右移为-
     public static var navBarRightFixSpace: CGFloat = 0
-    
-    ///当导航栏从隐藏的页面滑动到有导航栏的页面或者从有到无的页面滑动,使过度更加平滑,vc需要隐藏导航栏设置下prefersNavigationBarHidden = true
-    //MARK: ‼️APP初始化时需要交换一下方法‼️重要①‼️
-    public static func inits() {
-        SwizzleNavBar.swizzle
-    }
+
 }
