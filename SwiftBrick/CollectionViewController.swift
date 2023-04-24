@@ -116,11 +116,11 @@ class CollectionViewController: JHCollectionViewController {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize.init(width: screenWidth, height: 20)
+        return CGSize.init(width: SwiftBrick.Define.screenWidth, height: 20)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize.init(width: screenWidth, height: 60)
+        return CGSize.init(width: SwiftBrick.Define.screenWidth, height: 60)
     }
     
 }

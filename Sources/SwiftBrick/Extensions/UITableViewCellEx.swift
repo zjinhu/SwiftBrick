@@ -59,7 +59,7 @@ public extension UITableViewCell {
                 let constraints = [
                     topLineView.topAnchor.constraint(equalTo: topAnchor),
                     topLineView.leftAnchor.constraint(equalTo: leftAnchor, constant: headFootLeftMarign),
-                    topLineView.heightAnchor.constraint(equalToConstant: lineHeight),
+                    topLineView.heightAnchor.constraint(equalToConstant: SwiftBrick.Define.lineHeight),
                     topLineView.rightAnchor.constraint(equalTo: rightAnchor, constant: -headFootRightMarign)
                 ]
                 NSLayoutConstraint.activate(constraints)
@@ -85,7 +85,7 @@ public extension UITableViewCell {
                 bringSubviewToFront(bottomLineView)
  
                 bottomLineView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-                bottomLineView.heightAnchor.constraint(equalToConstant: lineHeight).isActive = true
+                bottomLineView.heightAnchor.constraint(equalToConstant: SwiftBrick.Define.lineHeight).isActive = true
                 bottomLineView.leftAnchor.constraint(equalTo: leftAnchor, constant: leftMarign).isActive = true
                 bottomLineView.rightAnchor.constraint(equalTo: rightAnchor, constant: -leftMarign).isActive = true
             }
@@ -130,7 +130,7 @@ public extension UITableViewCell {
                 let constraints = [
                     lineView.topAnchor.constraint(equalTo: topAnchor),
                     lineView.leftAnchor.constraint(equalTo: leftAnchor, constant: leftMarign),
-                    lineView.heightAnchor.constraint(equalToConstant: lineHeight),
+                    lineView.heightAnchor.constraint(equalToConstant: SwiftBrick.Define.lineHeight),
                     lineView.rightAnchor.constraint(equalTo: rightAnchor, constant: -rightMarign)
                 ]
                 NSLayoutConstraint.activate(constraints)
@@ -171,7 +171,7 @@ public extension UITableViewCell {
                 let constraints = [
                     lineView.bottomAnchor.constraint(equalTo: bottomAnchor),
                     lineView.leftAnchor.constraint(equalTo: leftAnchor, constant: leftMarign),
-                    lineView.heightAnchor.constraint(equalToConstant: lineHeight),
+                    lineView.heightAnchor.constraint(equalToConstant: SwiftBrick.Define.lineHeight),
                     lineView.rightAnchor.constraint(equalTo: rightAnchor, constant: -rightMarign)
                 ]
                 NSLayoutConstraint.activate(constraints)

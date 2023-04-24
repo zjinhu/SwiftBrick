@@ -55,6 +55,7 @@
 		81B362502733B8BD00A80F5A /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B3624F2733B8BD00A80F5A /* Device.swift */; };
 		81B362522733BCBA00A80F5A /* ArrayEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B362512733BCBA00A80F5A /* ArrayEx.swift */; };
 		81B362542733BE1E00A80F5A /* DictionaryEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B362532733BE1E00A80F5A /* DictionaryEx.swift */; };
+		81C5A2DA29F68ED500524F0B /* JHBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C5A2D929F68ED500524F0B /* JHBaseVC.swift */; };
 		81DA090B25676AB9009A5215 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DA090A25676AB9009A5215 /* UserDefault.swift */; };
 		81DA090E25677185009A5215 /* DispatchQueueEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DA090D25677185009A5215 /* DispatchQueueEx.swift */; };
 		81DA091125677275009A5215 /* TapBuzz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DA091025677275009A5215 /* TapBuzz.swift */; };
@@ -126,6 +127,7 @@
 		81B3624F2733B8BD00A80F5A /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		81B362512733BCBA00A80F5A /* ArrayEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayEx.swift; sourceTree = "<group>"; };
 		81B362532733BE1E00A80F5A /* DictionaryEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryEx.swift; sourceTree = "<group>"; };
+		81C5A2D929F68ED500524F0B /* JHBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHBaseVC.swift; sourceTree = "<group>"; };
 		81DA090A25676AB9009A5215 /* UserDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		81DA090D25677185009A5215 /* DispatchQueueEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueEx.swift; sourceTree = "<group>"; };
 		81DA091025677275009A5215 /* TapBuzz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBuzz.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 		818040CD253165CB002FFFF6 /* SwiftBrick */ = {
 			isa = PBXGroup;
 			children = (
+				81074F432575056A00C60057 /* SwiftBrick.swift */,
 				8183596B29F13601001FE2A6 /* SwiftUI */,
 				818040CE253165CB002FFFF6 /* Util */,
 				818040D1253165CB002FFFF6 /* BaseVC */,
@@ -212,7 +215,7 @@
 		818040D1253165CB002FFFF6 /* BaseVC */ = {
 			isa = PBXGroup;
 			children = (
-				81074F432575056A00C60057 /* SwiftBrick.swift */,
+				81C5A2D929F68ED500524F0B /* JHBaseVC.swift */,
 				818040D2253165CB002FFFF6 /* JHWebViewController.swift */,
 				818040D3253165CB002FFFF6 /* JHViewController.swift */,
 				818040D4253165CB002FFFF6 /* JHCollectionViewController.swift */,
@@ -513,6 +516,7 @@
 				818040F8253165CB002FFFF6 /* Loader.swift in Sources */,
 				818040FD253165CB002FFFF6 /* JHTableViewController.swift in Sources */,
 				916226112385247F0050F228 /* WebViewController.swift in Sources */,
+				81C5A2DA29F68ED500524F0B /* JHBaseVC.swift in Sources */,
 				8183596D29F1361B001FE2A6 /* WebView.swift in Sources */,
 				818040FB253165CB002FFFF6 /* JHViewController.swift in Sources */,
 				81804112253165CB002FFFF6 /* StatusBaEx.swift in Sources */,

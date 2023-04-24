@@ -21,11 +21,11 @@ class ViewController: JHTableViewController {
         navigationController?.navigationBar.setBackgroundColor(.init("567800"))
         navigationController?.navigationBar.setLineHidden(hidden: true)
  
-        let a = bottomHomeHeight
-        let b = statusBarHeight()
-        sLog("\(b)--\(a)")
+        let a = SwiftBrick.Define.bottomHomeHeight
+        let b = SwiftBrick.Define.statusBarHeight()
+        SwiftBrick.Define.sLog("\(b)--\(a)")
         
-        if isiPad{
+        if SwiftBrick.Device.isiPad{
             print("1")
         }else{
             print("2")
@@ -46,7 +46,7 @@ class ViewController: JHTableViewController {
 //        }
 
         
-        print("\(AppState.state)")
+        print("\(SwiftBrick.AppState.state)")
         
         print("username修改前\(String(describing: UserDefaultsConfig.username))")
         UserDefaultsConfig.username = nil

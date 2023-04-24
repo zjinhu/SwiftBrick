@@ -8,31 +8,33 @@
 
 import Foundation
 // MARK: ===================================工具类:APP当前状态=========================================
-public enum AppStateMode {
-    case debug
-    case testFlight
-    case appStore
-}
-
-public struct AppState {
-
-    fileprivate static let isTestFlight = Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt"
-
-    public static var isDebug: Bool {
-        #if DEBUG
-        return true
-        #else
-        return false
-        #endif
+public extension SwiftBrick{
+    enum AppStateMode {
+        case debug
+        case testFlight
+        case appStore
     }
     
-    public static var state: AppStateMode {
-        if isDebug {
-            return .debug
-        } else if isTestFlight {
-            return .testFlight
-        } else {
-            return .appStore
+    struct AppState {
+        
+        fileprivate static let isTestFlight = Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt"
+        
+        public static var isDebug: Bool {
+#if DEBUG
+            return true
+#else
+            return false
+#endif
+        }
+        
+        public static var state: AppStateMode {
+            if isDebug {
+                return .debug
+            } else if isTestFlight {
+                return .testFlight
+            } else {
+                return .appStore
+            }
         }
     }
 }

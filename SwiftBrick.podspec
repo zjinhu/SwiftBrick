@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'SwiftBrick'
-s.version          = '2.2.0'
+s.version          = '2.3.0'
 s.summary          = '工具类组件.'
 
 s.description      = <<-DESC
@@ -54,5 +54,8 @@ s.subspec 'ViewFactory' do |ss|
     ss.dependency 'SwiftBrick/Extensions'
     ss.source_files = 'Sources/SwiftBrick/ViewFactory/**/*'
 end
+
+
+s.source_files = 'Sources/SwiftBrick/*.swift'
 
 end
