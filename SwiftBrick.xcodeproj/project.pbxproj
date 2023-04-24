@@ -184,7 +184,6 @@
 		818040CD253165CB002FFFF6 /* SwiftBrick */ = {
 			isa = PBXGroup;
 			children = (
-				81074F432575056A00C60057 /* SwiftBrick.swift */,
 				8183596B29F13601001FE2A6 /* SwiftUI */,
 				818040CE253165CB002FFFF6 /* Util */,
 				818040D1253165CB002FFFF6 /* BaseVC */,
@@ -199,6 +198,7 @@
 		818040CE253165CB002FFFF6 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				81074F432575056A00C60057 /* SwiftBrick.swift */,
 				818040CF253165CB002FFFF6 /* Loader.swift */,
 				81E008FE260CA25B00E50E7B /* Version.swift */,
 				818040D0253165CB002FFFF6 /* Define.swift */,

@@ -55,7 +55,4 @@ s.subspec 'ViewFactory' do |ss|
     ss.source_files = 'Sources/SwiftBrick/ViewFactory/**/*'
 end
 
-
-s.source_files = 'Sources/SwiftBrick/*.swift'
-
 end
