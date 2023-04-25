@@ -8,8 +8,8 @@
 
 import Foundation
 import UIKit
-public extension SwiftBrick{
-    struct Device {
+extension SwiftBrick{
+    public struct Device {
         /// 判断是否iphoneX 带刘海
         public static var isiPhoneX: Bool {
             return Define.bottomHomeHeight > 0
@@ -52,7 +52,7 @@ public extension SwiftBrick{
         
     }
     
-    enum DeviceKit {
+    public enum DeviceKit {
         /// iPhone 5, 5s, 5c, SE, iPod Touch 5-6th.
         case screen4Inch
         /// iPhone 6, 6s, 7, 8, SE2,3

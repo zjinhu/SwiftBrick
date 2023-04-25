@@ -8,9 +8,9 @@
 
 import UIKit
 import Foundation
-public extension SwiftBrick{
+extension SwiftBrick{
     // MARK: ===================================工具类:变量宏定义=========================================
-    struct Define {
+    public struct Define {
         // MARK:- 屏幕
         /// 当前屏幕状态 宽度
         public static let screenHeight = max(UIScreen.main.bounds.width, UIScreen.main.bounds.height)

@@ -8,14 +8,14 @@
 
 import Foundation
 // MARK: ===================================工具类:APP当前状态=========================================
-public extension SwiftBrick{
-    enum AppStateMode {
+extension SwiftBrick{
+    public enum AppStateMode {
         case debug
         case testFlight
         case appStore
     }
     
-    struct AppState {
+    public struct AppState {
         
         fileprivate static let isTestFlight = Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt"
         

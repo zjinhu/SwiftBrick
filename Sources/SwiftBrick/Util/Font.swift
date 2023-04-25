@@ -7,8 +7,8 @@
 //
 import UIKit
 import Foundation
-public extension SwiftBrick{
-    struct Font {
+extension SwiftBrick{
+    public struct Font {
         // MARK:- 字体
         ///根据屏幕自适应字体参数 16*FontFit
         public static let fontFit = min(UIScreen.main.bounds.width, UIScreen.main.bounds.height) / 375

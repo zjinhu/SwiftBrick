@@ -8,8 +8,8 @@
 
 import Foundation
 // MARK:- App信息
-public extension SwiftBrick{
-    struct Application {
+extension SwiftBrick{
+    public struct Application {
         
         public static var appDisplayName: String {
             return Bundle.main.infoDictionary?["CFBundleDisplayName"] as! String
