@@ -36,6 +36,15 @@ public extension UIColor {
 
 public extension UIColor {
     
+    static func dynamicColor(light: UIColor, dark: UIColor) -> UIColor {
+        guard #available(iOS 13.0, *) else { return light } 
+        return UIColor { $0.userInterfaceStyle == .dark ? dark : light }
+    }
+
+}
+ 
+public extension UIColor {
+    
     ///根据RGB生成颜色
     convenience init(r: Int, g: Int, b: Int, a: CGFloat = 1) {
         var trans = a

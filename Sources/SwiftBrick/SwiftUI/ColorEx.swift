@@ -46,3 +46,58 @@ public extension Color {
         self.init(red: r, green: g, blue: b, opacity: a)
     }
 }
+
+public extension Color {
+    static func dynamic(light: String, dark: String) -> Color {
+        let l = UIColor(light)
+        let d = UIColor(dark)
+        return UIColor.dynamicColor(light: l, dark: d).toColor()
+    }
+    
+    @available(iOS 14.0, *)
+    static func dynamic(light: Color, dark: Color) -> Color {
+        let l = UIColor(light)
+        let d = UIColor(dark)
+        return UIColor.dynamicColor(light: l, dark: d).toColor()
+    }
+    
+    @available(iOS 14.0, *)
+    func toUIColor() -> UIColor {
+        return UIColor(self)
+    }
+}
+
+public extension UIColor {
+    func toColor() -> Color {
+        return Color(self)
+    }
+}
+
+@available(iOS 14.0, *)
+public extension Color {
+
+    static let defaultBackground = Color(light: .white, dark: .black)
+
+    init(light: Color, dark: Color) {
+        self.init(UIColor.dynamicColor(light: light.toUIColor(), dark: dark.toUIColor()))
+    }
+}
+
+struct DetectThemeChange: ViewModifier {
+    @Environment(\.colorScheme) var colorScheme
+
+    func body(content: Content) -> some View {
+        
+        if(colorScheme == .dark){
+            content.colorInvert()
+        }else{
+            content
+        }
+    }
+}
+
+public extension View {
+    func invertOnDarkTheme() -> some View {
+        modifier(DetectThemeChange())
+    }
+}

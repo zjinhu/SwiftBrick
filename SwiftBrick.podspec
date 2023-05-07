@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'SwiftBrick'
-s.version          = '2.3.1'
+s.version          = '2.3.2'
 s.summary          = '工具类组件.'
 
 s.description      = <<-DESC
@@ -24,6 +24,7 @@ s.frameworks   = "UIKit", "Foundation", "WebKit" #支持的框架
     }
 
     s.subspec 'SwiftUI' do |ss|
+	ss.dependency 'SwiftBrick/Extensions'
         ss.dependency 'SwiftBrick/BaseVC'
         ss.source_files = 'Sources/SwiftBrick/SwiftUI/**/*'
     end
