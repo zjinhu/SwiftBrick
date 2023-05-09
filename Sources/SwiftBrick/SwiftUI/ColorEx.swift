@@ -83,6 +83,12 @@ public extension Color {
     }
 }
 
+extension Color {
+    public static var almostClear: Color {
+        Color.black.opacity(0.0001)
+    }
+}
+
 struct DetectThemeChange: ViewModifier {
     @Environment(\.colorScheme) var colorScheme
 

@@ -24,3 +24,38 @@ public extension View {
         clipShape( RoundedCorner(radius: radius, corners: corners) )
     }
 }
+
+public extension Spacer {
+    @ViewBuilder static func width(_ value: CGFloat?) -> some View {
+        switch value {
+            case .some(let value): Spacer().frame(width: max(value, 0))
+            case nil: Spacer()
+        }
+    }
+    
+    @ViewBuilder static func height(_ value: CGFloat?) -> some View {
+        switch value {
+            case .some(let value): Spacer().frame(height: max(value, 0))
+            case nil: Spacer()
+        }
+    }
+}
+
+public extension View {
+    func readHeight(onChange action: @escaping (CGFloat) -> ()) -> some View {
+        background(heightReader)
+            .onPreferenceChange(HeightPreferenceKey.self, perform: action)
+    }
+}
+private extension View {
+    var heightReader: some View {
+        GeometryReader {
+            Color.clear
+                .preference(key: HeightPreferenceKey.self, value: $0.size.height)
+        }
+    }
+}
+fileprivate struct HeightPreferenceKey: PreferenceKey {
+    static var defaultValue: CGFloat = 0
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {}
+}

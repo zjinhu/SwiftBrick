@@ -10,7 +10,11 @@ import SwiftUI
 
 public struct WebView: UIViewControllerRepresentable {
     public let urlString: String
-
+    
+    public init(urlString: String) {
+        self.urlString = urlString
+    }
+    
     public func makeUIViewController(context: Context) -> JHWebViewController {
         let webviewController = JHWebViewController()
         return webviewController
