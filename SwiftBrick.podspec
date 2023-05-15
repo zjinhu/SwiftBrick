@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'SwiftBrick'
-s.version          = '2.3.4'
+s.version          = '2.3.5'
 s.summary          = '工具类组件.'
 
 s.description      = <<-DESC
@@ -17,7 +17,7 @@ s.ios.deployment_target = "13.0"
 s.swift_versions     = ['5.5','5.4','5.3','5.2','5.1','5.0']
 s.requires_arc = true
 
-s.frameworks   = "UIKit", "Foundation", "WebKit" #支持的框架
+s.frameworks   = "UIKit", "Foundation", "WebKit", "SwiftUI" #支持的框架
 
     s.resource_bundles = {
         'SwiftBrick' => ['Sources/SwiftBrick/Resources/*.xcassets']
