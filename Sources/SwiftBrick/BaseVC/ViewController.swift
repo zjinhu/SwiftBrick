@@ -8,7 +8,7 @@
 
 import UIKit
 // MARK: ===================================VC基类:UIViewController=========================================
-open class JHViewController: UIViewController, JHBaseVC {
+open class ViewController: UIViewController, BaseVC {
 
     // MARK: - 布局
     open override func viewDidLoad() {

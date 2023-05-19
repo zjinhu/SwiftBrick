@@ -8,7 +8,7 @@
 
 import UIKit
 // MARK: ===================================Cell基类:UITableViewHeaderFooterView=========================================
-open class JHTableViewHeaderFooterView: UITableViewHeaderFooterView, Reusable{
+open class TableViewHeaderFooterView: UITableViewHeaderFooterView, Reusable{
 
     public var backColor: UIColor? {
         didSet{
@@ -16,7 +16,7 @@ open class JHTableViewHeaderFooterView: UITableViewHeaderFooterView, Reusable{
         }
     }
     
-    public override init(reuseIdentifier: String? = String(describing: JHTableViewHeaderFooterView.self)) {
+    public override init(reuseIdentifier: String? = String(describing: TableViewHeaderFooterView.self)) {
         super.init(reuseIdentifier: reuseIdentifier)
         backgroundView = UIView(frame: bounds)
         backgroundView?.backgroundColor = .clear

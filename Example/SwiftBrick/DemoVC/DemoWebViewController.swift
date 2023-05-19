@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Swift_Form
 import SwiftBrick
-class WebViewController: JHWebViewController {
+class DemoWebViewController: WebViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

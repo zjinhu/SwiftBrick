@@ -17,7 +17,7 @@ public extension SwiftBrick{
     }
 }
 
-public protocol JHBaseVC{
+public protocol BaseVC{
 
     func hideDefaultBackBarButton()
     
@@ -71,7 +71,7 @@ public protocol JHBaseVC{
     
 }
 
-public extension JHBaseVC where Self: UIViewController {
+public extension BaseVC where Self: UIViewController {
     
     func hideDefaultBackBarButton(){
         navigationItem.hidesBackButton = true

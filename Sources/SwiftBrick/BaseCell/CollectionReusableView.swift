@@ -1,5 +1,5 @@
 //
-//  JHCollectionViewCell.swift
+//  JHCollectionReusableView.swift
 //  SwiftBrick
 //
 //  Created by iOS on 19/11/2019.
@@ -7,13 +7,19 @@
 //
 
 import UIKit
-// MARK: ===================================Cell基类:UICollectionViewCell=========================================
-open class JHCollectionViewCell: UICollectionViewCell, Reusable{
-
+// MARK: ===================================Cell基类:UICollectionReusableView=========================================
+open class CollectionReusableView: UICollectionReusableView, Reusable{
+    
+    /// 样式，header还是footer
+    public enum ReusableViewType {
+        case SectionHeader//UICollectionElementKindSectionHeader
+        case SectionFooter//UICollectionElementKindSectionFooter
+    }
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         setupCellViews()
-        contentView.backgroundColor = .clear
+        backgroundColor = .clear
     }
     
     required public init?(coder: NSCoder) {
@@ -25,5 +31,5 @@ open class JHCollectionViewCell: UICollectionViewCell, Reusable{
     open func setupCellViews() {
         
     }
-
+    
 }

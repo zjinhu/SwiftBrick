@@ -10,9 +10,9 @@ import UIKit
 import SnapKit
 import Swift_Form
 import SwiftBrick
-class TestViewController: JHViewController {
+class DemoExViewController: ViewController {
 
-    let then = UIView().then { (v) in
+    let then = UIView().then { v in
         v.backgroundColor = .red
         v.layer.cornerRadius = 20
     }

@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 // MARK: ===================================VC基类:UIWebViewController=========================================
-open class JHWebViewController: JHViewController ,WKUIDelegate,WKNavigationDelegate,WKScriptMessageHandler,UIScrollViewDelegate{
+open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,WKScriptMessageHandler,UIScrollViewDelegate{
 
     lazy var backButton: UIButton = {
         let btn = UIButton()

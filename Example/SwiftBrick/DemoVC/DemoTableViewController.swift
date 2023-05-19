@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Swift_Form
 import SwiftBrick
-class TableViewController: JHTableViewController {
+class DemoTableViewController: TableViewController {
 
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return setStyleStatusBar
@@ -31,7 +31,7 @@ class TableViewController: JHTableViewController {
 
         mainDatas = [["","","","","","","","",""],["","","","","","","","",""]]
         
-        tableView?.registerHeaderFooterView(JHTableViewHeaderFooterView.self)
+        tableView?.registerHeaderFooterView(TableViewHeaderFooterView.self)
 
     }
     
@@ -57,7 +57,7 @@ class TableViewController: JHTableViewController {
 //    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(JHTableViewCell.self)
+        let cell = tableView.dequeueReusableCell(TableViewCell.self)
 
         cell.addAllLine(tableView: tableView, indexPath: indexPath, leftMarign: 20, rightMarign: 0, isHeadFootMarign: false, lineColor: .red)
         
@@ -76,10 +76,10 @@ class TableViewController: JHTableViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         if indexPath.row % 2 == 0 {
-            let vc = TableViewController.init(tableViewStyle: .styleGrouped)
+            let vc = DemoTableViewController.init(tableViewStyle: .styleGrouped)
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
-            let vc = CollectionViewController.init()
+            let vc = DemoCollectionViewController.init()
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

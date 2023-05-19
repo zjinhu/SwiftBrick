@@ -15,12 +15,12 @@ public struct WebView: UIViewControllerRepresentable {
         self.urlString = urlString
     }
     
-    public func makeUIViewController(context: Context) -> JHWebViewController {
-        let webviewController = JHWebViewController()
+    public func makeUIViewController(context: Context) -> WebViewController {
+        let webviewController = WebViewController()
         return webviewController
     }
 
-    public func updateUIViewController(_ webviewController: JHWebViewController, context: Context){
+    public func updateUIViewController(_ webviewController: WebViewController, context: Context){
         guard let url = URL(string: urlString) else {
             return
         }

@@ -8,7 +8,7 @@
 
 import UIKit
 // MARK: ===================================VC基类:UITableViewController=========================================
-open class JHTableViewController: JHViewController ,UITableViewDelegate,UITableViewDataSource{
+open class TableViewController: ViewController ,UITableViewDelegate,UITableViewDataSource{
 
     // MARK: - 参数变量
     public enum TableViewStyleType {
@@ -93,7 +93,7 @@ open class JHTableViewController: JHViewController ,UITableViewDelegate,UITableV
                 tableView?.panGestureRecognizer.require(toFail: gesture)
             }
         })
-        tableView?.registerCell(JHTableViewCell.self)
+        tableView?.registerCell(TableViewCell.self)
     }
     
     // MARK: - 数据源判断
@@ -142,7 +142,7 @@ open class JHTableViewController: JHViewController ,UITableViewDelegate,UITableV
      }
      
      open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(JHTableViewCell.self)
+        let cell = tableView.dequeueReusableCell(TableViewCell.self)
         cell.textLabel?.text = String(describing: indexPath.row)
         return cell
      }

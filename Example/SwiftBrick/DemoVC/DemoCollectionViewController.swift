@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Swift_Form
 import SwiftBrick
-class CollectionViewController: JHCollectionViewController {
+class DemoCollectionViewController: CollectionViewController {
     
     
     override func viewDidLoad() {
@@ -29,11 +29,11 @@ class CollectionViewController: JHCollectionViewController {
                           normalColor: .darkGray,
                           highlightColor: .lightGray,
                           fixSpace: 0 ) {_ in 
-            self.navigationController?.pushViewController(JHSwiftUIVC(SwiftUIView()), animated: true)
+            self.navigationController?.pushViewController(SwiftUIVC(SwiftUIView()), animated: true)
         }
         
-        collectionView?.registerHeaderFooterView(JHCollectionReusableView.self, kindType: .sectionHeader)
-        collectionView?.registerHeaderFooterView(JHCollectionReusableView.self, kindType: .sectionFooter)
+        collectionView?.registerHeaderFooterView(CollectionReusableView.self, kindType: .sectionHeader)
+        collectionView?.registerHeaderFooterView(CollectionReusableView.self, kindType: .sectionFooter)
         
         
         collectionView?.collectionViewLayout = UICollectionViewCompositionalLayout(sectionProvider: { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
@@ -84,18 +84,18 @@ class CollectionViewController: JHCollectionViewController {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
-            let header = collectionView.dequeueReusableHeaderFooterView(JHCollectionReusableView.self, kindType: .sectionHeader, indexPath: indexPath)
+            let header = collectionView.dequeueReusableHeaderFooterView(CollectionReusableView.self, kindType: .sectionHeader, indexPath: indexPath)
             header.backgroundColor = .purple
             return header
         default:
-            let footer = collectionView.dequeueReusableHeaderFooterView(JHCollectionReusableView.self, kindType: .sectionFooter, indexPath: indexPath)
+            let footer = collectionView.dequeueReusableHeaderFooterView(CollectionReusableView.self, kindType: .sectionFooter, indexPath: indexPath)
             footer.backgroundColor = .yellow
             return footer
         }
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(JHCollectionViewCell.self, indexPath: indexPath)
+        let cell = collectionView.dequeueReusableCell(CollectionViewCell.self, indexPath: indexPath)
         cell.backgroundColor = .random
         return cell
     }

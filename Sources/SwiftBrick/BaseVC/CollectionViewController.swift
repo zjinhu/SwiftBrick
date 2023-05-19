@@ -8,7 +8,7 @@
 
 import UIKit
 // MARK: ===================================VC基类:UICollectionViewController=========================================
-open class JHCollectionViewController: JHViewController ,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+open class CollectionViewController: ViewController ,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
 
     public var collectionView: UICollectionView?
     public var mainDatas: Array<Any> = []
@@ -63,7 +63,7 @@ open class JHCollectionViewController: JHViewController ,UICollectionViewDelegat
                 collectionView?.panGestureRecognizer.require(toFail: gesture)
             }
         })
-        collectionView?.registerCell(JHCollectionViewCell.self)
+        collectionView?.registerCell(CollectionViewCell.self)
     }
     
     // MARK: - 数据源判断
@@ -91,7 +91,7 @@ open class JHCollectionViewController: JHViewController ,UICollectionViewDelegat
     }
     
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(JHCollectionViewCell.self, indexPath: indexPath)
+        let cell = collectionView.dequeueReusableCell(CollectionViewCell.self, indexPath: indexPath)
         return cell
     }
     

@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftUI
-open class JHSwiftUIVC<T: View>: JHViewController {
+open class SwiftUIVC<T: View>: ViewController {
 
     private var hostVC: UIHostingController<T>
 
