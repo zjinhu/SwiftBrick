@@ -5,6 +5,7 @@
 import Swift
 import SwiftUI
 
+@available(iOS 13.0, *)
 extension Font.TextStyle {
 
     public var defaultMetrics: (weight: Font.Weight, size: CGFloat, leading: CGFloat) {

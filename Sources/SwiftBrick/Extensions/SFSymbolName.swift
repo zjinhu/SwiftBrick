@@ -2563,7 +2563,7 @@ public enum SFSymbolName: String {
 }
 
 // MARK: - Helpers
-
+@available(iOS 13.0, *)
 public extension Image {
     init(systemName: SFSymbolName) {
         #if os(macOS)

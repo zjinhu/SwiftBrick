@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+@available(iOS 13.0, *)
 extension Text {
     @inlinable
     public func font(_ font: Font, weight: Font.Weight?) -> Text {
@@ -19,6 +20,7 @@ extension Text {
     }
 }
 
+@available(iOS 13.0, *)
 extension View {
 
     @inlinable

@@ -5,6 +5,7 @@
 import Swift
 import SwiftUI
 
+@available(iOS 13.0, *)
 extension List {
     #if swift(>=5.5.1) || (swift(>=5.5) && !targetEnvironment(macCatalyst) && !os(macOS))
     @available(watchOS, unavailable)

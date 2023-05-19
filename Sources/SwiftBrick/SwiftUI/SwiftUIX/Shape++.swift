@@ -5,6 +5,7 @@
 import Swift
 import SwiftUI
 
+@available(iOS 13.0, *)
 extension Shape {
     public func fill<S: ShapeStyle>(
         _ fillContent: S,

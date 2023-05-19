@@ -5,6 +5,7 @@
 import Swift
 import SwiftUI
 
+@available(iOS 13.0, *)
 extension Text {
     /// Applies a semi-bold font weight to the text.
     public func semibold() -> Text {
@@ -20,6 +21,7 @@ extension Text {
     }
 }
 
+@available(iOS 13.0, *)
 extension Text {
     /// Applies a linear foreground gradient to the text.
     public func foregroundLinearGradient(

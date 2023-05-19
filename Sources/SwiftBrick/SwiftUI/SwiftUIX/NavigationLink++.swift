@@ -5,6 +5,7 @@
 import Swift
 import SwiftUI
 
+@available(iOS 13.0, *)
 extension NavigationLink {
     @_disfavoredOverload
     public init(
@@ -15,6 +16,7 @@ extension NavigationLink {
     }
 }
 
+@available(iOS 13.0, *)
 extension NavigationLink where Label == Text {
     /// Creates an instance that presents `destination`, with a Text label generated from a title string.
     public init(_ title: LocalizedStringKey, @ViewBuilder destination: () -> Destination) {

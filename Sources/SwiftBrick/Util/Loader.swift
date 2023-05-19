@@ -41,4 +41,12 @@ public struct L{
         }
         return color
     }
+    
+    public static func image(_ named: String) -> UIImage {
+        guard let image = UIImage(named: named, in: bundle, compatibleWith: nil) else {
+            let image = UIImage(named: named)
+            return image ?? UIImage()
+        }
+        return image
+    }
 }

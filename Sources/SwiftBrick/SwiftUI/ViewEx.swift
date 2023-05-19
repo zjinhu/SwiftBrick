@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+@available(iOS 13.0, *)
 public struct RoundedCorner: Shape {
     
     public var radius: CGFloat = .infinity
@@ -19,12 +20,14 @@ public struct RoundedCorner: Shape {
     }
 }
 
+@available(iOS 13.0, *)
 public extension View {
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
         clipShape( RoundedCorner(radius: radius, corners: corners) )
     }
 }
 
+@available(iOS 13.0, *)
 public extension Spacer {
     @ViewBuilder static func width(_ value: CGFloat?) -> some View {
         switch value {
@@ -41,12 +44,15 @@ public extension Spacer {
     }
 }
 
+@available(iOS 13.0, *)
 public extension View {
     func readHeight(onChange action: @escaping (CGFloat) -> ()) -> some View {
         background(heightReader)
             .onPreferenceChange(HeightPreferenceKey.self, perform: action)
     }
 }
+
+@available(iOS 13.0, *)
 private extension View {
     var heightReader: some View {
         GeometryReader {
@@ -55,6 +61,7 @@ private extension View {
         }
     }
 }
+
 fileprivate struct HeightPreferenceKey: PreferenceKey {
     static var defaultValue: CGFloat = 0
     static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {}

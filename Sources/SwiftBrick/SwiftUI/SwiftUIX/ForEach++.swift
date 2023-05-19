@@ -5,6 +5,7 @@
 import Swift
 import SwiftUI
 
+@available(iOS 13.0, *)
 extension ForEach {
     public var isEmpty: Bool {
         data.isEmpty
@@ -15,6 +16,7 @@ extension ForEach {
     }
 }
 
+@available(iOS 13.0, *)
 extension ForEach where Content: View {
 
     public init<Elements: RandomAccessCollection>(
@@ -57,6 +59,7 @@ extension ForEach where Content: View {
     }
 }
 
+@available(iOS 13.0, *)
 extension ForEach where Data.Element: Identifiable, Content: View, ID == Data.Element.ID {
     public func interleave<Separator: View>(with separator: Separator) -> some View {
         let data = self.data.enumerated().map({ _IdentifiableElementOffsetPair(element: $0.element, offset: $0.offset) })
@@ -73,6 +76,7 @@ extension ForEach where Data.Element: Identifiable, Content: View, ID == Data.El
     }
 }
 
+@available(iOS 13.0, *)
 extension ForEach where Data.Element: Identifiable, Content: View, ID == Data.Element.ID {
     public func interdivided() -> some View {
         let data = self.data.enumerated().map({ _IdentifiableElementOffsetPair(element: $0.element, offset: $0.offset) })
@@ -89,6 +93,7 @@ extension ForEach where Data.Element: Identifiable, Content: View, ID == Data.El
     }
 }
 
+@available(iOS 13.0, *)
 extension ForEach where Data.Element: Identifiable, Content: View, ID == Data.Element.ID {
     public func interspaced() -> some View {
         let data = self.data.enumerated().map({ _IdentifiableElementOffsetPair(element: $0.element, offset: $0.offset) })
@@ -105,6 +110,7 @@ extension ForEach where Data.Element: Identifiable, Content: View, ID == Data.El
     }
 }
 
+@available(iOS 13.0, *)
 extension ForEach where ID: CaseIterable & Hashable, ID.AllCases: RandomAccessCollection, Content: View, Data == ID.AllCases {
     /// Creates an instance that uniquely identifies and creates views over `ID.allCases`.
     public init(
@@ -115,6 +121,7 @@ extension ForEach where ID: CaseIterable & Hashable, ID.AllCases: RandomAccessCo
     }
 }
 
+@available(iOS 13.0, *)
 extension ForEach where Content: View {
     @_disfavoredOverload
     public init<_Data: MutableCollection>(
@@ -150,6 +157,7 @@ extension ForEach where Content: View {
 
 // MARK: - Auxiliary
 
+@available(iOS 13.0, *)
 extension Binding {
     fileprivate struct _BindingIdentifiableKeyPathAdaptor {
         let base: Binding<Value>
@@ -164,6 +172,7 @@ extension Binding {
     }
 }
 
+@available(iOS 13.0, *)
 public struct _IdentifiableElementOffsetPair<Element: Identifiable, Offset>: Identifiable {
     let element: Element
     let offset: Offset

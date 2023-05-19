@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftUI
+@available(iOS 13.0, *)
 open class SwiftUIVC<T: View>: ViewController {
 
     private var hostVC: UIHostingController<T>

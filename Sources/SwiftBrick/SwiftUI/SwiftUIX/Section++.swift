@@ -5,6 +5,7 @@
 import Swift
 import SwiftUI
 
+@available(iOS 13.0, *)
 extension Section {
     public var header: Parent {
         unsafeBitCast(self, to: (Parent, Content, Footer).self).0
@@ -19,6 +20,7 @@ extension Section {
     }
 }
 
+@available(iOS 13.0, *)
 extension Section where Parent == Text, Content: View, Footer == EmptyView {
     @_disfavoredOverload
     public init<S: StringProtocol>(_ header: S, @ViewBuilder content: () -> Content) {
@@ -36,6 +38,7 @@ extension Section where Parent == Text, Content: View, Footer == EmptyView {
     }
 }
 
+@available(iOS 13.0, *)
 extension Section where Parent == Text, Content: View, Footer == Text {
     public init<S: StringProtocol>(
         header: S,

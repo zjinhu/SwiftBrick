@@ -5,6 +5,7 @@
 import Swift
 import SwiftUI
 
+@available(iOS 13.0, *)
 extension Angle {
     @inlinable
     public static var pi: Angle {

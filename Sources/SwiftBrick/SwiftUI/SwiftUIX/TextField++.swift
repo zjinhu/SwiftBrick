@@ -5,6 +5,7 @@
 import Swift
 import SwiftUI
 
+@available(iOS 13.0, *)
 extension TextField where Label == Text {
     public init(
         _ title: LocalizedStringKey,

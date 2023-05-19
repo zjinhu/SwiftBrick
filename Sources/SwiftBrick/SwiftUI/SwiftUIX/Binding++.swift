@@ -5,6 +5,7 @@
 import Swift
 import SwiftUI
 
+@available(iOS 13.0, *)
 extension Binding {
     @available(iOS 15.0, macOS 12.0, tvOS 15.0, watchOS 8.0, *)
     public init(_from binding: FocusState<Value>.Binding) where Value: Hashable {
@@ -12,6 +13,7 @@ extension Binding {
     }
 }
 
+@available(iOS 13.0, *)
 extension Binding {
     public func cast<T, U>() -> Binding<Optional<U>> where Value == Optional<T> {
         Binding<Optional<U>>(
@@ -76,6 +78,7 @@ extension Binding {
     }
 }
 
+@available(iOS 13.0, *)
 extension Binding {
     public func map<T>(_ keyPath: WritableKeyPath<Value, T>) -> Binding<T> {
         .init(
@@ -85,6 +88,7 @@ extension Binding {
     }
 }
 
+@available(iOS 13.0, *)
 extension Binding {
     public func onChange(perform action: @escaping (Value) -> ()) -> Self where Value: Equatable {
         return .init(
@@ -125,6 +129,7 @@ extension Binding {
     }
 }
 
+@available(iOS 13.0, *)
 extension Binding {
     public func _asOptional(defaultValue: Value) -> Binding<Optional<Value>> {
         .init(
@@ -181,6 +186,7 @@ extension Binding {
     }
 }
 
+@available(iOS 13.0, *)
 extension Binding {
     public static func && (lhs: Binding, rhs: Bool) -> Binding where Value == Bool {
         .init(
@@ -290,6 +296,7 @@ extension Binding {
     }
 }
 
+@available(iOS 13.0, *)
 extension Binding {
     public func removeDuplicates() -> Self where Value: Equatable {
         return .init(
@@ -307,6 +314,7 @@ extension Binding {
     }
 }
 
+@available(iOS 13.0, *)
 extension Binding {
     public func takePrefix(_ count: Int) -> Self where Value == String {
         .init(

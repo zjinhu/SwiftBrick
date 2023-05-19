@@ -10,17 +10,33 @@ import UIKit
 // MARK: ===================================扩展: UIImage=========================================
 
 extension UIImage {
-    public static let icon_back = UIImage.symbol("chevron.backward", color: .textTitleColor)
-    public static let icon_close = UIImage.symbol("xmark", color: .textTitleColor)
+ 
+    public static let icon_back: UIImage = {
+        if #available(iOS 13.0, *){
+            return UIImage.symbol("chevron.backward", color: .textTitleColor) ?? UIImage()
+        }else{
+            return L.image("nav_ic_back")
+        }
+    }()
+ 
+    public static let icon_close: UIImage = {
+        if #available(iOS 13.0, *){
+            return UIImage.symbol("xmark", color: .textTitleColor) ?? UIImage()
+        }else{
+            return L.image("nav_ic_close")
+        }
+    }()
 }
 
 extension UIImage {
     
+    @available(iOS 13.0, *)
     public static func symbol(_ systemName:String, size: CGFloat = 24, color: UIColor = .white) -> UIImage?{
         let config = UIImage.SymbolConfiguration(pointSize: size)
         return UIImage(systemName: systemName, withConfiguration: config)?.withTintColor(color, renderingMode: .alwaysOriginal)
     }
   
+    @available(iOS 13.0, *)
     public static func symbol(_ systemName: String, size: CGFloat = 24) -> UIImage?{
         let config = UIImage.SymbolConfiguration(pointSize: size)
         return UIImage(systemName: systemName, withConfiguration: config)

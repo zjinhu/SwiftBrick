@@ -34,7 +34,9 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
         webView.scrollView.delegate = self
         webView.allowsBackForwardNavigationGestures = true
         webView.scrollView.contentInsetAdjustmentBehavior = .never
-        webView.scrollView.automaticallyAdjustsScrollIndicatorInsets = false
+        if #available(iOS 13.0, *){
+            webView.scrollView.automaticallyAdjustsScrollIndicatorInsets = false
+        }
         webView.translatesAutoresizingMaskIntoConstraints = false
 
         webView.evaluateJavaScript("navigator.userAgent", completionHandler: { [weak self] (obj: Any?, error: Error?) in
@@ -71,8 +73,11 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
         let processPool = WKProcessPool()
         
         let config = WKWebViewConfiguration()
-        config.defaultWebpagePreferences.preferredContentMode = .mobile
- 
+        
+        if #available(iOS 13.0, *){
+            config.defaultWebpagePreferences.preferredContentMode = .mobile
+        }
+        
         if #available(iOS 14.0, *){
             config.defaultWebpagePreferences.allowsContentJavaScript = true
         }else{

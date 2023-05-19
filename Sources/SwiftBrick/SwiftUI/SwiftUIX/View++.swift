@@ -4,9 +4,8 @@
 
 import Swift
 import SwiftUI
-
 // MARK: - View.background
-
+@available(iOS 13.0, *)
 extension View {
     @_disfavoredOverload
     @inlinable
@@ -20,7 +19,7 @@ extension View {
 }
 
 // MARK: - View.overlay
-
+@available(iOS 13.0, *)
 extension View {
     @_disfavoredOverload
     @inlinable
@@ -33,7 +32,7 @@ extension View {
 }
 
 // MARK: View.offset
-
+@available(iOS 13.0, *)
 extension View {
     @inlinable
     public func inset(_ point: CGPoint) -> some View {
@@ -57,7 +56,7 @@ extension View {
 }
 
 // MARK: - View.padding
-
+@available(iOS 13.0, *)
 extension View {
     /// A view that pads this view inside the specified edge insets with a system-calculated amount of padding and a color.
     @_disfavoredOverload
@@ -67,6 +66,7 @@ extension View {
     }
 }
 
+@available(iOS 13.0, *)
 extension View {
     public func onTapGesture(
         count: Int = 1,
@@ -91,6 +91,7 @@ extension View {
     }
 }
 
+@available(iOS 13.0, *)
 extension View {
     @inlinable
     public func relativeHeight(
@@ -134,6 +135,7 @@ extension View {
     }
 }
 
+@available(iOS 13.0, *)
 extension View {
 
     @inlinable
@@ -142,6 +144,7 @@ extension View {
     }
 }
 
+@available(iOS 13.0, *)
 extension View {
 
     @inlinable
@@ -155,6 +158,7 @@ extension View {
     }
 }
 
+@available(iOS 13.0, *)
 extension View {
     @inlinable
     public func width(_ width: CGFloat?) -> some View {
@@ -214,6 +218,7 @@ extension View {
     }
 }
 
+@available(iOS 13.0, *)
 extension View {
     @inlinable
     public func minWidth(_ width: CGFloat?) -> some View {
@@ -246,6 +251,7 @@ extension View {
     }
 }
 
+@available(iOS 13.0, *)
 extension View {
 
     @inlinable
@@ -271,6 +277,7 @@ extension View {
     }
 }
 
+@available(iOS 13.0, *)
 extension View {
     @inlinable
     public func squareFrame(sideLength: CGFloat?, alignment: Alignment = .center) -> some View {
@@ -285,6 +292,7 @@ extension View {
     }
 }
 
+@available(iOS 13.0, *)
 extension View {
     @inlinable
     public func frameZeroClipped(_ clipped: Bool = true) -> some View {
@@ -293,6 +301,7 @@ extension View {
     }
 }
 
+@available(iOS 13.0, *)
 extension EnvironmentValues {
     private struct TintColor: EnvironmentKey {
         static let defaultValue: Color? = nil
@@ -307,6 +316,7 @@ extension EnvironmentValues {
     }
 }
 
+@available(iOS 13.0, *)
 extension View {
     /// Sets the tint color of the elements displayed by this view.
     @ViewBuilder

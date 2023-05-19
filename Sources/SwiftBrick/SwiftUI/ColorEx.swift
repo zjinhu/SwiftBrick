@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+@available(iOS 13.0, *)
 public extension Color {
  
     init(hex: String) {
@@ -47,6 +48,7 @@ public extension Color {
     }
 }
 
+@available(iOS 13.0, *)
 public extension Color {
     static func dynamic(light: String, dark: String) -> Color {
         let l = UIColor(light)
@@ -67,6 +69,7 @@ public extension Color {
     }
 }
 
+@available(iOS 13.0, *)
 public extension UIColor {
     func toColor() -> Color {
         return Color(self)
@@ -83,12 +86,14 @@ public extension Color {
     }
 }
 
+@available(iOS 13.0, *)
 extension Color {
     public static var almostClear: Color {
         Color.black.opacity(0.0001)
     }
 }
 
+@available(iOS 13.0, *)
 struct DetectThemeChange: ViewModifier {
     @Environment(\.colorScheme) var colorScheme
 
@@ -102,6 +107,7 @@ struct DetectThemeChange: ViewModifier {
     }
 }
 
+@available(iOS 13.0, *)
 public extension View {
     func invertOnDarkTheme() -> some View {
         modifier(DetectThemeChange())

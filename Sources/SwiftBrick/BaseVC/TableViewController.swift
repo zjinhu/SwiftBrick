@@ -9,7 +9,7 @@
 import UIKit
 // MARK: ===================================VC基类:UITableViewController=========================================
 open class TableViewController: ViewController ,UITableViewDelegate,UITableViewDataSource{
-
+    
     // MARK: - 参数变量
     public enum TableViewStyleType {
         case stylePlain
@@ -20,7 +20,7 @@ open class TableViewController: ViewController ,UITableViewDelegate,UITableViewD
     public var tableView: UITableView?
     public var mainDatas: Array<Any> = []
     public var tableViewStyleType: TableViewStyleType = .stylePlain
-
+    
     // MARK: - 初始化
     public convenience init(tableViewStyle: TableViewStyleType = .stylePlain) {
         self.init()
@@ -29,7 +29,7 @@ open class TableViewController: ViewController ,UITableViewDelegate,UITableViewD
     
     /// 子类继承时重写此方法可设置Table样式：self.tableViewStyleType =  .StyleGrouped，或者Init时候设置
     open func setupTableViewStyleType(){
-//        tableViewStyleType = tableViewStyleType
+        //        tableViewStyleType = tableViewStyleType
     }
     
     // MARK: - 布局
@@ -38,9 +38,14 @@ open class TableViewController: ViewController ,UITableViewDelegate,UITableViewD
         setupTableViewStyleType()
         
         switch tableViewStyleType {
+            
         case .styleInsetGrouped:
-            tableView = UITableView(frame: .zero, style: .insetGrouped)
-
+            if #available(iOS 13.0, *) {
+                tableView = UITableView(frame: .zero, style: .insetGrouped)
+            }else{
+                tableView = UITableView(frame: .zero, style: .grouped)
+            }
+            
         case .styleGrouped:
             tableView = UITableView(frame: .zero, style: .grouped)
             
@@ -57,9 +62,9 @@ open class TableViewController: ViewController ,UITableViewDelegate,UITableViewD
         tableView?.backgroundColor = .clear
         tableView?.delegate = self
         tableView?.dataSource = self
-
+        
         tableView?.separatorStyle = .none
-//        tableView?.separatorColor = .lightGray
+        //        tableView?.separatorColor = .lightGray
         tableView?.showsVerticalScrollIndicator = false
         tableView?.showsHorizontalScrollIndicator = false
         tableView?.estimatedRowHeight = 100
@@ -67,13 +72,13 @@ open class TableViewController: ViewController ,UITableViewDelegate,UITableViewD
         tableView?.estimatedSectionHeaderHeight = CGFloat.leastNormalMagnitude
         tableView?.estimatedSectionFooterHeight = CGFloat.leastNormalMagnitude
         tableView?.translatesAutoresizingMaskIntoConstraints = false
-            //头角需要自适应高度的话请设置
+        //头角需要自适应高度的话请设置
         //    tableView.estimatedSectionHeaderHeight = 200;
         //    tableView.sectionHeaderHeight = UITableViewAutomaticDimension;
         //    tableView.estimatedSectionFooterHeight = 200;
         //    tableView.sectionFooterHeight = UITableViewAutomaticDimension;
         tableView?.delaysContentTouches = true
- 
+        
         if let tableView = tableView{
             view.addSubview(tableView)
             NSLayoutConstraint.activate([
@@ -85,7 +90,7 @@ open class TableViewController: ViewController ,UITableViewDelegate,UITableViewD
         }
         
         tableView?.contentInsetAdjustmentBehavior = .automatic
-
+        
         let gestureArray: [UIGestureRecognizer]? = navigationController?.view.gestureRecognizers
         
         gestureArray?.forEach({ (gesture) in
@@ -106,7 +111,7 @@ open class TableViewController: ViewController ,UITableViewDelegate,UITableViewD
         }
     }
     
-     // MARK: - tableView代理
+    // MARK: - tableView代理
     open func numberOfSections(in tableView: UITableView) -> Int {
         return isMultiDatas() ? mainDatas.count: 1
     }
@@ -137,13 +142,13 @@ open class TableViewController: ViewController ,UITableViewDelegate,UITableViewD
             let data  = mainDatas[section] as! Array<Any>
             return data.count
         }else{
-          return mainDatas.count
+            return mainDatas.count
         }
-     }
-     
-     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    }
+    
+    open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(TableViewCell.self)
         cell.textLabel?.text = String(describing: indexPath.row)
         return cell
-     }
+    }
 }
