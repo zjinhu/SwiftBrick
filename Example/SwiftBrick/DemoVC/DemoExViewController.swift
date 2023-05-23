@@ -11,7 +11,7 @@ import SnapKit
 import Swift_Form
 import SwiftBrick
 class DemoExViewController: ViewController {
-
+    
     let then = UIView().then { v in
         v.backgroundColor = .red
         v.layer.cornerRadius = 20
@@ -24,31 +24,31 @@ class DemoExViewController: ViewController {
                           normalColor: .darkGray,
                           highlightColor: .lightGray,
                           fixSpace: 0 ) {_ in
-        
+            
         }
         
         print("\(rightBarButton)") 
         
-
+        
         
         view.backgroundColor = .white
         let vv = NeuButton()
- 
-            let playIcon = UIImage(systemName: "play.fill")
-            let playImageView = UIImageView(image: playIcon)
-            playImageView.translatesAutoresizingMaskIntoConstraints = false
-            playImageView.tintColor = .white
-
-            let stopIcon = UIImage(systemName: "stop.fill")
-            let stopImageView = UIImageView(image: stopIcon)
-            stopImageView.translatesAutoresizingMaskIntoConstraints = false
-            stopImageView.tintColor = .white
-            vv.setContentView(playImageView,
-                              selectedView: stopImageView) { make in
-                make.width.height.equalTo(60)
-                make.center.equalToSuperview()
-            }
-  
+        
+        let playIcon = UIImage(systemName: "play.fill")
+        let playImageView = UIImageView(image: playIcon)
+        playImageView.translatesAutoresizingMaskIntoConstraints = false
+        playImageView.tintColor = .white
+        
+        let stopIcon = UIImage(systemName: "stop.fill")
+        let stopImageView = UIImageView(image: stopIcon)
+        stopImageView.translatesAutoresizingMaskIntoConstraints = false
+        stopImageView.tintColor = .white
+        vv.setContentView(playImageView,
+                          selectedView: stopImageView) { make in
+            make.width.height.equalTo(60)
+            make.center.equalToSuperview()
+        }
+        
         vv.shadowOffset = .init(width: -5, height: 5)
         vv.backColor = UIColor.red
         vv.cornerRadius = 100
@@ -68,9 +68,9 @@ class DemoExViewController: ViewController {
         })
         ive.clipsToBounds = true
         ive.layer.setCorners(15, corners: .bothTop)
- 
-            ive.image = UIImage.symbol("house", size: 25, color: .textTitleColor)
- 
+        
+        ive.image = UIImage.symbol("house", size: 25, color: .textTitleColor)
+        
         let line = UILineView()
         line.lineColor = .red
         line.isDash = true
@@ -123,7 +123,7 @@ class DemoExViewController: ViewController {
         test1Button.addTouchUpInSideBtnAction { sender in
             print("\(sender.isSelected)")
         }
-
+        
     }
- 
+    
 }

@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+@available(iOS 13.0, *)
 public struct WebView: UIViewControllerRepresentable {
     public let urlString: String
     

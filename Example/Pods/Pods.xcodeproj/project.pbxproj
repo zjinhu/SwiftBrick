@@ -281,7 +281,7 @@
 		51C1FC70CD0C22A2F579A7BE6D3FDC98 /* CollectionViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CollectionViewController.swift; path = Sources/SwiftBrick/BaseVC/CollectionViewController.swift; sourceTree = "<group>"; };
 		520FB05667D9F319B4D1516702731D66 /* ColorEx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColorEx.swift; path = Sources/SwiftBrick/SwiftUI/ColorEx.swift; sourceTree = "<group>"; };
 		5644F685C13B6CF24B5227E49F45D5D0 /* Colors.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = Sources/SwiftBrick/Resources/Colors.xcassets; sourceTree = "<group>"; };
-		58428676CC1D84615E3CE5DF64914E9D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		58428676CC1D84615E3CE5DF64914E9D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		591E2F6AAE5FC48361C6F0FE73D5E81B /* LabelCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LabelCell.swift; path = Sources/SwiftyForm/Cells/LabelCell.swift; sourceTree = "<group>"; };
 		59B68AD3DA80628D9ADBBA1C56E046FD /* SwiftBrick-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftBrick-prefix.pch"; sourceTree = "<group>"; };
 		5B7806242B4E9537094AA1842F7C4131 /* WebViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebViewController.swift; path = Sources/SwiftBrick/BaseVC/WebViewController.swift; sourceTree = "<group>"; };
@@ -302,7 +302,7 @@
 		6CA2D16EAF7604B66C13845B375A294D /* InlineDatePickerRowFormer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InlineDatePickerRowFormer.swift; path = Sources/SwiftyForm/Formers/InlineDatePickerRowFormer.swift; sourceTree = "<group>"; };
 		6EE02F41295D1DD97C5113C3666F396F /* ConstraintView+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintView+Extensions.swift"; path = "Sources/ConstraintView+Extensions.swift"; sourceTree = "<group>"; };
 		73866456BE08AD2DC29C51C54476A467 /* LayoutEx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutEx.swift; path = Sources/SwiftBrick/Extensions/LayoutEx.swift; sourceTree = "<group>"; };
-		73D88763D285FC4515CE5BEA53F770BC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		73D88763D285FC4515CE5BEA53F770BC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		74A0CF4084971DB22222BB72F6CF12A5 /* CollectionViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CollectionViewCell.swift; path = Sources/SwiftBrick/BaseCell/CollectionViewCell.swift; sourceTree = "<group>"; };
 		77F3879B8298E1EDE46D923295CC23A6 /* Constraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constraint.swift; path = Sources/Constraint.swift; sourceTree = "<group>"; };
 		7825A90E082A1582EB16256B0E722B3F /* Pods-Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Example-umbrella.h"; sourceTree = "<group>"; };
@@ -344,7 +344,7 @@
 		9962ACAC8E6C57F4EE2A1B48EDFA690A /* ConstraintMakerFinalizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerFinalizable.swift; path = Sources/ConstraintMakerFinalizable.swift; sourceTree = "<group>"; };
 		9C5FBADDA3C4D851CAD98AFEC0D17841 /* Swift_Form-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Swift_Form-prefix.pch"; sourceTree = "<group>"; };
 		9C9E163C808D6D5EA50C47D0F7426FCE /* UIColorEx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIColorEx.swift; path = Sources/SwiftBrick/Extensions/UIColorEx.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E1259B0315AFF16E2CC9910B8AFBC17 /* Swift_Form-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Swift_Form-umbrella.h"; sourceTree = "<group>"; };
 		9E1B3C66940D7FFDCB4389C915444360 /* NavigationLink++.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NavigationLink++.swift"; sourceTree = "<group>"; };
 		9F0721384FD0AEDE870AEE9C0833479D /* ArrayEx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ArrayEx.swift; path = Sources/SwiftBrick/Extensions/ArrayEx.swift; sourceTree = "<group>"; };
@@ -379,7 +379,7 @@
 		D740BC3D319A8716296B125DD480F867 /* SnapKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SnapKit.debug.xcconfig; sourceTree = "<group>"; };
 		D7BE0E3BA43C78C7A90722E4FC35F309 /* TextFieldCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextFieldCell.swift; path = Sources/SwiftyForm/Cells/TextFieldCell.swift; sourceTree = "<group>"; };
 		D7DC97DAEDD3F2674D9EEBB020724080 /* UITabBarEx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UITabBarEx.swift; path = Sources/SwiftBrick/Extensions/UITabBarEx.swift; sourceTree = "<group>"; };
-		D8ED2D12CE9B27E1139E8EC72E3542AD /* SwiftBrick.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = SwiftBrick.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		D8ED2D12CE9B27E1139E8EC72E3542AD /* SwiftBrick.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = SwiftBrick.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D9570328A636B4EF65B9BA2C53776B4A /* ImageRowFormer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageRowFormer.swift; path = Sources/SwiftyForm/Formers/ImageRowFormer.swift; sourceTree = "<group>"; };
 		DBEFCFAB5C193B91CC13B6C1F7000658 /* ButtonRowFormer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ButtonRowFormer.swift; path = Sources/SwiftyForm/Formers/ButtonRowFormer.swift; sourceTree = "<group>"; };
 		DC27B6A7CE41DCC9A7D5821E848BCBED /* CheckRowFormer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CheckRowFormer.swift; path = Sources/SwiftyForm/Formers/CheckRowFormer.swift; sourceTree = "<group>"; };
@@ -543,7 +543,6 @@
 				3EC6A2ED64674735205CE097E8BA5D35 /* UILayoutSupport+Extensions.swift */,
 				6B1C583A83FF43A5652A5EFED3564EA1 /* Support Files */,
 			);
-			name = SnapKit;
 			path = SnapKit;
 			sourceTree = "<group>";
 		};
@@ -801,7 +800,6 @@
 				BD655D899887449586080D548D2CE1B2 /* ViewFormer.swift */,
 				9C606A763FFA7D579DE11E1F6515DE39 /* Support Files */,
 			);
-			name = Swift_Form;
 			path = Swift_Form;
 			sourceTree = "<group>";
 		};
