@@ -63,7 +63,7 @@ open class CollectionViewController: ViewController ,UICollectionViewDelegate,UI
                 collectionView?.panGestureRecognizer.require(toFail: gesture)
             }
         })
-        collectionView?.registerCell(CollectionViewCell.self)
+        collectionView?.ss.registerCell(CollectionViewCell.self)
     }
     
     // MARK: - 数据源判断
@@ -91,7 +91,7 @@ open class CollectionViewController: ViewController ,UICollectionViewDelegate,UI
     }
     
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(CollectionViewCell.self, indexPath: indexPath)
+        let cell = collectionView.ss.dequeueReusableCell(CollectionViewCell.self, indexPath: indexPath)
         return cell
     }
     

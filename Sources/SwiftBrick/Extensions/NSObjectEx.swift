@@ -26,7 +26,7 @@ public extension NSObject {
 }
 
 
-public extension NSObject {
+public extension SwiftBrickWrapper where Base: NSObject {
     
     func decode(coder aDecoder:NSCoder) {
         let mirror = Mirror(reflecting: self)
@@ -36,7 +36,7 @@ public extension NSObject {
                 let value = aDecoder.decodeObject(forKey: label) else {
                 return
             }
-            setValue(value, forKey: label)
+            base.setValue(value, forKey: label)
         }
     }
     

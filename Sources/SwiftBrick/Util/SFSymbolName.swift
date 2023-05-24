@@ -25,8 +25,6 @@
  */
 
 import Swift
-import SwiftUI
-
 /// Imported for convenience from https://github.com/piknotech/SFSafeSymbols
 public enum SFSymbolName: String {
     case _00Circle = "00.circle"
@@ -2562,18 +2560,3 @@ public enum SFSymbolName: String {
     @available(iOS 15.0, *) case xmarkAppFill = "xmark.app.fill"
 }
 
-// MARK: - Helpers
-@available(iOS 13.0, *)
-public extension Image {
-    init(systemName: SFSymbolName) {
-        #if os(macOS)
-        if #available(OSX 11.0, *) {
-            self.init(systemName: systemName.rawValue)
-        } else {
-            fatalError()
-        }
-        #else
-        self.init(systemName: systemName.rawValue)
-        #endif
-    }
-}

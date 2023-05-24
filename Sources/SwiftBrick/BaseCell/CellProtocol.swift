@@ -18,13 +18,13 @@ public extension Reusable {
     static var reuseIdentifier: String { return String(describing: self) }
 }
 
-public extension UITableView {
-    
+
+public extension SwiftBrickWrapper where Base: UITableView {
     /// 注册UITableViewCell
     /// - Parameter cellType: UITableViewCell类
     func registerCell<T: UITableViewCell>(_ cellType: T.Type)
         where T: Reusable {
-            register(cellType.self, forCellReuseIdentifier: cellType.reuseIdentifier)
+            base.register(cellType.self, forCellReuseIdentifier: cellType.reuseIdentifier)
     }
     
     /// 复用已注册的UITableViewCell
@@ -32,7 +32,7 @@ public extension UITableView {
     /// - Returns: UITableViewCell
     func dequeueReusableCell<T: UITableViewCell>(_ cellType: T.Type = T.self) -> T
         where T: Reusable {
-            guard let cell = dequeueReusableCell(withIdentifier: cellType.reuseIdentifier) as? T else {
+            guard let cell = base.dequeueReusableCell(withIdentifier: cellType.reuseIdentifier) as? T else {
                 fatalError(
                     "Failed to dequeue a cell with identifier \(cellType.reuseIdentifier) matching type \(cellType.self). "
                 )
@@ -44,7 +44,7 @@ public extension UITableView {
     /// - Parameter headerFooterViewType: UITableViewHeaderFooterView类
     func registerHeaderFooterView<T: UITableViewHeaderFooterView>(_ headerFooterViewType: T.Type)
         where T: Reusable {
-            register(headerFooterViewType.self, forHeaderFooterViewReuseIdentifier: headerFooterViewType.reuseIdentifier)
+            base.register(headerFooterViewType.self, forHeaderFooterViewReuseIdentifier: headerFooterViewType.reuseIdentifier)
     }
     
     /// 复用已注册的UITableViewHeaderFooterView
@@ -52,23 +52,27 @@ public extension UITableView {
     /// - Returns: UITableViewHeaderFooterView
     func dequeueReusableHeaderFooterView<T: UITableViewHeaderFooterView>(_ headerFooterViewType: T.Type = T.self) -> T?
         where T: Reusable {
-            guard let view = dequeueReusableHeaderFooterView(withIdentifier: headerFooterViewType.reuseIdentifier) as? T? else {
+            guard let view = base.dequeueReusableHeaderFooterView(withIdentifier: headerFooterViewType.reuseIdentifier) as? T? else {
                 fatalError(
                     "Failed to dequeue a header/footer with identifier \(headerFooterViewType.reuseIdentifier) "
                 )
             }
             return view
     }
+}
     
+/// 样式，header还是footer
+public enum ReusableViewKindType {
+    case sectionHeader//UICollectionElementKindSectionHeader
+    case sectionFooter//UICollectionElementKindSectionFooter
 }
 
-public extension UICollectionView {
-    
+public extension SwiftBrickWrapper where Base: UICollectionView {
     /// 注册UICollectionViewCell
     /// - Parameter cellType: UICollectionViewCell
     func registerCell<T: UICollectionViewCell>(_ cellType: T.Type)
         where T: Reusable {
-            register(cellType.self, forCellWithReuseIdentifier: cellType.reuseIdentifier)
+            base.register(cellType.self, forCellWithReuseIdentifier: cellType.reuseIdentifier)
     }
     
     /// 复用已经注册的UICollectionViewCell
@@ -78,19 +82,13 @@ public extension UICollectionView {
     /// - Returns: UICollectionViewCell
     func dequeueReusableCell<T: UICollectionViewCell>(_ cellType: T.Type = T.self, indexPath: IndexPath) -> T
         where T: Reusable {
-            let bareCell = dequeueReusableCell(withReuseIdentifier: cellType.reuseIdentifier, for: indexPath)
+            let bareCell = base.dequeueReusableCell(withReuseIdentifier: cellType.reuseIdentifier, for: indexPath)
             guard let cell = bareCell as? T else {
                 fatalError(
                     "Failed to dequeue a cell with identifier \(cellType.reuseIdentifier) matching type \(cellType.self). "
                 )
             }
             return cell
-    }
-    
-    /// 样式，header还是footer
-    enum ReusableViewKindType {
-        case sectionHeader//UICollectionElementKindSectionHeader
-        case sectionFooter//UICollectionElementKindSectionFooter
     }
     
     /// 注册UICollectionReusableView，用于header、footer
@@ -107,7 +105,7 @@ public extension UICollectionView {
             case .sectionFooter:
                 kind = UICollectionView.elementKindSectionFooter
             }
-            register(
+            base.register(
                 headerFooterViewType.self,
                 forSupplementaryViewOfKind: kind,
                 withReuseIdentifier: headerFooterViewType.reuseIdentifier
@@ -132,7 +130,7 @@ public extension UICollectionView {
                 kind = UICollectionView.elementKindSectionFooter
             }
             
-            let view = dequeueReusableSupplementaryView(
+            let view = base.dequeueReusableSupplementaryView(
                 ofKind: kind,
                 withReuseIdentifier: headerFooterViewType.reuseIdentifier,
                 for: indexPath

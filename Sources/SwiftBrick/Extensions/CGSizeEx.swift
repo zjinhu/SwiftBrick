@@ -7,20 +7,22 @@
 //
 
 import Foundation
-extension CGSize {
-    public static var greatestFiniteSize: CGSize {
+public extension CGSize{
+    static var greatestFiniteSize: CGSize {
         .init(
             width: CGFloat.greatestFiniteMagnitude,
             height: CGFloat.greatestFiniteMagnitude
         )
     }
-        
-    public var minimumDimensionLength: CGFloat {
-        min(width, height)
+}
+public extension SwiftBrickWrapper where Base == CGSize {
+
+    var minimumDimensionLength: CGFloat {
+        min(base.width, base.height)
     }
     
-    public var maximumDimensionLength: CGFloat {
-        max(width, height)
+    var maximumDimensionLength: CGFloat {
+        max(base.width, base.height)
     }
     
     var isAreaZero: Bool {

@@ -24,7 +24,7 @@ public class SwizzleNavBar {
     }()
 }
 
-public extension UIViewController {
+extension UIViewController {
  
     private struct Associated {
         static var WillAppearInject: String = "WillAppearInject"
@@ -61,13 +61,13 @@ public extension UIViewController {
 
 }
 
-public extension UIViewController {
+extension UIViewController {
     private struct Associate {
         static var NavigationBarHidden: String = "NavigationBarHidden"
     }
     //MARK: ‼️在需要展示隐藏导航栏的VC中赋值即可处理导航栏‼️重要②‼️
     /// 处理导航栏在VC内赋值True即可隐藏导航栏
-    var prefersNavigationBarHidden: Bool? {
+    public var prefersNavigationBarHidden: Bool? {
         get {
             return objc_getAssociatedObject(self, &Associate.NavigationBarHidden) as? Bool
         }
@@ -79,7 +79,7 @@ public extension UIViewController {
     }
 }
 
-public extension UINavigationController {
+extension UINavigationController {
     
     private struct Associated {
         static var NavigationBarAppearanceEnabled: String = "NavigationBarAppearanceEnabled"

@@ -8,8 +8,8 @@
 
 import UIKit
 // MARK: ===================================VC基类:UIViewController=========================================
-open class ViewController: UIViewController, BaseVC {
-
+open class ViewController: UIViewController{
+    
     // MARK: - 布局
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,9 +18,9 @@ open class ViewController: UIViewController, BaseVC {
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "      ", style: .plain, target: self, action: #selector(goBack))
-//        if let viewControllers: [UIViewController] = navigationController?.viewControllers , viewControllers.count > 1{
-//            addDefaultBackBarButton()
-//        }
+        //        if let viewControllers: [UIViewController] = navigationController?.viewControllers , viewControllers.count > 1{
+        //            addDefaultBackBarButton()
+        //        }
     }
     
     // MARK: - Navigation 关闭手势返回
@@ -44,11 +44,11 @@ open class ViewController: UIViewController, BaseVC {
             dismiss(animated: true, completion: nil)
         }
     }
-
+    
     /// 设置导航默认返回按钮
     public func addDefaultBackBarButton() {
-        addLeftBarButton(normalImage: SwiftBrick.navBarNorBackImage ?? .icon_back,
-                         highLightImage: SwiftBrick.navBarHigBackImage ?? .icon_back) { [weak self] _ in
+        ss.addLeftBarButton(normalImage: SwiftBrick.navBarNorBackImage ?? .icon_back,
+                                 highLightImage: SwiftBrick.navBarHigBackImage ?? .icon_back) { [weak self] _ in
             guard let `self` = self else{return}
             self.goBack()
         }

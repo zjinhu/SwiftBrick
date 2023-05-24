@@ -33,7 +33,7 @@ public enum GradientPoint{
     }
 }
 
-public extension UIView{
+public extension SwiftBrickWrapper where Base: UIView {
     
     /// 添加背景色,主要是渐变色背景
     /// - Parameters:
@@ -53,7 +53,7 @@ public extension UIView{
         removeGradients()
         
         if colors.count < 2 {
-            backgroundColor = colors.first
+            base.backgroundColor = colors.first
         }else{
             
             let gradient: CAGradientLayer = colors.gradient { gradient in
@@ -63,11 +63,11 @@ public extension UIView{
             }
             
             gradient.drawsAsynchronously = true
-            layer.insertSublayer(gradient, at: 0)
+            base.layer.insertSublayer(gradient, at: 0)
             if let s = size{
                 gradient.frame = .init(x: 0, y: 0, width: s.width, height: s.height)
             }else{
-              gradient.frame = self.bounds
+                gradient.frame = base.bounds
             }
         }
     }
@@ -78,18 +78,18 @@ public extension UIView{
         removeGradients()
         
         gradient.drawsAsynchronously = true
-        layer.insertSublayer(gradient, at: 0)
+        base.layer.insertSublayer(gradient, at: 0)
         if let s = size{
             gradient.frame = .init(x: 0, y: 0, width: s.width, height: s.height)
         }else{
-            gradient.frame = self.bounds
+            gradient.frame = base.bounds
         }
         
     }
     
     /// 移除渐变色背景
     func removeGradients() {
-        if let sl = self.layer.sublayers {
+        if let sl = base.layer.sublayers {
             for layer in sl {
                 if layer.isKind(of: CAGradientLayer.self) {
                     layer.removeFromSuperlayer()
@@ -97,12 +97,10 @@ public extension UIView{
             }
         }
     }
-}
 
-public extension UIView {
     //返回该view所在VC,方便埋点查找
     func firstViewController() -> UIViewController? {
-        for view in sequence(first: self.superview, next: { $0?.superview }) {
+        for view in sequence(first: base.superview, next: { $0?.superview }) {
             if let responder = view?.next {
                 if responder.isKind(of: UIViewController.self){
                     return responder as? UIViewController

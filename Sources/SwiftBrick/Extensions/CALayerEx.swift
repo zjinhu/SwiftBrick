@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import Foundation
+import QuartzCore
 // MARK: ===================================扩展: 阴影 边框 圆角=========================================
-public extension CALayer {
+public extension SwiftBrickWrapper where Base == CALayer {
     
     /// 设置阴影--sketch效果
     /// - Parameters:
@@ -24,14 +26,14 @@ public extension CALayer {
                        y: CGFloat = 0,
                        blur: CGFloat = 0,
                        spread: CGFloat = 0) {
-        shadowOffset = CGSize(width: x, height: y)
-        shadowRadius = blur * 0.5
-        shadowColor = color?.cgColor
-        shadowOpacity = Float(alpha)
+        base.shadowOffset = CGSize(width: x, height: y)
+        base.shadowRadius = blur * 0.5
+        base.shadowColor = color?.cgColor
+        base.shadowOpacity = Float(alpha)
         
-        let rect = bounds.insetBy(dx: -spread, dy: -spread)
-        let path = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius)
-        shadowPath = path.cgPath
+        let rect = base.bounds.insetBy(dx: -spread, dy: -spread)
+        let path = UIBezierPath(roundedRect: rect, cornerRadius: base.cornerRadius)
+        base.shadowPath = path.cgPath
     }
     
     /// 设置阴影
@@ -47,13 +49,13 @@ public extension CALayer {
                    alpha: Float = 0.5,
                    radius: CGFloat = 0) {
         //设置阴影颜色
-        shadowColor = color?.cgColor
+        base.shadowColor = color?.cgColor
         //设置透明度
-        shadowOpacity = alpha
+        base.shadowOpacity = alpha
         //设置阴影半径
-        shadowRadius = radius
+        base.shadowRadius = radius
         //设置阴影偏移量
-        shadowOffset = CGSize(width: x, height: y)
+        base.shadowOffset = CGSize(width: x, height: y)
     }
     
     /// 设置边框 或 圆角
@@ -65,11 +67,11 @@ public extension CALayer {
                    width: CGFloat = 0.5,
                    corner: CGFloat = 0){
         //设置视图边框宽度
-        borderWidth = width
+        base.borderWidth = width
         //设置边框颜色
-        borderColor = color?.cgColor
+        base.borderColor = color?.cgColor
         //设置边框圆角
-        cornerRadius = corner
+        base.cornerRadius = corner
     }
 
     /// 设置部分圆角 需要View设置clipsToBounds = true
@@ -77,8 +79,8 @@ public extension CALayer {
     ///   - radius: 圆角半径
     ///   - corners: CACornerMask集合 rightBottom:右下  rightTop:右上  leftBottom:左下  leftTop:左上  all:全部 bothTop:上边  bothBottom:下边  bothLeft:左边  bothRight:右边
     func setCorners(_ radius: CGFloat, corners: CACornerMask){
-        cornerRadius = radius
-        maskedCorners = corners
+        base.cornerRadius = radius
+        base.maskedCorners = corners
     }
 }
 

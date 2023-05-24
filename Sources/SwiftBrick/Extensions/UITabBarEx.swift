@@ -93,22 +93,24 @@ public extension UITabBar {
         }
     }
     
-    
+}
+
+public extension SwiftBrickWrapper where Base: UITabBar {
     // MARK:-显示小红点
     func showBadgeOnItemIndex(index:Int){
         // 移除
         removeRedPointOnIndex(index: index, animation: false)
         
         // 小红点背景默认值大小设置
-        if __CGSizeEqualToSize(badgeSize, CGSize.zero) {
-            badgeSize = CGSize(width: 10, height: 10)
+        if __CGSizeEqualToSize(base.badgeSize, CGSize.zero) {
+            base.badgeSize = CGSize(width: 10, height: 10)
         }
         
         
         let badgeView = UIView()
-        badgeView.backgroundColor = badgeColor
-        badgeView.layer.cornerRadius = badgeSize.width / 2
-        badgeView.tag = badgeTag + 1
+        badgeView.backgroundColor = base.badgeColor
+        badgeView.layer.cornerRadius = base.badgeSize.width / 2
+        badgeView.tag = base.badgeTag + 1
         
         let barButtonView = getBarButttonViewWithIndex(index: index)
         
@@ -122,23 +124,23 @@ public extension UITabBar {
         }
         
         // 小红点背景默认值Point设置
-        if __CGPointEqualToPoint(badgePoint, CGPoint.zero) {
+        if __CGPointEqualToPoint(base.badgePoint, CGPoint.zero) {
             let iconViewSize = iconView.frame.size
-            badgeView.frame = CGRect(x: iconViewSize.width - badgeSize.width / 2, y: -badgeSize.width / 2, width: badgeSize.width, height: badgeSize.height)
+            badgeView.frame = CGRect(x: iconViewSize.width - base.badgeSize.width / 2, y: -base.badgeSize.width / 2, width: base.badgeSize.width, height: base.badgeSize.height)
         }else{
-            badgeView.frame = CGRect(x: badgePoint.x, y: badgePoint.y, width: badgeSize.width, height: badgeSize.height)
+            badgeView.frame = CGRect(x: base.badgePoint.x, y: base.badgePoint.y, width: base.badgeSize.width, height: base.badgeSize.height)
         }
         
         // 添加图片到小红点上
         let imageview = UIImageView(frame: badgeView.bounds)
         imageview.clipsToBounds = true
         imageview.contentMode = .scaleAspectFill
-        imageview.image = badgeImage
+        imageview.image = base.badgeImage
         badgeView.addSubview(imageview)
         
-        if badgeValue > 0 {
+        if base.badgeValue > 0 {
             let badgeLabel = UILabel(frame: badgeView.bounds)
-            badgeLabel.text = badgeValue <= 99 ? "\(badgeValue)": "\(99)"
+            badgeLabel.text = base.badgeValue <= 99 ? "\(base.badgeValue)": "\(99)"
             badgeLabel.textAlignment = .center
             badgeLabel.adjustsFontSizeToFitWidth = true
             badgeLabel.minimumScaleFactor = 0.1
@@ -164,7 +166,7 @@ public extension UITabBar {
                 
                 for view1 in swapView.subviews {
                     
-                    if view1.tag == (badgeTag + 1) {
+                    if view1.tag == (base.badgeTag + 1) {
                         
                         if animation {
                             UIView.animate(withDuration: 0.2, animations: {
@@ -190,7 +192,7 @@ public extension UITabBar {
     // 获取barButtonView
     fileprivate func getBarButttonViewWithIndex(index:Int) -> UIView {
         
-        if let itemss = items {
+        if let itemss = base.items {
             let item = itemss[index]
             let barButtonView = item.value(forKey: "view")
             return barButtonView as! UIView

@@ -31,7 +31,7 @@ class DemoTableViewController: TableViewController {
 
         mainDatas = [["","","","","","","","",""],["","","","","","","","",""]]
         
-        tableView?.registerHeaderFooterView(TableViewHeaderFooterView.self)
+        tableView?.ss.registerHeaderFooterView(TableViewHeaderFooterView.self)
 
     }
     
@@ -57,9 +57,9 @@ class DemoTableViewController: TableViewController {
 //    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(TableViewCell.self)
+        let cell = tableView.ss.dequeueReusableCell(TableViewCell.self)
 
-        cell.addAllLine(tableView: tableView, indexPath: indexPath, leftMarign: 20, rightMarign: 0, isHeadFootMarign: false, lineColor: .red)
+        cell.ss.addAllLine(tableView: tableView, indexPath: indexPath, leftMarign: 20, rightMarign: 0, isHeadFootMarign: false, lineColor: .red)
         
         var str: String?
         
@@ -87,15 +87,15 @@ class DemoTableViewController: TableViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.y
         if offset < 100 {
-            changeStatusBarStyle(style: .lightContent)
+            ss.changeStatusBarStyle(style: .lightContent)
         }else{
-            changeStatusBarStyle(style: .default)
+            ss.changeStatusBarStyle(style: .default)
         }
         
         if offset < 200 {
-            hideOrShowStatusBar(hidden: false)
+            ss.hideOrShowStatusBar(hidden: false)
         }else{
-            hideOrShowStatusBar(hidden: true)
+            ss.hideOrShowStatusBar(hidden: true)
         }
     }
 }

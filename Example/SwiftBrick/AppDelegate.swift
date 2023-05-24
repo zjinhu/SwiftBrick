@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // 初始化 SwiftBrick
-        SwiftBrick.inits()
+        SWB.inits()
         
         if #available(iOS 13.0, *) {
             let navAppearance = UINavigationBarAppearance()

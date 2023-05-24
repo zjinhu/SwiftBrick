@@ -19,21 +19,21 @@ class DemoCollectionViewController: CollectionViewController {
         
         mainDatas = [["","","","","","","",""],["","","","","","",""],["","","","","","","","","","",""],["","","","","","","","","",""]]
         
-        addRightBarButton(normalImage: .icon_back,
+        ss.addRightBarButton(normalImage: .icon_back,
                           highLightImage: .icon_back,
                           fixSpace: 0) {_ in 
             print("touch")
         }
         
-        addRightBarButton(text: "Button",
+        ss.addRightBarButton(text: "Button",
                           normalColor: .darkGray,
                           highlightColor: .lightGray,
                           fixSpace: 0 ) {_ in 
             self.navigationController?.pushViewController(SwiftUIVC(SwiftUIView()), animated: true)
         }
         
-        collectionView?.registerHeaderFooterView(CollectionReusableView.self, kindType: .sectionHeader)
-        collectionView?.registerHeaderFooterView(CollectionReusableView.self, kindType: .sectionFooter)
+        collectionView?.ss.registerHeaderFooterView(CollectionReusableView.self, kindType: .sectionHeader)
+        collectionView?.ss.registerHeaderFooterView(CollectionReusableView.self, kindType: .sectionFooter)
         
         
         collectionView?.collectionViewLayout = UICollectionViewCompositionalLayout(sectionProvider: { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
@@ -84,18 +84,18 @@ class DemoCollectionViewController: CollectionViewController {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
-            let header = collectionView.dequeueReusableHeaderFooterView(CollectionReusableView.self, kindType: .sectionHeader, indexPath: indexPath)
+            let header = collectionView.ss.dequeueReusableHeaderFooterView(CollectionReusableView.self, kindType: .sectionHeader, indexPath: indexPath)
             header.backgroundColor = .purple
             return header
         default:
-            let footer = collectionView.dequeueReusableHeaderFooterView(CollectionReusableView.self, kindType: .sectionFooter, indexPath: indexPath)
+            let footer = collectionView.ss.dequeueReusableHeaderFooterView(CollectionReusableView.self, kindType: .sectionFooter, indexPath: indexPath)
             footer.backgroundColor = .yellow
             return footer
         }
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(CollectionViewCell.self, indexPath: indexPath)
+        let cell = collectionView.ss.dequeueReusableCell(CollectionViewCell.self, indexPath: indexPath)
         cell.backgroundColor = .random
         return cell
     }
@@ -118,11 +118,11 @@ class DemoCollectionViewController: CollectionViewController {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize.init(width: SwiftBrick.Define.screenWidth, height: 20)
+        return CGSize.init(width: Define.screenWidth, height: 20)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize.init(width: SwiftBrick.Define.screenWidth, height: 60)
+        return CGSize.init(width: Define.screenWidth, height: 60)
     }
     
 }

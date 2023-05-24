@@ -20,7 +20,7 @@ class DemoExViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addRightBarButton(text: "Button",
+            ss.addRightBarButton(text: "Button",
                           normalColor: .darkGray,
                           highlightColor: .lightGray,
                           fixSpace: 0 ) {_ in
@@ -67,7 +67,7 @@ class DemoExViewController: ViewController {
             make.height.equalTo(150)
         })
         ive.clipsToBounds = true
-        ive.layer.setCorners(15, corners: .bothTop)
+        ive.layer.ss.setCorners(15, corners: .bothTop)
         
         ive.image = UIImage.symbol("house", size: 25, color: .textTitleColor)
         

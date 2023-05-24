@@ -31,10 +31,10 @@ extension UITabBarController {
 fileprivate var kHiddenStatusBar: Int = 0x2020_00
 fileprivate var kStyleStatusBar: Int = 0x2020_01
 
-extension UIViewController {
+public extension UIViewController {
     
     /// 设置信号栏是否隐藏,请在隐藏了导航栏的VC中使用,如果使用了Nav会失效
-    public var setHiddenStatusBar: Bool {
+    var setHiddenStatusBar: Bool {
         get {
             if let value = objc_getAssociatedObject(self, &kHiddenStatusBar) as? Bool {
                 return value
@@ -48,7 +48,7 @@ extension UIViewController {
     }
     
     /// 设置信号栏样式,请在隐藏了导航栏的VC中使用,如果使用了Nav会失效,需要self.navigationController.navigationBar.barStyle = .default
-    public var setStyleStatusBar: UIStatusBarStyle {
+    var setStyleStatusBar: UIStatusBarStyle {
         get {
             if let value = objc_getAssociatedObject(self, &kStyleStatusBar) as? UIStatusBarStyle {
                 return value
@@ -60,23 +60,25 @@ extension UIViewController {
             objc_setAssociatedObject(self, &kStyleStatusBar, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
-    
-    
+}
+
+public extension SwiftBrickWrapper where Base: UIViewController {
+
     /// 隐藏|显示状态栏,请在隐藏了导航栏的VC中使用,如果使用了Nav会失效
     /// - Parameter hidden: 隐藏|显示状态栏
-    public func hideOrShowStatusBar(hidden: Bool = false) {
+    func hideOrShowStatusBar(hidden: Bool = false) {
         
-        setHiddenStatusBar = hidden
-        setNeedsStatusBarAppearanceUpdate()
+        base.setHiddenStatusBar = hidden
+        base.setNeedsStatusBarAppearanceUpdate()
     }
     
     
     /// 动态设置信号栏样式,请在隐藏了导航栏的VC中使用,如果使用了Nav会失效,需要self.navigationController.navigationBar.barStyle = .default
     /// - Parameter style: 信号栏样式
-    public func changeStatusBarStyle(style: UIStatusBarStyle = .default) {
+    func changeStatusBarStyle(style: UIStatusBarStyle = .default) {
         
-        setStyleStatusBar = style
-        setNeedsStatusBarAppearanceUpdate()
+        base.setStyleStatusBar = style
+        base.setNeedsStatusBarAppearanceUpdate()
     }
 }
 

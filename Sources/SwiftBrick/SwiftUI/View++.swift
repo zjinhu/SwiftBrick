@@ -151,8 +151,8 @@ extension View {
     public func fit() -> some View {
         GeometryReader { geometry in
             self.frame(
-                width: geometry.size.minimumDimensionLength,
-                height: geometry.size.minimumDimensionLength
+                width: geometry.size.ss.minimumDimensionLength,
+                height: geometry.size.ss.minimumDimensionLength
             )
         }
     }
@@ -287,7 +287,7 @@ extension View {
     @inlinable
     public func squareFrame() -> some View {
         GeometryReader { geometry in
-            self.frame(width: geometry.size.minimumDimensionLength, height: geometry.size.minimumDimensionLength)
+            self.frame(width: geometry.size.ss.minimumDimensionLength, height: geometry.size.ss.minimumDimensionLength)
         }
     }
 }

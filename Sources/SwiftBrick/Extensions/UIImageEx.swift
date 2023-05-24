@@ -7,8 +7,8 @@
 //
 
 import UIKit
+import CommonCrypto
 // MARK: ===================================扩展: UIImage=========================================
-
 extension UIImage {
  
     public static let icon_back: UIImage = {
@@ -43,96 +43,6 @@ extension UIImage {
     }
 }
 
-
-extension UIImage {
- 
-    /// 生成占位图
-    /// - Parameters:
-    ///   - image: 小图
-    ///   - imageView: 图片视图
-    /// - Returns: 图片
-    public static func createPlaceHolderImage(image: UIImage?, imageView: UIImageView) -> UIImage?{
-        imageView.layoutIfNeeded()
-        guard let image = image else {
-            return nil
-        }
-        let name = image.sha256
-        let imageName = "placeHolder_\(imageView.bounds.size.width)_\(imageView.bounds.size.height)_\(name).png"
-        let fileManager = FileManager.default
-        let path: String = NSHomeDirectory() + "/Documents/PlaceHolder/"
-        let filePath = path + imageName
-        if fileManager.fileExists(atPath: filePath) {
-            guard let data = try? Data(contentsOf: URL(fileURLWithPath: filePath))
-            else { return nil }
-            let image = UIImage(data: data)
-            return image
-        }
-        
-        UIGraphicsBeginImageContext(imageView.bounds.size)
-        if let ctx = UIGraphicsGetCurrentContext() {
-            ctx.setFillColor(UIColor.clear.cgColor)
-            ctx.fill(CGRect(origin: CGPoint.zero, size: imageView.bounds.size))
-            
-            let placeholderRect = CGRect(x: (imageView.bounds.size.width - image.size.width) / 2.0,
-                                         y: (imageView.bounds.size.height - image.size.height) / 2.0,
-                                         width: image.size.width,
-                                         height: image.size.height)
-            
-            ctx.saveGState()
-            ctx.translateBy(x: placeholderRect.origin.x, y: placeholderRect.origin.y)
-            ctx.translateBy(x: 0, y: placeholderRect.size.height)
-            ctx.scaleBy(x: 1.0, y: -1.0)
-            ctx.translateBy(x: -placeholderRect.origin.x, y: -placeholderRect.origin.y)
-            ctx.draw(image.cgImage!, in: placeholderRect, byTiling: false)
-            ctx.restoreGState()
-        }
-        
-        if let placeHolder = UIGraphicsGetImageFromCurrentImageContext() {
-            UIGraphicsEndImageContext()
-            try? fileManager.createDirectory(at: URL(fileURLWithPath: path), withIntermediateDirectories: true, attributes: nil)
-            fileManager.createFile(atPath: filePath, contents: placeHolder.pngData(), attributes: nil)
-            return placeHolder
-        }
-        UIGraphicsEndImageContext()
-        return nil
-    }
-    
-    //    var md5: String {
-    //        let data = Data(self.pngData()!)
-    //        let hash = data.withUnsafeBytes { (bytes: UnsafeRawBufferPointer) -> [UInt8] in
-    //            var hash = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
-    //            CC_MD5(bytes.baseAddress, CC_LONG(data.count), &hash)
-    //            return hash
-    //        }
-    //        return hash.map { String(format: "%02x", $0) }.joined()
-    //    }
-    
-    public var sha256: String {
-        let data = Data(self.pngData()!)
-        let hash = data.withUnsafeBytes { (bytes: UnsafeRawBufferPointer) -> [UInt8] in
-            var hash = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
-            CC_SHA256(bytes.baseAddress, CC_LONG(data.count), &hash)
-            return hash
-        }
-        return hash.reduce("") { $0 + String(format:"%02x", $1) }
-    }
-    
-}
-
-import CommonCrypto
-
-extension Data {
-
-    public var sha256: String {
-        let hash = withUnsafeBytes { (bytes: UnsafeRawBufferPointer) -> [UInt8] in
-            var hash = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
-            CC_SHA256(bytes.baseAddress, CC_LONG(count), &hash)
-            return hash
-        }
-        return hash.reduce("") { $0 + String(format:"%02x", $1) }
-    }
-}
-
 class CountedColor {
     let color: UIColor
     let count: Int
@@ -144,24 +54,34 @@ class CountedColor {
 }
 
 
-extension UIImage {
+public extension SwiftBrickWrapper where Base: UIImage {
+    
+    var sha256: String {
+        let data = Data(base.pngData()!)
+        let hash = data.withUnsafeBytes { (bytes: UnsafeRawBufferPointer) -> [UInt8] in
+            var hash = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
+            CC_SHA256(bytes.baseAddress, CC_LONG(data.count), &hash)
+            return hash
+        }
+        return hash.reduce("") { $0 + String(format:"%02x", $1) }
+    }
     
     fileprivate func resize(to newSize: CGSize) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(newSize, false, 2)
-        draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        base.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
         let result = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
         return result!
     }
     ///取图片色系 background背景色 primary主色调 secondary次要颜色 detail内容颜色
-    public func colors(scaleDownSize: CGSize? = nil) -> (background: UIColor, primary: UIColor, secondary: UIColor, detail: UIColor) {
+    func colors(scaleDownSize: CGSize? = nil) -> (background: UIColor, primary: UIColor, secondary: UIColor, detail: UIColor) {
         let cgImage: CGImage
         
         if let scaleDownSize = scaleDownSize {
             cgImage = resize(to: scaleDownSize).cgImage!
         } else {
-            let ratio = size.width / size.height
+            let ratio = base.size.width / base.size.height
             let r_width: CGFloat = 250
             cgImage = resize(to: CGSize(width: r_width, height: r_width / ratio)).cgImage!
         }
@@ -223,9 +143,9 @@ extension UIImage {
         
         if let first = sortedColors.first { proposedEdgeColor = first }
         
-        if proposedEdgeColor.color.isBlackOrWhite && !sortedColors.isEmpty {
+        if proposedEdgeColor.color.ss.isBlackOrWhite && !sortedColors.isEmpty {
             for countedColor in sortedColors where CGFloat(countedColor.count / proposedEdgeColor.count) > 0.3 {
-                if !countedColor.color.isBlackOrWhite {
+                if !countedColor.color.ss.isBlackOrWhite {
                     proposedEdgeColor = countedColor
                     break
                 }
@@ -233,16 +153,16 @@ extension UIImage {
         }
         
         let imageBackgroundColor = proposedEdgeColor.color
-        let isDarkBackgound = imageBackgroundColor.isDark
+        let isDarkBackgound = imageBackgroundColor.ss.isDark
         
         sortedColors.removeAll()
         
         for imageColor in imageColors {
             guard let imageColor = imageColor as? UIColor else { continue }
             
-            let color = imageColor.color(0.15)
+            let color = imageColor.ss.color(0.15)
             
-            if color.isDark == !isDarkBackgound {
+            if color.ss.isDark == !isDarkBackgound {
                 let colorCount = imageColors.count(for: color)
                 sortedColors.append(CountedColor(color: color, count: colorCount))
             }
@@ -256,17 +176,17 @@ extension UIImage {
             let color = countedColor.color
             
             if primaryColor == nil &&
-                color.isContrasting(with: imageBackgroundColor) {
+                color.ss.isContrasting(with: imageBackgroundColor) {
                 primaryColor = color
             } else if secondaryColor == nil &&
                         primaryColor != nil &&
-                        primaryColor!.isDistinct(from: color) &&
-                        color.isContrasting(with: imageBackgroundColor) {
+                        primaryColor!.ss.isDistinct(from: color) &&
+                        color.ss.isContrasting(with: imageBackgroundColor) {
                 secondaryColor = color
             } else if secondaryColor != nil &&
-                        (secondaryColor!.isDistinct(from: color) &&
-                            primaryColor!.isDistinct(from: color) &&
-                            color.isContrasting(with: imageBackgroundColor)) {
+                        (secondaryColor!.ss.isDistinct(from: color) &&
+                            primaryColor!.ss.isDistinct(from: color) &&
+                            color.ss.isContrasting(with: imageBackgroundColor)) {
                 detailColor = color
                 break
             }
@@ -281,9 +201,9 @@ extension UIImage {
             detailColor    ?? (isDarkBackgound ? whiteColor: blackColor))
     }
     ///取图片上一点颜色
-    public func color(at point: CGPoint, completion: @escaping (UIColor?) -> Void) {
-        let size = self.size
-        let cgImage = self.cgImage
+    func color(at point: CGPoint, completion: @escaping (UIColor?) -> Void) {
+        let size = base.size
+        let cgImage = base.cgImage
         
         DispatchQueue.global(qos: .userInteractive).async {
             let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)

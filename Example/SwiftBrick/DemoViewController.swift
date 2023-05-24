@@ -24,7 +24,7 @@ class DemoViewController: TableViewController {
         row1.title = "跳转Tableview"
         row1.subTitle = "无导航栏"
         row1.cell.accessoryType = .disclosureIndicator
-        row1.cell.addDownLine()
+        row1.cell.ss.addDownLine()
         row1.onSelected { [weak self](row) in
             guard let `self` = self else {return}
             let vc = DemoTableViewController.init(tableViewStyle: .styleGrouped)
@@ -36,7 +36,7 @@ class DemoViewController: TableViewController {
         row2.title = "跳转CollectionView"
         row2.subTitle = "有导航栏"
         row2.cell.accessoryType = .disclosureIndicator
-        row2.cell.addDownLine()
+        row2.cell.ss.addDownLine()
         row2.onSelected { [weak self](row) in
             guard let `self` = self else {return}
             let vc = DemoCollectionViewController.init()
@@ -47,7 +47,7 @@ class DemoViewController: TableViewController {
         let row3 = LabelRow()
         row3.title = "跳转WebView"
         row3.cell.accessoryType = .disclosureIndicator
-        row3.cell.addDownLine()
+        row3.cell.ss.addDownLine()
         row3.onSelected { [weak self](row) in
             guard let `self` = self else {return}
             let vc = DemoWebViewController()//.init(urlString: "https://www.baidu.com")
@@ -58,7 +58,7 @@ class DemoViewController: TableViewController {
         let row4 = LabelRow()
         row4.title = "测试小功能"
         row4.cell.accessoryType = .disclosureIndicator
-        row4.cell.addDownLine()
+        row4.cell.ss.addDownLine()
         row4.onSelected { [weak self](row) in
             guard let `self` = self else {return}
             let vc = DemoExViewController()
@@ -73,22 +73,22 @@ class DemoViewController: TableViewController {
     
     func modifyNavBar(){
         self.title = "SwiftBrick示例"
-        navigationController?.navigationBar.setBackgroundColor(.init("567800"))
-        navigationController?.navigationBar.setLineHidden(hidden: true)
+        navigationController?.navigationBar.ss.setBackgroundColor(.init("567800"))
+        navigationController?.navigationBar.ss.setLineHidden(hidden: true)
     }
     
     func getDefineValue(){
-        let a = SwiftBrick.Define.bottomHomeHeight
-        let b = SwiftBrick.Define.statusBarHeight()
-        SwiftBrick.Define.sLog("\(b)--\(a)")
+        let a = Define.bottomHomeHeight
+        let b = Define.statusBarHeight()
+        Define.sLog("\(b)--\(a)")
         
-        if SwiftBrick.Device.isiPad{
+        if Device.isiPad{
             print("1")
         }else{
             print("2")
         }
         
-        print("\(SwiftBrick.AppState.state)")
+        print("\(AppState.state)")
     }
     
     func useDispatch(){

@@ -9,6 +9,13 @@
 import Foundation
 import UIKit
 // MARK: ===================================VC基类:协议=========================================
+public let SWB = SwiftBrick.self
+public let AppState = SwiftBrick.AppState.self
+public let APP = SwiftBrick.Application.self
+public let Define = SwiftBrick.Define.self
+public let Device = SwiftBrick.Device.self
+public let DeviceKit = SwiftBrick.DeviceKit.self
+public let Font = SwiftBrick.Font.self
 public struct SwiftBrick{
     ///如果使用导航栏的功能可以全局设置下
     ///统一设置返回按钮图片(默认)
@@ -21,3 +28,42 @@ public struct SwiftBrick{
     public static var navBarRightFixSpace: CGFloat = 0
 
 }
+
+/// 参考属性包裹 Kingfisher.
+public struct SwiftBrickWrapper<Base> {
+    public let base: Base
+    public init(_ base: Base) {
+        self.base = base
+    }
+}
+
+public protocol SwiftBrickCompatible: AnyObject { }
+public protocol SwiftBrickCompatibleValue {}
+
+extension SwiftBrickCompatible {
+    public var ss: SwiftBrickWrapper<Self> {
+        get { return SwiftBrickWrapper(self) }
+        set { }
+    }
+}
+
+extension SwiftBrickCompatibleValue {
+    public var ss: SwiftBrickWrapper<Self> {
+        get { return SwiftBrickWrapper(self) }
+        set { }
+    }
+}
+extension NSObject: SwiftBrickCompatible {}
+//extension UIViewController: SwiftBrickCompatible {}
+//extension UITableView: SwiftBrickCompatible {}
+//extension UITableViewCell: SwiftBrickCompatible {}
+//extension UIImageView: SwiftBrickCompatible {}
+//extension UICollectionView: SwiftBrickCompatible {}
+//extension CALayer: SwiftBrickCompatible {}
+
+extension CGSize: SwiftBrickCompatibleValue {}
+extension Dictionary: SwiftBrickCompatibleValue {}
+extension CGFloat: SwiftBrickCompatibleValue {}
+extension Int: SwiftBrickCompatibleValue {}
+extension Data: SwiftBrickCompatibleValue {}
+extension String: SwiftBrickCompatibleValue {}

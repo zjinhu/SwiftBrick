@@ -173,7 +173,7 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
     override open func viewDidLoad() {
         super.viewDidLoad()
 
-        hideDefaultBackBarButton()
+        self.ss.hideDefaultBackBarButton()
         
         addLeftBarButton(backButton, closeButton)
         
@@ -273,12 +273,15 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
     
     open func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
  
-        if let serverTrust = challenge.protectionSpace.serverTrust {
+        Dispatch.global().run {
+            guard let serverTrust = challenge.protectionSpace.serverTrust else {
+                completionHandler(.cancelAuthenticationChallenge, nil)
+                return
+            }
             let credential = URLCredential(trust: serverTrust)
             completionHandler(.useCredential, credential)
-        }else{
-             completionHandler(.useCredential, nil)
         }
+
     }
     // MARK: - WKUIDelegate
     
@@ -360,11 +363,12 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
     
     // MARK: - 发起请求
     open func loadRequest() {
-        
-        if let re = request {
-            webView.load(re)
-        }else if let url = urlString, let realURL = URL(string: url) {
-            webView.load(URLRequest(url: realURL))
+        Dispatch.main().run {
+            if let re = self.request {
+                self.webView.load(re)
+            }else if let url = self.urlString, let realURL = URL(string: url) {
+                self.webView.load(URLRequest(url: realURL))
+            }
         }
     }
     

@@ -98,7 +98,7 @@ open class TableViewController: ViewController ,UITableViewDelegate,UITableViewD
                 tableView?.panGestureRecognizer.require(toFail: gesture)
             }
         })
-        tableView?.registerCell(TableViewCell.self)
+        tableView?.ss.registerCell(TableViewCell.self)
     }
     
     // MARK: - 数据源判断
@@ -147,7 +147,7 @@ open class TableViewController: ViewController ,UITableViewDelegate,UITableViewD
     }
     
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(TableViewCell.self)
+        let cell = tableView.ss.dequeueReusableCell(TableViewCell.self)
         cell.textLabel?.text = String(describing: indexPath.row)
         return cell
     }

@@ -5,6 +5,21 @@
 import SwiftUI
 
 @available(iOS 13.0, *)
+public extension Image {
+    init(systemName: SFSymbolName) {
+        #if os(macOS)
+        if #available(OSX 11.0, *) {
+            self.init(systemName: systemName.rawValue)
+        } else {
+            fatalError()
+        }
+        #else
+        self.init(systemName: systemName.rawValue)
+        #endif
+    }
+}
+
+@available(iOS 13.0, *)
 extension Image {
 
     public func sizeToFit(

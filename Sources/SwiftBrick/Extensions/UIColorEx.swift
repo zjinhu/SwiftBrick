@@ -37,12 +37,12 @@ public extension UIColor {
 public extension UIColor {
     
     static func dynamicColor(light: UIColor, dark: UIColor) -> UIColor {
-        guard #available(iOS 13.0, *) else { return light } 
+        guard #available(iOS 13.0, *) else { return light }
         return UIColor { $0.userInterfaceStyle == .dark ? dark : light }
     }
-
+    
 }
- 
+
 public extension UIColor {
     
     ///根据RGB生成颜色
@@ -92,7 +92,7 @@ public extension UIColor {
     }
     
     ///简化RGB颜色写法
-    class func RGBA(r: Int, g: Int, b: Int, a: CGFloat) -> UIColor {
+    static func RGBA(r: Int, g: Int, b: Int, a: CGFloat) -> UIColor {
         let redFloat = CGFloat(r) / 255.0
         let green = CGFloat(g) / 255.0
         let blue = CGFloat(b) / 255.0
@@ -106,96 +106,94 @@ public extension UIColor {
         let blue = Int.random(in: 0...255)
         return UIColor(r: red, g: green, b: blue)
     }
+}
+
+public extension Array where Element: UIColor {
+    ///通过颜色数组生成渐变色
+    func gradient(_ transform: ((_ gradient: inout CAGradientLayer) -> CAGradientLayer)? = nil) -> CAGradientLayer {
+        var gradient = CAGradientLayer()
+        gradient.colors = self.map { $0.cgColor }
+        
+        if let transform = transform {
+            gradient = transform(&gradient)
+        }
+        
+        return gradient
+    }
+}
+
+public extension SwiftBrickWrapper where Base: UIColor {
+    
+    internal func rgbComponents() -> [CGFloat] {
+        var (r, g, b, a): (CGFloat, CGFloat, CGFloat, CGFloat) = (0.0, 0.0, 0.0, 0.0)
+        base.getRed(&r, green: &g, blue: &b, alpha: &a)
+        
+        return [r, g, b]
+    }
+    
+    var isDark: Bool {
+        let RGB = rgbComponents()
+        return (0.2126 * RGB[0] + 0.7152 * RGB[1] + 0.0722 * RGB[2]) < 0.5
+    }
+    
+    var isBlackOrWhite: Bool {
+        let RGB = rgbComponents()
+        return (RGB[0] > 0.91 && RGB[1] > 0.91 && RGB[2] > 0.91) || (RGB[0] < 0.09 && RGB[1] < 0.09 && RGB[2] < 0.09)
+    }
+    
+    var isBlack: Bool {
+        let RGB = rgbComponents()
+        return (RGB[0] < 0.09 && RGB[1] < 0.09 && RGB[2] < 0.09)
+    }
+    
+    var isWhite: Bool {
+        let RGB = rgbComponents()
+        return (RGB[0] > 0.91 && RGB[1] > 0.91 && RGB[2] > 0.91)
+    }
+    
+    func isDistinct(from color: UIColor) -> Bool {
+        let bg = rgbComponents()
+        let fg = color.ss.rgbComponents()
+        let threshold: CGFloat = 0.25
+        var result = false
+        
+        if abs(bg[0] - fg[0]) > threshold || abs(bg[1] - fg[1]) > threshold || abs(bg[2] - fg[2]) > threshold {
+            if abs(bg[0] - bg[1]) < 0.03 && abs(bg[0] - bg[2]) < 0.03 {
+                if abs(fg[0] - fg[1]) < 0.03 && abs(fg[0] - fg[2]) < 0.03 {
+                    result = false
+                }
+            }
+            result = true
+        }
+        
+        return result
+    }
+    
+    func isContrasting(with color: UIColor) -> Bool {
+        let bg = rgbComponents()
+        let fg = color.ss.rgbComponents()
+        
+        let bgLum = 0.2126 * bg[0] + 0.7152 * bg[1] + 0.0722 * bg[2]
+        let fgLum = 0.2126 * fg[0] + 0.7152 * fg[1] + 0.0722 * fg[2]
+        let contrast = bgLum > fgLum
+        ? (bgLum + 0.05) / (fgLum + 0.05)
+        : (fgLum + 0.05) / (bgLum + 0.05)
+        
+        return 1.6 < contrast
+    }
     
     ///最小饱和度值
     func color(_ minSaturation: CGFloat) -> UIColor {
-      var (hue, saturation, brightness, alpha): (CGFloat, CGFloat, CGFloat, CGFloat) = (0.0, 0.0, 0.0, 0.0)
-      getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
-      
-      return saturation < minSaturation
+        var (hue, saturation, brightness, alpha): (CGFloat, CGFloat, CGFloat, CGFloat) = (0.0, 0.0, 0.0, 0.0)
+        base.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
+        
+        return saturation < minSaturation
         ? UIColor(hue: hue, saturation: minSaturation, brightness: brightness, alpha: alpha)
-       : self
+        : base
     }
     
     ///调整alpha
     func alpha(_ value: CGFloat) -> UIColor {
-      return withAlphaComponent(value)
+        return base.withAlphaComponent(value)
     }
-
-}
-
-public extension Array where Element: UIColor {
-  ///通过颜色数组生成渐变色
-  func gradient(_ transform: ((_ gradient: inout CAGradientLayer) -> CAGradientLayer)? = nil) -> CAGradientLayer {
-    var gradient = CAGradientLayer()
-    gradient.colors = self.map { $0.cgColor }
-    
-    if let transform = transform {
-      gradient = transform(&gradient)
-    }
-    
-    return gradient
-  }
-}
-
-public extension UIColor {
-
-  internal func rgbComponents() -> [CGFloat] {
-    var (r, g, b, a): (CGFloat, CGFloat, CGFloat, CGFloat) = (0.0, 0.0, 0.0, 0.0)
-    getRed(&r, green: &g, blue: &b, alpha: &a)
-    
-    return [r, g, b]
-  }
-  
-  var isDark: Bool {
-    let RGB = rgbComponents()
-    return (0.2126 * RGB[0] + 0.7152 * RGB[1] + 0.0722 * RGB[2]) < 0.5
-  }
-  
-  var isBlackOrWhite: Bool {
-    let RGB = rgbComponents()
-    return (RGB[0] > 0.91 && RGB[1] > 0.91 && RGB[2] > 0.91) || (RGB[0] < 0.09 && RGB[1] < 0.09 && RGB[2] < 0.09)
-  }
-  
-  var isBlack: Bool {
-    let RGB = rgbComponents()
-    return (RGB[0] < 0.09 && RGB[1] < 0.09 && RGB[2] < 0.09)
-  }
-  
-  var isWhite: Bool {
-    let RGB = rgbComponents()
-    return (RGB[0] > 0.91 && RGB[1] > 0.91 && RGB[2] > 0.91)
-  }
-  
-  func isDistinct(from color: UIColor) -> Bool {
-    let bg = rgbComponents()
-    let fg = color.rgbComponents()
-    let threshold: CGFloat = 0.25
-    var result = false
-    
-    if abs(bg[0] - fg[0]) > threshold || abs(bg[1] - fg[1]) > threshold || abs(bg[2] - fg[2]) > threshold {
-        if abs(bg[0] - bg[1]) < 0.03 && abs(bg[0] - bg[2]) < 0.03 {
-            if abs(fg[0] - fg[1]) < 0.03 && abs(fg[0] - fg[2]) < 0.03 {
-          result = false
-        }
-      }
-      result = true
-    }
-    
-    return result
-  }
-  
-  func isContrasting(with color: UIColor) -> Bool {
-    let bg = rgbComponents()
-    let fg = color.rgbComponents()
-    
-    let bgLum = 0.2126 * bg[0] + 0.7152 * bg[1] + 0.0722 * bg[2]
-    let fgLum = 0.2126 * fg[0] + 0.7152 * fg[1] + 0.0722 * fg[2]
-    let contrast = bgLum > fgLum
-      ? (bgLum + 0.05) / (fgLum + 0.05)
-     : (fgLum + 0.05) / (bgLum + 0.05)
-    
-    return 1.6 < contrast
-  }
-  
 }

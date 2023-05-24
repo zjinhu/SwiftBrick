@@ -15,8 +15,7 @@ public enum ImagePosition {
     case imagePositionBottom
 }
 
-public extension UIButton{
-    
+public extension SwiftBrickWrapper where Base: UIButton {
     /// UIButton 图文布局 外观大小不固定 固定间距
     /// - Parameters:
     ///   - postion: 布局样式
@@ -24,9 +23,9 @@ public extension UIButton{
     func layoutButton(_ postion: ImagePosition, space: CGFloat) {
         
         guard
-            let imageSize = imageView?.image?.size,
-            let text = titleLabel?.text,
-            let font = titleLabel?.font else { return }
+            let imageSize = base.imageView?.image?.size,
+            let text = base.titleLabel?.text,
+            let font = base.titleLabel?.font else { return }
         
         let titleSize = text.size(withAttributes: [.font: font])
         
@@ -42,24 +41,24 @@ public extension UIButton{
 
         switch postion {
         case .imagePositionTop:
-            imageEdgeInsets = UIEdgeInsets(top: -imageOffsetY, left: imageOffsetX, bottom: imageOffsetY, right: -imageOffsetX)
-            titleEdgeInsets = UIEdgeInsets(top: labelOffsetY, left: -labelOffsetX, bottom: -labelOffsetY, right: labelOffsetX)
-            contentEdgeInsets = UIEdgeInsets(top: imageOffsetY, left: -0.5 * changedWidth, bottom: changedHeight-imageOffsetY, right: -0.5 * changedWidth)
+            base.imageEdgeInsets = UIEdgeInsets(top: -imageOffsetY, left: imageOffsetX, bottom: imageOffsetY, right: -imageOffsetX)
+            base.titleEdgeInsets = UIEdgeInsets(top: labelOffsetY, left: -labelOffsetX, bottom: -labelOffsetY, right: labelOffsetX)
+            base.contentEdgeInsets = UIEdgeInsets(top: imageOffsetY, left: -0.5 * changedWidth, bottom: changedHeight-imageOffsetY, right: -0.5 * changedWidth)
             
         case .imagePositionBottom:
-            imageEdgeInsets = UIEdgeInsets(top: imageOffsetY, left: imageOffsetX, bottom: -imageOffsetY, right: -imageOffsetX)
-            titleEdgeInsets = UIEdgeInsets(top: -labelOffsetY, left: -labelOffsetX, bottom:labelOffsetY, right: labelOffsetX)
-            contentEdgeInsets = UIEdgeInsets(top: changedHeight-imageOffsetY, left: -0.5 * changedWidth, bottom: imageOffsetY, right: -0.5 * changedWidth)
+            base.imageEdgeInsets = UIEdgeInsets(top: imageOffsetY, left: imageOffsetX, bottom: -imageOffsetY, right: -imageOffsetX)
+            base.titleEdgeInsets = UIEdgeInsets(top: -labelOffsetY, left: -labelOffsetX, bottom:labelOffsetY, right: labelOffsetX)
+            base.contentEdgeInsets = UIEdgeInsets(top: changedHeight-imageOffsetY, left: -0.5 * changedWidth, bottom: imageOffsetY, right: -0.5 * changedWidth)
             
         case .imagePositionRight:
-            imageEdgeInsets = UIEdgeInsets(top: 0, left: titleSize.width + 0.5 * space, bottom: 0, right: -(titleSize.width + 0.5 * space))
-            titleEdgeInsets = UIEdgeInsets(top: 0, left: -(imageSize.width + 0.5 * space), bottom: 0, right: imageSize.width + space * 0.5)
-            contentEdgeInsets = UIEdgeInsets(top: 0, left: 0.5 * space, bottom: 0, right: 0.5*space)
+            base.imageEdgeInsets = UIEdgeInsets(top: 0, left: titleSize.width + 0.5 * space, bottom: 0, right: -(titleSize.width + 0.5 * space))
+            base.titleEdgeInsets = UIEdgeInsets(top: 0, left: -(imageSize.width + 0.5 * space), bottom: 0, right: imageSize.width + space * 0.5)
+            base.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0.5 * space, bottom: 0, right: 0.5*space)
             
         default:
-            imageEdgeInsets = UIEdgeInsets(top: 0, left: -0.5 * space, bottom: 0, right: 0.5 * space)
-            titleEdgeInsets = UIEdgeInsets(top: 0, left: 0.5 * space, bottom: 0, right: -0.5 * space)
-            contentEdgeInsets = UIEdgeInsets(top: 0, left: 0.5 * space, bottom: 0, right: 0.5 * space)
+            base.imageEdgeInsets = UIEdgeInsets(top: 0, left: -0.5 * space, bottom: 0, right: 0.5 * space)
+            base.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0.5 * space, bottom: 0, right: -0.5 * space)
+            base.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0.5 * space, bottom: 0, right: 0.5 * space)
         }
 
     }
@@ -71,14 +70,39 @@ public extension UIButton{
     func layoutButton(_ postion: ImagePosition, margin: CGFloat) {
 
         guard
-            let imageSize = imageView?.image?.size,
-            let text = titleLabel?.text,
-            let font = titleLabel?.font else { return }
+            let imageSize = base.imageView?.image?.size,
+            let text = base.titleLabel?.text,
+            let font = base.titleLabel?.font else { return }
         
         let titleSize = text.size(withAttributes: [.font: font])
         
-        let space = bounds.size.width - imageSize.width - titleSize.width - 2 * margin
+        let space = base.bounds.size.width - imageSize.width - titleSize.width - 2 * margin
         layoutButton(postion, space: space)
+    }
+
+    private func image(withColor color: UIColor) -> UIImage? {
+        let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+
+        context?.setFillColor(color.cgColor)
+        context?.fill(rect)
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return image
+    }
+
+    func setBackgroundColor(_ color: UIColor, for state: UIControl.State) {
+        base.setBackgroundImage(image(withColor: color), for: state)
+    }
+}
+
+@available(iOS 14.0, *)
+public extension SwiftBrickWrapper where Base: UIControl {
+    func addAction(for event: UIControl.Event, handler: @escaping UIActionHandler) {
+        base.addAction(UIAction(handler:handler), for:event)
     }
 }
 
@@ -277,32 +301,4 @@ public extension UIButton {
         }
     }
 
-}
-
-public extension UIButton {
-    
-    private func image(withColor color: UIColor) -> UIImage? {
-        let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
-        UIGraphicsBeginImageContext(rect.size)
-        let context = UIGraphicsGetCurrentContext()
-
-        context?.setFillColor(color.cgColor)
-        context?.fill(rect)
-
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-
-        return image
-    }
-
-    func setBackgroundColor(_ color: UIColor, for state: UIControl.State) {
-        self.setBackgroundImage(image(withColor: color), for: state)
-    }
-}
-
-@available(iOS 14.0, *)
-public extension UIControl {
-    func addAction(for event: UIControl.Event, handler: @escaping UIActionHandler) {
-            addAction(UIAction(handler:handler), for:event)
-    }
 }

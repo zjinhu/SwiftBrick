@@ -17,64 +17,10 @@ public extension SwiftBrick{
     }
 }
 
-public protocol BaseVC{
-
-    func hideDefaultBackBarButton()
-    
-    func fixSpaceLeftBarButton(btnItem: UIBarButtonItem)
-    
-    func fixSpaceRightBarButton(btnItem: UIBarButtonItem, fixSpace: CGFloat)
-    
-    func addLeftBarButton(normalImage: UIImage?,
-                          highLightImage: UIImage?,
-                          touchUp: ButtonClosure?)
-    
-    func addLeftBarButton(text: String,
-                          font: UIFont?,
-                          normalColor: UIColor?,
-                          highlightColor: UIColor?,
-                          touchUp: ButtonClosure?)
-    
-    func addRightBarButton(normalImage: UIImage?,
-                           highLightImage: UIImage?,
-                           selectedImage: UIImage?,
-                           disableImage: UIImage?,
-                           fixSpace: CGFloat,
-                           touchUp: ButtonClosure?)
-    
-    func addRightBarButton(text: String,
-                           font: UIFont?,
-                           normalColor: UIColor?,
-                           highlightColor: UIColor?,
-                           selectedColor: UIColor?,
-                           disableColor: UIColor?,
-                           fixSpace: CGFloat,
-                           touchUp: ButtonClosure?)
-    
-    func configLeftBarButton(text: String?,
-                             font: UIFont?,
-                             normalColor: UIColor?,
-                             highlightColor: UIColor?,
-                             normalImage: UIImage?,
-                             highLightImage: UIImage?)
-    
-    func configRightBarButton(text: String?,
-                              font: UIFont?,
-                              normalColor: UIColor?,
-                              highlightColor: UIColor?,
-                              selectedColor: UIColor?,
-                              disableColor: UIColor?,
-                              normalImage: UIImage?,
-                              highLightImage: UIImage?,
-                              selectedImage: UIImage?,
-                              disableImage: UIImage?)
-    
-}
-
-public extension BaseVC where Self: UIViewController {
+public extension SwiftBrickWrapper where Base: UIViewController {
     
     func hideDefaultBackBarButton(){
-        navigationItem.hidesBackButton = true
+        base.navigationItem.hidesBackButton = true
     }
     
     func addLeftBarButton(normalImage: UIImage?,
@@ -85,13 +31,13 @@ public extension BaseVC where Self: UIViewController {
                             normalImage: normalImage,
                             highLightImage: highLightImage)
         
-        let btnItem = UIBarButtonItem(customView: leftBarButton)
+        let btnItem = UIBarButtonItem(customView: base.leftBarButton)
         
         fixSpaceLeftBarButton(btnItem: btnItem)
         guard let ges = touchUp else {
             return
         }
-        leftBarButton.addTouchUpInSideBtnAction(touchUp: ges)
+        base.leftBarButton.addTouchUpInSideBtnAction(touchUp: ges)
     }
     
     func addLeftBarButton(text: String,
@@ -103,13 +49,13 @@ public extension BaseVC where Self: UIViewController {
                             font: font,
                             normalColor: normalColor,
                             highlightColor: highlightColor)
-        let btnItem = UIBarButtonItem(customView: leftBarButton)
+        let btnItem = UIBarButtonItem(customView: base.leftBarButton)
         
         fixSpaceLeftBarButton(btnItem: btnItem)
         guard let ges = touchUp else {
             return
         }
-        leftBarButton.addTouchUpInSideBtnAction(touchUp: ges)
+        base.leftBarButton.addTouchUpInSideBtnAction(touchUp: ges)
     }
     
     func addRightBarButton(normalImage: UIImage? = nil,
@@ -123,13 +69,13 @@ public extension BaseVC where Self: UIViewController {
                              highLightImage: highLightImage,
                              selectedImage: selectedImage,
                              disableImage: disableImage)
-        let btnItem = UIBarButtonItem(customView: rightBarButton)
+        let btnItem = UIBarButtonItem(customView: base.rightBarButton)
         
         fixSpaceRightBarButton(btnItem: btnItem, fixSpace: fixSpace)
         guard let ges = touchUp else {
             return
         }
-        rightBarButton.addTouchUpInSideBtnAction(touchUp: ges)
+        base.rightBarButton.addTouchUpInSideBtnAction(touchUp: ges)
     }
     
     func addRightBarButton(text: String,
@@ -146,13 +92,13 @@ public extension BaseVC where Self: UIViewController {
                              highlightColor: highlightColor,
                              selectedColor: selectedColor,
                              disableColor: disableColor)
-        let btnItem = UIBarButtonItem(customView: rightBarButton)
+        let btnItem = UIBarButtonItem(customView: base.rightBarButton)
         
         fixSpaceRightBarButton(btnItem: btnItem, fixSpace: fixSpace)
         guard let ges = touchUp else {
             return
         }
-        rightBarButton.addTouchUpInSideBtnAction(touchUp: ges)
+        base.rightBarButton.addTouchUpInSideBtnAction(touchUp: ges)
     }
     
     func configLeftBarButton(text: String? = nil,
@@ -161,14 +107,14 @@ public extension BaseVC where Self: UIViewController {
                              highlightColor: UIColor? = nil,
                              normalImage: UIImage? = nil,
                              highLightImage: UIImage? = nil){
-        leftBarButton.titleLabel?.font = font ?? SwiftBrick.Font.systemFont(14)
-        leftBarButton.setTitle(text, for: .normal)
-        leftBarButton.setTitle(text, for: .highlighted)
-        leftBarButton.setTitleColor(normalColor, for: .normal)
-        leftBarButton.setTitleColor(highlightColor, for: .highlighted)
+        base.leftBarButton.titleLabel?.font = font ?? Font.systemFont(14)
+        base.leftBarButton.setTitle(text, for: .normal)
+        base.leftBarButton.setTitle(text, for: .highlighted)
+        base.leftBarButton.setTitleColor(normalColor, for: .normal)
+        base.leftBarButton.setTitleColor(highlightColor, for: .highlighted)
         
-        leftBarButton.setImage(normalImage, for: .normal)
-        leftBarButton.setImage(highLightImage, for: .highlighted)
+        base.leftBarButton.setImage(normalImage, for: .normal)
+        base.leftBarButton.setImage(highLightImage, for: .highlighted)
     }
     
     func configRightBarButton(text: String? = nil,
@@ -182,31 +128,31 @@ public extension BaseVC where Self: UIViewController {
                               selectedImage: UIImage? = nil,
                               disableImage: UIImage? = nil){
         
-        rightBarButton.titleLabel?.font = font ?? SwiftBrick.Font.systemFont(14)
-        rightBarButton.setTitle(text, for: .normal)
-        rightBarButton.setTitle(text, for: .highlighted)
-        rightBarButton.setTitle(text, for: .selected)
-        rightBarButton.setTitle(text, for: .disabled)
+        base.rightBarButton.titleLabel?.font = font ?? Font.systemFont(14)
+        base.rightBarButton.setTitle(text, for: .normal)
+        base.rightBarButton.setTitle(text, for: .highlighted)
+        base.rightBarButton.setTitle(text, for: .selected)
+        base.rightBarButton.setTitle(text, for: .disabled)
         
-        rightBarButton.setTitleColor(normalColor, for: .normal)
-        rightBarButton.setTitleColor(highlightColor, for: .highlighted)
-        rightBarButton.setTitleColor(selectedColor, for: .selected)
-        rightBarButton.setTitleColor(disableColor, for: .disabled)
+        base.rightBarButton.setTitleColor(normalColor, for: .normal)
+        base.rightBarButton.setTitleColor(highlightColor, for: .highlighted)
+        base.rightBarButton.setTitleColor(selectedColor, for: .selected)
+        base.rightBarButton.setTitleColor(disableColor, for: .disabled)
         
-        rightBarButton.setImage(normalImage, for: .normal)
-        rightBarButton.setImage(highLightImage, for: .highlighted)
-        rightBarButton.setImage(selectedImage, for: .selected)
-        rightBarButton.setImage(disableImage, for: .disabled)
+        base.rightBarButton.setImage(normalImage, for: .normal)
+        base.rightBarButton.setImage(highLightImage, for: .highlighted)
+        base.rightBarButton.setImage(selectedImage, for: .selected)
+        base.rightBarButton.setImage(disableImage, for: .disabled)
     }
     
     func fixSpaceLeftBarButton(btnItem: UIBarButtonItem){
-        leftBarButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: SwiftBrick.navBarLeftFixSpace, bottom: 0, right: 0)
-        self.navigationItem.leftBarButtonItem = btnItem
+        base.leftBarButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: SwiftBrick.navBarLeftFixSpace, bottom: 0, right: 0)
+        base.navigationItem.leftBarButtonItem = btnItem
     }
     
     func fixSpaceRightBarButton(btnItem: UIBarButtonItem, fixSpace: CGFloat = 0){
-        rightBarButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: (fixSpace != 0 ? fixSpace: SwiftBrick.navBarRightFixSpace))
-        self.navigationItem.rightBarButtonItem = btnItem
+        base.rightBarButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: (fixSpace != 0 ? fixSpace: SwiftBrick.navBarRightFixSpace))
+        base.navigationItem.rightBarButtonItem = btnItem
     }
 }
 
@@ -220,7 +166,7 @@ public extension UIViewController {
         get {
             var button = UIButton(type: .custom)
             button.imageView?.contentMode = .center
-            button.frame = CGRect(x: 0, y: 0, width: 0, height: SwiftBrick.Define.navBarHeight())
+            button.frame = CGRect(x: 0, y: 0, width: 0, height: Define.navBarHeight())
             if let b = objc_getAssociatedObject(self, &AssociatedKeys.leftButtonKey) as? UIButton {
                 button = b
             } else {
@@ -237,7 +183,7 @@ public extension UIViewController {
         get {
             var button = UIButton(type: .custom)
             button.imageView?.contentMode = .center
-            button.frame = CGRect(x: 0, y: 0, width: 0, height: SwiftBrick.Define.navBarHeight())
+            button.frame = CGRect(x: 0, y: 0, width: 0, height: Define.navBarHeight())
             if let b = objc_getAssociatedObject(self, &AssociatedKeys.rightButtonKey) as? UIButton {
                 button = b
             } else {
@@ -250,21 +196,3 @@ public extension UIViewController {
         }
     }
 }
-//public typealias AssociatedKeysHolder<T> = [Int: T]
-//
-//public extension UIViewController {
-//
-//    private static var leftButtonKey = AssociatedKeysHolder<UIButton>()
-//    private static var rightButtonKey = AssociatedKeysHolder<UIButton>()
-//
-//    var leftBarButton: UIButton {
-//        get {
-//            let button = UIButton(type: .custom)
-//            button.imageView?.contentMode = .center
-//            button.frame = CGRect(x: 0, y: 0, width: 0, height: NavBarHeight())
-//            return UIViewController.leftButtonKey[hash] ?? button
-//        }
-//        set {
-//            UIViewController.leftButtonKey[hash] = newValue
-//        }
-//    }
