@@ -16,7 +16,7 @@ extension SwiftBrick{
         public static let screenHeight = max(UIScreen.main.bounds.width, UIScreen.main.bounds.height)
         /// 当前屏幕状态 高度
         public static let screenWidth = min(UIScreen.main.bounds.width, UIScreen.main.bounds.height)
-
+        
         /// 当前屏幕状态 宽度按照4.7寸 375 屏幕比例 例如 30*FitWidth即可
         public static let fitWidth = screenWidth / 375
         /// 当前屏幕状态 高度按照4.7寸 667 屏幕比例 例如 30*FitHeight即可
@@ -25,7 +25,7 @@ extension SwiftBrick{
         public static let screenScale = UIScreen.main.scale
         /// 画线宽度 不同分辨率都是一像素
         public static let lineHeight = CGFloat(screenScale >= 1 ? 1/screenScale: 1)
-
+        
         /// 信号栏高度
         /// - Returns: 高度
         public static func statusBarHeight() ->CGFloat {
@@ -38,25 +38,28 @@ extension SwiftBrick{
         
         ///获取当前设备window用于判断尺寸
         public static func getWindow() -> UIWindow?{
-            if #available(iOS 13.0, *){
-                let winScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-                return winScene?.windows.first
-            }else{
+            if #available(iOS 13.0, *) {
+                return UIApplication.shared.connectedScenes
+                    .sorted { $0.activationState.sortPriority < $1.activationState.sortPriority }
+                    .compactMap { $0 as? UIWindowScene }
+                    .compactMap { $0.windows.first { $0.isKeyWindow } }
+                    .first
+            } else {
                 return UIApplication.shared.keyWindow
             }
         }
-
+        
         /// 导航栏高度 实时获取,可获取不同分辨率手机横竖屏切换后的实时高度变化
         /// - Returns: 高度
         public static func navBarHeight() ->CGFloat {
             return UINavigationController().navigationBar.frame.size.height
         }
-
+        
         /// 获取屏幕导航栏+信号栏总高度
         public static let navAndStatusHeight = statusBarHeight() + navBarHeight()
         /// 获取刘海屏底部home键高度,普通屏为0
         public static let bottomHomeHeight = getWindow()?.safeAreaInsets.bottom ?? 0
-
+        
         /// TabBar高度 实时获取,可获取不同分辨率手机横竖屏切换后的实时高度变化
         /// - Returns: 高度
         public static func tabbarHeight() ->CGFloat {
@@ -64,14 +67,26 @@ extension SwiftBrick{
         }
         //刘海屏=TabBar高度+Home键高度, 普通屏幕为TabBar高度
         public static let tabBarHeight = tabbarHeight() + bottomHomeHeight
-
+        
         // MARK:- 打印输出
         public static func sLog<T>(_ message: T, file: String = #file, funcName: String = #function, lineNum: Int = #line) {
-        #if DEBUG
+#if DEBUG
             let fileName = (file as NSString).lastPathComponent
             print("\n\n<><><><><>-「LOG」-<><><><><>\n\n>>>>>>>>>>>>>>>所在类:>>>>>>>>>>>>>>>\n\n\(fileName)\n\n>>>>>>>>>>>>>>>所在行:>>>>>>>>>>>>>>>\n\n\(lineNum)\n\n>>>>>>>>>>>>>>>信 息:>>>>>>>>>>>>>>>\n\n\(message)\n\n<><><><><>-「END」-<><><><><>\n\n")
-        #endif
+#endif
         }
-    }}
+    }
+}
 
-
+@available(iOS 13.0, *)
+private extension UIScene.ActivationState {
+    var sortPriority: Int {
+        switch self {
+        case .foregroundActive: return 1
+        case .foregroundInactive: return 2
+        case .background: return 3
+        case .unattached: return 4
+        @unknown default: return 5
+        }
+    }
+}

@@ -27,6 +27,55 @@ public extension UINavigationBar {
             }
         }
     }
+    
+    /// 全局修改主题色(返回按钮)
+    /// - Parameter color
+    static func setTintColor(_ color: UIColor){
+        UINavigationBar.appearance().tintColor = color
+    }
+
+    /// 全局修改背景色
+    /// - Parameter color
+    @available(iOS 13.0, *)
+    static func setBackgroundColor(_ color: UIColor){
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+         //设置背景颜色
+        appearance.backgroundColor = color // UIColor
+         //统一各种情况下的显示样式
+        setAppearance(appearance)
+    }
+    
+    /// 全局修改标题色
+    /// - Parameter color
+    @available(iOS 13.0, *)
+    static func setTitleColor(_ color: UIColor){
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+         //设置标题颜色
+        appearance.titleTextAttributes = [.foregroundColor: color] // UIColor
+         //统一各种情况下的显示样式
+        setAppearance(appearance)
+    }
+    
+    @available(iOS 13.0, *)
+    static func setShadowColor(_ color: UIColor = .clear){
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+         //设置颜色
+        appearance.shadowColor = color // UIColor
+         //统一各种情况下的显示样式
+        setAppearance(appearance)
+    }
+    
+    @available(iOS 13.0, *)
+    static func setAppearance(_ appearance: UINavigationBarAppearance){
+         //统一各种情况下的显示样式
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
+    }
+    
 }
 
 public extension SwiftBrickWrapper where Base: UINavigationBar {

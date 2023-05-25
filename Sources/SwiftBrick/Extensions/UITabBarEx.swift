@@ -93,6 +93,34 @@ public extension UITabBar {
         }
     }
     
+    @available(iOS 13.0, *)
+    static func setTitleColor(normal: UIColor, selected: UIColor){
+        let tabAppearance = UITabBarAppearance()
+         //设置颜色
+        tabAppearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: normal]
+        tabAppearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: selected]
+         //统一各种情况下的显示样式
+        setAppearance(tabAppearance)
+    }
+    
+    @available(iOS 13.0, *)
+    static func setShadowColor(_ color: UIColor = .clear){
+        let tabAppearance = UITabBarAppearance()
+         //设置颜色
+        tabAppearance.shadowColor = color // UIColor
+         //统一各种情况下的显示样式
+        setAppearance(tabAppearance)
+    }
+    
+    @available(iOS 13.0, *)
+    static func setAppearance(_ appearance: UITabBarAppearance){
+         //统一各种情况下的显示样式
+        if #available(iOS 15.0, *) {
+            UITabBar.appearance().scrollEdgeAppearance = appearance
+        }
+        UITabBar.appearance().standardAppearance = appearance
+    }
+    
 }
 
 public extension SwiftBrickWrapper where Base: UITabBar {
