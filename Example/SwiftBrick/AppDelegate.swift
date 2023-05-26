@@ -13,14 +13,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // 初始化 SwiftBrick
-        SWB.inits()
+        SS.inits()
         
         if #available(iOS 13.0, *) {
-            let navAppearance = UINavigationBarAppearance()
-            navAppearance.shadowColor = .clear
-            UINavigationBar.appearance().standardAppearance = navAppearance
-            UINavigationBar.appearance().scrollEdgeAppearance = navAppearance
-            UINavigationBar.appearance().tintColor = .black
+            UINavigationBar.setTintColor(.black)
+            UINavigationBar.setShadowColor(.clear)
         } else {
             // Fallback on earlier versions
         }

@@ -9,13 +9,14 @@
 import Foundation
 import UIKit
 // MARK: ===================================VC基类:协议=========================================
-public let SWB = SwiftBrick.self
+public let SS = SwiftBrick.self
 public let AppState = SwiftBrick.AppState.self
 public let APP = SwiftBrick.Application.self
 public let Define = SwiftBrick.Define.self
 public let Device = SwiftBrick.Device.self
 public let DeviceKit = SwiftBrick.DeviceKit.self
 public let Font = SwiftBrick.Font.self
+
 public struct SwiftBrick{
     ///如果使用导航栏的功能可以全局设置下
     ///统一设置返回按钮图片(默认)
