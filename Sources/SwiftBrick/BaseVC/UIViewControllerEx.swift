@@ -24,7 +24,7 @@ public extension SwiftBrickWrapper where Base: UIViewController {
     }
     
     func addLeftBarButton(normalImage: UIImage?,
-                          highLightImage: UIImage?,
+                          highLightImage: UIImage? = nil,
                           touchUp: ButtonClosure?){
         
         configLeftBarButton(text:"      ",
