@@ -45,7 +45,7 @@ public extension SwiftBrickWrapper where Base: UIView {
                       size: CGSize? = nil,
                       startPoint: CGPoint = GradientPoint.topLeft.point,
                       endPoint: CGPoint = GradientPoint.bottomLeft.point){
-
+        
         guard colors.count >= 1 else {
             return
         }
@@ -97,7 +97,7 @@ public extension SwiftBrickWrapper where Base: UIView {
             }
         }
     }
-
+    
     //返回该view所在VC,方便埋点查找
     func firstViewController() -> UIViewController? {
         for view in sequence(first: base.superview, next: { $0?.superview }) {
@@ -113,7 +113,7 @@ public extension SwiftBrickWrapper where Base: UIView {
 
 public extension UIView {
     ///初始化View闭包--方便快速
-    static func inits<T: UIView>(_ builder: ((T) -> Void)? = nil) -> T {
+    static func inits<T: UIView>(builder: ((T) -> Void)? = nil) -> T {
         let view = T()
         view.translatesAutoresizingMaskIntoConstraints = false
         builder?(view)
@@ -162,7 +162,7 @@ public struct UsesAutoLayout<T: UIView> {
             wrappedValue.translatesAutoresizingMaskIntoConstraints = false
         }
     }
-
+    
     public init(wrappedValue: T) {
         self.wrappedValue = wrappedValue
         wrappedValue.translatesAutoresizingMaskIntoConstraints = false
