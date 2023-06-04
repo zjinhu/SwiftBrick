@@ -19,12 +19,12 @@ public extension Reusable {
 }
 
 
-public extension SwiftBrickWrapper where Base: UITableView {
+public extension SwiftBrickWrapper where Wrapped: UITableView {
     /// 注册UITableViewCell
     /// - Parameter cellType: UITableViewCell类
     func registerCell<T: UITableViewCell>(_ cellType: T.Type)
         where T: Reusable {
-            base.register(cellType.self, forCellReuseIdentifier: cellType.reuseIdentifier)
+            wrapped.register(cellType.self, forCellReuseIdentifier: cellType.reuseIdentifier)
     }
     
     /// 复用已注册的UITableViewCell
@@ -32,7 +32,7 @@ public extension SwiftBrickWrapper where Base: UITableView {
     /// - Returns: UITableViewCell
     func dequeueReusableCell<T: UITableViewCell>(_ cellType: T.Type = T.self) -> T
         where T: Reusable {
-            guard let cell = base.dequeueReusableCell(withIdentifier: cellType.reuseIdentifier) as? T else {
+            guard let cell = wrapped.dequeueReusableCell(withIdentifier: cellType.reuseIdentifier) as? T else {
                 fatalError(
                     "Failed to dequeue a cell with identifier \(cellType.reuseIdentifier) matching type \(cellType.self). "
                 )
@@ -44,7 +44,7 @@ public extension SwiftBrickWrapper where Base: UITableView {
     /// - Parameter headerFooterViewType: UITableViewHeaderFooterView类
     func registerHeaderFooterView<T: UITableViewHeaderFooterView>(_ headerFooterViewType: T.Type)
         where T: Reusable {
-            base.register(headerFooterViewType.self, forHeaderFooterViewReuseIdentifier: headerFooterViewType.reuseIdentifier)
+            wrapped.register(headerFooterViewType.self, forHeaderFooterViewReuseIdentifier: headerFooterViewType.reuseIdentifier)
     }
     
     /// 复用已注册的UITableViewHeaderFooterView
@@ -52,7 +52,7 @@ public extension SwiftBrickWrapper where Base: UITableView {
     /// - Returns: UITableViewHeaderFooterView
     func dequeueReusableHeaderFooterView<T: UITableViewHeaderFooterView>(_ headerFooterViewType: T.Type = T.self) -> T?
         where T: Reusable {
-            guard let view = base.dequeueReusableHeaderFooterView(withIdentifier: headerFooterViewType.reuseIdentifier) as? T? else {
+            guard let view = wrapped.dequeueReusableHeaderFooterView(withIdentifier: headerFooterViewType.reuseIdentifier) as? T? else {
                 fatalError(
                     "Failed to dequeue a header/footer with identifier \(headerFooterViewType.reuseIdentifier) "
                 )
@@ -67,12 +67,12 @@ public enum ReusableViewKindType {
     case sectionFooter//UICollectionElementKindSectionFooter
 }
 
-public extension SwiftBrickWrapper where Base: UICollectionView {
+public extension SwiftBrickWrapper where Wrapped: UICollectionView {
     /// 注册UICollectionViewCell
     /// - Parameter cellType: UICollectionViewCell
     func registerCell<T: UICollectionViewCell>(_ cellType: T.Type)
         where T: Reusable {
-            base.register(cellType.self, forCellWithReuseIdentifier: cellType.reuseIdentifier)
+            wrapped.register(cellType.self, forCellWithReuseIdentifier: cellType.reuseIdentifier)
     }
     
     /// 复用已经注册的UICollectionViewCell
@@ -82,7 +82,7 @@ public extension SwiftBrickWrapper where Base: UICollectionView {
     /// - Returns: UICollectionViewCell
     func dequeueReusableCell<T: UICollectionViewCell>(_ cellType: T.Type = T.self, indexPath: IndexPath) -> T
         where T: Reusable {
-            let bareCell = base.dequeueReusableCell(withReuseIdentifier: cellType.reuseIdentifier, for: indexPath)
+            let bareCell = wrapped.dequeueReusableCell(withReuseIdentifier: cellType.reuseIdentifier, for: indexPath)
             guard let cell = bareCell as? T else {
                 fatalError(
                     "Failed to dequeue a cell with identifier \(cellType.reuseIdentifier) matching type \(cellType.self). "
@@ -105,7 +105,7 @@ public extension SwiftBrickWrapper where Base: UICollectionView {
             case .sectionFooter:
                 kind = UICollectionView.elementKindSectionFooter
             }
-            base.register(
+            wrapped.register(
                 headerFooterViewType.self,
                 forSupplementaryViewOfKind: kind,
                 withReuseIdentifier: headerFooterViewType.reuseIdentifier
@@ -130,7 +130,7 @@ public extension SwiftBrickWrapper where Base: UICollectionView {
                 kind = UICollectionView.elementKindSectionFooter
             }
             
-            let view = base.dequeueReusableSupplementaryView(
+            let view = wrapped.dequeueReusableSupplementaryView(
                 ofKind: kind,
                 withReuseIdentifier: headerFooterViewType.reuseIdentifier,
                 for: indexPath

@@ -7,17 +7,22 @@
 //
 
 import SwiftUI
-@available(iOS 13.0, *)
+import SwiftBrick
+@available(iOS 14.0, *)
 struct SwiftUIView: View {
+    @Environment(\.dismiss) private var dismiss
     var body: some View {
-        VStack{
-            Spacer()
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            Spacer()
-        }.background(Color.orange)
+        List{
+            Text("12")
+        }
+        .background(Color.orange)
+        .ss.scrollIndicators(.hidden)
+        .ss.task {
+            
+        }
     }
 }
-@available(iOS 13.0, *)
+@available(iOS 14.0, *)
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
         SwiftUIView()

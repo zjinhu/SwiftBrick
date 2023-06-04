@@ -15,14 +15,14 @@ public extension CGSize{
         )
     }
 }
-public extension SwiftBrickWrapper where Base == CGSize {
+public extension SwiftBrickWrapper where Wrapped == CGSize {
 
     var minimumDimensionLength: CGFloat {
-        min(base.width, base.height)
+        min(wrapped.width, wrapped.height)
     }
     
     var maximumDimensionLength: CGFloat {
-        max(base.width, base.height)
+        max(wrapped.width, wrapped.height)
     }
     
     var isAreaZero: Bool {

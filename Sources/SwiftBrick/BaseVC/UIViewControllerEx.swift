@@ -17,10 +17,10 @@ public extension SwiftBrick{
     }
 }
 
-public extension SwiftBrickWrapper where Base: UIViewController {
+public extension SwiftBrickWrapper where Wrapped: UIViewController {
     
     func hideDefaultBackBarButton(){
-        base.navigationItem.hidesBackButton = true
+        wrapped.navigationItem.hidesBackButton = true
     }
     
     func addLeftBarButton(normalImage: UIImage?,
@@ -31,13 +31,13 @@ public extension SwiftBrickWrapper where Base: UIViewController {
                             normalImage: normalImage,
                             highLightImage: highLightImage)
         
-        let btnItem = UIBarButtonItem(customView: base.leftBarButton)
+        let btnItem = UIBarButtonItem(customView: wrapped.leftBarButton)
         
         fixSpaceLeftBarButton(btnItem: btnItem)
         guard let ges = touchUp else {
             return
         }
-        base.leftBarButton.addTouchUpInSideBtnAction(touchUp: ges)
+        wrapped.leftBarButton.addTouchUpInSideBtnAction(touchUp: ges)
     }
     
     func addLeftBarButton(text: String,
@@ -49,13 +49,13 @@ public extension SwiftBrickWrapper where Base: UIViewController {
                             font: font,
                             normalColor: normalColor,
                             highlightColor: highlightColor)
-        let btnItem = UIBarButtonItem(customView: base.leftBarButton)
+        let btnItem = UIBarButtonItem(customView: wrapped.leftBarButton)
         
         fixSpaceLeftBarButton(btnItem: btnItem)
         guard let ges = touchUp else {
             return
         }
-        base.leftBarButton.addTouchUpInSideBtnAction(touchUp: ges)
+        wrapped.leftBarButton.addTouchUpInSideBtnAction(touchUp: ges)
     }
     
     func addRightBarButton(normalImage: UIImage? = nil,
@@ -69,13 +69,13 @@ public extension SwiftBrickWrapper where Base: UIViewController {
                              highLightImage: highLightImage,
                              selectedImage: selectedImage,
                              disableImage: disableImage)
-        let btnItem = UIBarButtonItem(customView: base.rightBarButton)
+        let btnItem = UIBarButtonItem(customView: wrapped.rightBarButton)
         
         fixSpaceRightBarButton(btnItem: btnItem, fixSpace: fixSpace)
         guard let ges = touchUp else {
             return
         }
-        base.rightBarButton.addTouchUpInSideBtnAction(touchUp: ges)
+        wrapped.rightBarButton.addTouchUpInSideBtnAction(touchUp: ges)
     }
     
     func addRightBarButton(text: String,
@@ -92,13 +92,13 @@ public extension SwiftBrickWrapper where Base: UIViewController {
                              highlightColor: highlightColor,
                              selectedColor: selectedColor,
                              disableColor: disableColor)
-        let btnItem = UIBarButtonItem(customView: base.rightBarButton)
+        let btnItem = UIBarButtonItem(customView: wrapped.rightBarButton)
         
         fixSpaceRightBarButton(btnItem: btnItem, fixSpace: fixSpace)
         guard let ges = touchUp else {
             return
         }
-        base.rightBarButton.addTouchUpInSideBtnAction(touchUp: ges)
+        wrapped.rightBarButton.addTouchUpInSideBtnAction(touchUp: ges)
     }
     
     func configLeftBarButton(text: String? = nil,
@@ -107,14 +107,14 @@ public extension SwiftBrickWrapper where Base: UIViewController {
                              highlightColor: UIColor? = nil,
                              normalImage: UIImage? = nil,
                              highLightImage: UIImage? = nil){
-        base.leftBarButton.titleLabel?.font = font ?? Font.systemFont(14)
-        base.leftBarButton.setTitle(text, for: .normal)
-        base.leftBarButton.setTitle(text, for: .highlighted)
-        base.leftBarButton.setTitleColor(normalColor, for: .normal)
-        base.leftBarButton.setTitleColor(highlightColor, for: .highlighted)
+        wrapped.leftBarButton.titleLabel?.font = font ?? Font.systemFont(14)
+        wrapped.leftBarButton.setTitle(text, for: .normal)
+        wrapped.leftBarButton.setTitle(text, for: .highlighted)
+        wrapped.leftBarButton.setTitleColor(normalColor, for: .normal)
+        wrapped.leftBarButton.setTitleColor(highlightColor, for: .highlighted)
         
-        base.leftBarButton.setImage(normalImage, for: .normal)
-        base.leftBarButton.setImage(highLightImage, for: .highlighted)
+        wrapped.leftBarButton.setImage(normalImage, for: .normal)
+        wrapped.leftBarButton.setImage(highLightImage, for: .highlighted)
     }
     
     func configRightBarButton(text: String? = nil,
@@ -128,31 +128,31 @@ public extension SwiftBrickWrapper where Base: UIViewController {
                               selectedImage: UIImage? = nil,
                               disableImage: UIImage? = nil){
         
-        base.rightBarButton.titleLabel?.font = font ?? Font.systemFont(14)
-        base.rightBarButton.setTitle(text, for: .normal)
-        base.rightBarButton.setTitle(text, for: .highlighted)
-        base.rightBarButton.setTitle(text, for: .selected)
-        base.rightBarButton.setTitle(text, for: .disabled)
+        wrapped.rightBarButton.titleLabel?.font = font ?? Font.systemFont(14)
+        wrapped.rightBarButton.setTitle(text, for: .normal)
+        wrapped.rightBarButton.setTitle(text, for: .highlighted)
+        wrapped.rightBarButton.setTitle(text, for: .selected)
+        wrapped.rightBarButton.setTitle(text, for: .disabled)
         
-        base.rightBarButton.setTitleColor(normalColor, for: .normal)
-        base.rightBarButton.setTitleColor(highlightColor, for: .highlighted)
-        base.rightBarButton.setTitleColor(selectedColor, for: .selected)
-        base.rightBarButton.setTitleColor(disableColor, for: .disabled)
+        wrapped.rightBarButton.setTitleColor(normalColor, for: .normal)
+        wrapped.rightBarButton.setTitleColor(highlightColor, for: .highlighted)
+        wrapped.rightBarButton.setTitleColor(selectedColor, for: .selected)
+        wrapped.rightBarButton.setTitleColor(disableColor, for: .disabled)
         
-        base.rightBarButton.setImage(normalImage, for: .normal)
-        base.rightBarButton.setImage(highLightImage, for: .highlighted)
-        base.rightBarButton.setImage(selectedImage, for: .selected)
-        base.rightBarButton.setImage(disableImage, for: .disabled)
+        wrapped.rightBarButton.setImage(normalImage, for: .normal)
+        wrapped.rightBarButton.setImage(highLightImage, for: .highlighted)
+        wrapped.rightBarButton.setImage(selectedImage, for: .selected)
+        wrapped.rightBarButton.setImage(disableImage, for: .disabled)
     }
     
     func fixSpaceLeftBarButton(btnItem: UIBarButtonItem){
-        base.leftBarButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: SwiftBrick.navBarLeftFixSpace, bottom: 0, right: 0)
-        base.navigationItem.leftBarButtonItem = btnItem
+        wrapped.leftBarButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: SwiftBrick.navBarLeftFixSpace, bottom: 0, right: 0)
+        wrapped.navigationItem.leftBarButtonItem = btnItem
     }
     
     func fixSpaceRightBarButton(btnItem: UIBarButtonItem, fixSpace: CGFloat = 0){
-        base.rightBarButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: (fixSpace != 0 ? fixSpace: SwiftBrick.navBarRightFixSpace))
-        base.navigationItem.rightBarButtonItem = btnItem
+        wrapped.rightBarButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: (fixSpace != 0 ? fixSpace: SwiftBrick.navBarRightFixSpace))
+        wrapped.navigationItem.rightBarButtonItem = btnItem
     }
 }
 

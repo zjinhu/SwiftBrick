@@ -62,14 +62,14 @@ public extension UIViewController {
     }
 }
 
-public extension SwiftBrickWrapper where Base: UIViewController {
+public extension SwiftBrickWrapper where Wrapped: UIViewController {
 
     /// 隐藏|显示状态栏,请在隐藏了导航栏的VC中使用,如果使用了Nav会失效
     /// - Parameter hidden: 隐藏|显示状态栏
     func hideOrShowStatusBar(hidden: Bool = false) {
         
-        base.setHiddenStatusBar = hidden
-        base.setNeedsStatusBarAppearanceUpdate()
+        wrapped.setHiddenStatusBar = hidden
+        wrapped.setNeedsStatusBarAppearanceUpdate()
     }
     
     
@@ -77,8 +77,8 @@ public extension SwiftBrickWrapper where Base: UIViewController {
     /// - Parameter style: 信号栏样式
     func changeStatusBarStyle(style: UIStatusBarStyle = .default) {
         
-        base.setStyleStatusBar = style
-        base.setNeedsStatusBarAppearanceUpdate()
+        wrapped.setStyleStatusBar = style
+        wrapped.setNeedsStatusBarAppearanceUpdate()
     }
 }
 

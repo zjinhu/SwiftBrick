@@ -122,11 +122,11 @@ public extension Array where Element: UIColor {
     }
 }
 
-public extension SwiftBrickWrapper where Base: UIColor {
+public extension SwiftBrickWrapper where Wrapped: UIColor {
     
     internal func rgbComponents() -> [CGFloat] {
         var (r, g, b, a): (CGFloat, CGFloat, CGFloat, CGFloat) = (0.0, 0.0, 0.0, 0.0)
-        base.getRed(&r, green: &g, blue: &b, alpha: &a)
+        wrapped.getRed(&r, green: &g, blue: &b, alpha: &a)
         
         return [r, g, b]
     }
@@ -185,15 +185,15 @@ public extension SwiftBrickWrapper where Base: UIColor {
     ///最小饱和度值
     func color(_ minSaturation: CGFloat) -> UIColor {
         var (hue, saturation, brightness, alpha): (CGFloat, CGFloat, CGFloat, CGFloat) = (0.0, 0.0, 0.0, 0.0)
-        base.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
+        wrapped.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
         
         return saturation < minSaturation
         ? UIColor(hue: hue, saturation: minSaturation, brightness: brightness, alpha: alpha)
-        : base
+        : wrapped
     }
     
     ///调整alpha
     func alpha(_ value: CGFloat) -> UIColor {
-        return base.withAlphaComponent(value)
+        return wrapped.withAlphaComponent(value)
     }
 }

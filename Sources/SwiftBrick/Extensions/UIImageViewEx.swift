@@ -7,19 +7,19 @@
 
 import UIKit
 
-public extension SwiftBrickWrapper where Base: UIImageView {
+public extension SwiftBrickWrapper where Wrapped: UIImageView {
     /// 生成占位图
     /// - Parameters:
     ///   - image: 小图
     ///   - imageView: 图片视图
     /// - Returns: 图片
     func createPlaceHolder(image: UIImage?) -> UIImage?{
-        base.layoutIfNeeded()
+        wrapped.layoutIfNeeded()
         guard let image = image else {
             return nil
         }
         let name = image.ss.sha256
-        let imageName = "placeHolder_\(base.bounds.size.width)_\(base.bounds.size.height)_\(name).png"
+        let imageName = "placeHolder_\(wrapped.bounds.size.width)_\(wrapped.bounds.size.height)_\(name).png"
         let fileManager = FileManager.default
         let path: String = NSHomeDirectory() + "/Documents/PlaceHolder/"
         let filePath = path + imageName
@@ -30,13 +30,13 @@ public extension SwiftBrickWrapper where Base: UIImageView {
             return image
         }
         
-        UIGraphicsBeginImageContext(base.bounds.size)
+        UIGraphicsBeginImageContext(wrapped.bounds.size)
         if let ctx = UIGraphicsGetCurrentContext() {
             ctx.setFillColor(UIColor.clear.cgColor)
-            ctx.fill(CGRect(origin: CGPoint.zero, size: base.bounds.size))
+            ctx.fill(CGRect(origin: CGPoint.zero, size: wrapped.bounds.size))
             
-            let placeholderRect = CGRect(x: (base.bounds.size.width - image.size.width) / 2.0,
-                                         y: (base.bounds.size.height - image.size.height) / 2.0,
+            let placeholderRect = CGRect(x: (wrapped.bounds.size.width - image.size.width) / 2.0,
+                                         y: (wrapped.bounds.size.height - image.size.height) / 2.0,
                                          width: image.size.width,
                                          height: image.size.height)
             

@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 import QuartzCore
 // MARK: ===================================扩展: 阴影 边框 圆角=========================================
-public extension SwiftBrickWrapper where Base == CALayer {
+public extension SwiftBrickWrapper where Wrapped == CALayer {
     
     /// 设置阴影--sketch效果
     /// - Parameters:
@@ -26,14 +26,14 @@ public extension SwiftBrickWrapper where Base == CALayer {
                        y: CGFloat = 0,
                        blur: CGFloat = 0,
                        spread: CGFloat = 0) {
-        base.shadowOffset = CGSize(width: x, height: y)
-        base.shadowRadius = blur * 0.5
-        base.shadowColor = color?.cgColor
-        base.shadowOpacity = Float(alpha)
+        wrapped.shadowOffset = CGSize(width: x, height: y)
+        wrapped.shadowRadius = blur * 0.5
+        wrapped.shadowColor = color?.cgColor
+        wrapped.shadowOpacity = Float(alpha)
         
-        let rect = base.bounds.insetBy(dx: -spread, dy: -spread)
-        let path = UIBezierPath(roundedRect: rect, cornerRadius: base.cornerRadius)
-        base.shadowPath = path.cgPath
+        let rect = wrapped.bounds.insetBy(dx: -spread, dy: -spread)
+        let path = UIBezierPath(roundedRect: rect, cornerRadius: wrapped.cornerRadius)
+        wrapped.shadowPath = path.cgPath
     }
     
     /// 设置阴影
@@ -49,13 +49,13 @@ public extension SwiftBrickWrapper where Base == CALayer {
                    alpha: Float = 0.5,
                    radius: CGFloat = 0) {
         //设置阴影颜色
-        base.shadowColor = color?.cgColor
+        wrapped.shadowColor = color?.cgColor
         //设置透明度
-        base.shadowOpacity = alpha
+        wrapped.shadowOpacity = alpha
         //设置阴影半径
-        base.shadowRadius = radius
+        wrapped.shadowRadius = radius
         //设置阴影偏移量
-        base.shadowOffset = CGSize(width: x, height: y)
+        wrapped.shadowOffset = CGSize(width: x, height: y)
     }
     
     /// 设置边框 或 圆角
@@ -67,11 +67,11 @@ public extension SwiftBrickWrapper where Base == CALayer {
                    width: CGFloat = 0.5,
                    corner: CGFloat = 0){
         //设置视图边框宽度
-        base.borderWidth = width
+        wrapped.borderWidth = width
         //设置边框颜色
-        base.borderColor = color?.cgColor
+        wrapped.borderColor = color?.cgColor
         //设置边框圆角
-        base.cornerRadius = corner
+        wrapped.cornerRadius = corner
     }
 
     /// 设置部分圆角 需要View设置clipsToBounds = true
@@ -79,8 +79,8 @@ public extension SwiftBrickWrapper where Base == CALayer {
     ///   - radius: 圆角半径
     ///   - corners: CACornerMask集合 rightBottom:右下  rightTop:右上  leftBottom:左下  leftTop:左上  all:全部 bothTop:上边  bothBottom:下边  bothLeft:左边  bothRight:右边
     func setCorners(_ radius: CGFloat, corners: CACornerMask){
-        base.cornerRadius = radius
-        base.maskedCorners = corners
+        wrapped.cornerRadius = radius
+        wrapped.maskedCorners = corners
     }
 }
 

@@ -33,7 +33,7 @@ public enum GradientPoint{
     }
 }
 
-public extension SwiftBrickWrapper where Base: UIView {
+public extension SwiftBrickWrapper where Wrapped: UIView {
     
     /// 添加背景色,主要是渐变色背景
     /// - Parameters:
@@ -53,7 +53,7 @@ public extension SwiftBrickWrapper where Base: UIView {
         removeGradients()
         
         if colors.count < 2 {
-            base.backgroundColor = colors.first
+            wrapped.backgroundColor = colors.first
         }else{
             
             let gradient: CAGradientLayer = colors.gradient { gradient in
@@ -63,11 +63,11 @@ public extension SwiftBrickWrapper where Base: UIView {
             }
             
             gradient.drawsAsynchronously = true
-            base.layer.insertSublayer(gradient, at: 0)
+            wrapped.layer.insertSublayer(gradient, at: 0)
             if let s = size{
                 gradient.frame = .init(x: 0, y: 0, width: s.width, height: s.height)
             }else{
-                gradient.frame = base.bounds
+                gradient.frame = wrapped.bounds
             }
         }
     }
@@ -78,18 +78,18 @@ public extension SwiftBrickWrapper where Base: UIView {
         removeGradients()
         
         gradient.drawsAsynchronously = true
-        base.layer.insertSublayer(gradient, at: 0)
+        wrapped.layer.insertSublayer(gradient, at: 0)
         if let s = size{
             gradient.frame = .init(x: 0, y: 0, width: s.width, height: s.height)
         }else{
-            gradient.frame = base.bounds
+            gradient.frame = wrapped.bounds
         }
         
     }
     
     /// 移除渐变色背景
     func removeGradients() {
-        if let sl = base.layer.sublayers {
+        if let sl = wrapped.layer.sublayers {
             for layer in sl {
                 if layer.isKind(of: CAGradientLayer.self) {
                     layer.removeFromSuperlayer()
@@ -100,7 +100,7 @@ public extension SwiftBrickWrapper where Base: UIView {
     
     //返回该view所在VC,方便埋点查找
     func firstViewController() -> UIViewController? {
-        for view in sequence(first: base.superview, next: { $0?.superview }) {
+        for view in sequence(first: wrapped.superview, next: { $0?.superview }) {
             if let responder = view?.next {
                 if responder.isKind(of: UIViewController.self){
                     return responder as? UIViewController
@@ -168,3 +168,39 @@ public struct UsesAutoLayout<T: UIView> {
         wrappedValue.translatesAutoresizingMaskIntoConstraints = false
     }
 }
+
+#if os(iOS)
+import UIKit
+
+public extension UIView {
+
+    var parentController: UIViewController? {
+        if let responder = self.next as? UIViewController {
+            return responder
+        } else if let responder = self.next as? UIView {
+            return responder.parentController
+        } else {
+            return nil
+        }
+    }
+
+}
+#endif
+
+#if os(macOS)
+import AppKit
+
+public extension NSView {
+
+    var parentController: NSViewController? {
+        if let responder = self.nextResponder as? NSViewController {
+            return responder
+        } else if let responder = self.nextResponder as? NSView {
+            return responder.parentController
+        } else {
+            return nil
+        }
+    }
+
+}
+#endif

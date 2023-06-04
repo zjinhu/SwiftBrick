@@ -13,7 +13,7 @@ let TopLineTag         = 19003
 let BottomLineTag      = 19004
 ///UITableView 自定义下划线
 
-public extension SwiftBrickWrapper where Base: UITableViewCell {
+public extension SwiftBrickWrapper where Wrapped: UITableViewCell {
     /// 添加分割线，系统原生样式
     /// - Parameters:
     ///   - tableView: tableView
@@ -45,7 +45,7 @@ public extension SwiftBrickWrapper where Base: UITableViewCell {
             return
         }
         
-        var topLineView  = base.viewWithTag(TopLineTag)
+        var topLineView  = wrapped.viewWithTag(TopLineTag)
         
         if topLineView == nil {
             topLineView = UIView()
@@ -54,13 +54,13 @@ public extension SwiftBrickWrapper where Base: UITableViewCell {
             topLineView?.translatesAutoresizingMaskIntoConstraints = false
 
             if let topLineView = topLineView{
-                base.addSubview(topLineView)
-                base.bringSubviewToFront(topLineView)
+                wrapped.addSubview(topLineView)
+                wrapped.bringSubviewToFront(topLineView)
                 let constraints = [
-                    topLineView.topAnchor.constraint(equalTo: base.topAnchor),
-                    topLineView.leftAnchor.constraint(equalTo: base.leftAnchor, constant: headFootLeftMarign),
+                    topLineView.topAnchor.constraint(equalTo: wrapped.topAnchor),
+                    topLineView.leftAnchor.constraint(equalTo: wrapped.leftAnchor, constant: headFootLeftMarign),
                     topLineView.heightAnchor.constraint(equalToConstant: Define.lineHeight),
-                    topLineView.rightAnchor.constraint(equalTo: base.rightAnchor, constant: -headFootRightMarign)
+                    topLineView.rightAnchor.constraint(equalTo: wrapped.rightAnchor, constant: -headFootRightMarign)
                 ]
                 NSLayoutConstraint.activate(constraints)
             }
@@ -72,7 +72,7 @@ public extension SwiftBrickWrapper where Base: UITableViewCell {
             topLineView?.isHidden = true
         }
         
-        var bottomLineView  = base.viewWithTag(BottomLineTag)
+        var bottomLineView  = wrapped.viewWithTag(BottomLineTag)
  
         if bottomLineView == nil {
             bottomLineView = UIView()
@@ -81,22 +81,22 @@ public extension SwiftBrickWrapper where Base: UITableViewCell {
             bottomLineView?.translatesAutoresizingMaskIntoConstraints = false
 
             if let bottomLineView = bottomLineView{
-                base.addSubview(bottomLineView)
-                base.bringSubviewToFront(bottomLineView)
+                wrapped.addSubview(bottomLineView)
+                wrapped.bringSubviewToFront(bottomLineView)
  
-                bottomLineView.bottomAnchor.constraint(equalTo: base.bottomAnchor).isActive = true
+                bottomLineView.bottomAnchor.constraint(equalTo: wrapped.bottomAnchor).isActive = true
                 bottomLineView.heightAnchor.constraint(equalToConstant: Define.lineHeight).isActive = true
-                bottomLineView.leftAnchor.constraint(equalTo: base.leftAnchor, constant: leftMarign).isActive = true
-                bottomLineView.rightAnchor.constraint(equalTo: base.rightAnchor, constant: -leftMarign).isActive = true
+                bottomLineView.leftAnchor.constraint(equalTo: wrapped.leftAnchor, constant: leftMarign).isActive = true
+                bottomLineView.rightAnchor.constraint(equalTo: wrapped.rightAnchor, constant: -leftMarign).isActive = true
             }
         }
 
         if indexPath.row == count - 1{
-            bottomLineView?.leftAnchor.constraint(equalTo: base.leftAnchor, constant: headFootLeftMarign).isActive = true
-            bottomLineView?.rightAnchor.constraint(equalTo: base.rightAnchor, constant: -headFootRightMarign).isActive = true
+            bottomLineView?.leftAnchor.constraint(equalTo: wrapped.leftAnchor, constant: headFootLeftMarign).isActive = true
+            bottomLineView?.rightAnchor.constraint(equalTo: wrapped.rightAnchor, constant: -headFootRightMarign).isActive = true
         }else{
-            bottomLineView?.leftAnchor.constraint(equalTo: base.leftAnchor, constant: leftMarign).isActive = true
-            bottomLineView?.rightAnchor.constraint(equalTo: base.rightAnchor, constant: -leftMarign).isActive = true
+            bottomLineView?.leftAnchor.constraint(equalTo: wrapped.leftAnchor, constant: leftMarign).isActive = true
+            bottomLineView?.rightAnchor.constraint(equalTo: wrapped.rightAnchor, constant: -leftMarign).isActive = true
         }
     }
 
@@ -115,23 +115,23 @@ public extension SwiftBrickWrapper where Base: UITableViewCell {
             color = lineColor
         }
         
-        var lineView  = base.viewWithTag(TopLineTag)
+        var lineView  = wrapped.viewWithTag(TopLineTag)
         
         if lineView == nil {
             lineView = UIView()
             lineView?.backgroundColor = color
             lineView?.tag = TopLineTag
-            base.addSubview(lineView!)
-            base.bringSubviewToFront(lineView!)
+            wrapped.addSubview(lineView!)
+            wrapped.bringSubviewToFront(lineView!)
  
             if let lineView = lineView{
-                base.addSubview(lineView)
-                base.bringSubviewToFront(lineView)
+                wrapped.addSubview(lineView)
+                wrapped.bringSubviewToFront(lineView)
                 let constraints = [
-                    lineView.topAnchor.constraint(equalTo: base.topAnchor),
-                    lineView.leftAnchor.constraint(equalTo: base.leftAnchor, constant: leftMarign),
+                    lineView.topAnchor.constraint(equalTo: wrapped.topAnchor),
+                    lineView.leftAnchor.constraint(equalTo: wrapped.leftAnchor, constant: leftMarign),
                     lineView.heightAnchor.constraint(equalToConstant: Define.lineHeight),
-                    lineView.rightAnchor.constraint(equalTo: base.rightAnchor, constant: -rightMarign)
+                    lineView.rightAnchor.constraint(equalTo: wrapped.rightAnchor, constant: -rightMarign)
                 ]
                 NSLayoutConstraint.activate(constraints)
             }
@@ -158,7 +158,7 @@ public extension SwiftBrickWrapper where Base: UITableViewCell {
             color = lineColor
         }
         
-        var lineView  = base.viewWithTag(BottomLineTag)
+        var lineView  = wrapped.viewWithTag(BottomLineTag)
         
         if lineView == nil {
             lineView = UIView()
@@ -166,13 +166,13 @@ public extension SwiftBrickWrapper where Base: UITableViewCell {
             lineView?.tag = BottomLineTag
  
             if let lineView = lineView{
-                base.addSubview(lineView)
-                base.bringSubviewToFront(lineView)
+                wrapped.addSubview(lineView)
+                wrapped.bringSubviewToFront(lineView)
                 let constraints = [
-                    lineView.bottomAnchor.constraint(equalTo: base.bottomAnchor),
-                    lineView.leftAnchor.constraint(equalTo: base.leftAnchor, constant: leftMarign),
+                    lineView.bottomAnchor.constraint(equalTo: wrapped.bottomAnchor),
+                    lineView.leftAnchor.constraint(equalTo: wrapped.leftAnchor, constant: leftMarign),
                     lineView.heightAnchor.constraint(equalToConstant: Define.lineHeight),
-                    lineView.rightAnchor.constraint(equalTo: base.rightAnchor, constant: -rightMarign)
+                    lineView.rightAnchor.constraint(equalTo: wrapped.rightAnchor, constant: -rightMarign)
                 ]
                 NSLayoutConstraint.activate(constraints)
             }

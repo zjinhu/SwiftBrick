@@ -54,10 +54,10 @@ class CountedColor {
 }
 
 
-public extension SwiftBrickWrapper where Base: UIImage {
+public extension SwiftBrickWrapper where Wrapped: UIImage {
     
     var sha256: String {
-        let data = Data(base.pngData()!)
+        let data = Data(wrapped.pngData()!)
         let hash = data.withUnsafeBytes { (bytes: UnsafeRawBufferPointer) -> [UInt8] in
             var hash = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
             CC_SHA256(bytes.baseAddress, CC_LONG(data.count), &hash)
@@ -68,7 +68,7 @@ public extension SwiftBrickWrapper where Base: UIImage {
     
     fileprivate func resize(to newSize: CGSize) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(newSize, false, 2)
-        base.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        wrapped.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
         let result = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
@@ -81,7 +81,7 @@ public extension SwiftBrickWrapper where Base: UIImage {
         if let scaleDownSize = scaleDownSize {
             cgImage = resize(to: scaleDownSize).cgImage!
         } else {
-            let ratio = base.size.width / base.size.height
+            let ratio = wrapped.size.width / wrapped.size.height
             let r_width: CGFloat = 250
             cgImage = resize(to: CGSize(width: r_width, height: r_width / ratio)).cgImage!
         }
@@ -202,8 +202,8 @@ public extension SwiftBrickWrapper where Base: UIImage {
     }
     ///取图片上一点颜色
     func color(at point: CGPoint, completion: @escaping (UIColor?) -> Void) {
-        let size = base.size
-        let cgImage = base.cgImage
+        let size = wrapped.size
+        let cgImage = wrapped.cgImage
         
         DispatchQueue.global(qos: .userInteractive).async {
             let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)

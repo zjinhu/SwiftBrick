@@ -8,12 +8,12 @@
 
 import Foundation
 // MARK: - 一、基本的扩展
-public extension SwiftBrickWrapper where Base == Dictionary<String, Any> {
+public extension SwiftBrickWrapper where Wrapped == Dictionary<String, Any> {
 
     // MARK: 1.1、检查字典里面是否有某个 key
     /// 检查字典里面是否有某个 key
     func has(_ key: String) -> Bool {
-        return base.index(forKey: key) != nil
+        return wrapped.index(forKey: key) != nil
     }
 
     // MARK: 1.2、字典的key或者value组成的数组
@@ -21,7 +21,7 @@ public extension SwiftBrickWrapper where Base == Dictionary<String, Any> {
     /// - Parameter map: map
     /// - Returns: 数组
     func toArray<V>(_ map: (String, Any) -> V) -> [V] {
-        return base.map(map)
+        return wrapped.map(map)
     }
 
     // MARK: 1.4、字典 -> JSON字符串
@@ -41,13 +41,13 @@ public extension SwiftBrickWrapper where Base == Dictionary<String, Any> {
         /*
          shuffled：不会改变原数组，返回一个新的随机化的数组。  可以用于let 数组
          */
-        return base.keys.shuffled()
+        return wrapped.keys.shuffled()
     }
     
     // MARK: 1.6、字典里面所有的 value
     /// 字典里面所有的value
     /// - Returns: value 数组
     func allValues() -> [Any] {
-        return base.values.shuffled()
+        return wrapped.values.shuffled()
     }
 }

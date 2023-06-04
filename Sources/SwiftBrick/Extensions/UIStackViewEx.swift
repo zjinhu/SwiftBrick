@@ -28,12 +28,12 @@ public extension UIStackView {
     }
 }
 
-public extension SwiftBrickWrapper where Base: UIStackView {
+public extension SwiftBrickWrapper where Wrapped: UIStackView {
     func addBackground(color: UIColor = .clear, cornerRadius: CGFloat = 0) {
-        let subView = UIView(frame: base.bounds)
+        let subView = UIView(frame: wrapped.bounds)
         subView.backgroundColor = color
         subView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        base.insertSubview(subView, at: 0)
+        wrapped.insertSubview(subView, at: 0)
         
         subView.layer.cornerRadius = cornerRadius
         subView.layer.masksToBounds = true
@@ -42,17 +42,17 @@ public extension SwiftBrickWrapper where Base: UIStackView {
     
     func addArrangedSubviews(_ views: [UIView]) {
         views.forEach { (view) in
-            base.addArrangedSubview(view)
+            wrapped.addArrangedSubview(view)
         }
     }
     
     func removeArrangedView(_ view: UIView){
-        base.removeArrangedSubview(view)
+        wrapped.removeArrangedSubview(view)
         view.removeFromSuperview()
     }
     
     func removeArrangedSubviews() {
-        base.arrangedSubviews.forEach { (view) in
+        wrapped.arrangedSubviews.forEach { (view) in
             removeArrangedView(view)
         }
     }

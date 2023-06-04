@@ -78,45 +78,45 @@ public extension UINavigationBar {
     
 }
 
-public extension SwiftBrickWrapper where Base: UINavigationBar {
+public extension SwiftBrickWrapper where Wrapped: UINavigationBar {
     
     /// 设置导航栏背景色
     /// - Parameter color: 颜色
     func setBackgroundColor(_ color: UIColor) {
         
-        if base.overlay == nil {
-            base.setBackgroundImage(UIImage(), for: .default)
-            base.overlay = UIView(frame: CGRect(x: 0, y: -Define.statusBarHeight(), width: base.bounds.width, height: base.bounds.height + Define.statusBarHeight() ))
-            base.overlay?.isUserInteractionEnabled = false
-            base.overlay?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            base.overlay?.layer.zPosition = -9999
-            base.insertSubview(base.overlay!, at: 0)
+        if wrapped.overlay == nil {
+            wrapped.setBackgroundImage(UIImage(), for: .default)
+            wrapped.overlay = UIView(frame: CGRect(x: 0, y: -Define.statusBarHeight(), width: wrapped.bounds.width, height: wrapped.bounds.height + Define.statusBarHeight() ))
+            wrapped.overlay?.isUserInteractionEnabled = false
+            wrapped.overlay?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            wrapped.overlay?.layer.zPosition = -9999
+            wrapped.insertSubview(wrapped.overlay!, at: 0)
         }
         
-        base.overlay?.backgroundColor = color
+        wrapped.overlay?.backgroundColor = color
     }
     
     func setTranslationY(_ translation: CGFloat) {
-        base.transform  = CGAffineTransform(translationX: 0, y: translation)
+        wrapped.transform  = CGAffineTransform(translationX: 0, y: translation)
     }
     
     func setAlphaElements(_ alpha: CGFloat) {
-        base.alpha = alpha
-        _ = base.subviews.map { (subView)  in
+        wrapped.alpha = alpha
+        _ = wrapped.subviews.map { (subView)  in
             subView.alpha = alpha
         }
     }
     
     func reset() {
-        base.setBackgroundImage(nil, for: .default)
-        base.overlay?.removeFromSuperview()
-        base.overlay = nil
+        wrapped.setBackgroundImage(nil, for: .default)
+        wrapped.overlay?.removeFromSuperview()
+        wrapped.overlay = nil
     }
     
     /// 隐藏/展示分割线
     /// - Parameter hidden: true/false
     func setLineHidden(hidden: Bool) {
-        if let shadowImg = seekLineImageView(view: base) {
+        if let shadowImg = seekLineImageView(view: wrapped) {
             shadowImg.isHidden = hidden
         }
     }

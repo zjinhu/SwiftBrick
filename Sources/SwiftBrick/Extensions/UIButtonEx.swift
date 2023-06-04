@@ -15,7 +15,7 @@ public enum ImagePosition {
     case imagePositionBottom
 }
 
-public extension SwiftBrickWrapper where Base: UIButton {
+public extension SwiftBrickWrapper where Wrapped: UIButton {
     /// UIButton 图文布局 外观大小不固定 固定间距
     /// - Parameters:
     ///   - postion: 布局样式
@@ -23,9 +23,9 @@ public extension SwiftBrickWrapper where Base: UIButton {
     func layoutButton(_ postion: ImagePosition, space: CGFloat) {
         
         guard
-            let imageSize = base.imageView?.image?.size,
-            let text = base.titleLabel?.text,
-            let font = base.titleLabel?.font else { return }
+            let imageSize = wrapped.imageView?.image?.size,
+            let text = wrapped.titleLabel?.text,
+            let font = wrapped.titleLabel?.font else { return }
         
         let titleSize = text.size(withAttributes: [.font: font])
         
@@ -41,24 +41,24 @@ public extension SwiftBrickWrapper where Base: UIButton {
 
         switch postion {
         case .imagePositionTop:
-            base.imageEdgeInsets = UIEdgeInsets(top: -imageOffsetY, left: imageOffsetX, bottom: imageOffsetY, right: -imageOffsetX)
-            base.titleEdgeInsets = UIEdgeInsets(top: labelOffsetY, left: -labelOffsetX, bottom: -labelOffsetY, right: labelOffsetX)
-            base.contentEdgeInsets = UIEdgeInsets(top: imageOffsetY, left: -0.5 * changedWidth, bottom: changedHeight-imageOffsetY, right: -0.5 * changedWidth)
+            wrapped.imageEdgeInsets = UIEdgeInsets(top: -imageOffsetY, left: imageOffsetX, bottom: imageOffsetY, right: -imageOffsetX)
+            wrapped.titleEdgeInsets = UIEdgeInsets(top: labelOffsetY, left: -labelOffsetX, bottom: -labelOffsetY, right: labelOffsetX)
+            wrapped.contentEdgeInsets = UIEdgeInsets(top: imageOffsetY, left: -0.5 * changedWidth, bottom: changedHeight-imageOffsetY, right: -0.5 * changedWidth)
             
         case .imagePositionBottom:
-            base.imageEdgeInsets = UIEdgeInsets(top: imageOffsetY, left: imageOffsetX, bottom: -imageOffsetY, right: -imageOffsetX)
-            base.titleEdgeInsets = UIEdgeInsets(top: -labelOffsetY, left: -labelOffsetX, bottom:labelOffsetY, right: labelOffsetX)
-            base.contentEdgeInsets = UIEdgeInsets(top: changedHeight-imageOffsetY, left: -0.5 * changedWidth, bottom: imageOffsetY, right: -0.5 * changedWidth)
+            wrapped.imageEdgeInsets = UIEdgeInsets(top: imageOffsetY, left: imageOffsetX, bottom: -imageOffsetY, right: -imageOffsetX)
+            wrapped.titleEdgeInsets = UIEdgeInsets(top: -labelOffsetY, left: -labelOffsetX, bottom:labelOffsetY, right: labelOffsetX)
+            wrapped.contentEdgeInsets = UIEdgeInsets(top: changedHeight-imageOffsetY, left: -0.5 * changedWidth, bottom: imageOffsetY, right: -0.5 * changedWidth)
             
         case .imagePositionRight:
-            base.imageEdgeInsets = UIEdgeInsets(top: 0, left: titleSize.width + 0.5 * space, bottom: 0, right: -(titleSize.width + 0.5 * space))
-            base.titleEdgeInsets = UIEdgeInsets(top: 0, left: -(imageSize.width + 0.5 * space), bottom: 0, right: imageSize.width + space * 0.5)
-            base.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0.5 * space, bottom: 0, right: 0.5*space)
+            wrapped.imageEdgeInsets = UIEdgeInsets(top: 0, left: titleSize.width + 0.5 * space, bottom: 0, right: -(titleSize.width + 0.5 * space))
+            wrapped.titleEdgeInsets = UIEdgeInsets(top: 0, left: -(imageSize.width + 0.5 * space), bottom: 0, right: imageSize.width + space * 0.5)
+            wrapped.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0.5 * space, bottom: 0, right: 0.5*space)
             
         default:
-            base.imageEdgeInsets = UIEdgeInsets(top: 0, left: -0.5 * space, bottom: 0, right: 0.5 * space)
-            base.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0.5 * space, bottom: 0, right: -0.5 * space)
-            base.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0.5 * space, bottom: 0, right: 0.5 * space)
+            wrapped.imageEdgeInsets = UIEdgeInsets(top: 0, left: -0.5 * space, bottom: 0, right: 0.5 * space)
+            wrapped.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0.5 * space, bottom: 0, right: -0.5 * space)
+            wrapped.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0.5 * space, bottom: 0, right: 0.5 * space)
         }
 
     }
@@ -70,13 +70,13 @@ public extension SwiftBrickWrapper where Base: UIButton {
     func layoutButton(_ postion: ImagePosition, margin: CGFloat) {
 
         guard
-            let imageSize = base.imageView?.image?.size,
-            let text = base.titleLabel?.text,
-            let font = base.titleLabel?.font else { return }
+            let imageSize = wrapped.imageView?.image?.size,
+            let text = wrapped.titleLabel?.text,
+            let font = wrapped.titleLabel?.font else { return }
         
         let titleSize = text.size(withAttributes: [.font: font])
         
-        let space = base.bounds.size.width - imageSize.width - titleSize.width - 2 * margin
+        let space = wrapped.bounds.size.width - imageSize.width - titleSize.width - 2 * margin
         layoutButton(postion, space: space)
     }
 
@@ -95,14 +95,14 @@ public extension SwiftBrickWrapper where Base: UIButton {
     }
 
     func setBackgroundColor(_ color: UIColor, for state: UIControl.State) {
-        base.setBackgroundImage(image(withColor: color), for: state)
+        wrapped.setBackgroundImage(image(withColor: color), for: state)
     }
 }
 
 @available(iOS 14.0, *)
-public extension SwiftBrickWrapper where Base: UIControl {
+public extension SwiftBrickWrapper where Wrapped: UIControl {
     func addAction(for event: UIControl.Event, handler: @escaping UIActionHandler) {
-        base.addAction(UIAction(handler:handler), for:event)
+        wrapped.addAction(UIAction(handler:handler), for:event)
     }
 }
 
