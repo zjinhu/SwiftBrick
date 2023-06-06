@@ -6,7 +6,7 @@
 //
 
 import CommonCrypto
-
+import Foundation
 public extension SwiftBrickWrapper where Wrapped == Data {
     var sha256: String {
         let hash = wrapped.withUnsafeBytes{ (bytes: UnsafeRawBufferPointer) -> [UInt8] in
