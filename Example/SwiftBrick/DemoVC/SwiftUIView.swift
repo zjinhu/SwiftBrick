@@ -10,18 +10,61 @@ import SwiftUI
 import SwiftBrick
 @available(iOS 14.0, *)
 struct SwiftUIView: View {
-    @Environment(\.dismiss) private var dismiss
+    //    @Environment(\.dismiss) private var dismiss
+    private var bgColors: [Color] = [ .red, .yellow, .green, .orange, .pink ]
+    
+    @State private var path: [Color] = []
+
+    @StateObject var co = AppColorScheme()
+    
     var body: some View {
-        List{
-            Text("12")
-        }
-        .background(Color.orange)
-        .ss.scrollIndicators(.hidden)
-        .ss.task {
+        SS.NavigationStack(path: $path) {
+            List(bgColors, id: \.self) { bgColor in
+                SS.NavigationLink(value: bgColor) {
+                    Text(bgColor.description)
+                }
+                
+            }
+            .ss.navigationDestination(for: Color.self) { color in
+                VStack {
+                    Text("\(path.count), \(path.description)")
+                        .font(.headline)
+                    
+                    HStack {
+                        ForEach(path, id: \.self) { color in
+                            color
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        }
+                        
+                    }
+                    List(bgColors, id: \.self) { bgColor in
+                        
+                        SS.NavigationLink(value: bgColor) {
+                            Text(bgColor.description)
+                        }
+                        
+                    }
+                    .listStyle(.plain)
+
+                }
+                .listStyle(.plain)
+                .navigationTitle("Color")
+            }
+            .toolbar {
+                SS.ToolbarItem(placement: .bottomBar) {
+                    Button {
+                        co.darkModeSetting = .dark
+                    } label: {
+                        Image(systemName: "circle")
+                    }
+                }
+            }
             
         }
+        
     }
 }
+
 @available(iOS 14.0, *)
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
