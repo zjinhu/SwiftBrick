@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4821B25F4438E9224DD7FAE1 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 301E3DD0689CA30276F7613A /* Pods_Example.framework */; };
 		8167F3362A11D6F200F1BE30 /* DemoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167F3282A11D6F200F1BE30 /* DemoCollectionViewController.swift */; };
-		8167F3372A11D6F200F1BE30 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167F3292A11D6F200F1BE30 /* SwiftUIView.swift */; };
 		8167F3382A11D6F200F1BE30 /* UITableViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167F32B2A11D6F200F1BE30 /* UITableViewSnapEx.swift */; };
 		8167F3392A11D6F200F1BE30 /* UILabelSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167F32C2A11D6F200F1BE30 /* UILabelSnapEx.swift */; };
 		8167F33A2A11D6F200F1BE30 /* ArrayViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167F32D2A11D6F200F1BE30 /* ArrayViewSnapEx.swift */; };
@@ -32,7 +31,6 @@
 		1B0F907FD00D211071438692 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		301E3DD0689CA30276F7613A /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8167F3282A11D6F200F1BE30 /* DemoCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCollectionViewController.swift; sourceTree = "<group>"; };
-		8167F3292A11D6F200F1BE30 /* SwiftUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		8167F32B2A11D6F200F1BE30 /* UITableViewSnapEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewSnapEx.swift; sourceTree = "<group>"; };
 		8167F32C2A11D6F200F1BE30 /* UILabelSnapEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelSnapEx.swift; sourceTree = "<group>"; };
 		8167F32D2A11D6F200F1BE30 /* ArrayViewSnapEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayViewSnapEx.swift; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 				8167F3282A11D6F200F1BE30 /* DemoCollectionViewController.swift */,
 				8167F3332A11D6F200F1BE30 /* DemoWebViewController.swift */,
 				8167F3342A11D6F200F1BE30 /* DemoExViewController.swift */,
-				8167F3292A11D6F200F1BE30 /* SwiftUIView.swift */,
 			);
 			path = DemoVC;
 			sourceTree = "<group>";
@@ -264,7 +261,6 @@
 				8167F33D2A11D6F200F1BE30 /* UIViewSnapEx.swift in Sources */,
 				8167F33B2A11D6F200F1BE30 /* Neumorphic.swift in Sources */,
 				8167F33E2A11D6F200F1BE30 /* UIImageViewSnapEx.swift in Sources */,
-				8167F3372A11D6F200F1BE30 /* SwiftUIView.swift in Sources */,
 				8167F3392A11D6F200F1BE30 /* UILabelSnapEx.swift in Sources */,
 				819E404B2A0CD8CA00D1F708 /* AppDelegate.swift in Sources */,
 				8167F3382A11D6F200F1BE30 /* UITableViewSnapEx.swift in Sources */,
@@ -348,7 +344,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -402,7 +398,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -428,7 +424,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -458,7 +454,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

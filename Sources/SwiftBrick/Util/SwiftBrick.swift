@@ -18,7 +18,7 @@ public let Device = SwiftBrick.Device.self
 public let DeviceKit = SwiftBrick.DeviceKit.self
 public let Font = SwiftBrick.Font.self
 
-public let SS = SwiftBrickWrapper<Any>.self
+public let SS = SwiftBrick.self
 
 public struct SwiftBrick{
     ///如果使用导航栏的功能可以全局设置下
@@ -71,28 +71,4 @@ extension CGFloat: SwiftBrickCompatibleValue {}
 extension Int: SwiftBrickCompatibleValue {}
 extension Data: SwiftBrickCompatibleValue {}
 extension String: SwiftBrickCompatibleValue {}
-
-
-//public extension SwiftBrickWrapper where Wrapped == Any {
-//    init(_ content: Wrapped) {
-//        self.base = content
-//    }
-//}
-
-//public extension NSObjectProtocol {
-//    /// Wraps an `NSObject` that can be extended to provide backport functionality.
-//    var ss: SwiftBrickWrapper<Self> { .init(self) }
-//}
-
-@available(iOS 13.0, *)
-public extension View {
-    var ss: SwiftBrickWrapper<Self> { .init(self) }
-}
-
-@available(iOS 13.0, *)
-public extension AnyTransition {
-    /// Wraps an `AnyTransition` that can be extended to provide backport functionality.
-    static var ss: SwiftBrickWrapper<AnyTransition>{
-        SwiftBrickWrapper(.identity)
-    }
-}
+ 

@@ -6,7 +6,6 @@ PODS:
     - SwiftBrick/BaseCell (= 2.4.3)
     - SwiftBrick/BaseVC (= 2.4.3)
     - SwiftBrick/Extensions (= 2.4.3)
-    - SwiftBrick/SwiftUI (= 2.4.3)
     - SwiftBrick/Util (= 2.4.3)
     - SwiftBrick/ViewFactory (= 2.4.3)
   - SwiftBrick/BaseCell (2.4.3):
@@ -16,15 +15,6 @@ PODS:
     - SwiftBrick/Extensions
     - SwiftBrick/Util
   - SwiftBrick/Extensions (2.4.3):
-    - SwiftBrick/Util
-  - SwiftBrick/SwiftUI (2.4.3):
-    - SwiftBrick/BaseVC
-    - SwiftBrick/Extensions
-    - SwiftBrick/SwiftUI/Backports (= 2.4.3)
-    - SwiftBrick/Util
-  - SwiftBrick/SwiftUI/Backports (2.4.3):
-    - SwiftBrick/BaseVC
-    - SwiftBrick/Extensions
     - SwiftBrick/Util
   - SwiftBrick/Util (2.4.3)
   - SwiftBrick/ViewFactory (2.4.3):
@@ -48,7 +38,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   Swift_Form: 2d4a3318f33540707a1173ee857233cd39acd961
-  SwiftBrick: 474e2893492a08553892b5bf7b4417157d5afc31
+  SwiftBrick: 9db1870fbee07896ff31cdf744cf79df890ff691
 
 PODFILE CHECKSUM: d3c132b4612a9af92e7d97324ec99a9f149e0705
 

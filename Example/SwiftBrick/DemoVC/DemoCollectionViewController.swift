@@ -29,7 +29,7 @@ class DemoCollectionViewController: CollectionViewController {
                           normalColor: .darkGray,
                           highlightColor: .lightGray,
                           fixSpace: 0 ) {_ in 
-            self.navigationController?.pushViewController(SwiftUIVC(SwiftUIView()), animated: true)
+
         }
         
         collectionView?.ss.registerHeaderFooterView(CollectionReusableView.self, kindType: .sectionHeader)

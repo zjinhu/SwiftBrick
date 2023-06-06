@@ -19,6 +19,9 @@
     "ios": "11.0"
   },
   "swift_versions": [
+    "5.8",
+    "5.7",
+    "5.6",
     "5.5",
     "5.4",
     "5.3",
@@ -39,27 +42,6 @@
     ]
   },
   "subspecs": [
-    {
-      "name": "SwiftUI",
-      "dependencies": {
-        "SwiftBrick/Extensions": [
-
-        ],
-        "SwiftBrick/BaseVC": [
-
-        ],
-        "SwiftBrick/Util": [
-
-        ]
-      },
-      "source_files": "Sources/SwiftBrick/SwiftUI/*.swift",
-      "subspecs": [
-        {
-          "name": "Backports",
-          "source_files": "Sources/SwiftBrick/SwiftUI/Backports/**/*"
-        }
-      ]
-    },
     {
       "name": "Util",
       "source_files": "Sources/SwiftBrick/Util/**/*"
@@ -110,5 +92,5 @@
       "source_files": "Sources/SwiftBrick/ViewFactory/**/*"
     }
   ],
-  "swift_version": "5.5"
+  "swift_version": "5.8"
 }
