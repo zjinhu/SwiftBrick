@@ -56,29 +56,6 @@ Vibration Feedback Tool
 
 Comparison and judgment of iOS system version
 
-### SwiftUI
-
-- [x] @AppStorage extension
-- [x] Color extension
-- [x] View added vibration feedback
-- [x] RoundedCorner extension
-- [x] Spacer extension
-- [x] WebView
-- [x] Angle extension
-- [x] Binding extension
-- [x] Font extension
-- [x] ForEach extension
-- [x] GridItem extension
-- [x] Image extension
-- [x] Label extension
-- [x] List extension
-- [x] NavigationLink extension
-- [x] Section extension
-- [x] SecureField extension
-- [x] Shape extension
-- [x] Text extension
-- [x] View extension
-
 ### ViewFactory
 
 Custom View
