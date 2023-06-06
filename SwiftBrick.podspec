@@ -28,10 +28,7 @@ Pod::Spec.new do |s|
     ss.dependency 'SwiftBrick/BaseVC'
     ss.dependency 'SwiftBrick/Util'
     ss.source_files = 'Sources/SwiftBrick/SwiftUI/*.swift'
-    
-    ss.subspec 'SwiftUIX' do |sss|
-      sss.source_files = 'Sources/SwiftBrick/SwiftUI/SwiftUIX/**/*'
-    end
+ 
     ss.subspec 'Backports' do |sss|
       sss.source_files = 'Sources/SwiftBrick/SwiftUI/Backports/**/*'
     end
