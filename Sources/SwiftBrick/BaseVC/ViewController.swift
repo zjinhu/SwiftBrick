@@ -17,7 +17,12 @@ open class ViewController: UIViewController{
         view.backgroundColor = L.color("bgColor")
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "      ", style: .plain, target: self, action: #selector(goBack))
+
+        if #available(iOS 14.0, *) {
+            navigationItem.backButtonDisplayMode = .minimal
+        } else {
+            navigationItem.backBarButtonItem = UIBarButtonItem(title: "      ", style: .plain, target: self, action: #selector(goBack))
+        }
         //        if let viewControllers: [UIViewController] = navigationController?.viewControllers , viewControllers.count > 1{
         //            addDefaultBackBarButton()
         //        }
