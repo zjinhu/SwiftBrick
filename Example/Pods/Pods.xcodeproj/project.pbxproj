@@ -59,6 +59,7 @@
 		5D36B99F3CAB1FC7337082D9581FECA6 /* Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFAD38140DC944A979C4AFA9A416FBC /* Debugging.swift */; };
 		5D68A01E6011F255493D1785537A632D /* LabelFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F6CF30E9C77B4E9B2B31B84DE3B9D5 /* LabelFooterView.swift */; };
 		5E93B2FF681BAF7CD613E8EA2E925139 /* PickerRowFormer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1522B6B6CA999C7B4D274BA00288EBE2 /* PickerRowFormer.swift */; };
+		60199CD92A44685600FC70DE /* Locale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60199CD82A44685600FC70DE /* Locale.swift */; };
 		604D3C93C17978C23600EC415949AB64 /* ConstraintInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FC4A174FA971C7547D442C85CC217 /* ConstraintInsets.swift */; };
 		6080D52AECF7F2406EEA2CD3DD4AE445 /* ImageRowFormer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9570328A636B4EF65B9BA2C53776B4A /* ImageRowFormer.swift */; };
 		611CEF7FF1EF9EA1BCEF6C73EEE3ACCF /* ConstraintLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7B6B1EBD2BE4EB45DE28F1C1CC06A8 /* ConstraintLayoutGuide.swift */; };
@@ -255,6 +256,7 @@
 		5A737A8D1B04DD7351842274E85B48AC /* UIViewControllerEx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIViewControllerEx.swift; path = Sources/SwiftBrick/BaseVC/UIViewControllerEx.swift; sourceTree = "<group>"; };
 		5AD6A24E0C1622B1CCFC4663B2A7004B /* StatusBaEx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatusBaEx.swift; path = Sources/SwiftBrick/Extensions/StatusBaEx.swift; sourceTree = "<group>"; };
 		5C15EEDDEA8BD98D03024B7BCFCEABB0 /* Then.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Then.swift; path = Sources/SwiftBrick/Util/Then.swift; sourceTree = "<group>"; };
+		60199CD82A44685600FC70DE /* Locale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locale.swift; sourceTree = "<group>"; };
 		607FC4A174FA971C7547D442C85CC217 /* ConstraintInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsets.swift; path = Sources/ConstraintInsets.swift; sourceTree = "<group>"; };
 		61AF63D95B16B818439A8C7C83AFCB50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		62026732266C9FCC25C0D3533025B6F0 /* ConstraintMakerRelatable+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintMakerRelatable+Extensions.swift"; path = "Sources/ConstraintMakerRelatable+Extensions.swift"; sourceTree = "<group>"; };
@@ -621,6 +623,7 @@
 				F847B02238CB944974B07A1534E392E9 /* TapBuzz.swift */,
 				5C15EEDDEA8BD98D03024B7BCFCEABB0 /* Then.swift */,
 				A5E3EC18B25BF49046DD69BABF4C64DC /* Version.swift */,
+				60199CD82A44685600FC70DE /* Locale.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -980,6 +983,7 @@
 				CC7388A333DAD0DA3949468F36A53155 /* SwiftBrick.swift in Sources */,
 				F151D158965AD267FC71C63731428585 /* SwiftBrick-dummy.m in Sources */,
 				65C5DAF3C7BB8CC1709D9A006A977B8C /* SwiftUIVC.swift in Sources */,
+				60199CD92A44685600FC70DE /* Locale.swift in Sources */,
 				EDB627082681B99FB87663842B59A58C /* TableViewCell.swift in Sources */,
 				B5FD87030848A8FAF47F6470888F5CAE /* TableViewController.swift in Sources */,
 				6B2C4B4F94C5BE6A994D9295CBF2B6CC /* TableViewHeaderFooterView.swift in Sources */,
