@@ -9,6 +9,8 @@
 ![iOS 13.0+](https://img.shields.io/badge/iOS-13.0%2B-blue.svg)
 ![Swift 5.0+](https://img.shields.io/badge/Swift-5.0%2B-orange.svg)
 
+此Package与[Gitee](https://gitee.com/zjinhu/swift-brick)同步，如果觉得SPM引入github地址偏慢可以使用Gitee。
+
 SwiftBrick是一个简单易用、功能丰富的UI基础框架，主要目的是为了快速搭建APP UI 。
 
 内含部分颜色资源（都支持暗黑模式）。
