@@ -22,9 +22,9 @@ extension SwiftBrick{
         /// 当前屏幕状态 高度按照4.7寸 667 屏幕比例 例如 30*FitHeight即可
         public static let fitHeight = screenHeight / 667
         /// 当前屏幕比例
-        public static let screenScale = UIScreen.main.scale
+        public static let scale = UIScreen.main.scale
         /// 画线宽度 不同分辨率都是一像素
-        public static let lineHeight = CGFloat(screenScale >= 1 ? 1/screenScale: 1)
+        public static let lineHeight = CGFloat(scale >= 1 ? 1/scale: 1)
         
         /// 信号栏高度
         /// - Returns: 高度
