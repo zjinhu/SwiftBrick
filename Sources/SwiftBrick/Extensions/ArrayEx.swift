@@ -21,11 +21,11 @@ public extension Array {
     // MARK: 1.2、数组新增元素(可转入一个数组)
     /// 数组新增元素(可转入一个数组)
     /// - Parameter elements: 数组
-    mutating func append(_ elements: [Element]) {
-        for element in elements {
-            self.append(element)
-        }
-    }
+    // mutating func append(_ elements: [Element]) {
+    //     for element in elements {
+    //         self.append(element)
+    //     }
+    // }
     
     // MARK: 1.3、数组 -> JSON字符串
     /// 字典转换为JSONString
