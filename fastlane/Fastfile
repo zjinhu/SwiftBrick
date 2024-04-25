@@ -20,7 +20,7 @@ lane :release_pod do |options|
   # 确认是 main 分支
   # ensure_git_branch( branch: 'main' )
   
-  if  if_pod == 'true'
+  if  if_pod
   # 修改 spec 为即将发布的版本
   version_bump_podspec(path: spec_path, version_number: target_version)
   end
@@ -31,7 +31,7 @@ lane :release_pod do |options|
   # 提交修改到本地仓库
   git_commit(path: '.', message: update_message)
   
-  if  if_pod == 'true'
+  if  if_pod
   # 在push之前, 查看spec是否配置有问题，验证 spec 文件
   pod_lib_lint(verbose: true, allow_warnings: true)
   # 私有仓需要添加验证仓Sources
@@ -53,7 +53,7 @@ lane :release_pod do |options|
   # 提交 tag
   push_git_tags
   
-  if  if_pod == 'true'
+  if  if_pod
   # # pod trunk push 'spec_path'
   # pod_push(path: spec_path, allow_warnings: true,verbose: true)
     # 检查是否传了 repo 参数
