@@ -6,12 +6,9 @@
 //
 
 import UIKit
-import SnapKit
-import Swift_Form
 import SwiftBrick
-class DemoViewController: TableViewController {
-    lazy var former = Former(tableView: self.tableView!)
-
+class DemoViewController: ViewController {
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,54 +17,76 @@ class DemoViewController: TableViewController {
         customUserDefaults()
 //        useDispatch()
         
-        let row1 = LabelRow()
-        row1.title = "跳转Tableview"
-        row1.subTitle = "无导航栏"
-        row1.cell.accessoryType = .disclosureIndicator
-        row1.cell.ss.addDownLine()
-        row1.onSelected { [weak self](row) in
+        let row1 = UIButton()
+        row1.titleForNormal = "跳转Tableview无导航栏"
+        row1.backgroundColor = .blue
+        view.addSubview(row1)
+        row1.addTouchUpInSideBtnAction { [weak self](row) in
             guard let `self` = self else {return}
             let vc = DemoTableViewController.init(tableViewStyle: .styleGrouped)
             self.navigationController?.pushViewController(vc, animated: true)
             
         }
         
-        let row2 = LabelRow()
-        row2.title = "跳转CollectionView"
-        row2.subTitle = "有导航栏"
-        row2.cell.accessoryType = .disclosureIndicator
-        row2.cell.ss.addDownLine()
-        row2.onSelected { [weak self](row) in
+        let row2 = UIButton()
+        row2.titleForNormal = "跳转CollectionView有导航栏"
+        row2.backgroundColor = .blue
+        view.addSubview(row2)
+        row2.addTouchUpInSideBtnAction { [weak self](row) in
             guard let `self` = self else {return}
             let vc = DemoCollectionViewController.init()
             self.navigationController?.pushViewController(vc, animated: true)
             
         }
         
-        let row3 = LabelRow()
-        row3.title = "跳转WebView"
-        row3.cell.accessoryType = .disclosureIndicator
-        row3.cell.ss.addDownLine()
-        row3.onSelected { [weak self](row) in
+        let row3 = UIButton()
+        row3.titleForNormal = "跳转WebView"
+        row3.backgroundColor = .blue
+        view.addSubview(row3)
+        row3.addTouchUpInSideBtnAction { [weak self](row) in
             guard let `self` = self else {return}
             let vc = DemoWebViewController()//.init(urlString: "https://www.baidu.com")
             self.navigationController?.pushViewController(vc, animated: true)
             
         }
  
-        let row4 = LabelRow()
-        row4.title = "测试小功能"
-        row4.cell.accessoryType = .disclosureIndicator
-        row4.cell.ss.addDownLine()
-        row4.onSelected { [weak self](row) in
+        let row4 = UIButton()
+        row4.titleForNormal = "测试小功能"
+        row4.backgroundColor = .blue
+        view.addSubview(row4)
+        row4.addTouchUpInSideBtnAction { [weak self](row) in
             guard let `self` = self else {return}
             let vc = DemoExViewController()
             self.navigationController?.pushViewController(vc, animated: true)
-            
         }
-        let section = SectionFormer(row1, row2, row3, row4)
         
-        former.append(sectionFormer: section)
+        row1.ss.makeConstraints { (make) in
+            make.centerXAnchor(equalTo: view.ss.centerXAnchor)
+            make.topAnchor(equalTo: view.ss.topAnchor).offset(100)
+            make.widthAnchor(200)
+            make.heightAnchor(greaterThanOrEqualTo: 50)
+        }
+        
+        row2.ss.makeConstraints { (make) in
+            make.centerXAnchor(equalTo: view.ss.centerXAnchor)
+            make.topAnchor(equalTo: row1.ss.bottomAnchor).offset(10)
+            make.widthAnchor(200)
+            make.heightAnchor(greaterThanOrEqualTo: 50)
+        }
+        
+        row3.ss.makeConstraints { (make) in
+            make.centerXAnchor(equalTo: view.ss.centerXAnchor)
+            make.topAnchor(equalTo: row2.ss.bottomAnchor).offset(10)
+            make.widthAnchor(200)
+            make.heightAnchor(greaterThanOrEqualTo: 50)
+        }
+        
+        row4.ss.makeConstraints { (make) in
+            make.centerXAnchor(equalTo: view.ss.centerXAnchor)
+            make.topAnchor(equalTo: row3.ss.bottomAnchor).offset(10)
+            make.widthAnchor(200)
+            make.heightAnchor(greaterThanOrEqualTo: 50)
+        }
     }
 
     

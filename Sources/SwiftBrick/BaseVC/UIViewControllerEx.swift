@@ -158,8 +158,8 @@ public extension SwiftBrickWrapper where Wrapped: UIViewController {
 
 public extension UIViewController {
     struct AssociatedKeys {
-        static var leftButtonKey: String = "ButtonLeftKey"
-        static var rightButtonKey: String = "ButtonRightKey"
+        static var leftButtonKey: UInt8 = 0
+        static var rightButtonKey: UInt8 = 0
     }
     
     var leftBarButton: UIButton {

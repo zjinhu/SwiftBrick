@@ -9,9 +9,9 @@
 import UIKit
 // MARK: ===================================扩展: UINavigationBar 背景色 分割线=========================================
 public extension UINavigationBar {
-    
+ 
     fileprivate struct AssociatedKeys {
-        static var OverlayKey = "overlayKey"
+        static var OverlayKey: UInt8 = 0
     }
     
     fileprivate var overlay: UIView? {

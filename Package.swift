@@ -14,16 +14,9 @@ let package = Package(
             name: "SwiftBrick",
             targets: ["SwiftBrick"])
     ],
-    dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
-//        .package(url: "https://github.com/SnapKit/SnapKit.git", .upToNextMajor(from: "5.0.0")),
-    ],
     targets: [
         .target(name: "SwiftBrick",
-//                dependencies: ["SnapKit"],
                 resources: [.process("Resources"),],
-//                cSettings: [.define("CAN_COMPILE", .when(configuration: .debug)),],
                 swiftSettings: [.define("ENABLE_SPM"),]
                ),
     ],

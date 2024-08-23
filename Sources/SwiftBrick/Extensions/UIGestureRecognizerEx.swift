@@ -19,7 +19,7 @@ public extension UIGestureRecognizer {
     }
     
     private struct AssociatedKeys {
-        static var ActionName = "action"
+        static var ActionName: UInt8 = 0
     }
     
     private var gestureAction: GestureAction? {

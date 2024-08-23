@@ -27,8 +27,9 @@ public class SwizzleNavBar {
 extension UIViewController {
  
     private struct Associated {
-        static var WillAppearInject: String = "WillAppearInject"
+        static var WillAppearInject: UInt8 = 0
     }
+    
     typealias ViewControllerWillAppearInjectBlock = (_ viewController: UIViewController , _ animated: Bool) -> Void
 
     class func swizzleMethod(){
@@ -63,7 +64,7 @@ extension UIViewController {
 
 extension UIViewController {
     private struct Associate {
-        static var NavigationBarHidden: String = "NavigationBarHidden"
+        static var NavigationBarHidden: UInt8 = 0
     }
     //MARK: ‼️在需要展示隐藏导航栏的VC中赋值即可处理导航栏‼️重要②‼️
     /// 处理导航栏在VC内赋值True即可隐藏导航栏
@@ -82,7 +83,7 @@ extension UIViewController {
 extension UINavigationController {
     
     private struct Associated {
-        static var NavigationBarAppearanceEnabled: String = "NavigationBarAppearanceEnabled"
+        static var NavigationBarAppearanceEnabled: UInt8 = 0
     }
     
     var viewControllerBasedNavigationBarAppearanceEnabled: Bool? {

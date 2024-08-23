@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import SnapKit
-import Swift_Form
 import SwiftBrick
 class DemoExViewController: ViewController {
     
@@ -29,75 +27,39 @@ class DemoExViewController: ViewController {
         
         print("\(rightBarButton)") 
         
-        
-        
         view.backgroundColor = .white
-        let vv = NeuButton()
-        
-        let playIcon = UIImage(systemName: "play.fill")
-        let playImageView = UIImageView(image: playIcon)
-        playImageView.translatesAutoresizingMaskIntoConstraints = false
-        playImageView.tintColor = .white
-        
-        let stopIcon = UIImage(systemName: "stop.fill")
-        let stopImageView = UIImageView(image: stopIcon)
-        stopImageView.translatesAutoresizingMaskIntoConstraints = false
-        stopImageView.tintColor = .white
-        vv.setContentView(playImageView,
-                          selectedView: stopImageView) { make in
-            make.width.height.equalTo(60)
-            make.center.equalToSuperview()
-        }
-        
-        vv.shadowOffset = .init(width: -5, height: 5)
-        vv.backColor = UIColor.red
-        vv.cornerRadius = 100
-        view.addSubview(vv)
-        vv.snp.makeConstraints { (make) in
-            make.left.equalToSuperview().offset(20)
-            make.top.equalToSuperview().offset(100)
-            make.width.equalTo(200)
-            make.height.equalTo(200)
-        }
-        
-        let ive = UIImageView.snpImageView(supView: view, backColor: L.color("baseYellow"), contentMode: .scaleAspectFill, snapKitMaker:  { (make) in
-            make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(310)
-            make.width.equalTo(150)
-            make.height.equalTo(150)
-        })
-        ive.clipsToBounds = true
-        ive.layer.ss.setCorners(15, corners: .bothTop)
-        
-        ive.image = UIImage.symbol("house", size: 25, color: .textTitleColor)
-        
+
         let line = UILineView()
         line.lineColor = .red
         line.isDash = true
         line.dashPointWidth = 2
         line.isHorizontal = false
         view.addSubview(line)
-        line.snp.makeConstraints { (make) in
-            make.top.bottom.equalToSuperview()
-            make.left.equalToSuperview().offset(10)
-            make.width.equalTo(10)
+ 
+        line.ss.makeConstraints { (make) in
+            make.leftAnchor(equalTo: view.ss.leftAnchor).offset(10)
+            make.topAnchor(equalTo: view.ss.topAnchor)
+            make.widthAnchor(10)
+            make.heightAnchor(550)
         }
         
         
         let lineView = UILineView(horizontal: true, width: 1, color: .orange)
         view.addSubview(lineView)
-        lineView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(470)
-            make.left.right.equalToSuperview()
-            make.height.equalTo(50)
+ 
+        lineView.ss.makeConstraints { (make) in
+            make.leftAnchor(equalTo: view.ss.leftAnchor)
+            make.topAnchor(equalTo: view.ss.topAnchor).offset(470)
+            make.heightAnchor(50)
+            make.widthAnchor(350)
         }
         
         view.addSubview(then)
-        then.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(520)
-            make.center.equalToSuperview()
-            make.width.equalTo(150)
-            make.height.equalTo(150)
+        then.ss.makeConstraints { (make) in
+            make.topAnchor(equalTo: view.ss.topAnchor).offset(520)
+            make.bottomAnchor(equalTo: view.ss.bottomAnchor).offset(-20)
+            make.leftAnchor(equalTo: view.ss.leftAnchor) .offset(150)
+            make.widthAnchor(150)
         }
         
         
@@ -111,14 +73,14 @@ class DemoExViewController: ViewController {
         test1Button.titleColorForDisabled = .yellow
         test1Button.titleColorForHighlighted = .purple
         test1Button.layer.cornerRadius = 5
-        test1Button.backgroundColor = .white
+        test1Button.backgroundColor = .green
         test1Button.isSelected = true
         view.addSubview(test1Button)
-        test1Button.snp.makeConstraints { (make) in
-            make.right.equalToSuperview()
-            make.top.equalTo(then.snp.bottom).offset(10)
-            make.width.equalTo(200)
-            make.height.equalTo(100)
+        test1Button.ss.makeConstraints { (make) in
+            make.rightAnchor(equalTo: view.ss.rightAnchor).offset(-10)
+            make.topAnchor(equalTo: view.ss.topAnchor).offset(100)
+            make.widthAnchor(lessThanOrEqualTo: 200)
+            make.heightAnchor(greaterThanOrEqualTo: 100)
         }
         test1Button.addTouchUpInSideBtnAction { sender in
             print("\(sender.isSelected)")

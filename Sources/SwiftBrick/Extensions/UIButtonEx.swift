@@ -111,7 +111,7 @@ public typealias ButtonClosure = (_ sender: UIButton) -> Void
 public extension UIButton {
     
     struct AssociatedKeys {
-        static var buttonTouchUpKey: String = "ButtonTouchUpKey"
+        static var buttonTouchUpKey: UInt8 = 0
     }
 
     @objc internal var actionClosure: ButtonClosure? {

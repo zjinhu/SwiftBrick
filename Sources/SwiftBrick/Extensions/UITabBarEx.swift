@@ -12,11 +12,11 @@ import UIKit
 public extension UITabBar {
     
     fileprivate struct AssociatedKeys {
-        static var kBadgeSize: String = "kBadgeSize"
-        static var kBadgeColor: String = "kBadgeColor"
-        static var kBadgeImage: String = "kBadgeImage"
-        static var kBadgePoint: String = "kBadgePoint"
-        static var kBadgeValue: String = "kBadgeValue"
+        static var kBadgeSize: UInt8 = 0
+        static var kBadgeColor: UInt8 = 0
+        static var kBadgeImage: UInt8 = 0
+        static var kBadgePoint: UInt8 = 0
+        static var kBadgeValue: UInt8 = 0
     }
     
     fileprivate var badgeTag: Int {

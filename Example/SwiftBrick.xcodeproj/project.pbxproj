@@ -7,15 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4821B25F4438E9224DD7FAE1 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 301E3DD0689CA30276F7613A /* Pods_Example.framework */; };
+		814DC4922C7838EB0003CFA9 /* SwiftBrick in Frameworks */ = {isa = PBXBuildFile; productRef = 814DC4912C7838EB0003CFA9 /* SwiftBrick */; };
 		8167F3362A11D6F200F1BE30 /* DemoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167F3282A11D6F200F1BE30 /* DemoCollectionViewController.swift */; };
-		8167F3382A11D6F200F1BE30 /* UITableViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167F32B2A11D6F200F1BE30 /* UITableViewSnapEx.swift */; };
-		8167F3392A11D6F200F1BE30 /* UILabelSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167F32C2A11D6F200F1BE30 /* UILabelSnapEx.swift */; };
-		8167F33A2A11D6F200F1BE30 /* ArrayViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167F32D2A11D6F200F1BE30 /* ArrayViewSnapEx.swift */; };
-		8167F33B2A11D6F200F1BE30 /* Neumorphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167F32E2A11D6F200F1BE30 /* Neumorphic.swift */; };
-		8167F33C2A11D6F200F1BE30 /* UIButtonSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167F32F2A11D6F200F1BE30 /* UIButtonSnapEx.swift */; };
-		8167F33D2A11D6F200F1BE30 /* UIViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167F3302A11D6F200F1BE30 /* UIViewSnapEx.swift */; };
-		8167F33E2A11D6F200F1BE30 /* UIImageViewSnapEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167F3312A11D6F200F1BE30 /* UIImageViewSnapEx.swift */; };
 		8167F33F2A11D6F200F1BE30 /* DemoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167F3322A11D6F200F1BE30 /* DemoTableViewController.swift */; };
 		8167F3402A11D6F200F1BE30 /* DemoWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167F3332A11D6F200F1BE30 /* DemoWebViewController.swift */; };
 		8167F3412A11D6F200F1BE30 /* DemoExViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167F3342A11D6F200F1BE30 /* DemoExViewController.swift */; };
@@ -28,16 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1B0F907FD00D211071438692 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
-		301E3DD0689CA30276F7613A /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		814DC48F2C7838DC0003CFA9 /* SwiftBrick */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SwiftBrick; path = ..; sourceTree = "<group>"; };
 		8167F3282A11D6F200F1BE30 /* DemoCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCollectionViewController.swift; sourceTree = "<group>"; };
-		8167F32B2A11D6F200F1BE30 /* UITableViewSnapEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewSnapEx.swift; sourceTree = "<group>"; };
-		8167F32C2A11D6F200F1BE30 /* UILabelSnapEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelSnapEx.swift; sourceTree = "<group>"; };
-		8167F32D2A11D6F200F1BE30 /* ArrayViewSnapEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayViewSnapEx.swift; sourceTree = "<group>"; };
-		8167F32E2A11D6F200F1BE30 /* Neumorphic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Neumorphic.swift; sourceTree = "<group>"; };
-		8167F32F2A11D6F200F1BE30 /* UIButtonSnapEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonSnapEx.swift; sourceTree = "<group>"; };
-		8167F3302A11D6F200F1BE30 /* UIViewSnapEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewSnapEx.swift; sourceTree = "<group>"; };
-		8167F3312A11D6F200F1BE30 /* UIImageViewSnapEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewSnapEx.swift; sourceTree = "<group>"; };
 		8167F3322A11D6F200F1BE30 /* DemoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoTableViewController.swift; sourceTree = "<group>"; };
 		8167F3332A11D6F200F1BE30 /* DemoWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoWebViewController.swift; sourceTree = "<group>"; };
 		8167F3342A11D6F200F1BE30 /* DemoExViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoExViewController.swift; sourceTree = "<group>"; };
@@ -49,7 +34,6 @@
 		819E40532A0CD8CB00D1F708 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		819E40562A0CD8CB00D1F708 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		819E40582A0CD8CB00D1F708 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AB9321EDD62505885FE7885C /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,34 +41,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4821B25F4438E9224DD7FAE1 /* Pods_Example.framework in Frameworks */,
+				814DC4922C7838EB0003CFA9 /* SwiftBrick in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		693B2C4618D5AF5692539484 /* Pods */ = {
+		814DC4902C7838EB0003CFA9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1B0F907FD00D211071438692 /* Pods-Example.debug.xcconfig */,
-				AB9321EDD62505885FE7885C /* Pods-Example.release.xcconfig */,
 			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		8167F32A2A11D6F200F1BE30 /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-				8167F32B2A11D6F200F1BE30 /* UITableViewSnapEx.swift */,
-				8167F32C2A11D6F200F1BE30 /* UILabelSnapEx.swift */,
-				8167F32D2A11D6F200F1BE30 /* ArrayViewSnapEx.swift */,
-				8167F32E2A11D6F200F1BE30 /* Neumorphic.swift */,
-				8167F32F2A11D6F200F1BE30 /* UIButtonSnapEx.swift */,
-				8167F3302A11D6F200F1BE30 /* UIViewSnapEx.swift */,
-				8167F3312A11D6F200F1BE30 /* UIImageViewSnapEx.swift */,
-			);
-			path = Tools;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		817E88122A17143C0012D541 /* DemoVC */ = {
@@ -102,9 +70,9 @@
 			isa = PBXGroup;
 			children = (
 				819E40492A0CD8CA00D1F708 /* SwiftBrick */,
+				814DC48F2C7838DC0003CFA9 /* SwiftBrick */,
 				819E40482A0CD8CA00D1F708 /* Products */,
-				693B2C4618D5AF5692539484 /* Pods */,
-				AF779D0A2ACECE81FD527EFF /* Frameworks */,
+				814DC4902C7838EB0003CFA9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,21 +91,12 @@
 				819E404C2A0CD8CA00D1F708 /* SceneDelegate.swift */,
 				819E404E2A0CD8CA00D1F708 /* DemoViewController.swift */,
 				817E88122A17143C0012D541 /* DemoVC */,
-				8167F32A2A11D6F200F1BE30 /* Tools */,
 				819E40502A0CD8CA00D1F708 /* Main.storyboard */,
 				819E40532A0CD8CB00D1F708 /* Assets.xcassets */,
 				819E40552A0CD8CB00D1F708 /* LaunchScreen.storyboard */,
 				819E40582A0CD8CB00D1F708 /* Info.plist */,
 			);
 			path = SwiftBrick;
-			sourceTree = "<group>";
-		};
-		AF779D0A2ACECE81FD527EFF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				301E3DD0689CA30276F7613A /* Pods_Example.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,17 +106,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 819E405B2A0CD8CB00D1F708 /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
-				F1FC8C0DF92FC8E3417E38E0 /* [CP] Check Pods Manifest.lock */,
 				819E40432A0CD8CA00D1F708 /* Sources */,
 				819E40442A0CD8CA00D1F708 /* Frameworks */,
 				819E40452A0CD8CA00D1F708 /* Resources */,
-				3E123922810F5D45FE7F701A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Example;
+			packageProductDependencies = (
+				814DC4912C7838EB0003CFA9 /* SwiftBrick */,
+			);
 			productName = SwiftBrick;
 			productReference = 819E40472A0CD8CA00D1F708 /* Example.app */;
 			productType = "com.apple.product-type.application";
@@ -170,7 +130,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					819E40462A0CD8CA00D1F708 = {
 						CreatedOnToolsVersion = 14.2;
@@ -208,48 +168,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		3E123922810F5D45FE7F701A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F1FC8C0DF92FC8E3417E38E0 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Example-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		819E40432A0CD8CA00D1F708 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -258,15 +176,8 @@
 				819E404F2A0CD8CA00D1F708 /* DemoViewController.swift in Sources */,
 				8167F33F2A11D6F200F1BE30 /* DemoTableViewController.swift in Sources */,
 				8167F3412A11D6F200F1BE30 /* DemoExViewController.swift in Sources */,
-				8167F33D2A11D6F200F1BE30 /* UIViewSnapEx.swift in Sources */,
-				8167F33B2A11D6F200F1BE30 /* Neumorphic.swift in Sources */,
-				8167F33E2A11D6F200F1BE30 /* UIImageViewSnapEx.swift in Sources */,
-				8167F3392A11D6F200F1BE30 /* UILabelSnapEx.swift in Sources */,
 				819E404B2A0CD8CA00D1F708 /* AppDelegate.swift in Sources */,
-				8167F3382A11D6F200F1BE30 /* UITableViewSnapEx.swift in Sources */,
-				8167F33A2A11D6F200F1BE30 /* ArrayViewSnapEx.swift in Sources */,
 				819E404D2A0CD8CA00D1F708 /* SceneDelegate.swift in Sources */,
-				8167F33C2A11D6F200F1BE30 /* UIButtonSnapEx.swift in Sources */,
 				8167F3402A11D6F200F1BE30 /* DemoWebViewController.swift in Sources */,
 				8167F3362A11D6F200F1BE30 /* DemoCollectionViewController.swift in Sources */,
 			);
@@ -330,6 +241,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -390,6 +302,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -410,7 +323,6 @@
 		};
 		819E405C2A0CD8CB00D1F708 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1B0F907FD00D211071438692 /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -440,7 +352,6 @@
 		};
 		819E405D2A0CD8CB00D1F708 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AB9321EDD62505885FE7885C /* Pods-Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -490,6 +401,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		814DC4912C7838EB0003CFA9 /* SwiftBrick */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftBrick;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 819E403F2A0CD8CA00D1F708 /* Project object */;
 }

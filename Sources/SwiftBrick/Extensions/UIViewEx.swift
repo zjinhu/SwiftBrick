@@ -124,7 +124,7 @@ public extension UIView {
 public extension UIView {
     
     struct AssociatedKeys {
-        static var tapGestureKey: String = "TapGestureKey"
+        static var tapGestureKey: UInt8 = 0
     }
     
     typealias tapGestureClosure = (_ view: UIView) -> Void

@@ -11,7 +11,7 @@ import Foundation
 public extension NSObject {
     
     private struct Associated {
-        static var NotificationCenterKey: String = "NotificationCenterKey"
+        static var NotificationCenterKey: UInt8 = 0
     }
     
     /// 通知中心
