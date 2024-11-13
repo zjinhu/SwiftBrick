@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import WebKit
+@preconcurrency import WebKit
 // MARK: ===================================VC基类:UIWebViewController=========================================
 open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,WKScriptMessageHandler,UIScrollViewDelegate{
     
@@ -51,7 +51,7 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
     public lazy var reloadButton: UIButton  = {
         let reloadButton = UIButton(type: .custom)
         reloadButton.frame = view.bounds
-        reloadButton.setTitle("加载失败,请点击重试", for: .normal)
+        reloadButton.setTitle("Loading failed. Please retry", for: .normal)
         reloadButton.addTarget(self, action: #selector(reloadWebView), for: .touchUpInside)
         reloadButton.translatesAutoresizingMaskIntoConstraints = false
         return reloadButton
@@ -286,7 +286,7 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
     
     open func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { (_)in
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (_)in
             // We must call back js
             completionHandler()
         }))
@@ -295,11 +295,11 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
     
     open func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { (_)in
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (_)in
             // We must call back js
             completionHandler(true)
         }))
-        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { (_)in
+        alert.addAction(UIAlertAction(title: "Cancle", style: .cancel, handler: { (_)in
             // We must call back js
             completionHandler(false)
         }))
@@ -313,11 +313,11 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
             textField.textColor = .black
             textField.placeholder = defaultText
         }
-        alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { (_)in
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (_)in
             // We must call back js
             completionHandler(alert.textFields?.last?.text)
         }))
-        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { (_)in
+        alert.addAction(UIAlertAction(title: "Cancle", style: .cancel, handler: { (_)in
             // We must call back js
             completionHandler(nil)
         }))
@@ -416,7 +416,7 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
         let websiteDataTypes = WKWebsiteDataStore.allWebsiteDataTypes()
         let modifiedSince = Date(timeIntervalSince1970: 0)
         WKWebsiteDataStore.default().removeData(ofTypes: websiteDataTypes, modifiedSince: modifiedSince) {
-            debugPrint("清理完成")
+            debugPrint("Clean done")
         }
         URLCache.shared.removeAllCachedResponses()
         URLCache.shared.diskCapacity = 0

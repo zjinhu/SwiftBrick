@@ -50,7 +50,14 @@ public extension SwiftBrickWrapper where Wrapped == String {
         }
     }
  
-    var localizedString: String {
+    var localizedBrick: String {
         Bundle.current.localizedString(forKey: wrapped)
+    }
+
+}
+
+public extension String {
+    var localized: String {
+        return NSLocalizedString(self, comment: "")
     }
 }

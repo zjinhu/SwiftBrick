@@ -17,7 +17,7 @@ fileprivate var kTextViewPlaceholderKeys : Int = 0x2019_04
 public extension UITextView {
     
     /// 占位符
-    var placeholder: String {
+    var holderText: String {
         get {
             if let placeholder = objc_getAssociatedObject(self, &kTextViewPlaceholder) as? String {
                 return placeholder
@@ -77,13 +77,13 @@ public extension UITextView {
                 objc_setAssociatedObject(self, &kTextViewPlaceholderLabel, _holderLabel, .OBJC_ASSOCIATION_RETAIN)
             }
             
-            addPlaceholderLabelToSuperView(label: _holderLabel)
+            addHolderLabelToSuperView(label: _holderLabel)
             
             return _holderLabel
         }
         set {
             objc_setAssociatedObject(self, &kTextViewPlaceholderLabel, newValue, .OBJC_ASSOCIATION_RETAIN)
-            addPlaceholderLabelToSuperView(label: newValue)
+            addHolderLabelToSuperView(label: newValue)
         }
     }
     
@@ -103,7 +103,7 @@ public extension UITextView {
     /// 添加占位符到父视图
     ///
     /// - Parameter label: 占位符 标签
-    fileprivate func addPlaceholderLabelToSuperView(label: UILabel) {
+    fileprivate func addHolderLabelToSuperView(label: UILabel) {
         
         guard holderNeedAddToSuperView else { return }
         holderNeedAddToSuperView = false
@@ -126,7 +126,7 @@ public extension UITextView {
     @objc fileprivate func jh_textChange(noti: NSNotification) {
         let isEmpty = text.isEmpty
         print("text:\(String(describing: text))\nisEmpty:\(isEmpty)")
-        holderLabel.text = isEmpty ? placeholder: ""
+        holderLabel.text = isEmpty ? holderText: ""
         holderLabel.isHidden = !isEmpty
     }
     

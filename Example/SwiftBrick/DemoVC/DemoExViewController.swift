@@ -10,12 +10,6 @@ import UIKit
 import SwiftBrick
 class DemoExViewController: ViewController {
     
-    let then = UIView().then { v in
-        v.backgroundColor = .red
-        v.layer.cornerRadius = 20
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
             ss.addRightBarButton(text: "Button",
@@ -53,15 +47,6 @@ class DemoExViewController: ViewController {
             make.heightAnchor(50)
             make.widthAnchor(350)
         }
-        
-        view.addSubview(then)
-        then.ss.makeConstraints { (make) in
-            make.topAnchor(equalTo: view.ss.topAnchor).offset(520)
-            make.bottomAnchor(equalTo: view.ss.bottomAnchor).offset(-20)
-            make.leftAnchor(equalTo: view.ss.leftAnchor) .offset(150)
-            make.widthAnchor(150)
-        }
-        
         
         let test1Button = UIButton()
         test1Button.titleForNormal = "背景色Normal"
