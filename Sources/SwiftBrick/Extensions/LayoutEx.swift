@@ -54,6 +54,77 @@ public extension SwiftBrickWrapper where Wrapped: UIView {
         return activatedConstraints
     }
 
+    @discardableResult
+    func remakeConstraints(_ constraints: (ConstraintMaker) -> Void) -> [NSLayoutConstraint] {
+        let allConstraints = (wrapped.superview?.constraints ?? []) + wrapped.constraints
+        let relatedConstraints = allConstraints.filter { constraint in
+            (constraint.firstItem as? UIView == wrapped || constraint.secondItem as? UIView == wrapped)
+        }
+        
+        NSLayoutConstraint.deactivate(relatedConstraints)
+        
+        relatedConstraints.forEach { constraint in
+            if let superview = wrapped.superview, superview.constraints.contains(constraint) {
+                superview.removeConstraint(constraint)
+            } else if wrapped.constraints.contains(constraint) {
+                wrapped.removeConstraint(constraint)
+            }
+        }
+        
+        let maker = ConstraintMaker(view: wrapped)
+        constraints(maker)
+        let activatedConstraints = maker.constraints
+        NSLayoutConstraint.activate(activatedConstraints)
+        return activatedConstraints
+    }
+
+    @discardableResult
+    func updateConstraints(_ constraints: (ConstraintMaker) -> Void) -> [NSLayoutConstraint] {
+        let maker = ConstraintMaker(view: wrapped)
+        constraints(maker)
+        let updatedConstraints = replaceAndActivateConstraints(maker.constraints)
+        return updatedConstraints
+    }
+    
+    private func replaceAndActivateConstraints(_ newConstraints: [NSLayoutConstraint]) -> [NSLayoutConstraint] {
+        var updatedConstraints: [NSLayoutConstraint] = []
+        
+        let oldConstraints = wrapped.superview?.constraints.filter { constraint in
+            guard let firstItem = constraint.firstItem as? UIView, firstItem == wrapped else { return false }
+            return constraint.isActive
+        } ?? []
+        
+        for newConstraint in newConstraints {
+            if let oldConstraint = findMatchingConstraint(newConstraint, in: oldConstraints) {
+                oldConstraint.constant = newConstraint.constant
+                oldConstraint.priority = newConstraint.priority
+                updatedConstraints.append(oldConstraint)
+            } else {
+                newConstraint.isActive = true
+                updatedConstraints.append(newConstraint)
+            }
+        }
+        
+        wrapped.layoutIfNeeded()
+        return updatedConstraints
+    }
+    
+    private func findMatchingConstraint(_ newConstraint: NSLayoutConstraint, in oldConstraints: [NSLayoutConstraint]) -> NSLayoutConstraint? {
+        return oldConstraints.first { old in
+            let oldFirstAnchor = old.firstAnchor
+            let oldSecondAnchor = old.secondAnchor
+            let newFirstAnchor = newConstraint.firstAnchor
+            let newSecondAnchor = newConstraint.secondAnchor
+            
+            return compareAnchors(oldFirstAnchor, newFirstAnchor) && compareAnchors(oldSecondAnchor, newSecondAnchor)
+        }
+    }
+    
+    private func compareAnchors(_ anchor1: NSLayoutAnchor<AnyObject>?, _ anchor2: NSLayoutAnchor<AnyObject>?) -> Bool {
+        guard let a1 = anchor1, let a2 = anchor2 else { return false }
+        return a1 === a2
+    }
+
     var topAnchor: NSLayoutYAxisAnchor {
         wrapped.topAnchor
     }
@@ -420,5 +491,31 @@ public class Offset {
     
     public func offset(_ value: CGFloat) {
         closure(value)
+    }
+}
+
+public class UpdateOffset {
+    private let constraint: NSLayoutConstraint?
+    
+    init(constraint: NSLayoutConstraint?) {
+        self.constraint = constraint
+    }
+    
+    public func offset(_ value: CGFloat) {
+        constraint?.update(constant: value)
+    }
+}
+
+public extension NSLayoutConstraint {
+    
+    func update(constant: CGFloat) {
+        self.constant = constant
+        if self.isActive, let view = self.firstItem as? UIView {
+            view.layoutIfNeeded()
+        }
+    }
+    
+    func update(priority: UILayoutPriority) {
+        self.priority = priority
     }
 }

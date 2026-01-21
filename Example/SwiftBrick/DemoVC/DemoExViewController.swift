@@ -71,6 +71,24 @@ class DemoExViewController: ViewController {
             print("\(sender.isSelected)")
         }
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+            
+            test1Button.ss.remakeConstraints { (make) in
+                make.rightAnchor(equalTo: self.view.ss.rightAnchor).offset(-100)
+                make.topAnchor(equalTo: self.view.ss.topAnchor).offset(600)
+                make.widthAnchor(300)
+                make.heightAnchor(50)
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5){
+            
+            test1Button.ss.updateConstraints { (make) in
+                make.topAnchor(equalTo: self.view.ss.topAnchor).offset(400)
+            }
+        }
+        
+
     }
     
 }
