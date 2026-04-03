@@ -7,10 +7,12 @@
 //
 
 import UIKit
+// MARK: ===================================VC Base: UIViewController=========================================
 // MARK: ===================================VC基类:UIViewController=========================================
+/// View controller base class / ViewController基类
 open class ViewController: UIViewController{
     
-    // MARK: - 布局
+    // MARK: - Layout / 布局
     open override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,14 +30,16 @@ open class ViewController: UIViewController{
         //        }
     }
     
-    // MARK: - Navigation 关闭手势返回
+    // MARK: - Navigation: Disable gesture back / 关闭手势返回
+    /// Disable interactive pop gesture / 关闭手势返回
     public func closePopGestureRecognizer() {
         let target = navigationController?.interactivePopGestureRecognizer?.delegate
         let pan = UIPanGestureRecognizer(target: target, action: nil)
         view.addGestureRecognizer(pan)
     }
     
-    // MARK: - 返回方法
+    // MARK: - Back method / 返回方法
+    /// Go back - pop or dismiss / 返回方法
     @objc
     open func goBack() {
         if let viewControllers: [UIViewController] = navigationController?.viewControllers {
@@ -50,7 +54,7 @@ open class ViewController: UIViewController{
         }
     }
     
-    /// 设置导航默认返回按钮
+    /// Set default navigation back button / 设置导航默认返回按钮
     public func addDefaultBackBarButton() {
         ss.addLeftBarButton(normalImage: SwiftBrick.navBarNorBackImage ?? .icon_back,
                                  highLightImage: SwiftBrick.navBarHigBackImage ?? .icon_back) { [weak self] _ in
@@ -59,12 +63,14 @@ open class ViewController: UIViewController{
         }
     }
     
+    /// Add left bar buttons / 添加左侧按钮组
     public func addLeftBarButton(_ button: UIButton...,
                                  fixSpace: CGFloat = 0,
                                  buttonSpace: CGFloat = 20){
         addLeftBarButtons(buttons: button, fixSpace: fixSpace)
     }
     
+    /// Add multiple left bar buttons / 添加多个左侧按钮
     fileprivate func addLeftBarButtons(buttons: [UIButton],
                                        fixSpace: CGFloat = 0,
                                        buttonSpace: CGFloat = 20){
@@ -94,12 +100,14 @@ open class ViewController: UIViewController{
         navigationItem.leftBarButtonItems = items
     }
     
+    /// Add right bar buttons / 添加右侧按钮组
     public func addRightBarButton(_ button: UIButton...,
                                   fixSpace: CGFloat = 0,
                                   buttonSpace: CGFloat = 20){
         addRightBarButtons(buttons: button, fixSpace: fixSpace)
     }
     
+    /// Add multiple right bar buttons / 添加多个右侧按钮
     fileprivate func addRightBarButtons(buttons: [UIButton],
                                         fixSpace: CGFloat = 0,
                                         buttonSpace: CGFloat = 20){

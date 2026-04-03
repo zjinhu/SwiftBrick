@@ -7,18 +7,25 @@
 //
 
 import UIKit
+// MARK: ===================================VC Base: UICollectionViewController=========================================
 // MARK: ===================================VC基类:UICollectionViewController=========================================
+/// Collection view controller base class / CollectionViewController基类
 open class CollectionViewController: ViewController ,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
 
+    /// Collection view instance / CollectionView实例
     public var collectionView: UICollectionView?
+    /// Main data source / 主数据源
     public var mainDatas: Array<Any> = []
+    /// Flow layout / 流式布局
     public var flowLayout: UICollectionViewLayout?
     
+    /// Initialize with flow layout / 使用流式布局初始化
     public convenience init(flowLayout layout: UICollectionViewFlowLayout) {
          self.init()
          flowLayout = layout
      }
     
+    /// Setup flow layout - override in subclass / 设置流式布局-子类可重写
     open func setupFlowLayout() -> UICollectionViewLayout {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumLineSpacing = 0
@@ -27,7 +34,7 @@ open class CollectionViewController: ViewController ,UICollectionViewDelegate,UI
         return flowLayout
     }
     
-    // MARK: - 布局
+    // MARK: - Layout / 布局
     override open func viewDidLoad() {
         super.viewDidLoad()
 
@@ -56,7 +63,7 @@ open class CollectionViewController: ViewController ,UICollectionViewDelegate,UI
 
         collectionView?.contentInsetAdjustmentBehavior = .automatic
         
-        // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view. / 加载视图后的任何其他设置
         let gestureArray: [UIGestureRecognizer]? = navigationController?.view.gestureRecognizers
         gestureArray?.forEach({ (gesture) in
             if gesture.isEqual(UIScreenEdgePanGestureRecognizer.self) {
@@ -66,7 +73,8 @@ open class CollectionViewController: ViewController ,UICollectionViewDelegate,UI
         collectionView?.ss.registerCell(CollectionViewCell.self)
     }
     
-    // MARK: - 数据源判断
+    // MARK: - Data source check / 数据源判断
+    /// Check if data source is multi-dimensional array / 判断是否为多维数组数据源
     func isMultiDatas() -> Bool {
         let data = mainDatas.first
         if data is Array<Any> && mainDatas.count > 0{

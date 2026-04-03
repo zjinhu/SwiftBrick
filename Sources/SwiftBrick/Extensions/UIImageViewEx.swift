@@ -8,11 +8,11 @@
 import UIKit
 
 public extension SwiftBrickWrapper where Wrapped: UIImageView {
-    /// 生成占位图
+    /// Generate placeholder image from small image / 生成占位图
     /// - Parameters:
-    ///   - image: 小图
-    ///   - imageView: 图片视图
-    /// - Returns: 图片
+    ///   - image: Small image / 小图
+    ///   - imageView: Image view / 图片视图
+    /// - Returns: Placeholder image / 占位图片
     func createPlaceHolder(image: UIImage?) -> UIImage?{
         wrapped.layoutIfNeeded()
         guard let image = image else {

@@ -7,10 +7,12 @@
 //
 
 import UIKit
+// MARK: ===================================Cell Base: UICollectionReusableView=========================================
 // MARK: ===================================Cell基类:UICollectionReusableView=========================================
+/// Collection reusable view base class / Collection可重用视图基类
 open class CollectionReusableView: UICollectionReusableView, Reusable{
     
-    /// 样式，header还是footer
+    /// View type - header or footer / 样式，header还是footer
     public enum ReusableViewType {
         case SectionHeader//UICollectionElementKindSectionHeader
         case SectionFooter//UICollectionElementKindSectionFooter
@@ -26,8 +28,8 @@ open class CollectionReusableView: UICollectionReusableView, Reusable{
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - 继承 在内部实现布局
-    /// 子类重写，进行view布局
+    // MARK: - Override in subclass for layout / 继承 在内部实现布局
+    /// Subclass override for view layout / 子类重写，进行view布局
     open func setupCellViews() {
         
     }

@@ -16,7 +16,7 @@ fileprivate var kTextViewPlaceholderKeys : Int = 0x2019_04
 
 public extension UITextView {
     
-    /// 占位符
+    /// Placeholder text / 占位符文本
     var holderText: String {
         get {
             if let placeholder = objc_getAssociatedObject(self, &kTextViewPlaceholder) as? String {
@@ -31,7 +31,7 @@ public extension UITextView {
         }
     }
     
-    /// 占位符颜色
+    /// Placeholder text color / 占位符颜色
     var holderColor: UIColor {
         get {
             if let placeholderColor = objc_getAssociatedObject(self, &kTextViewPlaceholderColor) as? UIColor {
@@ -46,7 +46,7 @@ public extension UITextView {
         }
     }
     
-    /// 占位符字体
+    /// Placeholder font / 占位符字体
     var holderFont: UIFont {
         get {
             if let placeholderFont = objc_getAssociatedObject(self, &kTextViewPlaceholderColor) as? UIFont {
@@ -61,7 +61,7 @@ public extension UITextView {
         }
     }
     
-    /// 占位符 标签
+    /// Placeholder label / 占位符标签
     var holderLabel: UILabel {
         get {
             var _holderLabel = UILabel()
@@ -87,7 +87,7 @@ public extension UITextView {
         }
     }
     
-    /// 是否需要添加占位符到父视图
+    /// Whether placeholder needs to be added to superview / 是否需要添加占位符到父视图
     fileprivate var holderNeedAddToSuperView: Bool {
         get {
             if let isAdded = objc_getAssociatedObject(self, &kTextViewPlaceholderKeys) as? Bool {
@@ -100,9 +100,9 @@ public extension UITextView {
         }
     }
     
-    /// 添加占位符到父视图
+    /// Add placeholder label to superview / 添加占位符到父视图
     ///
-    /// - Parameter label: 占位符 标签
+    /// - Parameter label: Placeholder label / 占位符标签
     fileprivate func addHolderLabelToSuperView(label: UILabel) {
         
         guard holderNeedAddToSuperView else { return }
@@ -122,7 +122,7 @@ public extension UITextView {
 
     }
     
-    /// 编辑事件
+    /// Text change event handler / 编辑事件
     @objc fileprivate func jh_textChange(noti: NSNotification) {
         let isEmpty = text.isEmpty
         print("text:\(String(describing: text))\nisEmpty:\(isEmpty)")

@@ -8,20 +8,21 @@
 
 import Foundation
 import UIKit
+// MARK: ===================================Extension: UITableViewCell Add Divider Lines=========================================
 // MARK: ===================================扩展: UITableViewCell添加分割线=========================================
 let TopLineTag         = 19003
 let BottomLineTag      = 19004
-///UITableView 自定义下划线
+/// UITableView custom divider line / UITableView 自定义下划线
 
 public extension SwiftBrickWrapper where Wrapped: UITableViewCell {
-    /// 添加分割线，系统原生样式
+    /// Add all divider lines, system native style / 添加分割线，系统原生样式
     /// - Parameters:
-    ///   - tableView: tableView
-    ///   - indexPath: indexPath
-    ///   - leftMarign: 左间距
-    ///   - rightMarign: 右间距
-    ///   - isHeadFootMarign: 是否首尾分割线也需要间距
-    ///   - lineColor: 选中颜色
+    ///   - tableView: tableView / tableView
+    ///   - indexPath: indexPath / indexPath
+    ///   - leftMarign: Left margin / 左间距
+    ///   - rightMarign: Right margin / 右间距
+    ///   - isHeadFootMarign: Whether header/footer divider also needs margin / 是否首尾分割线也需要间距
+    ///   - lineColor: Selected color / 选中颜色
     func addAllLine(tableView: UITableView,
                      indexPath: IndexPath,
                      leftMarign: CGFloat = 0,
@@ -100,11 +101,11 @@ public extension SwiftBrickWrapper where Wrapped: UITableViewCell {
         }
     }
 
-    /// 添加中间分割线，首位没有线
+    /// Add middle divider lines, no line on first/last / 添加中间分割线，首位没有线
     /// - Parameters:
-    ///   - indexPath: indexPath
-    ///   - leftMarign: 左间距
-    ///   - rightMarign: 右间距
+    ///   - indexPath: indexPath / indexPath
+    ///   - leftMarign: Left margin / 左间距
+    ///   - rightMarign: Right margin / 右间距
     func addMiddleLine(indexPath: IndexPath,
                      leftMarign: CGFloat = 0,
                      rightMarign: CGFloat = 0,
@@ -144,11 +145,11 @@ public extension SwiftBrickWrapper where Wrapped: UITableViewCell {
         }
     }
     
-    /// 添加底部分割线
+    /// Add bottom divider line / 添加底部分割线
     /// - Parameters:
-    ///   - leftMarign: 左侧间距
-    ///   - rightMarign: 右间距
-    ///   - lineColor: 选中颜色，默认为灰色线
+    ///   - leftMarign: Left margin / 左侧间距
+    ///   - rightMarign: Right margin / 右间距
+    ///   - lineColor: Selected color, default gray line / 选中颜色，默认为灰色线
     func addDownLine(leftMarign: CGFloat = 0,
                      rightMarign: CGFloat = 0,
                      lineColor: UIColor = .clear){

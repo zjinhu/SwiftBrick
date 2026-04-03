@@ -8,7 +8,9 @@
 
 import Foundation
 import UIKit
+// MARK: ===================================Extension: Gradient Background Color=========================================
 // MARK: ===================================扩展: 渐变色背景色=========================================
+/// Gradient point positions / 渐变起始点位置
 public enum GradientPoint{
     case left
     case top
@@ -35,12 +37,12 @@ public enum GradientPoint{
 
 public extension SwiftBrickWrapper where Wrapped: UIView {
     
-    /// 添加背景色,主要是渐变色背景
+    /// Set background color, mainly for gradient backgrounds / 添加背景色,主要是渐变色背景
     /// - Parameters:
-    ///   - colors: 背景色数组,一个的话仅仅是设置背景色,多个的话会设置渐变色
-    ///   - size: 视图大小,默认self.bounds,snap的需要注意layoutifneed
-    ///   - startPoint: 渐变色起点
-    ///   - endPoint: 渐变色终点
+    ///   - colors: Background color array - single color for solid, multiple for gradient / 背景色数组,一个的话仅仅是设置背景色,多个的话会设置渐变色
+    ///   - size: View size, default self.bounds, snap needs layoutIfNeeded / 视图大小,默认self.bounds,snap的需要注意layoutifneed
+    ///   - startPoint: Gradient start point / 渐变色起点
+    ///   - endPoint: Gradient end point / 渐变色终点
     func setBackColor(_ colors: [UIColor],
                       size: CGSize? = nil,
                       startPoint: CGPoint = GradientPoint.topLeft.point,
@@ -72,6 +74,7 @@ public extension SwiftBrickWrapper where Wrapped: UIView {
         }
     }
     
+    /// Add gradient layer to view / 添加渐变层到视图
     func addGradient(_ gradient: CAGradientLayer,
                      size: CGSize? = nil){
         
@@ -87,7 +90,7 @@ public extension SwiftBrickWrapper where Wrapped: UIView {
         
     }
     
-    /// 移除渐变色背景
+    /// Remove gradient background / 移除渐变色背景
     func removeGradients() {
         if let sl = wrapped.layer.sublayers {
             for layer in sl {
@@ -98,7 +101,7 @@ public extension SwiftBrickWrapper where Wrapped: UIView {
         }
     }
     
-    //返回该view所在VC,方便埋点查找
+    /// Return the VC this view belongs to, useful for tracking / 返回该view所在VC,方便埋点查找
     func firstViewController() -> UIViewController? {
         for view in sequence(first: wrapped.superview, next: { $0?.superview }) {
             if let responder = view?.next {
@@ -112,7 +115,7 @@ public extension SwiftBrickWrapper where Wrapped: UIView {
 }
 
 public extension UIView {
-    ///初始化View闭包--方便快速
+    /// Initialize view closure - quick setup / 初始化View闭包--方便快速
     static func inits<T: UIView>(builder: ((T) -> Void)? = nil) -> T {
         let view = T()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -138,6 +141,7 @@ public extension UIView {
         }
     }
     
+    /// Add tap gesture with callback closure / 添加点击手势回调
     @objc func addTapGestureWithCallback(tapGesture closure: tapGestureClosure?){
         tapGesture = closure
         isUserInteractionEnabled = true
@@ -146,6 +150,7 @@ public extension UIView {
     }
     
     
+    /// Handle tap gesture action / 处理点击手势
     @objc func handleTapGesture() {
         if let closure = tapGesture{
             closure(self)
@@ -174,6 +179,7 @@ import UIKit
 
 public extension UIView {
 
+    /// Get parent view controller / 获取父视图控制器
     var parentController: UIViewController? {
         if let responder = self.next as? UIViewController {
             return responder
@@ -192,6 +198,7 @@ import AppKit
 
 public extension NSView {
 
+    /// Get parent view controller (macOS) / 获取父视图控制器(macOS)
     var parentController: NSViewController? {
         if let responder = self.nextResponder as? NSViewController {
             return responder

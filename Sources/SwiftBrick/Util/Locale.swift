@@ -9,7 +9,7 @@ import UIKit
 import Foundation
 extension SwiftBrick{
     public struct Locale {
-        /// The current language of the system.
+        /// The current language of the system / 当前系统语言
         public static var currentLanguage: String? {
 
             if #available(iOS 16, *) {

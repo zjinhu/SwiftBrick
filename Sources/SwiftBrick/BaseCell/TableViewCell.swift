@@ -7,7 +7,9 @@
 //
 
 import UIKit
+// MARK: ===================================Cell Base: UITableViewCell=========================================
 // MARK: ===================================Cell基类:UITableViewCell=========================================
+/// Table view cell base class / TableView Cell基类
 open class TableViewCell: UITableViewCell, Reusable{
 
     override open func awakeFromNib() {
@@ -30,8 +32,8 @@ open class TableViewCell: UITableViewCell, Reusable{
         setupCellViews()
     }
     
-    // MARK: - 继承 在内部实现布局
-    /// 子类重写，进行view布局
+    // MARK: - Override in subclass for layout / 继承 在内部实现布局
+    /// Subclass override for view layout / 子类重写，进行view布局
     open func setupCellViews() {
         
     }

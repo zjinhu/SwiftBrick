@@ -14,7 +14,7 @@ public extension NSObject {
         static var NotificationCenterKey: UInt8 = 0
     }
     
-    /// 通知中心
+    /// Notification center wrapper / 通知中心
     var notifiCenter: NotificationTool {
         get {
             if let center =  objc_getAssociatedObject(self, &Associated.NotificationCenterKey) as? NotificationTool{
@@ -32,6 +32,7 @@ public extension NSObject {
     
 }
 
+/// Notification tool for managing notifications / 通知管理工具
 public class NotificationTool: NSObject {
     
     var observers = [NSNotification.Name : Any]()
@@ -40,57 +41,57 @@ public class NotificationTool: NSObject {
         removeAllNotification()
     }
     
-    /// 移除所有通知
+    /// Remove all notifications / 移除所有通知
     public func removeAllNotification(){
         observers.keys.forEach { (name) in
             removeNotification(name: name.rawValue)
         }
     }
     
-    /// 移除单个通知
-    /// - Parameter name: 通知名称String
+    /// Remove single notification / 移除单个通知
+    /// - Parameter name: Notification name string / 通知名称String
     public func removeNotification(name : String){
         guard let ob = observers[NSNotification.Name.init(rawValue: name)] else { return }
         NotificationCenter.default.removeObserver(ob)
         observers.removeValue(forKey: NSNotification.Name.init(rawValue: name))
     }
     
-    /// 移除单个系统通知
-    /// - Parameter forName: NSNotification.Name通知名称
+    /// Remove single system notification / 移除单个系统通知
+    /// - Parameter forName: NSNotification.Name notification name / NSNotification.Name通知名称
     public func removeNotification(notiName : NSNotification.Name){
         removeNotification(name: notiName.rawValue)
     }
     
-    /// 移除多个通知
-    /// - Parameter names: 通知名称String数组
+    /// Remove multiple notifications / 移除多个通知
+    /// - Parameter names: Array of notification name strings / 通知名称String数组
     public func removeNotifications(names : [String]){
         names.forEach { (name) in
             removeNotification(name: name)
         }
     }
     
-    /// 移除多个系统通知
-    /// - Parameter notiNames: 通知名称NSNotification.Name数组
+    /// Remove multiple system notifications / 移除多个系统通知
+    /// - Parameter notiNames: Array of NSNotification.Name / 通知名称NSNotification.Name数组
     public func removeNotifications(notiNames : [NSNotification.Name]){
         notiNames.forEach { (name) in
             removeNotification(notiName: name)
         }
     }
     
-    /// 注册添加通知
+    /// Register single notification / 注册添加通知
     /// - Parameters:
-    ///   - name: 通知名称String
-    ///   - callBack: 通知执行的回调
+    ///   - name: Notification name string / 通知名称String
+    ///   - callBack: Notification callback / 通知执行的回调
     public func addNotification(_ name : String, callBack : @escaping (Notification) -> Void){
         removeNotification(name: name)
         let ob = NotificationCenter.default.addObserver(forName: NSNotification.Name.init(rawValue: name), object: nil, queue: OperationQueue.main, using: callBack)
         observers.updateValue(ob, forKey: NSNotification.Name.init(rawValue: name))
     }
     
-    /// 注册添加多个通知
+    /// Register multiple notifications / 注册添加多个通知
     /// - Parameters:
-    ///   - names: 通知名称String数组
-    ///   - callBack: 通知执行的回调
+    ///   - names: Array of notification name strings / 通知名称String数组
+    ///   - callBack: Notification callback / 通知执行的回调
     public func addNotifications(_ names : [String], callBack : @escaping (Notification) -> Void){
         names.forEach { (name) in
             removeNotification(name: name)
@@ -99,20 +100,20 @@ public class NotificationTool: NSObject {
         }
     }
     
-    /// 注册添加通知
+    /// Register single system notification / 注册添加通知
     /// - Parameters:
-    ///   - notiName: NSNotification.Name通知名称
-    ///   - callBack: 通知执行的回调
+    ///   - notiName: NSNotification.Name notification name / NSNotification.Name通知名称
+    ///   - callBack: Notification callback / 通知执行的回调
     public func addNotification(_ notiName : NSNotification.Name, callBack : @escaping (Notification) -> Void){
         removeNotification(notiName: notiName)
         let ob = NotificationCenter.default.addObserver(forName: notiName, object: nil, queue: OperationQueue.main, using: callBack)
         observers.updateValue(ob, forKey: notiName)
     }
     
-    /// 注册添加多个通知
+    /// Register multiple system notifications / 注册添加多个通知
     /// - Parameters:
-    ///   - notiNames: NSNotification.Name通知名称数组
-    ///   - callBack: 通知执行的回调
+    ///   - notiNames: Array of NSNotification.Name / NSNotification.Name通知名称数组
+    ///   - callBack: Notification callback / 通知执行的回调
     public func addNotifications(_ notiNames : [NSNotification.Name], callBack : @escaping (Notification) -> Void){
         notiNames.forEach { (notiName) in
             removeNotification(notiName: notiName)
@@ -121,11 +122,11 @@ public class NotificationTool: NSObject {
         }
     }
     
-    /// 发送通知
+    /// Post notification / 发送通知
     /// - Parameters:
-    ///   - name: 通知名称
-    ///   - object: 发送对象
-    ///   - userInfo: 发送字典
+    ///   - name: Notification name / 通知名称
+    ///   - object: Sender object / 发送对象
+    ///   - userInfo: User info dictionary / 发送字典
     public func postNotification(_ name : String, object: Any? = nil, userInfo : [String : Any]? = nil){
         NotificationQueue.default.enqueue(Notification.init(name: Notification.Name.init(rawValue: name), object: object, userInfo: userInfo), postingStyle: .whenIdle, coalesceMask: .onName, forModes: nil)
     }

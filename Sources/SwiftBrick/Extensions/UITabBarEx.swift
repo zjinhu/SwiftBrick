@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+// MARK: ===================================Extension: UITabBar=========================================
 // MARK: ===================================扩展: UITabBar=========================================
 public extension UITabBar {
     
@@ -23,7 +24,7 @@ public extension UITabBar {
         return 1000
     }
     
-    // 小红点size
+    /// Badge size / 小红点size
     var badgeSize: CGSize {
         get{
             if let size = objc_getAssociatedObject(self, &AssociatedKeys.kBadgeSize) as? CGSize {
@@ -37,7 +38,7 @@ public extension UITabBar {
         }
     }
     
-    // 小红点图片
+    /// Badge image / 小红点图片
     var badgeImage: UIImage? {
         get{
             if let image = objc_getAssociatedObject(self, &AssociatedKeys.kBadgeImage) as? UIImage {
@@ -51,7 +52,7 @@ public extension UITabBar {
         }
     }
     
-    // 小红点颜色
+    /// Badge color / 小红点颜色
     var badgeColor: UIColor {
         get{
             if let color = objc_getAssociatedObject(self, &AssociatedKeys.kBadgeColor) as? UIColor {
@@ -65,7 +66,7 @@ public extension UITabBar {
         }
     }
     
-    // 小红点的x、y值
+    /// Badge position x,y / 小红点的x、y值
     var badgePoint: CGPoint {
         get{
             if let point = objc_getAssociatedObject(self, &AssociatedKeys.kBadgePoint) as? CGPoint {
@@ -79,7 +80,7 @@ public extension UITabBar {
         }
     }
     
-    // 小红点的数字
+    /// Badge number value / 小红点的数字
     var badgeValue: Int {
         get{
             if let num = objc_getAssociatedObject(self, &AssociatedKeys.kBadgeValue) as? Int{
@@ -93,28 +94,31 @@ public extension UITabBar {
         }
     }
     
+    /// Set title color for normal and selected states / 设置标题颜色(正常和选中状态)
     @available(iOS 13.0, *)
     static func setTitleColor(normal: UIColor, selected: UIColor){
         let tabAppearance = UITabBarAppearance()
-         //设置颜色
+         // Set color / 设置颜色
         tabAppearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: normal]
         tabAppearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: selected]
-         //统一各种情况下的显示样式
+         // Unified appearance for all states / 统一各种情况下的显示样式
         setAppearance(tabAppearance)
     }
     
+    /// Set shadow color / 设置阴影颜色
     @available(iOS 13.0, *)
     static func setShadowColor(_ color: UIColor = .clear){
         let tabAppearance = UITabBarAppearance()
-         //设置颜色
+         // Set color / 设置颜色
         tabAppearance.shadowColor = color // UIColor
-         //统一各种情况下的显示样式
+         // Unified appearance for all states / 统一各种情况下的显示样式
         setAppearance(tabAppearance)
     }
     
+    /// Set tab bar appearance / 设置TabBar外观
     @available(iOS 13.0, *)
     static func setAppearance(_ appearance: UITabBarAppearance){
-         //统一各种情况下的显示样式
+         // Unified appearance for all states / 统一各种情况下的显示样式
         if #available(iOS 15.0, *) {
             UITabBar.appearance().scrollEdgeAppearance = appearance
         }
@@ -124,12 +128,12 @@ public extension UITabBar {
 }
 
 public extension SwiftBrickWrapper where Wrapped: UITabBar {
-    // MARK:-显示小红点
+    // MARK:- Show badge / 显示小红点
     func showBadgeOnItemIndex(index:Int){
-        // 移除
+        // Remove existing badge / 移除
         removeRedPointOnIndex(index: index, animation: false)
         
-        // 小红点背景默认值大小设置
+        // Set default badge size / 小红点背景默认值大小设置
         if __CGSizeEqualToSize(wrapped.badgeSize, CGSize.zero) {
             wrapped.badgeSize = CGSize(width: 10, height: 10)
         }
@@ -142,7 +146,7 @@ public extension SwiftBrickWrapper where Wrapped: UITabBar {
         
         let barButtonView = getBarButttonViewWithIndex(index: index)
         
-        //（图片的imageView）
+        // Image imageView / （图片的imageView）
         var iconView = UIView()
         for swappableImageView in barButtonView.subviews {
             if swappableImageView.isKind(of: UIImageView.self) {
@@ -151,7 +155,7 @@ public extension SwiftBrickWrapper where Wrapped: UITabBar {
             }
         }
         
-        // 小红点背景默认值Point设置
+        // Set default badge point / 小红点背景默认值Point设置
         if __CGPointEqualToPoint(wrapped.badgePoint, CGPoint.zero) {
             let iconViewSize = iconView.frame.size
             badgeView.frame = CGRect(x: iconViewSize.width - wrapped.badgeSize.width / 2, y: -wrapped.badgeSize.width / 2, width: wrapped.badgeSize.width, height: wrapped.badgeSize.height)
@@ -159,7 +163,7 @@ public extension SwiftBrickWrapper where Wrapped: UITabBar {
             badgeView.frame = CGRect(x: wrapped.badgePoint.x, y: wrapped.badgePoint.y, width: wrapped.badgeSize.width, height: wrapped.badgeSize.height)
         }
         
-        // 添加图片到小红点上
+        // Add image to badge / 添加图片到小红点上
         let imageview = UIImageView(frame: badgeView.bounds)
         imageview.clipsToBounds = true
         imageview.contentMode = .scaleAspectFill
@@ -180,11 +184,12 @@ public extension SwiftBrickWrapper where Wrapped: UITabBar {
         iconView.addSubview(badgeView)
     }
     
-    // MARK:-隐藏小红点
+    // MARK:- Hide badge / 隐藏小红点
     func hiddenRedPointOnIndex(index:Int, animation:Bool){
         removeRedPointOnIndex(index: index, animation: animation)
     }
     
+    /// Remove red point at index / 移除指定索引的小红点
     fileprivate func removeRedPointOnIndex(index:Int, animation:Bool) {
         let barButtonView = getBarButttonViewWithIndex(index: index)
         
@@ -217,7 +222,7 @@ public extension SwiftBrickWrapper where Wrapped: UITabBar {
         
     }
     
-    // 获取barButtonView
+    /// Get bar button view at index / 获取指定索引的barButtonView
     fileprivate func getBarButttonViewWithIndex(index:Int) -> UIView {
         
         if let itemss = wrapped.items {

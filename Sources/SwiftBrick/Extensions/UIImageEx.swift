@@ -8,9 +8,11 @@
 
 import UIKit
 import CommonCrypto
+// MARK: ===================================Extension: UIImage=========================================
 // MARK: ===================================扩展: UIImage=========================================
 extension UIImage {
  
+    /// Default back icon / 默认返回图标
     public static let icon_back: UIImage = {
         if #available(iOS 13.0, *){
             return UIImage.symbol("chevron.backward", color: .textTitleColor) ?? UIImage()
@@ -19,6 +21,7 @@ extension UIImage {
         }
     }()
  
+    /// Default close icon / 默认关闭图标
     public static let icon_close: UIImage = {
         if #available(iOS 13.0, *){
             return UIImage.symbol("xmark", color: .textTitleColor) ?? UIImage()
@@ -30,12 +33,14 @@ extension UIImage {
 
 extension UIImage {
     
+    /// Create SF Symbol image / 创建SF Symbol图片
     @available(iOS 13.0, *)
     public static func symbol(_ systemName:String, size: CGFloat = 24, color: UIColor = .white) -> UIImage?{
         let config = UIImage.SymbolConfiguration(pointSize: size)
         return UIImage(systemName: systemName, withConfiguration: config)?.withTintColor(color, renderingMode: .alwaysOriginal)
     }
   
+    /// Create SF Symbol image without color / 创建SF Symbol图片(无颜色)
     @available(iOS 13.0, *)
     public static func symbol(_ systemName: String, size: CGFloat = 24) -> UIImage?{
         let config = UIImage.SymbolConfiguration(pointSize: size)
@@ -56,6 +61,7 @@ class CountedColor {
 
 public extension SwiftBrickWrapper where Wrapped: UIImage {
     
+    /// SHA256 hash of image data / 图片数据的SHA256哈希值
     var sha256: String {
         let data = Data(wrapped.pngData()!)
         let hash = data.withUnsafeBytes { (bytes: UnsafeRawBufferPointer) -> [UInt8] in
@@ -66,6 +72,7 @@ public extension SwiftBrickWrapper where Wrapped: UIImage {
         return hash.reduce("") { $0 + String(format:"%02x", $1) }
     }
     
+    /// Resize image to new size / 调整图片尺寸
     fileprivate func resize(to newSize: CGSize) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(newSize, false, 2)
         wrapped.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
@@ -74,7 +81,7 @@ public extension SwiftBrickWrapper where Wrapped: UIImage {
         
         return result!
     }
-    ///取图片色系 background背景色 primary主色调 secondary次要颜色 detail内容颜色
+    /// Extract image color scheme - background, primary, secondary, detail colors / 取图片色系 background背景色 primary主色调 secondary次要颜色 detail内容颜色
     func colors(scaleDownSize: CGSize? = nil) -> (background: UIColor, primary: UIColor, secondary: UIColor, detail: UIColor) {
         let cgImage: CGImage
         
@@ -200,7 +207,7 @@ public extension SwiftBrickWrapper where Wrapped: UIImage {
             secondaryColor ?? (isDarkBackgound ? whiteColor: blackColor),
             detailColor    ?? (isDarkBackgound ? whiteColor: blackColor))
     }
-    ///取图片上一点颜色
+    /// Get color at specific point in image / 取图片上指定点的颜色
     func color(at point: CGPoint, completion: @escaping (UIColor?) -> Void) {
         let size = wrapped.size
         let cgImage = wrapped.cgImage

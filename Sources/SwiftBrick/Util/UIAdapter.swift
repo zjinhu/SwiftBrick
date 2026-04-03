@@ -3,18 +3,20 @@ import Foundation
 #if os(iOS)
 import UIKit
 
+/// UI adapter for proportional scaling across different screen sizes / UI适配器 - 用于不同屏幕尺寸的等比例缩放
 public enum UIAdapter {
     
+    /// Zoom/Scaling utilities / 缩放计算工具
     public enum Zoom {
         
-        /// 设置转换闭包
+        /// Set conversion closure / 设置转换闭包
         ///
-        /// - Parameter conversion: 转换闭包
+        /// - Parameter conversion: Conversion closure / 转换闭包
         public static func set(conversion: @escaping ((Double) -> Double)) {
             conversionClosure = conversion
         }
         
-        /// 转换 用于数值的等比例计算 如需自定义可重新设置
+        /// Conversion for proportional scaling - can be customized / 转换 用于数值的等比例计算 如需自定义可重新设置
         static var conversionClosure: ((Double) -> Double) = { (origin) in
             guard UIDevice.current.userInterfaceIdiom == .phone else {
                 return origin
@@ -38,11 +40,12 @@ extension UIAdapter.Zoom {
     }
 }
 
+/// Protocol for zoom calculation / 缩放计算协议
 public protocol UIAdapterZoomCalculationable {
     
-    /// 缩放计算
+    /// Zoom calculation / 缩放计算
     ///
-    /// - Returns: 结果
+    /// - Returns: Result / 结果
     func zoom() -> Self
 }
 
@@ -633,14 +636,14 @@ extension UIAdapter {
             base.nativeScale
         }
         
-        /// 是否为显示缩放模式
+        /// Whether display is in zoomed mode / 是否为显示缩放模式
         public var isZoomedMode: Bool {
             guard !UIDevice.iPhonePlus else { return size.width == 375 }
             guard !UIDevice.iPhoneMini else { return size.width == 320 }
             return scale != nativeScale
         }
         
-        /// 真实宽高比 例如: iPhone 16 Pro (201:437)
+        /// Real aspect ratio, e.g. iPhone 16 Pro (201:437) / 真实宽高比 例如: iPhone 16 Pro (201:437)
         public var aspectRatio: String {
             if
                 let cache = _aspectRatio,
@@ -655,7 +658,7 @@ extension UIAdapter {
         }
         private var _aspectRatio: (CGSize, String)?
         
-        /// 标准宽高比 例如: iPhone 16 Pro (9:19.5)
+        /// Standard aspect ratio, e.g. iPhone 16 Pro (9:19.5) / 标准宽高比 例如: iPhone 16 Pro (9:19.5)
         public var standardAspectRatio: String {
             if
                 let cache = _standardAspectRatio,
@@ -674,7 +677,7 @@ extension UIAdapter {
 
 extension UIAdapter.Screen {
     
-    /// 当前主屏幕
+    /// Current main screen / 当前主屏幕
     public static let main = UIAdapter.Screen(.main)
 }
 
@@ -737,11 +740,11 @@ extension UIAdapter.Screen {
     
     public enum Level: Int {
         case unknown = -1
-        /// 3: 2
+        /// 3:2 ratio / 3:2 比例
         case compact
-        /// 16: 9
+        /// 16:9 ratio / 16:9 比例
         case regular
-        /// 19.5: 9
+        /// 19.5:9 ratio / 19.5:9 比例
         case full
         
         public var isCompact: Bool {
@@ -791,7 +794,7 @@ extension UIEdgeInsets: UIAdapterScreenCompatible {}
 
 fileprivate extension UIDevice {
     
-    /// 是否使用了降采样
+    /// Whether downsampling is used / 是否使用了降采样
     static var isUsingDownsampling: Bool {
         return iPhoneMini || iPhonePlus
     }
@@ -854,9 +857,9 @@ fileprivate extension UIDevice {
 
 extension UIScreen {
     
-    /// 真实宽高比 例如: iPhone 16 Pro (201:437)
+    /// Real aspect ratio, e.g. iPhone 16 Pro (201:437) / 真实宽高比 例如: iPhone 16 Pro (201:437)
     var aspectRatio: String {
-        // 计算宽高比
+        // Calculate aspect ratio / 计算宽高比
         let (ratioWidth, ratioHeight) = calculateAspectRatio(
             width: nativeBounds.width,
             height: nativeBounds.height
@@ -864,9 +867,9 @@ extension UIScreen {
         return "\(ratioWidth):\(ratioHeight)"
     }
     
-    /// 标准宽高比 例如: iPhone 16 Pro (9:19.5)
+    /// Standard aspect ratio, e.g. iPhone 16 Pro (9:19.5) / 标准宽高比 例如: iPhone 16 Pro (9:19.5)
     var standardAspectRatio: String {
-        // 获取近似的标准比例
+        // Get approximate standard ratio / 获取近似的标准比例
         return getStandardAspectRatio(
             width: nativeBounds.width,
             height: nativeBounds.height
@@ -874,7 +877,7 @@ extension UIScreen {
     }
     
     private func calculateAspectRatio(width: CGFloat, height: CGFloat) -> (Int, Int) {
-        // 计算最大公约数（欧几里得算法）
+        // Calculate greatest common divisor (Euclidean algorithm) / 计算最大公约数（欧几里得算法）
         func gcd(_ a: Int, _ b: Int) -> Int {
             var a = a
             var b = b
@@ -886,7 +889,7 @@ extension UIScreen {
             return a
         }
         
-        let precision: CGFloat = 1000  // 精度倍数
+        let precision: CGFloat = 1000  // Precision multiplier / 精度倍数
         let widthInt = Int(width * precision)
         let heightInt = Int(height * precision)
         
@@ -901,7 +904,7 @@ extension UIScreen {
     private func getStandardAspectRatio(width: CGFloat, height: CGFloat) -> String {
         let aspectRatio = width / height
         
-        // 常见的屏幕比例
+        // Common screen ratios / 常见的屏幕比例
         let commonRatios: [(ratio: CGFloat, description: String)] = [
             (16.0/9.0, "16:9"),
             (9.0/16.0, "9:16"),

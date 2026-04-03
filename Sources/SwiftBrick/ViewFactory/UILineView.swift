@@ -7,66 +7,72 @@
 //
 
 import UIKit
+// MARK: ===================================Factory: Dashed and Solid Lines=========================================
 // MARK: ===================================工厂类:虚线 实线=========================================
+/// Line view for drawing dashed or solid lines / 虚线/实线视图
 public class UILineView: UIView {
-    ///线宽度
+    /// Line width / 线宽度
     public var lineWidth: CGFloat = Define.lineHeight{
         didSet{
             setNeedsDisplay()
         }
     }
-    ///线颜色
+    /// Line color / 线颜色
     public var lineColor: UIColor = .baseLine{
         didSet{
             setNeedsDisplay()
         }
     }
     
+    /// Left padding / 左侧内边距
     public var paddingLeft: CGFloat = 0{
         didSet{
             setNeedsDisplay()
         }
     }
     
+    /// Right padding / 右侧内边距
     public var paddingRight: CGFloat = 0{
         didSet{
             setNeedsDisplay()
         }
     }
     
+    /// Top padding / 顶部内边距
     public var paddingTop: CGFloat = 0{
         didSet{
             setNeedsDisplay()
         }
     }
     
+    /// Bottom padding / 底部内边距
     public var paddingBottom: CGFloat = 0{
         didSet{
             setNeedsDisplay()
         }
     }
     
-    // 横线 竖线
+    /// Horizontal or vertical line / 横线 竖线
     public var isHorizontal: Bool = true{
         didSet{
             setNeedsDisplay()
         }
     }
     
-    // 是否虚线
+    /// Whether dashed line / 是否虚线
     public var isDash: Bool = false{
         didSet{
             setNeedsDisplay()
         }
     }
     
-    ///虚线长
+    /// Dash segment length / 虚线长
     public var dashPointWidth: CGFloat = 3.0{
         didSet{
             setNeedsDisplay()
         }
     }
-    ///虚线间距
+    /// Dash gap length / 虚线间距
     public var dashPointSpace: CGFloat = 1.0{
         didSet{
             setNeedsDisplay()
@@ -75,8 +81,8 @@ public class UILineView: UIView {
     
     public override func draw(_ rect: CGRect) {
         super.draw(rect)
-        // Drawing code
-        // 获取上下文对象
+        // Drawing code / 绘制代码
+        // Get graphics context / 获取上下文对象
         guard let context = UIGraphicsGetCurrentContext() else {
             return
         }
@@ -93,22 +99,22 @@ public class UILineView: UIView {
             ex = bx
             ey = rect.size.height - paddingBottom
         }
-        // 画中间虚线
+        // Draw middle dashed line / 画中间虚线
         let path    = CGMutablePath()
         let begin   = CGPoint(x: bx, y: by),
             end     = CGPoint(x: ex, y: ey)
         path.move(to: begin)
         path.addLine(to: end)
-        // 2、 添加路径到图形上下文
+        // 2、 Add path to graphics context / 2、 添加路径到图形上下文
         context.addPath(path)
-        // 3、 设置状态
+        // 3、 Set state / 3、 设置状态
         
         context.setLineWidth(lineWidth)
         context.setStrokeColor(lineColor.cgColor)
         if isDash {
             context.setLineDash(phase: 0, lengths: [dashPointWidth, dashPointSpace])
         }
-        // 4、 绘制图像到指定图形上下文
+        // 4、 Draw path to graphics context / 4、 绘制图像到指定图形上下文
         context.drawPath(using: .fillStroke)
     }
     
@@ -122,14 +128,14 @@ public class UILineView: UIView {
         backgroundColor = .clear
     }
     
-    /// 快速画线
+    /// Quick line creation convenience initializer / 快速画线
     /// - Parameters:
-    ///   - horizontal: bool 横线 竖线
-    ///   - width: 线宽
-    ///   - color: 颜色
-    ///   - dash: 是否虚线
-    ///   - dashWidth: 虚线长
-    ///   - dashSpace: 虚线间隔
+    ///   - horizontal: bool - horizontal or vertical / bool 横线 竖线
+    ///   - width: Line width / 线宽
+    ///   - color: Line color / 颜色
+    ///   - dash: Whether dashed / 是否虚线
+    ///   - dashWidth: Dash segment length / 虚线长
+    ///   - dashSpace: Dash gap length / 虚线间隔
     public convenience init(horizontal: Bool = true,
                             width: CGFloat = Define.lineHeight,
                             color: UIColor = .baseLine,

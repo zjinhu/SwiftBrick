@@ -7,17 +7,19 @@
 //
 
 import UIKit
+// MARK: ===================================Extension: UINavigationController Smooth Navigation Bar Transition=========================================
 // MARK: ===================================扩展: UINavigationController出入栈导航栏隐藏展示平滑切换,只需要①②两步即可=========================================
 //extension UIApplication {
-//    ///ios13以上失效,需要手动调用SwizzleNavBar.swizzle
+//    /// Not working on iOS 13+, need to manually call SwizzleNavBar.swizzle / ios13以上失效,需要手动调用SwizzleNavBar.swizzle
 //    override open var next: UIResponder? {
 //        SwizzleNavBar.swizzle
 //        return super.next
 //    }
 //}
 
+/// Navigation bar swizzle setup / 导航栏方法交换设置
 public class SwizzleNavBar {
-    //MARK: ‼️APP初始化时需要交换一下方法‼️重要①‼️
+    //MARK: ‼️ Must call during APP initialization ‼️ Important ① ‼️ / ‼️APP初始化时需要交换一下方法‼️重要①‼️
     public static let swizzle: Void = {
         UIViewController.swizzleMethod()
         UINavigationController.swizzle()
@@ -32,6 +34,7 @@ extension UIViewController {
     
     typealias ViewControllerWillAppearInjectBlock = (_ viewController: UIViewController , _ animated: Bool) -> Void
 
+    /// Swizzle viewWillAppear method / 交换viewWillAppear方法
     class func swizzleMethod(){
         guard self == UIViewController.self else { return }
         let originalSelector = #selector(viewWillAppear(_: ))
@@ -66,8 +69,8 @@ extension UIViewController {
     private struct Associate {
         static var NavigationBarHidden: UInt8 = 0
     }
-    //MARK: ‼️在需要展示隐藏导航栏的VC中赋值即可处理导航栏‼️重要②‼️
-    /// 处理导航栏在VC内赋值True即可隐藏导航栏
+    //MARK: ‼️ Set this property in VC to show/hide navigation bar ‼️ Important ② ‼️ / ‼️在需要展示隐藏导航栏的VC中赋值即可处理导航栏‼️重要②‼️
+    /// Set to true to hide navigation bar in this VC / 处理导航栏在VC内赋值True即可隐藏导航栏
     public var prefersNavigationBarHidden: Bool? {
         get {
             return objc_getAssociatedObject(self, &Associate.NavigationBarHidden) as? Bool
@@ -86,6 +89,7 @@ extension UINavigationController {
         static var NavigationBarAppearanceEnabled: UInt8 = 0
     }
     
+    /// Whether to enable view controller based navigation bar appearance / 是否启用基于VC的导航栏外观控制
     var viewControllerBasedNavigationBarAppearanceEnabled: Bool? {
         get {
             self.viewControllerBasedNavigationBarAppearanceEnabled = true
@@ -101,6 +105,7 @@ extension UINavigationController {
         }
     }
     
+    /// Swizzle navigation methods / 交换导航相关方法
     class func swizzle(){
         guard self == UINavigationController.self else { return }
         let originalSelector = #selector(setViewControllers(_:animated:))
@@ -125,6 +130,7 @@ extension UINavigationController {
         jh_setViewControllers(viewControllers, animated: animated)
     }
     
+    /// Setup navigation bar appearance for appearing view controller / 为即将显示的VC设置导航栏外观
     func setupViewControllerBasedNavigationBarAppearanceIfNeeded(appearingViewController: UIViewController){
         if viewControllerBasedNavigationBarAppearanceEnabled == false {
             return
@@ -135,7 +141,7 @@ extension UINavigationController {
             self.setNavigationBarHidden(viewController.prefersNavigationBarHidden ?? false, animated: animated)
         }
         
-        // 因为不是所有的都是通过push的方式，把控制器压入stack中，也可能是"-setViewControllers:"的方式，所以需要对栈顶控制器做下判断并赋值。
+        // Handle controllers not pushed via push method / 因为不是所有的都是通过push的方式，把控制器压入stack中，也可能是"-setViewControllers:"的方式，所以需要对栈顶控制器做下判断并赋值。
         guard let disappearingViewController = viewControllers.last, disappearingViewController.willAppearInjectBlock == nil else {
             return
         }

@@ -10,6 +10,7 @@ import UIKit
  
 public extension UIStackView {
 
+    /// Convenience initializer for stack view / StackView便捷初始化
     convenience init(axis: NSLayoutConstraint.Axis,
                      spacing: CGFloat = 0.0,
                      alignment: UIStackView.Alignment = .fill,
@@ -29,6 +30,7 @@ public extension UIStackView {
 }
 
 public extension SwiftBrickWrapper where Wrapped: UIStackView {
+    /// Add background view to stack view / 为StackView添加背景视图
     func addBackground(color: UIColor = .clear, cornerRadius: CGFloat = 0) {
         let subView = UIView(frame: wrapped.bounds)
         subView.backgroundColor = color
@@ -40,17 +42,20 @@ public extension SwiftBrickWrapper where Wrapped: UIStackView {
         subView.clipsToBounds = true
     }
     
+    /// Add multiple arranged subviews / 添加多个排列子视图
     func addArrangedSubviews(_ views: [UIView]) {
         views.forEach { (view) in
             wrapped.addArrangedSubview(view)
         }
     }
     
+    /// Remove arranged subview / 移除排列子视图
     func removeArrangedView(_ view: UIView){
         wrapped.removeArrangedSubview(view)
         view.removeFromSuperview()
     }
     
+    /// Remove all arranged subviews / 移除所有排列子视图
     func removeArrangedSubviews() {
         wrapped.arrangedSubviews.forEach { (view) in
             removeArrangedView(view)

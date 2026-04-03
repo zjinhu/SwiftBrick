@@ -7,37 +7,37 @@
 //
 
 import UIKit
-///方便自适应布局进行等比例宽高 等同于 FitWidth FitHight
+/// Adaptive layout proportional width/height scaling, equivalent to FitWidth FitHeight / 方便自适应布局进行等比例宽高 等同于 FitWidth FitHight
 public extension SwiftBrickWrapper where Wrapped == CGFloat {
-    /// 比例缩放 width
+    /// Proportional width scaling / 比例缩放 width
     ///
-    /// - Parameter size: origin width
-    /// - Returns: 比例缩放后的 width 没有除以2.0
+    /// - Parameter size: Origin width / 原始宽度
+    /// - Returns: Scaled width / 比例缩放后的 width 没有除以2.0
     func scaleWidth() -> CGFloat {
         return Define.screenWidth / 375 * wrapped
     }
-    /// 比例缩放 height
+    /// Proportional height scaling / 比例缩放 height
     ///
-    /// - Parameter size: origin height
-    /// - Returns: 比例缩放后的 height 没有除以2.0
+    /// - Parameter size: Origin height / 原始高度
+    /// - Returns: Scaled height / 比例缩放后的 height 没有除以2.0
     func scaleHeight() -> CGFloat {
         return Define.screenHeight / 667 * wrapped
     }
 }
-///方便自适应布局进行等比例宽高 等同于 FitWidth FitHight
+/// Adaptive layout proportional width/height scaling, equivalent to FitWidth FitHeight / 方便自适应布局进行等比例宽高 等同于 FitWidth FitHight
 
 public extension SwiftBrickWrapper where Wrapped == Int {
-    /// 比例缩放 width
+    /// Proportional width scaling / 比例缩放 width
     ///
-    /// - Parameter size: origin width
-    /// - Returns: 比例缩放后的 width 没有除以2.0
+    /// - Parameter size: Origin width / 原始宽度
+    /// - Returns: Scaled width / 比例缩放后的 width 没有除以2.0
     func scaleWidth() -> CGFloat {
         return Define.screenWidth / 375 * CGFloat(wrapped)
     }
-    /// 比例缩放 height
+    /// Proportional height scaling / 比例缩放 height
     ///
-    /// - Parameter size: origin height
-    /// - Returns: 比例缩放后的 height 没有除以2.0
+    /// - Parameter size: Origin height / 原始高度
+    /// - Returns: Scaled height / 比例缩放后的 height 没有除以2.0
     func scaleHeight() -> CGFloat {
         return Define.screenHeight / 667 * CGFloat(wrapped)
     }
@@ -45,6 +45,7 @@ public extension SwiftBrickWrapper where Wrapped == Int {
 
 public extension SwiftBrickWrapper where Wrapped: UIView {
     
+    /// Make constraints for the view / 为视图创建约束
     @discardableResult
     func makeConstraints(_ constraints: (ConstraintMaker) -> Void) -> [NSLayoutConstraint] {
         let maker = ConstraintMaker(view: wrapped)
@@ -54,6 +55,7 @@ public extension SwiftBrickWrapper where Wrapped: UIView {
         return activatedConstraints
     }
 
+    /// Remake all constraints for the view / 重新为视图创建所有约束
     @discardableResult
     func remakeConstraints(_ constraints: (ConstraintMaker) -> Void) -> [NSLayoutConstraint] {
         let allConstraints = (wrapped.superview?.constraints ?? []) + wrapped.constraints
@@ -78,6 +80,7 @@ public extension SwiftBrickWrapper where Wrapped: UIView {
         return activatedConstraints
     }
 
+    /// Update existing constraints / 更新现有约束
     @discardableResult
     func updateConstraints(_ constraints: (ConstraintMaker) -> Void) -> [NSLayoutConstraint] {
         let maker = ConstraintMaker(view: wrapped)
@@ -86,6 +89,7 @@ public extension SwiftBrickWrapper where Wrapped: UIView {
         return updatedConstraints
     }
     
+    /// Replace and activate constraints / 替换并激活约束
     private func replaceAndActivateConstraints(_ newConstraints: [NSLayoutConstraint]) -> [NSLayoutConstraint] {
         var updatedConstraints: [NSLayoutConstraint] = []
         
@@ -109,6 +113,7 @@ public extension SwiftBrickWrapper where Wrapped: UIView {
         return updatedConstraints
     }
     
+    /// Find matching constraint from existing constraints / 从现有约束中查找匹配的约束
     private func findMatchingConstraint(_ newConstraint: NSLayoutConstraint, in oldConstraints: [NSLayoutConstraint]) -> NSLayoutConstraint? {
         return oldConstraints.first { old in
             let oldFirstAnchor = old.firstAnchor
@@ -120,6 +125,7 @@ public extension SwiftBrickWrapper where Wrapped: UIView {
         }
     }
     
+    /// Compare two layout anchors / 比较两个布局锚点
     private func compareAnchors(_ anchor1: NSLayoutAnchor<AnyObject>?, _ anchor2: NSLayoutAnchor<AnyObject>?) -> Bool {
         guard let a1 = anchor1, let a2 = anchor2 else { return false }
         return a1 === a2
@@ -206,6 +212,7 @@ public extension SwiftBrickWrapper where Wrapped: UIView {
     }
 }
 
+/// Constraint maker for building layout constraints / 约束构建器
 public class ConstraintMaker {
     var constraints: [NSLayoutConstraint] = []
     private weak var view: UIView?
@@ -482,6 +489,7 @@ public class ConstraintMaker {
     }
 }
 
+/// Offset helper for constraint constants / 约束偏移量助手
 public class Offset {
     private let closure: (CGFloat) -> Void
     
@@ -494,6 +502,7 @@ public class Offset {
     }
 }
 
+/// Update offset helper for constraint updates / 约束更新偏移量助手
 public class UpdateOffset {
     private let constraint: NSLayoutConstraint?
     
@@ -508,6 +517,7 @@ public class UpdateOffset {
 
 public extension NSLayoutConstraint {
     
+    /// Update constraint constant / 更新约束常量
     func update(constant: CGFloat) {
         self.constant = constant
         if self.isActive, let view = self.firstItem as? UIView {
@@ -515,6 +525,7 @@ public extension NSLayoutConstraint {
         }
     }
     
+    /// Update constraint priority / 更新约束优先级
     func update(priority: UILayoutPriority) {
         self.priority = priority
     }

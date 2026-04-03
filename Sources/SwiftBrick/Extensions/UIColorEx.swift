@@ -8,10 +8,11 @@
 
 import UIKit
 import Foundation
+// MARK: ===================================Extension: Color=========================================
 // MARK: ===================================扩展: 颜色=========================================
 
 public extension UIColor {
-    /// 支持暗黑模式的颜色
+    /// Colors supporting dark mode / 支持暗黑模式的颜色
     static let baseBlue = L.color("baseBlue")
     static let baseGray = L.color("baseGray")
     static let baseGreen = L.color("baseGreen")
@@ -36,6 +37,7 @@ public extension UIColor {
 
 public extension UIColor {
     
+    /// Create dynamic color for light/dark mode / 创建支持暗黑模式的动态颜色
     static func dynamicColor(light: UIColor, dark: UIColor) -> UIColor {
         guard #available(iOS 13.0, *) else { return light }
         return UIColor { $0.userInterfaceStyle == .dark ? dark : light }
@@ -45,7 +47,7 @@ public extension UIColor {
 
 public extension UIColor {
     
-    ///根据RGB生成颜色
+    /// Create color from RGB / 根据RGB创建颜色
     convenience init(r: Int, g: Int, b: Int, a: CGFloat = 1) {
         var trans = a
         if trans < 0 { trans = 0 }
@@ -54,7 +56,7 @@ public extension UIColor {
         self.init(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: trans)
     }
     
-    ///根据16进制生成颜色
+    /// Create color from hex value / 根据16进制创建颜色
     convenience init(hex: Int, alpha: CGFloat = 1) {
         let red = (hex >> 16) & 0xff
         let green = (hex >> 8) & 0xff
@@ -62,7 +64,7 @@ public extension UIColor {
         self.init(r: red, g: green, b: blue, a: alpha)
     }
     
-    ///根据16进制字符串生成颜色.支持 0x 或 # 开头字符串
+    /// Create color from hex string, supports 0x or # prefix / 根据16进制字符串创建颜色.支持 0x 或 # 开头字符串
     convenience init(_ hex: String) {
         var string = ""
         if hex.lowercased().hasPrefix("0x") {
@@ -91,7 +93,7 @@ public extension UIColor {
         self.init(r: Int(r), g: Int(g), b: Int(b), a: CGFloat(a))
     }
     
-    ///简化RGB颜色写法
+    /// Simplified RGB color creation / 简化RGB颜色写法
     static func RGBA(r: Int, g: Int, b: Int, a: CGFloat) -> UIColor {
         let redFloat = CGFloat(r) / 255.0
         let green = CGFloat(g) / 255.0
@@ -99,7 +101,7 @@ public extension UIColor {
         return UIColor(red: redFloat, green: green, blue: blue, alpha: a)
     }
     
-    ///随机色
+    /// Random color / 随机色
     static var random: UIColor {
         let red = Int.random(in: 0...255)
         let green = Int.random(in: 0...255)
@@ -109,7 +111,7 @@ public extension UIColor {
 }
 
 public extension Array where Element: UIColor {
-    ///通过颜色数组生成渐变色
+    /// Create gradient layer from color array / 通过颜色数组生成渐变色
     func gradient(_ transform: ((_ gradient: inout CAGradientLayer) -> CAGradientLayer)? = nil) -> CAGradientLayer {
         var gradient = CAGradientLayer()
         gradient.colors = self.map { $0.cgColor }
@@ -124,6 +126,7 @@ public extension Array where Element: UIColor {
 
 public extension SwiftBrickWrapper where Wrapped: UIColor {
     
+    /// Get RGB component values / 获取RGB分量值
     internal func rgbComponents() -> [CGFloat] {
         var (r, g, b, a): (CGFloat, CGFloat, CGFloat, CGFloat) = (0.0, 0.0, 0.0, 0.0)
         wrapped.getRed(&r, green: &g, blue: &b, alpha: &a)
@@ -131,26 +134,31 @@ public extension SwiftBrickWrapper where Wrapped: UIColor {
         return [r, g, b]
     }
     
+    /// Whether color is dark / 是否为深色
     var isDark: Bool {
         let RGB = rgbComponents()
         return (0.2126 * RGB[0] + 0.7152 * RGB[1] + 0.0722 * RGB[2]) < 0.5
     }
     
+    /// Whether color is black or white / 是否为黑色或白色
     var isBlackOrWhite: Bool {
         let RGB = rgbComponents()
         return (RGB[0] > 0.91 && RGB[1] > 0.91 && RGB[2] > 0.91) || (RGB[0] < 0.09 && RGB[1] < 0.09 && RGB[2] < 0.09)
     }
     
+    /// Whether color is black / 是否为黑色
     var isBlack: Bool {
         let RGB = rgbComponents()
         return (RGB[0] < 0.09 && RGB[1] < 0.09 && RGB[2] < 0.09)
     }
     
+    /// Whether color is white / 是否为白色
     var isWhite: Bool {
         let RGB = rgbComponents()
         return (RGB[0] > 0.91 && RGB[1] > 0.91 && RGB[2] > 0.91)
     }
     
+    /// Whether color is distinct from another color / 是否与另一颜色有明显区别
     func isDistinct(from color: UIColor) -> Bool {
         let bg = rgbComponents()
         let fg = color.ss.rgbComponents()
@@ -169,6 +177,7 @@ public extension SwiftBrickWrapper where Wrapped: UIColor {
         return result
     }
     
+    /// Whether color has sufficient contrast with another color / 是否与另一颜色有足够对比度
     func isContrasting(with color: UIColor) -> Bool {
         let bg = rgbComponents()
         let fg = color.ss.rgbComponents()
@@ -182,7 +191,7 @@ public extension SwiftBrickWrapper where Wrapped: UIColor {
         return 1.6 < contrast
     }
     
-    ///最小饱和度值
+    /// Adjust to minimum saturation / 最小饱和度值
     func color(_ minSaturation: CGFloat) -> UIColor {
         var (hue, saturation, brightness, alpha): (CGFloat, CGFloat, CGFloat, CGFloat) = (0.0, 0.0, 0.0, 0.0)
         wrapped.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
@@ -192,7 +201,7 @@ public extension SwiftBrickWrapper where Wrapped: UIColor {
         : wrapped
     }
     
-    ///调整alpha
+    /// Adjust alpha value / 调整alpha值
     func alpha(_ value: CGFloat) -> UIColor {
         return wrapped.withAlphaComponent(value)
     }

@@ -6,8 +6,10 @@
 //
 
 import Foundation
-///https://www.jianshu.com/p/6e963d82b129
+/// https://www.jianshu.com/p/6e963d82b129
+// MARK: ===================================Utility: UserDefault Property Wrapper=========================================
 // MARK: ===================================工具类:UserDefault属性包裹器=========================================
+/// UserDefault property wrapper for easy UserDefaults access / UserDefault属性包裹器
 @propertyWrapper
 public struct UserDefault<T> {
     private let key: String
@@ -32,6 +34,7 @@ public struct UserDefault<T> {
     }
 }
 
+/// UserDefault property wrapper with suite name support / 支持suiteName的UserDefault属性包裹器
 @propertyWrapper
 public struct UserDefaultSuite<T> {
     private let suiteName: String
@@ -58,9 +61,9 @@ public struct UserDefaultSuite<T> {
     }
 }
 
-//MARK: 使用示例
+//MARK: Usage Example / 使用示例
 //
-/////封装一个UserDefault配置文件
+///// Encapsulate a UserDefaults configuration file / 封装一个UserDefault配置文件
 //struct UserDefaultsConfig {
 //    @UserDefault(key: "username", defaultValue: "123")
 //    static var username: String
@@ -71,12 +74,13 @@ public struct UserDefaultSuite<T> {
 //    static var test: String
 //}
 //
+//
 
-/////具体的业务代码。
-//print("修改前\(UserDefaultsConfig.username)")
+///// Specific business code / 具体的业务代码。
+//print("Before modification\(UserDefaultsConfig.username)")
 //UserDefaultsConfig.username = "789"
-//print("修改后\(UserDefaultsConfig.username)")
+//print("After modification\(UserDefaultsConfig.username)")
 
-//print("修改前\(UserDefaultsSu.test)")
+//print("Before modification\(UserDefaultsSu.test)")
 //UserDefaultsSu.test = "789"
-//print("修改后\(UserDefaultsSu.test)")
+//print("After modification\(UserDefaultsSu.test)")

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+// MARK: ===================================Extension: UIStatusBar Show Hide Style=========================================
 // MARK: ===================================扩展: UIStatusBar 展示 隐藏 更换Style=========================================
 extension UINavigationController {
     open override var childForStatusBarStyle: UIViewController? {
@@ -33,7 +34,7 @@ fileprivate var kStyleStatusBar: Int = 0x2020_01
 
 public extension UIViewController {
     
-    /// 设置信号栏是否隐藏,请在隐藏了导航栏的VC中使用,如果使用了Nav会失效
+    /// Set status bar visibility, use in VC without navigation bar, fails if Nav is used / 设置信号栏是否隐藏,请在隐藏了导航栏的VC中使用,如果使用了Nav会失效
     var setHiddenStatusBar: Bool {
         get {
             if let value = objc_getAssociatedObject(self, &kHiddenStatusBar) as? Bool {
@@ -47,7 +48,7 @@ public extension UIViewController {
         }
     }
     
-    /// 设置信号栏样式,请在隐藏了导航栏的VC中使用,如果使用了Nav会失效,需要self.navigationController.navigationBar.barStyle = .default
+    /// Set status bar style, use in VC without navigation bar, fails if Nav is used / 设置信号栏样式,请在隐藏了导航栏的VC中使用,如果使用了Nav会失效,需要self.navigationController.navigationBar.barStyle = .default
     var setStyleStatusBar: UIStatusBarStyle {
         get {
             if let value = objc_getAssociatedObject(self, &kStyleStatusBar) as? UIStatusBarStyle {
@@ -64,8 +65,8 @@ public extension UIViewController {
 
 public extension SwiftBrickWrapper where Wrapped: UIViewController {
 
-    /// 隐藏|显示状态栏,请在隐藏了导航栏的VC中使用,如果使用了Nav会失效
-    /// - Parameter hidden: 隐藏|显示状态栏
+    /// Hide/show status bar, use in VC without navigation bar / 隐藏|显示状态栏,请在隐藏了导航栏的VC中使用,如果使用了Nav会失效
+    /// - Parameter hidden: Hide|show status bar / 隐藏|显示状态栏
     func hideOrShowStatusBar(hidden: Bool = false) {
         
         wrapped.setHiddenStatusBar = hidden
@@ -73,8 +74,8 @@ public extension SwiftBrickWrapper where Wrapped: UIViewController {
     }
     
     
-    /// 动态设置信号栏样式,请在隐藏了导航栏的VC中使用,如果使用了Nav会失效,需要self.navigationController.navigationBar.barStyle = .default
-    /// - Parameter style: 信号栏样式
+    /// Dynamically set status bar style, use in VC without navigation bar / 动态设置信号栏样式,请在隐藏了导航栏的VC中使用,如果使用了Nav会失效,需要self.navigationController.navigationBar.barStyle = .default
+    /// - Parameter style: Status bar style / 信号栏样式
     func changeStatusBarStyle(style: UIStatusBarStyle = .default) {
         
         wrapped.setStyleStatusBar = style
@@ -83,7 +84,7 @@ public extension SwiftBrickWrapper where Wrapped: UIViewController {
 }
 
 
-/**例子： VC内添加
+/** Example: Add to VC / 例子： VC内添加
 override var prefersStatusBarHidden: Bool {
     return self.setHiddenStatusBar
 }
@@ -91,6 +92,6 @@ override var prefersStatusBarHidden: Bool {
 override var preferredStatusBarStyle: UIStatusBarStyle{
     return self.setStyleStatusBar
 }
- 然后相应的调用 changeStatusBarStyle(style: .darkContent)
- 或者 hideOrShowStatusBar（hidden：true）即可，支持在view内控制信号栏，只需要找到最上层VC即可
+  Then call changeStatusBarStyle(style: .darkContent) / 然后相应的调用 changeStatusBarStyle(style: .darkContent)
+  Or hideOrShowStatusBar(hidden: true) / 或者 hideOrShowStatusBar（hidden：true）即可，支持在view内控制信号栏，只需要找到最上层VC即可
  */

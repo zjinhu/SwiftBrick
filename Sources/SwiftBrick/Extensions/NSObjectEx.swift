@@ -10,6 +10,7 @@ import Foundation
 
 public extension NSObject {
 
+    /// Swizzle method implementation / 交换方法实现
     static func swizzling(_ forClass: AnyClass, originalSelector: Selector, swizzledSelector: Selector) {
         guard let originalMethod = class_getInstanceMethod(forClass, originalSelector),
               let swizzledMethod = class_getInstanceMethod(forClass, swizzledSelector) else {
@@ -28,6 +29,7 @@ public extension NSObject {
 
 public extension SwiftBrickWrapper where Wrapped: NSObject {
     
+    /// Decode object properties from coder / 从编码器解码对象属性
     func decode(coder aDecoder:NSCoder) {
         let mirror = Mirror(reflecting: self)
         
@@ -40,9 +42,10 @@ public extension SwiftBrickWrapper where Wrapped: NSObject {
         }
     }
     
-    // MARK: 归档
+    // MARK: Encode object / 归档
+    /// Encode object properties / 归档对象属性
     func encode(with aCoder: NSCoder) {
-        // MARK: 利用反射获取类的所有属性
+        // MARK: Use reflection to get all properties / 利用反射获取类的所有属性
         let mirror = Mirror(reflecting: self)
         
         for (label, value) in mirror.children {

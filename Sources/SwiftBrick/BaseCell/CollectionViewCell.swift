@@ -7,7 +7,9 @@
 //
 
 import UIKit
+// MARK: ===================================Cell Base: UICollectionViewCell=========================================
 // MARK: ===================================Cell基类:UICollectionViewCell=========================================
+/// Collection view cell base class / CollectionView Cell基类
 open class CollectionViewCell: UICollectionViewCell, Reusable{
 
     public override init(frame: CGRect) {
@@ -20,8 +22,8 @@ open class CollectionViewCell: UICollectionViewCell, Reusable{
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - 继承 在内部实现布局
-    /// 子类重写，进行view布局
+    // MARK: - Override in subclass for layout / 继承 在内部实现布局
+    /// Subclass override for view layout / 子类重写，进行view布局
     open func setupCellViews() {
         
     }

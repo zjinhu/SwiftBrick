@@ -7,6 +7,7 @@
 //
 
 import UIKit
+// MARK: ===================================Extension: UINavigationBar Background and Divider=========================================
 // MARK: ===================================扩展: UINavigationBar 背景色 分割线=========================================
 public extension UINavigationBar {
  
@@ -28,49 +29,51 @@ public extension UINavigationBar {
         }
     }
     
-    /// 全局修改主题色(返回按钮)
-    /// - Parameter color
+    /// Globally modify tint color (back button) / 全局修改主题色(返回按钮)
+    /// - Parameter color: Tint color / 颜色
     static func setTintColor(_ color: UIColor){
         UINavigationBar.appearance().tintColor = color
     }
 
-    /// 全局修改背景色
-    /// - Parameter color
+    /// Globally modify background color / 全局修改背景色
+    /// - Parameter color: Background color / 颜色
     @available(iOS 13.0, *)
     static func setBackgroundColor(_ color: UIColor){
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
-         //设置背景颜色
+         // Set background color / 设置背景颜色
         appearance.backgroundColor = color // UIColor
-         //统一各种情况下的显示样式
+         // Unified appearance for all states / 统一各种情况下的显示样式
         setAppearance(appearance)
     }
     
-    /// 全局修改标题色
-    /// - Parameter color
+    /// Globally modify title color / 全局修改标题色
+    /// - Parameter color: Title color / 颜色
     @available(iOS 13.0, *)
     static func setTitleColor(_ color: UIColor){
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
-         //设置标题颜色
+         // Set title color / 设置标题颜色
         appearance.titleTextAttributes = [.foregroundColor: color] // UIColor
-         //统一各种情况下的显示样式
+         // Unified appearance for all states / 统一各种情况下的显示样式
         setAppearance(appearance)
     }
     
+    /// Set shadow color / 设置阴影颜色
     @available(iOS 13.0, *)
     static func setShadowColor(_ color: UIColor = .clear){
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
-         //设置颜色
+         // Set color / 设置颜色
         appearance.shadowColor = color // UIColor
-         //统一各种情况下的显示样式
+         // Unified appearance for all states / 统一各种情况下的显示样式
         setAppearance(appearance)
     }
     
+    /// Set navigation bar appearance / 设置导航栏外观
     @available(iOS 13.0, *)
     static func setAppearance(_ appearance: UINavigationBarAppearance){
-         //统一各种情况下的显示样式
+         // Unified appearance for all states / 统一各种情况下的显示样式
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().compactAppearance = appearance
@@ -80,8 +83,8 @@ public extension UINavigationBar {
 
 public extension SwiftBrickWrapper where Wrapped: UINavigationBar {
     
-    /// 设置导航栏背景色
-    /// - Parameter color: 颜色
+    /// Set navigation bar background color / 设置导航栏背景色
+    /// - Parameter color: Color / 颜色
     func setBackgroundColor(_ color: UIColor) {
         
         if wrapped.overlay == nil {
@@ -96,10 +99,12 @@ public extension SwiftBrickWrapper where Wrapped: UINavigationBar {
         wrapped.overlay?.backgroundColor = color
     }
     
+    /// Set navigation bar translation Y / 设置导航栏Y轴平移
     func setTranslationY(_ translation: CGFloat) {
         wrapped.transform  = CGAffineTransform(translationX: 0, y: translation)
     }
     
+    /// Set navigation bar element alpha / 设置导航栏元素透明度
     func setAlphaElements(_ alpha: CGFloat) {
         wrapped.alpha = alpha
         _ = wrapped.subviews.map { (subView)  in
@@ -107,20 +112,22 @@ public extension SwiftBrickWrapper where Wrapped: UINavigationBar {
         }
     }
     
+    /// Reset navigation bar to default / 重置导航栏为默认
     func reset() {
         wrapped.setBackgroundImage(nil, for: .default)
         wrapped.overlay?.removeFromSuperview()
         wrapped.overlay = nil
     }
     
-    /// 隐藏/展示分割线
-    /// - Parameter hidden: true/false
+    /// Show/hide divider line / 隐藏|展示分割线
+    /// - Parameter hidden: true/false / true/false
     func setLineHidden(hidden: Bool) {
         if let shadowImg = seekLineImageView(view: wrapped) {
             shadowImg.isHidden = hidden
         }
     }
     
+    /// Recursively find divider image view / 递归查找分割线imageView
     fileprivate func seekLineImageView(view: UIView) -> UIImageView? {
         if view is UIImageView && view.bounds.size.height <= 1 {
             return (view as! UIImageView)

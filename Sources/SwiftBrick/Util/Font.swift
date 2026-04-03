@@ -9,19 +9,19 @@ import UIKit
 import Foundation
 extension SwiftBrick{
     public struct Font {
-        // MARK:- 字体
-        ///根据屏幕自适应字体参数 16*FontFit
+        // MARK:- Font / 字体
+        /// Auto-adaptive font based on screen, e.g. 16*FontFit / 根据屏幕自适应字体参数 16*FontFit
         public static let fontFit = min(UIScreen.main.bounds.width, UIScreen.main.bounds.height) / 375
         
-        /// 系统默认字体
+        /// System default font / 系统默认字体
         public static func systemFont(_ size: CGFloat) -> UIFont {
             return .systemFont(ofSize: size)
         }
-        /// 系统默认字体
+        /// System default bold font / 系统默认粗体字
         public static func systemFontBold(_ size: CGFloat) -> UIFont {
             return .boldSystemFont(ofSize: size)
         }
-        /// 系统默认字体
+        /// System default font with weight / 系统默认字体(指定字重)
         public static func systemFont(_ size: CGFloat, weight: UIFont.Weight) -> UIFont {
             return .systemFont(ofSize: size, weight: weight)
         }
@@ -36,19 +36,19 @@ extension SwiftBrick{
             case bold
             case heavy
         }
-        /// pingfang-sc 字体
+        /// PingFang SC font / pingfang-sc 字体
         public static func font(_ size: CGFloat) -> UIFont {
             return fontWeight(size, weight: .regular)
         }
-        /// pingfang-sc 字体
+        /// PingFang SC medium font / pingfang-sc 中等字体
         public static func fontMedium(_ size: CGFloat) -> UIFont {
             return fontWeight(size, weight: .medium)
         }
-        /// pingfang-sc 字体
+        /// PingFang SC bold font / pingfang-sc 粗体字
         public static func fontBold(_ size: CGFloat) -> UIFont {
             return fontWeight(size, weight: .semibold)
         }
-        /// pingfang-sc 字体
+        /// PingFang SC font with weight / pingfang-sc 字体(指定字重)
         public static func fontWeight(_ size: CGFloat, weight: Weight) -> UIFont {
             var name = ""
             switch weight {

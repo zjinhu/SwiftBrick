@@ -7,32 +7,38 @@
 //
 
 import UIKit
+// MARK: ===================================VC Base: UITableViewController=========================================
 // MARK: ===================================VC基类:UITableViewController=========================================
+/// Table view controller base class / TableViewController基类
 open class TableViewController: ViewController ,UITableViewDelegate,UITableViewDataSource{
     
-    // MARK: - 参数变量
+    // MARK: - Parameters / 参数变量
+    /// Table view style type / TableView样式类型
     public enum TableViewStyleType {
         case stylePlain
         case styleGrouped
         case styleInsetGrouped
     }
     
+    /// Table view instance / TableView实例
     public var tableView: UITableView?
+    /// Main data source / 主数据源
     public var mainDatas: Array<Any> = []
+    /// Table view style / TableView样式
     public var tableViewStyleType: TableViewStyleType = .stylePlain
     
-    // MARK: - 初始化
+    // MARK: - Initialization / 初始化
     public convenience init(tableViewStyle: TableViewStyleType = .stylePlain) {
         self.init()
         tableViewStyleType = tableViewStyle
     }
     
-    /// 子类继承时重写此方法可设置Table样式：self.tableViewStyleType =  .StyleGrouped，或者Init时候设置
+    /// Override this method to set table style: self.tableViewStyleType = .styleGrouped, or set during init / 子类继承时重写此方法可设置Table样式：self.tableViewStyleType =  .StyleGrouped，或者Init时候设置
     open func setupTableViewStyleType(){
         //        tableViewStyleType = tableViewStyleType
     }
     
-    // MARK: - 布局
+    // MARK: - Layout / 布局
     open override func viewDidLoad() {
         super.viewDidLoad()
         setupTableViewStyleType()
@@ -72,7 +78,7 @@ open class TableViewController: ViewController ,UITableViewDelegate,UITableViewD
         tableView?.estimatedSectionHeaderHeight = CGFloat.leastNormalMagnitude
         tableView?.estimatedSectionFooterHeight = CGFloat.leastNormalMagnitude
         tableView?.translatesAutoresizingMaskIntoConstraints = false
-        //头角需要自适应高度的话请设置
+        // Set these for auto-height header/footer / 头角需要自适应高度的话请设置
         //    tableView.estimatedSectionHeaderHeight = 200;
         //    tableView.sectionHeaderHeight = UITableViewAutomaticDimension;
         //    tableView.estimatedSectionFooterHeight = 200;
@@ -101,7 +107,8 @@ open class TableViewController: ViewController ,UITableViewDelegate,UITableViewD
         tableView?.ss.registerCell(TableViewCell.self)
     }
     
-    // MARK: - 数据源判断
+    // MARK: - Data source check / 数据源判断
+    /// Check if data source is multi-dimensional array / 判断是否为多维数组数据源
     func isMultiDatas() -> Bool {
         let data = mainDatas.first
         if data is Array<Any> && mainDatas.count > 0{
@@ -111,7 +118,7 @@ open class TableViewController: ViewController ,UITableViewDelegate,UITableViewD
         }
     }
     
-    // MARK: - tableView代理
+    // MARK: - TableView delegates / tableView代理
     open func numberOfSections(in tableView: UITableView) -> Int {
         return isMultiDatas() ? mainDatas.count: 1
     }

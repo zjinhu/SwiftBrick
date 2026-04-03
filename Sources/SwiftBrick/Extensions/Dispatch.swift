@@ -9,13 +9,14 @@
 import Foundation
 import Dispatch
 
+/// Dispatch queue type / 进程队列类型
 public enum Queue {
     case main
-    case background///最低优先级，等同于 DISPATCH_QUEUE_PRIORITY_BACKGROUND. 用户不可见，比如：在后台存储大量数据
-    case userInteractive///用户交互相关，为了好的用户体验，任务需要立马执行。使用该优先级用于 UI 更新，事件处理和小工作量任务，在主线程执行
-    case userInitiated///优先级等同于 DISPATCH_QUEUE_PRIORITY_HIGH,需要立刻的结果
-    case utility///优先级等同于 DISPATCH_QUEUE_PRIORITY_LOW，可以执行很长时间，再通知用户结果。比如：下载一个大文件，网络，计算
-    case `default`///默认优先级,优先级等同于 DISPATCH_QUEUE_PRIORITY_DEFAULT，建议大多数情况下使用默认优先级
+    case background/// Lowest priority, user invisible, e.g. storing large data in background / 最低优先级，等同于 DISPATCH_QUEUE_PRIORITY_BACKGROUND. 用户不可见，比如：在后台存储大量数据
+    case userInteractive/// User interaction related, should execute immediately for good UX / 用户交互相关，为了好的用户体验，任务需要立马执行。使用该优先级用于 UI 更新，事件处理和小工作量任务，在主线程执行
+    case userInitiated/// Priority equivalent to DISPATCH_QUEUE_PRIORITY_HIGH, need immediate results / 优先级等同于 DISPATCH_QUEUE_PRIORITY_HIGH,需要立刻的结果
+    case utility/// Priority equivalent to DISPATCH_QUEUE_PRIORITY_LOW, can take long time to execute / 优先级等同于 DISPATCH_QUEUE_PRIORITY_LOW，可以执行很长时间，再通知用户结果。比如：下载一个大文件，网络，计算
+    case `default`/// Default priority, recommended for most cases / 默认优先级,优先级等同于 DISPATCH_QUEUE_PRIORITY_DEFAULT，建议大多数情况下使用默认优先级
     case custom(queue: DispatchQueue)
     
     public var queue : DispatchQueue {
@@ -38,6 +39,7 @@ public enum Queue {
     }
 }
 
+/// Dispatch utility / 进程工具类
 public class Dispatch{
     
     public let queue: Queue
@@ -45,11 +47,11 @@ public class Dispatch{
     public init(queue: Queue) {
         self.queue = queue
     }
-    ///立即执行
+    /// Execute immediately / 立即执行
     public final func run(_ closure: @escaping () -> Void){
         queue.queue.async{ _ = closure()}
     }
-    ///延迟执行
+    /// Execute after delay / 延迟执行
     public final func after(_ seconds: Double, closure: @escaping () -> Void){
         queue.queue.async{
             Dispatch.waitBlock(seconds)()
@@ -59,49 +61,50 @@ public class Dispatch{
 
 }
 extension Dispatch{
-    ///主进程执行
+    /// Execute on main thread / 主进程执行
     @discardableResult
     public static func main() -> Dispatch{
         return Dispatch(queue: Queue.main)
     }
     
-    ///最低优先级，等同于 DISPATCH_QUEUE_PRIORITY_BACKGROUND. 用户不可见，比如：在后台存储大量数据
+    /// Lowest priority, background tasks / 最低优先级，等同于 DISPATCH_QUEUE_PRIORITY_BACKGROUND. 用户不可见，比如：在后台存储大量数据
     @discardableResult
     public static func background() -> Dispatch{
         return Dispatch(queue: Queue.background)
     }
     
-    ///用户交互相关，为了好的用户体验，任务需要立马执行。使用该优先级用于 UI 更新，事件处理和小工作量任务，在主线程执行
+    /// User interaction related / 用户交互相关，为了好的用户体验，任务需要立马执行。使用该优先级用于 UI 更新，事件处理和小工作量任务，在主线程执行
     @discardableResult
     public static func userInteractive() -> Dispatch{
         return Dispatch(queue: Queue.userInteractive)
     }
     
-    //优先级等同于 DISPATCH_QUEUE_PRIORITY_HIGH,需要立刻的结果
+    /// High priority, need immediate results / 优先级等同于 DISPATCH_QUEUE_PRIORITY_HIGH,需要立刻的结果
     @discardableResult
     public static func userInitiated() -> Dispatch{
         return Dispatch(queue: Queue.userInitiated)
     }
     
-    ///优先级等同于 DISPATCH_QUEUE_PRIORITY_LOW，可以执行很长时间，再通知用户结果。比如：下载一个大文件，网络，计算
+    /// Low priority, long running tasks / 优先级等同于 DISPATCH_QUEUE_PRIORITY_LOW，可以执行很长时间，再通知用户结果。比如：下载一个大文件，网络，计算
     @discardableResult
     public static func utility() -> Dispatch{
         return Dispatch(queue: Queue.utility)
     }
     
-    ///默认优先级,优先级等同于 DISPATCH_QUEUE_PRIORITY_DEFAULT，建议大多数情况下使用默认优先级
+    /// Default priority / 默认优先级,优先级等同于 DISPATCH_QUEUE_PRIORITY_DEFAULT，建议大多数情况下使用默认优先级
     @discardableResult
     public static func global() -> Dispatch{
         return Dispatch(queue: Queue.default)
     }
     
-    ///自定义进程
+    /// Custom dispatch queue / 自定义进程
     @discardableResult
     public static func custom(_ queue: DispatchQueue) -> Dispatch{
         return Dispatch(queue: Queue.custom(queue: queue))
     }
     
     
+    /// Create wait block for delay / 创建延迟等待闭包
     fileprivate static func waitBlock(_ seconds: Double) -> () -> Void {
         return {
             let nanoSeconds = Int64(seconds * Double(NSEC_PER_SEC))
@@ -113,10 +116,11 @@ extension Dispatch{
     }
 }
 
+// MARK: ===================================Extension: DispatchQueue Delay Method=========================================
 // MARK: ===================================扩展: DispatchQueue延迟方法=========================================
 public extension DispatchQueue {
     
-    /// 判断主线程
+    /// Check if currently on main queue / 判断主线程
     static var isMainQueue: Bool {
         enum Static {
             static var key: DispatchSpecificKey<Void> = {
@@ -131,9 +135,9 @@ public extension DispatchQueue {
 
 public extension DispatchQueue {
     
-    /// 判断是不是在主线程
-    /// - Parameter queue: queue
-    /// - Returns: true/false
+    /// Check if currently on specified queue / 判断是不是在主线程
+    /// - Parameter queue: Queue to check / queue
+    /// - Returns: true/false / true/false
     static func isCurrent(_ queue: DispatchQueue) -> Bool {
         let key = DispatchSpecificKey<Void>()
 
@@ -143,12 +147,12 @@ public extension DispatchQueue {
         return DispatchQueue.getSpecific(key: key) != nil
     }
     
-    /// 延迟闭包
+    /// Delay closure execution / 延迟闭包
     /// - Parameters:
-    ///   - delay: 延迟时间
-    ///   - qos: qos
-    ///   - flags: flags
-    ///   - work: 执行闭包
+    ///   - delay: Delay time in seconds / 延迟时间
+    ///   - qos: QoS level / qos
+    ///   - flags: Work item flags / flags
+    ///   - work: Execution closure / 执行闭包
     func asyncAfter(delay: Double,
                     qos: DispatchQoS = .unspecified,
                     flags: DispatchWorkItemFlags = [],
@@ -156,10 +160,10 @@ public extension DispatchQueue {
         asyncAfter(deadline: .now() + delay, qos: qos, flags: flags, execute: work)
     }
     
-    /// 延迟闭包
+    /// Delay closure with debounce / 延迟闭包(防抖)
     /// - Parameters:
-    ///   - delay: 延迟时间
-    ///   - action: 执行闭包
+    ///   - delay: Delay time / 延迟时间
+    ///   - action: Execution closure / 执行闭包
     func after(delay: Double, action: @escaping () -> Void) -> () -> Void {
         var lastFireTime = DispatchTime.now()
         let deadline = { lastFireTime + delay }
@@ -174,4 +178,3 @@ public extension DispatchQueue {
         }
     }
 }
-//#endif

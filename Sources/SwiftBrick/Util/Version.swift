@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: ===================================Utility: iOS System Version Comparison=========================================
 // MARK: ===================================工具类:iOS系统版本号对比=========================================
 public struct Version {
     
@@ -15,18 +16,18 @@ public struct Version {
     public let minor: Int
     public let patch: Int
     
-    /// 默认初始化,当前系统的iOS版本号
+    /// Default initialization - current system iOS version / 默认初始化,当前系统的iOS版本号
     public init() {
         major = ProcessInfo.processInfo.operatingSystemVersion.majorVersion
         minor = ProcessInfo.processInfo.operatingSystemVersion.minorVersion
         patch = ProcessInfo.processInfo.operatingSystemVersion.patchVersion
     }
     
-    /// 使用自定义的版本号初始化
+    /// Custom version number initialization / 使用自定义的版本号初始化
     /// - Parameters:
-    ///   - major: 版本号
-    ///   - minor: 版本号
-    ///   - patch: 版本号
+    ///   - major: Major version / 主版本号
+    ///   - minor: Minor version / 次版本号
+    ///   - patch: Patch version / 修订版本号
     public init(_ major: Int, _ minor: Int, _ patch: Int) {
         self.major = major
         self.minor = minor
@@ -46,19 +47,19 @@ extension Version: Comparable {
         }
     }
     
-    /// 系统版本号比对
+    /// System version comparison - equality / 系统版本号比对 - 等于
     /// - Parameters:
-    ///   - lhs: 左
-    ///   - rhs: 右
+    ///   - lhs: Left side / 左侧
+    ///   - rhs: Right side / 右侧
     /// - Returns: true/false
     public static func == (lhs: Version, rhs: Version) -> Bool {
         return lhs.major == rhs.major && lhs.minor == rhs.minor && lhs.patch == rhs.patch
     }
     
-    /// 系统版本号比对
+    /// System version comparison - less than / 系统版本号比对 - 小于
     /// - Parameters:
-    ///   - lhs: 左
-    ///   - rhs: 右
+    ///   - lhs: Left side / 左侧
+    ///   - rhs: Right side / 右侧
     /// - Returns: true/false
     public static func < (lhs: Version, rhs: Version) -> Bool {
         let majorComparison = Version.compare(lhs: lhs.major, rhs: rhs.major)

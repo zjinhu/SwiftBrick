@@ -8,9 +8,12 @@
 
 import UIKit
 @preconcurrency import WebKit
+// MARK: ===================================VC Base: UIWebViewController=========================================
 // MARK: ===================================VC基类:UIWebViewController=========================================
+/// Web view controller base class / WebView基类
 open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,WKScriptMessageHandler,UIScrollViewDelegate{
     
+    /// Back button / 返回按钮
     lazy var backButton: UIButton = {
         let btn = UIButton()
         btn.setImage(.icon_back, for: .normal)
@@ -18,6 +21,7 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
         return btn
     }()
     
+    /// Close button / 关闭按钮
     lazy var closeButton: UIButton = {
         let btn = UIButton()
         btn.setImage(.icon_close, for: .normal)
@@ -26,7 +30,8 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
         return btn
     }()
     
-    // MARK: - 参数变量
+    // MARK: - Parameters / 参数变量
+    /// WKWebView instance / WebView实例
     public dynamic lazy var webView: WKWebView = {
         let webView = WKWebView(frame: .zero, configuration: config)
         webView.navigationDelegate = self
@@ -48,6 +53,7 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
         return webView
     }()
     
+    /// Reload button for failed loading / 加载失败重试按钮
     public lazy var reloadButton: UIButton  = {
         let reloadButton = UIButton(type: .custom)
         reloadButton.frame = view.bounds
@@ -57,6 +63,7 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
         return reloadButton
     }()
     
+    /// Loading progress view / 加载进度条
     lazy var loadingProgressView: UIProgressView = {
         let progressView = UIProgressView()
         progressView.trackTintColor = .clear
@@ -65,6 +72,7 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
         return progressView
     }()
     
+    /// WKWebView configuration / WebView配置
     lazy var config: WKWebViewConfiguration = {
         let preferences = WKPreferences()
         //        preferences.minimumFontSize = 0.0
@@ -93,6 +101,7 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
         return config
     }()
     
+    /// Whether to close web back-forward navigation gesture / 是否关闭网页前后导航手势
     public var closeWebPopGesture: Bool? {
         didSet{
             guard let close = closeWebPopGesture else {
@@ -102,6 +111,7 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
         }
     }
     
+    /// Inject cookie into web view / 注入Cookie到WebView
     public var injectCookie: (key:String, value:String)? {
         didSet{
             guard let cookie = injectCookie else {
@@ -109,17 +119,18 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
             }
             let cookieStr = String(format: "%@=%@", cookie.key , cookie.value)
             let jsStr = String(format: "document.cookie = '%@';", cookieStr)
-            ///js方式
+            /// JS injection method / js方式
             let script = WKUserScript(source: jsStr, injectionTime: WKUserScriptInjectionTime.atDocumentStart, forMainFrameOnly: false)
             config.userContentController.addUserScript(script)
-            ///PHP方式
+            /// PHP header method / PHP方式
             request?.setValue(cookieStr, forHTTPHeaderField: "Cookie")
         }
     }
     
-    /// 设置导航栏标题
+    /// Navigation bar title / 设置导航栏标题
     @objc public var navTitle: String?
     
+    /// Loading progress bar color / 加载进度条颜色
     @objc public var loadingProgressColor: String?{
         didSet{
             guard let color = loadingProgressColor else {
@@ -129,22 +140,23 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
         }
     }
     
-    /// 访问地址
+    /// URL to load / 访问地址
     @objc public var urlString: String?
-    /// 添加userAgent标记,会拼接;
+    /// Add userAgent marker, will append with ; / 添加userAgent标记,会拼接;
     @objc public var customUserAgent: String?
-    /// 自定义请求
+    /// Custom URL request / 自定义请求
     @objc public var request: URLRequest?
-    /// 获取当前地址
+    /// Get current URL / 获取当前地址
     public var currentUrl: String?
     
     fileprivate var first = true
-    // MARK: - 初始化
+    // MARK: - Initialization / 初始化
     public convenience init(urlString url: String) {
         self.init()
         urlString = url
     }
     
+    /// Initialize with URL and cookie / 使用URL和Cookie初始化
     public convenience init(urlString url: String, cookie: Dictionary<String, String>) {
         self.init()
         guard let urlReal = URL(string: url) else {
@@ -164,12 +176,13 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
         request = req
     }
     
+    /// Initialize with URL request / 使用URLRequest初始化
     public convenience init(request req: URLRequest) {
         self.init()
         request = req
     }
     
-    // MARK: - 布局
+    // MARK: - Layout / 布局
     override open func viewDidLoad() {
         super.viewDidLoad()
         
@@ -202,7 +215,7 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
         webView.addObserver(self, forKeyPath: "estimatedProgress", options: [.old, .new], context: nil)
     }
     
-    // MARK: - WKScriptMessageHandler JS调用原生交互
+    // MARK: - WKScriptMessageHandler JS to Native / JS调用原生交互
     open func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         debugPrint("\(message.name)-\(message.body)")
         switch message.name {
@@ -287,7 +300,7 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
     open func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (_)in
-            // We must call back js
+            // We must call back js / 必须回调JS
             completionHandler()
         }))
         present(alert, animated: true, completion: nil)
@@ -296,11 +309,11 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
     open func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (_)in
-            // We must call back js
+            // We must call back js / 必须回调JS
             completionHandler(true)
         }))
         alert.addAction(UIAlertAction(title: "Cancle", style: .cancel, handler: { (_)in
-            // We must call back js
+            // We must call back js / 必须回调JS
             completionHandler(false)
         }))
         present(alert, animated: true, completion: nil)
@@ -314,17 +327,17 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
             textField.placeholder = defaultText
         }
         alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (_)in
-            // We must call back js
+            // We must call back js / 必须回调JS
             completionHandler(alert.textFields?.last?.text)
         }))
         alert.addAction(UIAlertAction(title: "Cancle", style: .cancel, handler: { (_)in
-            // We must call back js
+            // We must call back js / 必须回调JS
             completionHandler(nil)
         }))
         present(alert, animated: true, completion: nil)
     }
     
-    // MARK: - 监听进度条
+    // MARK: - Progress observation / 监听进度条
     //    func setupObserver(){
     //        progressObervation = webView.observe(\.estimatedProgress, options: .new, changeHandler: { (self, change) in
     //            let newValue = change.newValue  ?? 0
@@ -332,20 +345,20 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
     //            changeLoadingProgress(progress: Float(newValue))
     //        })
     //    }
-    // 监听网络加载进度，加载过程中在navigationBar显示加载进度，加载完成显示网站标题
+    // Monitor network loading progress, show progress in navigationBar during loading, show website title when complete / 监听网络加载进度，加载过程中在navigationBar显示加载进度，加载完成显示网站标题
     open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         if let webView = object as? WKWebView, webView == webView && keyPath == "estimatedProgress" {
             
             guard let changes = change else { return }
-            //  请注意这里读取options中数值的方法
+            //  Please note how to read values from options here /  请注意这里读取options中数值的方法
             let newValue = changes[NSKeyValueChangeKey.newKey] as? Double ?? 0
             let oldValue = changes[NSKeyValueChangeKey.oldKey] as? Double ?? 0
             
-            // 因为我们已经设置了进度条为0.1，所以只有在进度大于0.1后再进行变化
+            // Since progress bar is set to 0.1, only change when progress > 0.1 / 因为我们已经设置了进度条为0.1，所以只有在进度大于0.1后再进行变化
             if newValue > oldValue && newValue > 0.1 {
                 loadingProgressView.setProgress(Float(newValue), animated: true)
             }
-            // 当进度为100%时，隐藏progressLayer并将其初始值改为0
+            // When progress reaches 100%, hide progressLayer and reset to 0 / 当进度为100%时，隐藏progressLayer并将其初始值改为0
             if newValue == 1.0 {
                 Dispatch.main().after(0.4) {
                     self.loadingProgressView.progress = 1
@@ -358,7 +371,7 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
         }
     }
     
-    // MARK: - 发起请求
+    // MARK: - Load request / 发起请求
     @MainActor
     open func loadRequest() {
         if let re = self.request {
@@ -368,8 +381,8 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
         }
     }
     
-    // MARK: - 方法
-    ///重写父类返回方法
+    // MARK: - Methods / 方法
+    /// Override parent back method / 重写父类返回方法
     open override func goBack() {
         if webView.canGoBack {
             webView.goBack()
@@ -378,7 +391,7 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
         }
     }
     
-    ///关闭当前VC
+    /// Close current VC / 关闭当前VC
     @objc open func closeVC() {
         if let viewControllers: [UIViewController] = navigationController?.viewControllers {
             guard viewControllers.count <= 1 else {
@@ -391,7 +404,7 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
         }
     }
     
-    ///reload按钮点击
+    /// Reload button action / reload按钮点击
     @MainActor
     @objc func reloadWebView(){
         loadingProgressView.progress = 0
@@ -402,7 +415,7 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
         webView.load(URLRequest(url: realURL))
     }
     
-    // MARK: - 生命周期结束 清理
+    // MARK: - Deinit cleanup / 生命周期结束 清理
     deinit{
         cleanAllWebsiteDataStore()
         webView.removeObserver(self, forKeyPath: "estimatedProgress")
@@ -412,6 +425,7 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
         //        print("JHWebViewController out")
     }
     
+    /// Clean all website data store / 清理所有网站数据
     func cleanAllWebsiteDataStore() {
         let websiteDataTypes = WKWebsiteDataStore.allWebsiteDataTypes()
         let modifiedSince = Date(timeIntervalSince1970: 0)
@@ -425,6 +439,7 @@ open class WebViewController: ViewController ,WKUIDelegate,WKNavigationDelegate,
 }
 
 // MARK: - WeakScriptMessageDelegate
+/// Weak delegate wrapper for WKScriptMessageHandler / WKScriptMessageHandler弱引用包装
 class WeakScriptMessageDelegate: NSObject, WKScriptMessageHandler {
     
     weak var delegate: WKScriptMessageHandler?

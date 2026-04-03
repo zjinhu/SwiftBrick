@@ -8,11 +8,13 @@
 
 import UIKit
 import SwiftUI
+/// SwiftUI view controller wrapper for embedding SwiftUI views in UIKit / SwiftUI视图控制器包装器
 @available(iOS 13.0, *)
 open class SwiftUIVC<T: View>: ViewController {
 
     private var hostVC: UIHostingController<T>
 
+    /// Initialize with SwiftUI view / 使用SwiftUI视图初始化
     public init(_ view: T) {
         self.hostVC = UIHostingController(rootView: view)
         super.init(nibName: nil, bundle: nil)

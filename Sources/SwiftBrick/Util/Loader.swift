@@ -7,6 +7,7 @@
 //
 
 import UIKit
+// MARK: ===================================Utility: Load Resources from Current Bundle=========================================
 // MARK: ===================================工具类:用于加载当前命名空间的资源文件=========================================
 extension Bundle {
     
@@ -14,6 +15,7 @@ extension Bundle {
     private class _BundleClass { }
     #endif
     
+    /// Current bundle for resource loading / 当前资源Bundle
     static var current: Bundle {
         #if ENABLE_SPM
         return Bundle.module
@@ -22,11 +24,13 @@ extension Bundle {
         #endif
     }
     
+    /// Localized string for key / 根据key获取本地化字符串
     func localizedString(forKey key: String) -> String {
         self.localizedString(forKey: key, value: nil, table: nil)
     }
 }
 
+/// Resource loader utilities / 资源加载工具
 public struct L{
     
     static var bundle: Bundle = {
@@ -35,6 +39,7 @@ public struct L{
         return bundle ?? Bundle.current
     }()
  
+    /// Load color by name from bundle / 根据名称加载颜色资源
     public static func color(_ named: String) -> UIColor {
         guard let color = UIColor(named: named, in: bundle, compatibleWith: nil) else {
             return UIColor(named: named) ?? UIColor.clear
@@ -42,6 +47,7 @@ public struct L{
         return color
     }
     
+    /// Load image by name from bundle / 根据名称加载图片资源
     public static func image(_ named: String) -> UIImage {
         guard let image = UIImage(named: named, in: bundle, compatibleWith: nil) else {
             let image = UIImage(named: named)

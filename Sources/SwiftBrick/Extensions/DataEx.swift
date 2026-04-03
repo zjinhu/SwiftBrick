@@ -8,6 +8,7 @@
 import CommonCrypto
 import Foundation
 public extension SwiftBrickWrapper where Wrapped == Data {
+    /// SHA256 hash of data / 数据的SHA256哈希值
     var sha256: String {
         let hash = wrapped.withUnsafeBytes{ (bytes: UnsafeRawBufferPointer) -> [UInt8] in
             var hash = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))

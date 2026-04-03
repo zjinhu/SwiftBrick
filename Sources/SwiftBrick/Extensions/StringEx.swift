@@ -9,9 +9,11 @@
 import Foundation
 import CommonCrypto
 
+// MARK: ===================================Extension: String SHA256=========================================
 // MARK: ===================================扩展: 字符串sha256=========================================
 public extension SwiftBrickWrapper where Wrapped == String {
     
+    /// SHA256 hash of string / 字符串的SHA256哈希值
     var sha256: String {
         let utf8 = wrapped.cString(using: .utf8)
         var digest = [UInt8](repeating: 0, count: Int(CC_SHA256_DIGEST_LENGTH))
@@ -19,8 +21,8 @@ public extension SwiftBrickWrapper where Wrapped == String {
         return digest.reduce("") { $0 + String(format:"%02x", $1) }
     }
 
-    /// Json字符串转Dic
-    /// - Returns: 字典
+    /// Convert JSON string to dictionary / Json字符串转Dic
+    /// - Returns: Dictionary / 字典
     func toDictionary() -> [String : Any] {
         var result = [String : Any]()
         guard !wrapped.isEmpty else { return result }
@@ -35,10 +37,10 @@ public extension SwiftBrickWrapper where Wrapped == String {
     
     }
     
-    // MARK: 1.3、JSON字符串 -> 字典
-    /// JsonString转为字典
-    /// - Parameter json: JSON字符串
-    /// - Returns: 字典
+    // MARK: 1.3、JSON String -> Dictionary / JSON字符串 -> 字典
+    /// Convert JSON string to dictionary / JsonString转为字典
+    /// - Parameter json: JSON string / JSON字符串
+    /// - Returns: Dictionary / 字典
     func jsonToDictionary() -> Dictionary<String, Any>? {
         if let data = (try? JSONSerialization.jsonObject(
             with: wrapped.data(using: String.Encoding.utf8,
@@ -50,6 +52,7 @@ public extension SwiftBrickWrapper where Wrapped == String {
         }
     }
  
+    /// Localized string from current bundle / 从当前Bundle获取本地化字符串
     var localizedBrick: String {
         Bundle.current.localizedString(forKey: wrapped)
     }
@@ -57,6 +60,7 @@ public extension SwiftBrickWrapper where Wrapped == String {
 }
 
 public extension String {
+    /// Localized string / 本地化字符串
     var localized: String {
         return NSLocalizedString(self, comment: "")
     }
