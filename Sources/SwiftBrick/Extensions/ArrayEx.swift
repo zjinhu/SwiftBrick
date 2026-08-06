@@ -17,16 +17,6 @@ public extension Array {
     func indexValue(safe index: Index) -> Element? {
         return indices.contains(index) ? self[index] : nil
     }
-    
-    // MARK: 1.2、Append elements to array / 数组新增元素(可转入一个数组)
-    /// Append elements to array / 数组新增元素(可转入一个数组)
-    /// - Parameter elements: Elements array / 数组
-    // mutating func append(_ elements: [Element]) {
-    //     for element in elements {
-    //         self.append(element)
-    //     }
-    // }
-    
     // MARK: 1.3、Array to JSON String / 数组 -> JSON字符串
     /// Convert array to JSON string / 字典转换为JSONString
     func toJSON() -> String? {
